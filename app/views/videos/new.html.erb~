@@ -1,0 +1,19 @@
+<div id="centered" class="istyle">
+	<h1>Fill this out..</h1>
+	<h4>So people know what the hell you're doing.</h4>
+	<%= form_for(@video, :url => upload_path, :html => { :id => 'upload'} ) do |f| %>
+	
+	 <%= f.label :title, "Title" %>
+	 <%= f.text_field :title%>
+	
+	<%= f.label :description, "Description"%>
+	<%= f.text_area :description%>
+	
+	<%= f.submit "upload", :class => "button" %>
+    	<% end %>
+</div>
+<div class="footer_container">
+	<div id="footer_light">
+	<%=render :partial=>"layouts/footer"%>
+	</div>
+</div>

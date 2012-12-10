@@ -1,0 +1,45 @@
+<%if !@current_video.nil?%>
+
+
+
+
+<h1><%=@current_video.title%></h1>
+
+
+<%end%>	
+
+   <div id="vote_fake"></div>
+   <div id="background_overlay">
+	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+        </iframe>
+   </div>
+   
+   <%if signed_in? %>
+  	 <div id="vote">
+  	 <%=render(:partial => "videos/voter", :locals => {:current_video => @current_video})%>
+  	 </div>
+    <% end %>
+    <div id="video_info">
+ 	<div id="video_info_left">
+ 	<a href="#" class="share_facebook"></a>
+ 	<a href="#" class="share_twitter"></a>
+ 		<h3>April 20, 2069</h3>
+ 		<p><%= @current_video.description %></p>
+ 	</div>
+ 	<div id="video_info_right">
+ 
+ 		
+
+    <%= link_to(select_user_path(:user => @current_video.user.id),  :remote => true ) do %>
+     
+    <%= image_tag @current_video.user.avatar.url(:thumb) %> 
+    <% end %>   
+ 		
+ 		<h2><%=@current_video.user.name%></h2>
+ 		<h3><%=@current_video.user.major%></h3>
+ 	</div>
+ 
+   </div>
+
+  
+    <div style="clear:both"></div>

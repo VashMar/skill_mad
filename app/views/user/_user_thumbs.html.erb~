@@ -1,0 +1,7 @@
+<div class="leader_thumb">
+    
+     <a class="watch scroll" href="#video_container"></a>
+     <%= link_to("",  :rel => '#overlay_view_profile', :onclick => select_user(user)) do %> 
+     <%= image_tag user.avatar.url(:medium) %> 
+     <%end%>
+</div> 

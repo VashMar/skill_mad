@@ -1,0 +1,15 @@
+ 
+ <div id= "background_overlay">
+  <%= form_for(:session, :url => sessions_path) do |f| %>
+	
+	<div class="fill_in">
+      <%= f.label :email, "Email:  " %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password: " %>
+      <%= f.password_field :password %>
+     </div>
+
+      <%= f.submit "", :class => "button_submit" %>
+    <% end %>
+</div>

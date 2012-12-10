@@ -1,0 +1,55 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ form{
+  padding-top: 30px;
+  margin:auto;
+  
+  
+}
+#overlay_login form{
+  width: 480px;
+  height: 300px;
+}
+#overlay_join form{
+  width:470px;
+}
+
+#overlay_login h1{
+  color: #6d0001;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#overlay_join h1{
+  color: #6d0001;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+#background_overlay .fill_in{
+  margin-left: 250px;
+  margin-top: 60px;
+  float: center;
+}
+
+#background_overlay input#session_email{
+  margin-left: 40px;
+  width:250px;
+}
+
+#background_overlay input#session_password{
+  margin-left: 10px;
+  width:250px;
+}
+
+#background_overlay input.button_submit{
+  float:left;
+  margin-top: 65px;
+  margin-left: -200px;
+  
+}

@@ -1,0 +1,16 @@
+  <div class="items_inner">
+  
+  <% @diff = @video_list.size - @counter %>	
+  <% if @diff >= 3 %>
+     <% 3.times do%>
+        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter} %>
+        <% @counter += 1 %>
+     <% end %>
+  <% else %>
+     <% @diff.times do%>
+        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter} %>
+        <% @counter += 1 %>
+     <% end %>
+  <% end %>
+  
+  </div>

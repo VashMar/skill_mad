@@ -1,0 +1,1 @@
+$("#point_cache").append("<%=escape_javascript(@video.points) %>");

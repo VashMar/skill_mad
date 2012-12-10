@@ -1,0 +1,1 @@
+$("point_cache").html("<%=escape_javascript(render(:partial => "points")%>");

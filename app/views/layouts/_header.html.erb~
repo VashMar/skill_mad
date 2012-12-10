@@ -1,0 +1,59 @@
+
+<div id="header">
+
+<div id="header_container">
+    <%if signed_in? %>
+    <div id="header_logo">
+    <%else%>
+    <div id="header_logo" class="tip_logo" title="<h6>Welcome to SkillMad!</h6> 
+    SkillMad is a UW-Madison project to blah and blah and blah">
+   <%end%>
+    	<%= link_to(home_path) do%> 
+    	<% end %>
+    </div>
+   
+   <%if signed_in? %>
+    <a rel="#overlay_profile">
+    <div id="profile" class="active">
+   <%= image_tag  @user.avatar.url %>
+   <h3><%= @user.name %></h3>
+	<div id="profile_back">
+   </div>
+   </div>
+   </a>
+   <%else%>
+   <%end%>
+   <%if signed_in? %>
+ 	<a href="#leaderboard" class="scroll">
+ 		<%else%>
+ 		<a href="#leaderboard" class="scroll tip" title="<h6>The Leaders of Madison</h6>
+ 		  Click to View">
+ 	<%end%>
+   <div id="header_leaders">
+    </a>
+    </div>
+    
+<%if signed_in? %>
+    <%= link_to(destroy_path) do%> 
+    <div id="header_logout" class="active">
+    <%end%>
+<%else%>
+    <div id="header_login" class="active tip"  title="<h6>Create an Account to Get Started!</h6>">
+    <a rel="#overlay_login"></a>
+<%end%>
+    </div>
+    
+    
+
+</div>
+    <%if signed_in? %>
+    <div id="header_upload">
+       <%else%>
+       <div id="header_upload" class="tip" title="TOOOOLTIP">
+   <%end%>
+    	<%= link_to(new_video_path) do%>
+    	<% end %>
+    </div>
+    
+
+</div>

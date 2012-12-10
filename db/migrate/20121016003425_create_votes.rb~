@@ -1,0 +1,13 @@
+class CreateVotes < ActiveRecord::Migration
+  def change
+   
+   create_table :votes do |t|
+      t.bool    :voted_up, :default => false
+      t.bool    :voted_down, :default => false
+      t.references :user	
+      t.references :video
+      end
+      
+      add_index :votes, ['user_id','video_id']
+   end
+end

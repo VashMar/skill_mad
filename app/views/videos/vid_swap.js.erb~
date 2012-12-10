@@ -1,0 +1,5 @@
+
+$('#video_container').html(
+"<%=escape_javascript(render('videos/vidplayer', current_video: @current_video)) %>");
+
+

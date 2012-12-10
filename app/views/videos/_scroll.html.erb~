@@ -1,0 +1,31 @@
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="scrollable">
+
+  <!-- root element for the items -->
+  <div class="items">
+  
+  
+  <% @innerNum = @video_list.size/3 %>
+  <% @counter = 0 %>
+	
+  <% if @video_list.size%3 != 0 %>
+  <% @innerNum += 1 %>
+  <% end %>
+
+  <% @innerNum.times do %>
+  <%= render :partial => "videos/inner_thumb_set", :locals =>{:counter => @counter}%>
+  <%end%>
+  
+   
+   </div> 
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+</div>
+<div style="clear:both;">
+</div>
+</div>

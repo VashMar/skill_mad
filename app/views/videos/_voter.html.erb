@@ -1,0 +1,17 @@
+
+	
+ 
+    <%= link_to "", add_vote_path(:owner => @current_video.user_id , :video => @current_video.id , :voter => current_user.id),
+     :remote => true, :id => "vote_mad", :class => pressed_up, :onclick => "increment()", :method => :put %>
+    
+
+
+    <h3 id="vote_counter"> <%=@current_video.points%> </h3>
+    <h1 id="point_cache" style= "display:none"> <%= @current_video.points %></h1> 
+
+     
+    <%= link_to "", remove_vote_path(:owner => @current_video.user_id , :video => @current_video.id , :voter => current_user.id),
+     :remote => true, :id => "vote_bad", :class => pressed_down, :onclick => "decrement()", :method => :put %>
+
+   
+   

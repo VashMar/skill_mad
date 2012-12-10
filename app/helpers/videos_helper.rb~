@@ -1,0 +1,24 @@
+module VideosHelper
+
+def top_pressed(myvid)
+
+ if myvid == true 
+  @top_pressed = ""
+ else
+  @top_pressed = "menu_active"
+ end
+end
+
+
+
+def my_pressed(myvid)
+
+ if myvid == true
+ @my_pressed = "menu_active"
+ else
+ @my_pressed = ""
+ end 
+end
+
+
+end

@@ -1,0 +1,11 @@
+common: &common
+  dev_key: AI39si4Joa1gRYPJLBC84frmBLLXdAA7chfJXz-gi271GMkkh56-GnwN6BQKEiYabXyXLknXqJUT637xhfnGNjIOOjLQ1uGWqQ
+  username:  SkillMadLabs 
+  password:  skillionaire
+  
+test:
+  <<: *common
+development:
+  <<: *common
+production:
+  <<: *common

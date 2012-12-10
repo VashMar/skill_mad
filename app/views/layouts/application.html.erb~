@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%= favicon_link_tag 'favicon.png' %>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tag                         %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
+  <%= javascript_include_tag "jquery.validate"%>
+  <%= javascript_include_tag "validations"    %>
+  <%= javascript_include_tag "waypoints.min"  %>
+</head>
+<body>
+<%@user = current_user %>
+  
+
+<%= render 'layouts/header' %>
+<div id="background">
+	<div id="overlay_login" class="istyle">
+		<div id="form_login">
+	
+      <h1>Lets see those ID's kids..</h1>
+      <%=form_for(:session, :url => sessions_path, :html => { :id => 'login' }) do |f| %>
+
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "login", :class => "button" %>
+      <%end%>
+   		 </div>
+    <div id="form_divider"></div>
+    <div id="form_join">
+    
+   <h1>Sign up! UW Students Only.</h1>
+ 
+<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
+
+	  
+      <%= f.label :name, "Username" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Wisc Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      
+   
+      <%= f.submit "join", :class => "button" %>
+    <% end %>
+	 
+    </div>
+    
+    
+    </div>
+ 
+  <div id="overlay_profile">
+ <h1>Profile Setup</h1>
+ <div style="float:left">
+ <% if signed_in? %>
+ <a href="#"><%= image_tag @user.avatar.url(:medium) %></a>
+ 
+<div id="wrapper_file">
+	<span id="browse2">Browse</span>
+	<span id="filename2">no file selected</span>
+
+  <%= form_for(@user, :html => { :multipart => true, :id => 'form_pic' }) do |f| %>
+  	<%= f.file_field :avatar, :id => "form_file"%>
+        <%= f.submit "upload", :class => "button" %>
+  <% end %>
+<% end %> 
+ </div>
+
+ </div>
+ <div id="form_divider"></div>
+ <%= render :partial => "user/profile_form" %>
+  </div>
+  
+  
+  
+  <div id="overlay_request">
+  	 <h1>Request Leaderboard</h1>
+  	  <%= form_for(:user, :url => sessions_path, :html => { :id => 'form_request' , :class => 'istyle'} ) do |f| %>
+
+ 
+ <%= f.label :name, "Leaderboard Name" %>
+ <%= f.text_field :name %>
+ <%= f.label :name, "Leaderboard Description" %>
+ <%= f.text_area :name %>
+
+
+ 
+ <%= f.submit "submit", :class => "button" %>
+ <% end %>
+  </div>
+  
+  
+    <div id="overlay_contact">
+  	 <h1>Contact SkillMad</h1>
+  	  <%= form_for(:user, :url => sessions_path, :html => { :id => 'form_request' , :class => 'istyle'} ) do |f| %>
+
+ 
+ <%= f.label :name, "Email" %>
+ <%= f.text_field :name %>
+ <%= f.label :name, "Message" %>
+ <%= f.text_area :name %>
+
+
+ 
+ <%= f.submit "send", :class => "button" %>
+ <% end %>
+  </div>
+  
+  
+
+
+  
+ 
+
+
+<%= yield %>
+
+
+
+</div>
+
+
+
+  
+       <%= javascript_include_tag "inline"%>   
+
+
+<div id="id_card">
+	<%= render :partial => "user/id_card"%>
+ 	</div>
+
+</body>
+</html>
