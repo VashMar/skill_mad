@@ -14089,3 +14089,202 @@ Served asset /trans2.png - 304 Not Modified (1ms)
 
 Started GET "/assets/black_arrow_bottom.png" for 127.0.0.1 at 2012-12-18 09:47:57 -0600
 Served asset /black_arrow_bottom.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 09:59:45 -0600
+Connecting to database specified by database.yml
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (1.5ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVotes Load (0.4ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (15.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (124.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (2.0ms)
+  Rendered videos/_inner_thumb_set.html.erb (3.7ms)
+  Rendered videos/_scroll.html.erb (9.8ms)
+  [1m[36mUser Load (6.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (23.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered layouts/_leaderboard.html.erb (36.8ms)
+  [1m[35mVideo Load (5.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (7.6ms)
+  Rendered user/index.html.erb within layouts/application (260.6ms)
+Compiled custom.css  (217ms)  (pid 16830)
+Compiled sessions.css  (8ms)  (pid 16830)
+Compiled user.css  (0ms)  (pid 16830)
+Compiled videos.css  (5ms)  (pid 16830)
+Compiled application.css  (243ms)  (pid 16830)
+Compiled jquery.js  (1ms)  (pid 16830)
+Compiled jquery.validate.js  (0ms)  (pid 16830)
+Compiled jquery_ujs.js  (0ms)  (pid 16830)
+Compiled application.js  (21ms)  (pid 16830)
+Compiled validations.js  (0ms)  (pid 16830)
+Compiled waypoints.min.js  (0ms)  (pid 16830)
+  Rendered layouts/_header.html.erb (9.4ms)
+  Rendered user/_profile_form.html.erb (2.1ms)
+Compiled inline.js  (0ms)  (pid 16830)
+Completed 200 OK in 1014ms (Views: 902.6ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /custom.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /sessions.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /jquery.js - 200 OK (86ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /videos.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /jquery.validate.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /user.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/validations.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /validations.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/waypoints.min.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /waypoints.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/inline.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /inline.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/avatars/large/bucky.png" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /avatars/large/bucky.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/avatars/large/bucky.png"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/upload_button_hover.gif" for 127.0.0.1 at 2012-12-18 09:59:47 -0600
+Served asset /upload_button_hover.gif - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/upload_button_hover.gif"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2012-12-18 09:59:48 -0600
+Served asset /jquery.validate.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avatars/large/bucky.png" for 127.0.0.1 at 2012-12-18 09:59:48 -0600
+Served asset /avatars/large/bucky.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/avatars/large/bucky.png"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/upload_button_hover.gif" for 127.0.0.1 at 2012-12-18 09:59:48 -0600
+Served asset /upload_button_hover.gif - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/upload_button_hover.gif"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
