@@ -14543,3 +14543,185 @@ Served asset /validations.js - 304 Not Modified (0ms)
 
 Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2012-12-18 10:39:54 -0600
 Served asset /jquery.validate.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 11:51:53 -0600
+Connecting to database specified by database.yml
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered user/index.html.erb within layouts/application (34.1ms)
+Compiled custom.css  (114ms)  (pid 19356)
+Compiled sessions.css  (4ms)  (pid 19356)
+Compiled user.css  (0ms)  (pid 19356)
+Compiled videos.css  (0ms)  (pid 19356)
+Compiled application.css  (129ms)  (pid 19356)
+Compiled jquery.js  (1ms)  (pid 19356)
+Compiled jquery.validate.js  (2ms)  (pid 19356)
+Compiled jquery_ujs.js  (0ms)  (pid 19356)
+Compiled application.js  (114ms)  (pid 19356)
+Compiled validations.js  (0ms)  (pid 19356)
+Compiled waypoints.min.js  (0ms)  (pid 19356)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered user/_profile_form.html.erb (1.1ms)
+Compiled inline.js  (0ms)  (pid 19356)
+Completed 200 OK in 769ms (Views: 652.8ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-18 11:51:54 -0600
+Served asset /custom.css - 304 Not Modified (53ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-18 11:51:54 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-18 11:51:54 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-18 11:51:55 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-18 11:51:55 -0600
+Served asset /videos.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-18 11:51:55 -0600
+Served asset /user.css - 304 Not Modified (1ms)
+
+
+Started GET "/verify?session%5Bpassword%5D=[FILTERED]&session%5Bemail%5D=abberger2%40wisc.edu" for 127.0.0.1 at 2012-12-18 11:52:00 -0600
+Processing by SessionsController#verify as JSON
+  Parameters: {"session"=>{"password"=>"[FILTERED]", "email"=>"abberger2@wisc.edu"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1[0m
+Completed 200 OK in 89ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2012-12-18 11:52:00 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bv3GF7+Wi3KksciiydKNaYNstbb76fcT5YGEgXKz2Qk=", "session"=>{"email"=>"abberger2@wisc.edu", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1
+Redirected to http://localhost:3000/home
+Completed 302 Found in 81ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-18 11:52:00 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVotes Load (0.4ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (53.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (106.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (2.0ms)
+  Rendered videos/_inner_thumb_set.html.erb (3.5ms)
+  Rendered videos/_scroll.html.erb (5.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.9ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (41.4ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+  Rendered layouts/_leaderboard.html.erb (47.8ms)
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (3.0ms)
+  Rendered user/index.html.erb within layouts/application (171.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered user/_profile_form.html.erb (1.3ms)
+Completed 200 OK in 186ms (Views: 179.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avatars/large/bucky.png" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /avatars/large/bucky.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/avatars/large/bucky.png"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avatars/large/bucky.png" for 127.0.0.1 at 2012-12-18 11:52:01 -0600
+Served asset /avatars/large/bucky.png - 404 Not Found (60ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/avatars/large/bucky.png"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/skillex/.rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
