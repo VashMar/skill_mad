@@ -34,7 +34,7 @@
 	<div id="id_card">
 	<%= render :partial => "user/id_card"%>
  	</div>
- <%end%>
+ 	<%end%>
 <div id="hover_images"> 
  <%= image_tag "header_login_hover.gif" %>
  <%= image_tag "header_logout_hover.gif" %>
