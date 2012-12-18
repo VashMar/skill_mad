@@ -37,7 +37,7 @@ class VideosController < InheritedResources::Base
       Video.delete_video(@video)
    end
     @user.update_attribute(:hasVideo, true)
-    flash[:success] = "video successfully uploaded"
+    flash[:success] = "You're video has been uploaded, congrats on your first step to becoming a boss! Now please wait while we check to make sure you're content is safe to be seen by the rest of humanity."
     redirect_to home_path(:user_id => @user.id)
    end
 
@@ -80,8 +80,10 @@ class VideosController < InheritedResources::Base
     @current_video = @video_list[0]
    end
 
+   if params[:myVid] == true 
+    @myVid = true
+   end
 
-   
    respond_to do |format|
      format.js{}
    end

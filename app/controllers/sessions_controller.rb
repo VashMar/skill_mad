@@ -13,7 +13,7 @@ def create
     redirect_to home_path
   end
   else
-  link =  "<a \href=http://www.wiscmail.wisc.edu\"> Wiscmail</a>"   
+  link =  "<a href=http://www.wiscmail.wisc.edu > Wiscmail</a>"   
   flash[:failure] ="This account is not yet active, check your #{link}".html_safe
     redirect_to home_path
   end

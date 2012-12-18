@@ -17,12 +17,13 @@
 	<% if flash[:failure]%>
 	   <div id="failure" class="notice"><%=flash[:failure]%><span></span></div>
 	<%end%>
-	 
-	<h2 id="vidswitch"><%= link_to "my videos",  vid_bank_path(:user_id => current_user.id), :remote => true%> | <%= link_to "top", vid_bank_path, :remote => true, :class => "active_menu" %></h2>
+
+	<%if signed_in? && !@video_list.empty? %>
+	 <h2 id="vidswitch"><%= link_to "my videos",  vid_bank_path(:user_id => current_user.id), :remote => true%> | <%= link_to "top", vid_bank_path, :remote => true, :class => "active_menu" %></h2>
+	
 	<div id="video_container">
 	<%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video}) %>
 	</div>
-    
 
 	<div id="scroll_container" style="clear:both; margin:196px auto 0 auto; width: 855px; height:170px;">
 		<%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list}) %>		
@@ -33,7 +34,7 @@
 	<div id="id_card">
 	<%= render :partial => "user/id_card"%>
  	</div>
- 
+ <%end%>
 <div id="hover_images"> 
  <%= image_tag "header_login_hover.gif" %>
  <%= image_tag "header_logout_hover.gif" %>

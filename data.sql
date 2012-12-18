@@ -107,7 +107,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (3,'Tom\'s Video ','','g0nPotkvnwo',1,'2012-11-06 02:51:40','2012-11-07 00:59:20',37,1),(5,'Kyle\'s Video','','e3eh9jPKfgc',1,'2012-11-06 03:01:06','2012-11-09 21:39:38',1,2),(6,'Stan\'s Video','','dz9gAHBJUBQ',1,'2012-11-06 03:14:26','2012-11-06 05:14:22',2,3),(7,'Cartman\'s Video','This is simply a test. ','IASpW5SutZw',1,'2012-11-06 03:26:43','2012-11-09 21:39:42',1,4),(8,'Kenny\'s Video','More and more tests. ','fI4mkwApgD4',1,'2012-11-06 03:32:51','2012-11-06 05:14:28',0,5),(9,'das','',NULL,0,'2012-11-06 05:28:18','2012-11-06 05:28:18',0,NULL),(10,NULL,NULL,NULL,0,'2012-11-10 22:39:13','2012-11-10 22:39:13',0,NULL);
+INSERT INTO `videos` VALUES (3,'Tom''s Video ','','g0nPotkvnwo',1,'2012-11-06 02:51:40','2012-11-07 00:59:20',37,1),(5,'Kyle''s Video','','e3eh9jPKfgc',1,'2012-11-06 03:01:06','2012-11-09 21:39:38',1,2),(6,'Stan''s Video','','dz9gAHBJUBQ',1,'2012-11-06 03:14:26','2012-11-06 05:14:22',2,3),(7,'Cartman''s Video','This is simply a test. ','IASpW5SutZw',1,'2012-11-06 03:26:43','2012-11-09 21:39:42',1,4),(8,'Kenny''s Video','More and more tests. ','fI4mkwApgD4',1,'2012-11-06 03:32:51','2012-11-06 05:14:28',0,5),(9,'das','',NULL,0,'2012-11-06 05:28:18','2012-11-06 05:28:18',0,NULL),(10,NULL,NULL,NULL,0,'2012-11-10 22:39:13','2012-11-10 22:39:13',0,NULL);
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 

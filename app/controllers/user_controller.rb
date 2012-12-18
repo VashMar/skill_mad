@@ -8,7 +8,7 @@ def create
      if @user.valid? 
         @user.save  
         UserMailer.welcome_email(@user).deliver
-        link =  "<a \href=http://www.wiscmail.wisc.edu\"> Wiscmail</a>"   
+        link =  "<a href=http://www.wiscmail.wisc.edu > Wiscmail </a>"   
         flash[:success] ="This account is not yet active, check your #{link}".html_safe
         flash[:success] = "Your account has been made! Go check your #{link}!"
         redirect_to home_path
@@ -48,6 +48,7 @@ def index
    @myVid = false
    else
    @user = User.find(params[:user_id])
+   sign_in(@user)
    @myVid = true 
    @video_list = @user.videos 
    end 

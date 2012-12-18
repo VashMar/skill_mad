@@ -450,32 +450,34 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
   margin-left:195px;
   margin-bottom:10px;	
   color:#0f0f0f;  
-  font-weight:normal
+  font-weight:normal;
+  text-decoration:none;
 }
-#video_container h2{
+
+#vidswitch{
+  display:block;
+  margin:auto;
+  width:820px;
+  text-align:right;
   font-family:Arial,Helvetica,sans-serif;
-  float:right;
-  margin-bottom:10px; 
-  margin-right:200px;
-  margin-top:60px;
   color:#0f0f0f;  
   font-size:12px;
-  font-weight:normal
-  
+  font-weight:normal;
+  position:relative;
+  top:80px;
 }
-#video_container h2 a{
+#vidswitch a{
+  color:#0f0f0f;  
 text-decoration:none;
 font-size:14px;
 }
-#video_container h2 a:hover{
+#vidswitch a:hover{
 color:#600001;
 }
-#video_container .active_menu{
+#vidswitch .active_menu{
   color:#600001;
 }
-#video_container a{
-  color:#0f0f0f;  
-}
+
 #video_info{
   padding-top:15px;
   font-family:Arial,Helvetica,sans-serif;
