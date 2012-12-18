@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <%= favicon_link_tag 'favicon.png' %>
+  
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tag                         %>
@@ -138,9 +138,6 @@
        <%= javascript_include_tag "inline"%>   
 
 
-<div id="id_card">
-	<%= render :partial => "user/id_card"%>
- 	</div>
 
 </body>
 </html>
