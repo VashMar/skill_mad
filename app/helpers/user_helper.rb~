@@ -35,12 +35,17 @@ users_with_videos = Array.new
     users_with_videos.order("points ASC")
 end
 
-def selected_user=(user)
+def select_user(user)
     @selected_user = user 
 end
 
 def selected_user
- @selected_user ||= current_user
+ @selected_user ||= User.all[0]
 end
+
+def hasVid?(user)
+	@user = User.find(user)
+	@user.hasVideo == true ?  true : false
+end 
 
 end				 

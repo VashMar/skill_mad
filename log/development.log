@@ -14725,3 +14725,1119 @@ ActionController::RoutingError (No route matches [GET] "/assets/avatars/large/bu
 
 
   Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.7ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVotes Load (0.3ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (2.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (6.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.4ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.2ms)
+  Rendered videos/_scroll.html.erb (3.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (0.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered layouts/_leaderboard.html.erb (8.4ms)
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (1.5ms)
+  Rendered user/index.html.erb within layouts/application (29.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered user/_profile_form.html.erb (1.8ms)
+Completed 200 OK in 51ms (Views: 46.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Served asset /jquery.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-18 12:55:32 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-18 12:55:33 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (12ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-20 14:24:25 -0600
+Connecting to database specified by database.yml
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (16.1ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (17.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVotes Load (2.7ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (35.6ms)
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (141.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (2.2ms)
+  Rendered videos/_inner_thumb_set.html.erb (4.5ms)
+  Rendered videos/_scroll.html.erb (10.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (12.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered layouts/_leaderboard.html.erb (34.0ms)
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (2.6ms)
+  Rendered user/index.html.erb within layouts/application (629.6ms)
+Compiled custom.css  (204ms)  (pid 3877)
+Compiled sessions.css  (4ms)  (pid 3877)
+Compiled user.css  (1ms)  (pid 3877)
+Compiled videos.css  (9ms)  (pid 3877)
+Compiled application.css  (256ms)  (pid 3877)
+Compiled jquery.js  (1ms)  (pid 3877)
+Compiled jquery.validate.js  (0ms)  (pid 3877)
+Compiled jquery_ujs.js  (0ms)  (pid 3877)
+Compiled application.js  (63ms)  (pid 3877)
+Compiled validations.js  (0ms)  (pid 3877)
+Compiled waypoints.min.js  (0ms)  (pid 3877)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered user/_profile_form.html.erb (2.0ms)
+Compiled inline.js  (0ms)  (pid 3877)
+Completed 200 OK in 1560ms (Views: 984.9ms | ActiveRecord: 329.3ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /custom.css - 200 OK (59ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /jquery.js - 200 OK (24ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /sessions.css - 200 OK (16ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /user.css - 200 OK (1ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:24:28 -0600
+Served asset /videos.css - 200 OK (1ms)
+
+
+Started GET "/destroy" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered user/index.html.erb within layouts/application (3.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered user/_profile_form.html.erb (0.3ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:25:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/verify?session%5Bpassword%5D=[FILTERED]&session%5Bemail%5D=berthiaume%40wisc.edu" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Processing by SessionsController#verify as JSON
+  Parameters: {"session"=>{"password"=>"[FILTERED]", "email"=>"berthiaume@wisc.edu"}}
+  [1m[36mUser Load (35.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'berthiaume@wisc.edu' LIMIT 1[0m
+Completed 200 OK in 111ms (Views: 0.2ms | ActiveRecord: 35.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hgb9g33ye+CTZYe0Hn4wwjdMrPzSTrk/ZcynM7Wv2Ws=", "session"=>{"email"=>"berthiaume@wisc.edu", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'berthiaume@wisc.edu' LIMIT 1
+Redirected to http://localhost:3000/home
+Completed 302 Found in 95ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVotes Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (1.2ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (4.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.2ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.9ms)
+  Rendered videos/_scroll.html.erb (3.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+  Rendered layouts/_leaderboard.html.erb (6.5ms)
+  [1m[35mVideo Load (0.1ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (1.1ms)
+  Rendered user/index.html.erb within layouts/application (20.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered user/_profile_form.html.erb (1.3ms)
+Completed 200 OK in 35ms (Views: 31.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:25:40 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:25:43 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (1.2ms)
+  Rendered videos/_vidplayer.html.erb (128.9ms)
+  Rendered videos/vid_bank.js.erb (133.1ms)
+Completed 500 Internal Server Error in 147ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.4ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:25:44 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.6ms)
+  Rendered videos/vid_bank.js.erb (1.6ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:25:45 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[36mVideo Load (0.9ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (1.2ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.2ms)
+  Rendered videos/_scroll.html.erb (2.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  Rendered videos/_voter.html.erb (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (5.0ms)
+  Rendered videos/vid_bank.js.erb (8.9ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:25:45 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[35mVideo Load (4.8ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (0.9ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.5ms)
+  Rendered videos/_scroll.html.erb (5.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1[0m
+  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (44.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (47.9ms)
+  Rendered videos/vid_bank.js.erb (55.3ms)
+Completed 200 OK in 63ms (Views: 56.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:25:48 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.6ms)
+  Rendered videos/vid_bank.js.erb (1.5ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.4ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.1ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:25:48 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (1.1ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.5ms)
+  Rendered videos/vid_bank.js.erb (1.6ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:25:49 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[36mVideo Load (1.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (0.8ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.2ms)
+  Rendered videos/_scroll.html.erb (1.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  Rendered videos/_voter.html.erb (1.3ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (13.5ms)
+  Rendered videos/vid_bank.js.erb (16.3ms)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:26:04 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mVideo Load (2.1ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (4.5ms)
+  Rendered videos/vid_bank.js.erb (5.5ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:26:04 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.5ms)
+  Rendered videos/vid_bank.js.erb (1.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:26:15 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (0.7ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.2ms)
+  Rendered videos/_scroll.html.erb (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1[0m
+  [1m[35mVotes Load (6.5ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (8.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (16.6ms)
+  Rendered videos/vid_bank.js.erb (19.3ms)
+Completed 200 OK in 22ms (Views: 13.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:26:22 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.5ms)
+  Rendered videos/vid_bank.js.erb (1.5ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.4ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:26:22 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.5ms)
+  Rendered videos/vid_bank.js.erb (1.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.4ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:26:23 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[36mVideo Load (2.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (1.5ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.0ms)
+  Rendered videos/_scroll.html.erb (3.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  Rendered videos/_voter.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (7.7ms)
+  Rendered videos/vid_bank.js.erb (12.6ms)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:42:16 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mVideo Load (2.6ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.7ms)
+  Rendered videos/vid_bank.js.erb (1.8ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.1ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.7ms)
+
+
+Started GET "/vid_bank?user_id=2" for 127.0.0.1 at 2012-12-20 14:42:16 -0600
+Processing by VideosController#vid_bank as JS
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (3.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mVideo Load (1.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  Rendered videos/_scroll.html.erb (0.0ms)
+  Rendered videos/_vidplayer.html.erb (0.6ms)
+  Rendered videos/vid_bank.js.erb (1.6ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `yt_video_id' for nil:NilClass):
+    10: 
+    11:    <div id="vote_fake"></div>
+    12:    <div id="background_overlay">
+    13: 	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+    14:         </iframe>
+    15:    </div>
+    16:    
+  app/views/videos/_vidplayer.html.erb:13:in `_app_views_videos__vidplayer_html_erb__4129102706879480440_23136600'
+  app/views/videos/vid_bank.js.erb:8:in `_app_views_videos_vid_bank_js_erb__3229195532846093555_23041300'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.6ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:42:17 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[35mVideo Load (3.0ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.1ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.6ms)
+  Rendered videos/_scroll.html.erb (2.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1[0m
+  [1m[35mVotes Load (2.1ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (3.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (11.0ms)
+  Rendered videos/vid_bank.js.erb (22.9ms)
+Completed 200 OK in 28ms (Views: 21.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:52:38 -0600
+
+SyntaxError (/home/skillex/skillmad_git/app/helpers/user_helper.rb:48: syntax error, unexpected keyword_true, expecting ':'
+@user.hasVideo == true ? return true : return false 
+                                    ^
+/home/skillex/skillmad_git/app/helpers/user_helper.rb:50: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/user_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:53:09 -0600
+
+SyntaxError (/home/skillex/skillmad_git/app/helpers/user_helper.rb:50: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/user_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/skillex/.rvm/gems/ruby-1.9.3-p327/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mVotes Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  Rendered videos/_voter.html.erb (7.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (10.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (1.2ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.8ms)
+  Rendered videos/_scroll.html.erb (2.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
+  Rendered user/_user_thumbs.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  Rendered user/_leader.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered layouts/_leaderboard.html.erb (7.7ms)
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (6.2ms)
+  Rendered user/index.html.erb within layouts/application (98.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered user/_profile_form.html.erb (1.5ms)
+Completed 200 OK in 120ms (Views: 105.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /jquery.js - 304 Not Modified (72ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:53:33 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/vid_bank" for 127.0.0.1 at 2012-12-20 14:53:40 -0600
+Processing by VideosController#vid_bank as JS
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (0.9ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.5ms)
+  Rendered videos/_scroll.html.erb (5.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1[0m
+  [1m[35mVotes Load (0.3ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (1.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (6.2ms)
+  Rendered videos/vid_bank.js.erb (12.8ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1871611355f66e388c332d0a1c7027ea' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 2 AND video_id = 3)
+  Rendered videos/_voter.html.erb (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (4.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (1.1ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.9ms)
+  Rendered videos/_scroll.html.erb (3.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
+  Rendered user/_user_thumbs.html.erb (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  Rendered user/_leader.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+  Rendered layouts/_leaderboard.html.erb (10.0ms)
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (1.4ms)
+  Rendered user/index.html.erb within layouts/application (69.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered user/_profile_form.html.erb (1.2ms)
+Completed 200 OK in 92ms (Views: 82.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /jquery.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:56:05 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/select_user?user=1" for 127.0.0.1 at 2012-12-20 14:56:35 -0600
+Processing by UserController#select_user as JS
+  Parameters: {"user"=>"1"}
+  [1m[35mUser Load (3.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (3.5ms)
+  Rendered user/select_user.js.erb (4.7ms)
+Completed 200 OK in 37ms (Views: 31.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/select_user?user=1" for 127.0.0.1 at 2012-12-20 14:56:35 -0600
+Processing by UserController#select_user as JS
+  Parameters: {"user"=>"1"}
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mVideo Load (5.5ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (94.1ms)
+  Rendered user/select_user.js.erb (94.8ms)
+Completed 200 OK in 100ms (Views: 90.6ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/select_user?user=1" for 127.0.0.1 at 2012-12-20 14:56:40 -0600
+Processing by UserController#select_user as JS
+  Parameters: {"user"=>"1"}
+  [1m[35mUser Load (3.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mVideo Load (6.5ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (9.0ms)
+  Rendered user/select_user.js.erb (9.8ms)
+Completed 200 OK in 16ms (Views: 4.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/select_user?user=1" for 127.0.0.1 at 2012-12-20 14:56:50 -0600
+Processing by UserController#select_user as JS
+  Parameters: {"user"=>"1"}
+  [1m[35mUser Load (3.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mVideo Load (1.5ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (3.8ms)
+  Rendered user/select_user.js.erb (4.6ms)
+Completed 200 OK in 12ms (Views: 5.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/destroy" for 127.0.0.1 at 2012-12-20 14:56:58 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/home
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:56:58 -0600
+Processing by UserController#index as HTML
+  [1m[35mVideo Load (2.0ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered user/index.html.erb within layouts/application (6.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered user/_profile_form.html.erb (0.4ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:56:59 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/verify?session%5Bpassword%5D=[FILTERED]&session%5Bemail%5D=abberger2%40wisc.edu" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Processing by SessionsController#verify as JSON
+  Parameters: {"session"=>{"password"=>"[FILTERED]", "email"=>"abberger2@wisc.edu"}}
+  [1m[35mUser Load (4.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1
+Completed 200 OK in 105ms (Views: 0.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hgb9g33ye+CTZYe0Hn4wwjdMrPzSTrk/ZcynM7Wv2Ws=", "session"=>{"email"=>"abberger2@wisc.edu", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1[0m
+Redirected to http://localhost:3000/home
+Completed 302 Found in 110ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Processing by UserController#index as HTML
+  [1m[35mVideo Load (1.7ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (1.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (5.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.6ms)
+  Rendered videos/_inner_thumb_set.html.erb (3.8ms)
+  Rendered videos/_scroll.html.erb (5.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+  Rendered layouts/_leaderboard.html.erb (7.6ms)
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (1.5ms)
+  Rendered user/index.html.erb within layouts/application (30.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered user/_profile_form.html.erb (1.2ms)
+Completed 200 OK in 89ms (Views: 83.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 14:57:06 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 15:01:03 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVotes Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  Rendered videos/_voter.html.erb (7.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (10.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mVideo Load (0.8ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (2.0ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.7ms)
+  Rendered videos/_scroll.html.erb (8.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
+  Rendered user/_user_thumbs.html.erb (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  Rendered user/_leader.html.erb (6.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered layouts/_leaderboard.html.erb (10.9ms)
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (1.6ms)
+  Rendered user/index.html.erb within layouts/application (65.3ms)
+  Rendered layouts/_header.html.erb (7.2ms)
+  Rendered user/_profile_form.html.erb (6.9ms)
+Completed 200 OK in 150ms (Views: 99.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 15:01:04 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Processing by UserController#index as HTML
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  Rendered videos/_voter.html.erb (1.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.2ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.9ms)
+  Rendered videos/_scroll.html.erb (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  Rendered user/_leader.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered layouts/_leaderboard.html.erb (8.5ms)
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1
+  Rendered user/_id_card.html.erb (1.5ms)
+  Rendered user/index.html.erb within layouts/application (40.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered user/_profile_form.html.erb (1.2ms)
+Completed 200 OK in 90ms (Views: 87.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /custom.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 15:04:49 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Processing by UserController#index as HTML
+  [1m[36mVideo Load (9.7ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
+  [1m[35mUser Load (3.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b0ed2353d91ec6451a4a655965952f' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
+  Rendered videos/_voter.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered videos/_vidplayer.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
+  Rendered videos/_video_thumbs.html.erb (1.1ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.7ms)
+  Rendered videos/_scroll.html.erb (2.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
+  Rendered user/_user_thumbs.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
+  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  Rendered user/_leader.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+  Rendered layouts/_leaderboard.html.erb (9.4ms)
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1[0m
+  Rendered user/_id_card.html.erb (1.6ms)
+  Rendered user/index.html.erb within layouts/application (39.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered user/_profile_form.html.erb (1.2ms)
+Completed 200 OK in 88ms (Views: 72.9ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 15:05:03 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (13ms)

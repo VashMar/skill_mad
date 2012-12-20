@@ -4,7 +4,7 @@ def new
 end
   
 def create
-   @user = User.new(params[:user])
+    @user = User.new(params[:user])
      if @user.valid? 
         @user.save  
         UserMailer.welcome_email(@user).deliver
@@ -22,18 +22,18 @@ def show
 end
 
 def update
- @user = User.find(params[:id])
- @user.update_attributes(params[:user]) 
- sign_in(@user)
- redirect_to home_path
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user]) 
+    sign_in(@user)
+    redirect_to home_path
 end 
 
 def prof_update
-@user = User.find(params[:id])
+   @user = User.find(params[:id])
    if @user.update_attributes(params[:user])
-    @valid = true
+      @valid = true
    else
-    @valid = false 
+      @valid = false 
    end
   
   sign_in(@user)
@@ -43,40 +43,43 @@ def prof_update
 end 
  
 def index
-   if params[:user_id] == nil
-   @video_list = Video.order("points DESC").limit(15)
-   @myVid = false
-   else
-   @user = User.find(params[:user_id])
-   sign_in(@user)
-   @myVid = true 
-   @video_list = @user.videos 
+    if params[:user_id] == nil
+      @video_list = Video.order("points DESC").limit(15)
+      @myVid = false
+    else
+      @user = User.find(params[:user_id])
+      sign_in(@user)
+      @myVid = true 
+      @video_list = @user.videos 
    end 
-   @user_list = User.order("points DESC").where(:hasVideo => true)
+     
+     @user_list = User.order("points DESC").where(:hasVideo => true)
    
 end
   
 def check_email
  
- @user= User.find_by_email(params[:user][:email])
-  respond_to do |format|
+    @user= User.find_by_email(params[:user][:email])
+    
+    respond_to do |format|
       format.json{render :json => !@user}
-end
+    end
      
 end
   
 def check_name
-@user= User.find_by_name(params[:user][:name])
+   @user= User.find_by_name(params[:user][:name])
 
- respond_to do |format|
-   format.json{render :json => !@user}
- end
+   respond_to do |format|
+     format.json{render :json => !@user}
+   end
+
 end
   
 def select_user
  
  if params[:user] != nil
-  @selected_user = User.find(params[:user])
+    @selected_user = User.find(params[:user])
  else
   @users = User.where(:hasVideo => true)
   num = params[:number].to_i
@@ -85,7 +88,7 @@ def select_user
 
  respond_to do |format|
     format.js{}
-  end
+ end
 end
 
 

@@ -43,4 +43,9 @@ def selected_user
  @selected_user ||= User.all[0]
 end
 
+def hasVid?(user)
+    @user = User.find(user) 
+    @user.hasVideo == true ?  true : false
+end 
+
 end				 
