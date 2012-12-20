@@ -5,9 +5,12 @@ arrow_bad.gif: arrow_bad-8ead9bde2d76023c9e08f91768938e2a.gif
 arrow_bad_hover.gif: arrow_bad_hover-b9551d8fd9af812d6a0cede02521b6dc.gif
 arrow_mad.gif: arrow_mad-b82b36d6a89ed8d45644b26e047537b3.gif
 arrow_mad_hover.gif: arrow_mad_hover-2380b2496cd21959c3e750ad12d4e6bb.gif
-avatars/1/large/kenny.gif: avatars/1/large/kenny-1ddbde33e7c779397877e5f86d340401.gif
+avatars/1/large/berger.jpg: avatars/1/large/berger-52e7c8230b5ebf24a36a85522394745d.jpg
+avatars/1/medium/berger.jpg: avatars/1/medium/berger-d8facecf4ccc91b74ff856fa7aa5a092.jpg
 avatars/1/medium/kenny.gif: avatars/1/medium/kenny-1e2e51704ab8866497c9d551c6e8eb81.gif
+avatars/1/original/berger.jpg: avatars/1/original/berger-01c426d3c67db00d7b7ede0391f89594.jpg
 avatars/1/original/kenny.gif: avatars/1/original/kenny-67a937c9aa02c37de2b39a3b91f217fe.gif
+avatars/1/thumb/berger.jpg: avatars/1/thumb/berger-8178617da93609a3901bee43d09841e9.jpg
 avatars/1/thumb/kenny.gif: avatars/1/thumb/kenny-f52c71c0f7344e31e93997bc00241792.gif
 avatars/2/medium/kyle.gif: avatars/2/medium/kyle-90154841a96153421499fcb21be70031.gif
 avatars/2/original/kyle.gif: avatars/2/original/kyle-621add1d626b2ed667d3bed2e33a73ef.gif
@@ -23,13 +26,12 @@ avatars/5/medium/kenny.gif: avatars/5/medium/kenny-1ddbde33e7c779397877e5f86d340
 avatars/5/original/kenny.gif: avatars/5/original/kenny-67a937c9aa02c37de2b39a3b91f217fe.gif
 avatars/5/thumb/kenny.gif: avatars/5/thumb/kenny-f52c71c0f7344e31e93997bc00241792.gif
 avatars/large/bucky.png: avatars/large/bucky-f1c21759caa6b8e4c02cc24ec9157972.png
-avatars/medium/bucky.png: avatars/medium/bucky-f1c21759caa6b8e4c02cc24ec9157972.png
+avatars/medium/bucky.png: avatars/medium/bucky-e49e5bc4a995edc1a9e964c9a90a0979.png
 avatars/thumb/bucky.png: avatars/thumb/bucky-e4570ffd3be48ec425e71fb570b8bc45.png
 back.gif: back-8a589705d6e53559d1306828ecbeffc5.gif
 back.png: back-35e249a14e553468f12320f74c188d30.png
 back_hover.gif: back_hover-e559da8430baabc06dd0257edb5edabc.gif
 backtotop.png: backtotop-c4e779c27a498aa46fa7d42dffd58226.png
-beyonce.jpg: beyonce-42093384ad780e986c33675a4347be13.jpg
 black_arrow_bottom.png: black_arrow_bottom-eb56aefdf74d23bc1e767f4b73b49379.png
 button.gif: button-9173c0490339602cbbdae6b3d0287d4a.gif
 button_active.gif: button_active-2d3dd774fef62511165e18be87735b9d.gif
@@ -39,6 +41,7 @@ close2.png: close2-c9829b28ca90f25304ff97e4a66dccf9.png
 delete.png: delete-d30401242163129b017c98762921905d.png
 dot.png: dot-abd08779eaa618e9b9bb45a1d3d5ce1f.png
 error.png: error-be4c6712d610d3eef4e6e9023c05a783.png
+favicon.png: favicon-7d98fe2a499f66ec007c1b72fbedcc16.png
 file.gif: file-a49cc4a60f82795b45453c4f56cb7047.gif
 footer_back.gif: footer_back-a0f4c5558dec465d6128ae8b61f62ecd.gif
 footer_line.gif: footer_line-f4ea171cb39bcfd406a71ed39f1a270c.gif
@@ -79,6 +82,7 @@ success.png: success-aa46783eaacf42039619629139ff6087.png
 trans.png: trans-daa8c0ef4521b27d173ce581768f94d8.png
 trans2.png: trans2-0fc498ea73da7231e453e086604c2aa7.png
 upload_button.gif: upload_button-5759c0bb698c7926212731881b6a3338.gif
+upload_button_hover.gif: upload_button_hover-52b3e5c4d4058e69c7650197997df43d.gif
 watch.png: watch-11ca4761f1ae0a585a2da0b38f6c9579.png
 watchclear.png: watchclear-1212d213d7ed02cee3bd06b6dbd3ca69.png
 application.js: application-3ab3ab8dc126d1ff90344749c00a388f.js
