@@ -64,4 +64,14 @@ Skillmad::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+ config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['skillmadavatars'],
+    :access_key_id => ENV['AKIAJH6FJ3EDG5LGKNZA'],
+    :secret_access_key => ENV['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']
+  }
+ }
 end

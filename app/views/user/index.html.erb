@@ -22,7 +22,7 @@
 	<%if signed_in? && !@video_list.empty? %>
 	 <h2 id="vidswitch">
         <%if hasVid?(current_user)%>
-           <%= link_to "my videos",  vid_bank_path(:user_id => current_user.id), :remote => true%> | <%= link_to "top", vid_bank_path, :remote => true, :class => "active_menu" %> 
+         <%= link_to "my videos",  vid_bank_path(:user_id => current_user.id), :remote => true%> | <%= link_to "top", vid_bank_path, :remote => true, :class => "active_menu" %> 
         <%end%> </h2>
 	
 	<div id="video_container">
@@ -52,6 +52,7 @@
  <%= image_tag "button_hover.gif" %> 
  <%= image_tag "share_fb_hover.gif" %> 
  <%= image_tag "share_twitter_hover.gif" %> 
+ <%= image_tag "upload_button_hover.gif" %> 
 </div>
 
   

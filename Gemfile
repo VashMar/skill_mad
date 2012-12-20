@@ -14,6 +14,7 @@ gem 'inherited_resources'
 gem 'rb-readline'
 gem "paperclip", "~> 3.1"
 gem 'heroku'
+gem 'aws-sdk'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
