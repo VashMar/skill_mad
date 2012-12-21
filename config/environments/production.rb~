@@ -69,9 +69,9 @@ Skillmad::Application.configure do
  config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => ENV['AWS_BUCKET'],
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    :bucket => ENV['skillmadavatars'],
+    :access_key_id => ENV['AKIAJH6FJ3EDG5LGKNZA'],
+    :secret_access_key => ENV['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']
   }
  }
 end
