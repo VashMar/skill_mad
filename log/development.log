@@ -26432,3 +26432,112 @@ Processing by VideosController#vid_bank as JS
   Rendered videos/_vidplayer.html.erb (15.6ms)
   Rendered videos/vid_bank.js.erb (24.2ms)
 Completed 200 OK in 36ms (Views: 17.8ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Processing by UserController#index as HTML
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '3563c128e9359c48263c84b4843e30a1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
+  Rendered videos/_voter.html.erb (2.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered videos/_vidplayer.html.erb (5.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
+  Rendered videos/_video_thumbs.html.erb (1.4ms)
+  Rendered videos/_video_thumbs.html.erb (0.5ms)
+  Rendered videos/_video_thumbs.html.erb (0.4ms)
+  Rendered videos/_inner_thumb_set.html.erb (3.9ms)
+  Rendered videos/_video_thumbs.html.erb (0.4ms)
+  Rendered videos/_video_thumbs.html.erb (0.4ms)
+  Rendered videos/_video_thumbs.html.erb (0.6ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.5ms)
+  Rendered videos/_video_thumbs.html.erb (0.4ms)
+  Rendered videos/_video_thumbs.html.erb (0.5ms)
+  Rendered videos/_video_thumbs.html.erb (0.5ms)
+  Rendered videos/_inner_thumb_set.html.erb (2.5ms)
+  Rendered videos/_video_thumbs.html.erb (0.5ms)
+  Rendered videos/_video_thumbs.html.erb (0.5ms)
+  Rendered videos/_inner_thumb_set.html.erb (1.8ms)
+  Rendered videos/_scroll.html.erb (12.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
+  Rendered user/_user_thumbs.html.erb (1.2ms)
+  Rendered user/_user_thumbs.html.erb (1.2ms)
+  Rendered user/_user_thumbs.html.erb (1.2ms)
+  Rendered user/_user_thumbs.html.erb (1.3ms)
+  Rendered user/_user_thumbs.html.erb (1.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
+  Rendered user/_leader.html.erb (6.2ms)
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
+  Rendered user/_leader.html.erb (5.6ms)
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
+  Rendered user/_leader.html.erb (9.1ms)
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 4 ORDER BY points DESC
+  Rendered user/_leader.html.erb (12.0ms)
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5 ORDER BY points DESC
+  Rendered user/_leader.html.erb (6.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+  Rendered layouts/_leaderboard.html.erb (57.4ms)
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 5[0m
+  Rendered user/_id_card.html.erb (2.1ms)
+  Rendered user/index.html.erb within layouts/application (84.2ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered user/_profile_form.html.erb (39.8ms)
+Completed 200 OK in 147ms (Views: 142.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /jquery.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /videos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-20 20:36:40 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
