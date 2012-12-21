@@ -603,11 +603,13 @@ color:#600001;
   width:70px;
   height:70px;
 }
-#profile h3{
+#profile h3, .leader_thumb_link{
   font-family: Arial,Helvetica,sans-serif;
   color:#eceae1;
   font-size:16px;
+  text-decoration: none;
 }
+
 
 .active{
   display:block;
@@ -933,7 +935,7 @@ resize: none;
   border: 1px solid;
   width:500px;
   margin:20px auto;
-  height:20px;
+  height:51px;
   padding:8px;
   padding-left:43px;
   cursor:pointer;
@@ -948,6 +950,10 @@ resize: none;
 #success{
   background: #42A659 url(success.png) 15px 50% no-repeat;
   border: #1B6E2E;
+}
+
+#success .notice a{
+  color:white;
 }
 #intro{
   margin-top:0;
@@ -1050,6 +1056,7 @@ padding-top:5px;
 }
 #centered{
 margin:auto;
+margin-top:18px;
 height:300px;
 width:300px;
 text-align:center;

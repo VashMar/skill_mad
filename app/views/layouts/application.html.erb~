@@ -8,6 +8,7 @@
   <%= csrf_meta_tag %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
+  <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations"    %>
   <%= javascript_include_tag "waypoints.min"  %>
 </head>

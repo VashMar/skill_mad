@@ -6,6 +6,8 @@
   :skill, :about, :year , :activated                  
   has_attached_file :avatar, :styles => {:large => "185x185>", :medium => "110x110>",  :thumb => "70x70>"}, :default_url => "avatars/:style/bucky.png",
   :url => "avatars/:id/:style/:basename.:extension",
+  :storage => :s3,
+  :s3_credentials => ":rails_root/config/s3.yml",
   :path => ":rails_root/app/assets/images/avatars/:id/:style/:basename.:extension"
   has_secure_password
   before_save { |user| user.email = email.downcase}
