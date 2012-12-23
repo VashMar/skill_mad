@@ -39,10 +39,11 @@ def prof_update
   sign_in(@user)
     respond_to do |format|
      format.js{}
-   end
+    end
 end 
  
 def index
+
     if params[:user_id] == nil
       @video_list = Video.order("points DESC").limit(15)
       @myVid = false
@@ -51,7 +52,7 @@ def index
       sign_in(@user)
       @myVid = true 
       @video_list = @user.videos 
-   end 
+    end 
      
      @user_list = User.order("points DESC").where(:hasVideo => true)
    
@@ -79,9 +80,9 @@ end
 def select_user
  
  if params[:user] != nil
-    @selected_user = User.find(params[:user])
+   @selected_user = User.find(params[:user])
  else
-  @users = User.where(:hasVideo => true)
+  @users = User.where(:hasVideo => true).order("points DESC")
   num = params[:number].to_i
   @selected_user = @users[num]
  end
@@ -89,6 +90,7 @@ def select_user
  respond_to do |format|
     format.js{}
  end
+
 end
 
 

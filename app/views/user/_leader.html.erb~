@@ -2,7 +2,7 @@
 			<h3><%= num_rank(i+1) %></h3>
 			
 			<div class="leader_pic"> 
-				<%= link_to("#", :class => "leader_thumb_link", :onclick => select_user(user), :remote => true) do %> 
+			<%= link_to("#", :class => "leader_thumb_link", :onclick => select_user(user), :remote => true) do %> 
      			<%= image_tag user.avatar.url(:large) %> 
      			<% end %>   
 				
@@ -23,13 +23,11 @@
 				<h5>Title</h5>
 				<h6>Pts</h6>
 				<ol>
-					<%= link_to(vid_swap_path(:video => user_vid_id(user,0)), :method => :post, "data_type" => :js, :remote=> true, :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%>
-					<li><%=user_video_title(user, 0)%><span><%=user_video_points(user, 0) %>+</span></li><%end%>
+    <% user.videos.order("points DESC").each_with_index do |video, i| %>
+    <%= link_to(vid_swap_path(:video => video.id), :method => :post, "data_type" => :js, :remote=> true, :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%>
+   <li><%= video.title %><span><%= video.points %>+</span></li><%end%>
+   <% end %>
 		
-	<%= link_to(vid_swap_path(:video => user_vid_id(user,1)), :method => :post, "data_type" => :js, :remote=> true, :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%>
-					<li><%=user_video_title(user, 1)%><span><%=user_video_points(user, 1) %>+</span></li><%end%>
-		
-					
 				</ol>
 				<a class="leader_see_all" href="#">see all...</a>
 			</div>
