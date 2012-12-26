@@ -3,10 +3,15 @@
   has_many :videos
   has_many :votes
   attr_accessible :email, :name, :password, :password_confirmation, :activated, :avatar, :points, :major, 
-  :skill, :about, :year , :activated                  
-  has_attached_file :avatar, :styles => {:large => "185x185>", :medium => "110x110>",  :thumb => "70x70>"}, :default_url => "avatars/:style/bucky.png",
-  :url => "avatars/:id/:style/:basename.:extension",
-  :path => ":rails_root/app/assets/images/avatars/:id/:style/:basename.:extension"
+  :skill, :about, :year , :activated 
+                 
+  has_attached_file :avatar, :styles => {:large => "185x185>", :medium => "110x110>",  :thumb => "70x70>"}, 
+  :storage => :s3,
+  :s3_credentials => S3_CREDENTIALS,
+  :path => ":id/:style/:basename.:extension",
+  :url => ":id/:style/:basename.:extension",
+  :default_url => "https://s3.amazonaws.com/skillmadavatars/:style/bucky.png"
+
   has_secure_password
   before_save { |user| user.email = email.downcase}
   before_save :create_remember_token
