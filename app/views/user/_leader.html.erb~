@@ -23,13 +23,15 @@
 				<h5>Title</h5>
 				<h6>Pts</h6>
 				<ol>
-    <% user.videos.order("points DESC").each_with_index do |video, i| %>
+    <% user.videos.order("points DESC").each do |video| %>
     <%= link_to(vid_swap_path(:video => video.id), :method => :post, "data_type" => :js, :remote=> true, :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%>
    <li><%= video.title %><span><%= video.points %>+</span></li><%end%>
    <% end %>
 		
 				</ol>
 				<a class="leader_see_all" href="#">see all...</a>
+   <%= link_to( "see all..." , vid_bank_path(:user_id => user.id), :class=>"leader_see_all", :method => :post, "data_type" => :js, :remote=> true, 
+   :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500);$('a.close').trigger('click');")%>
 			</div>
 			<div class="leader_bottom"></div>
 			<div class="leader_left"></div>
