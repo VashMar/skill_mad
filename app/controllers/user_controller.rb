@@ -53,8 +53,7 @@ def index
       @myVid = true 
       @video_list = @user.videos 
     end 
-     
-     @user_list = User.order("points DESC").where(:hasVideo => true)
+      @user_list = User.order("points DESC").where(:hasVideo => true)
    
 end
   

@@ -8,6 +8,7 @@
     <p>Now just click this link here to join your fellow badgers in discovering the best of U.W : </p>
     <p><%= link_to "Activate account", @url %></p>
     <p>Hope to see you on the leaderboards someday,</p> </br>
+    <p>Sincerely,</p>
     <p>Skillmad</p>
   </body>
 </html>

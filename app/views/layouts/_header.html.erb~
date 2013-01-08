@@ -6,7 +6,7 @@
     <div id="header_logo">
     <%else%>
     <div id="header_logo" class="tip_logo" title="<h6>Welcome to SkillMad!</h6> 
-    SkillMad is a UW-Madison project to blah and blah and blah">
+    Skillmad is a video leaderboard platform showcasing UW's top talent">
    <%end%>
     	<%= link_to(home_path) do%> 
     	<% end %>
@@ -15,7 +15,7 @@
    <%if signed_in? %>
     <a rel="#overlay_profile">
     <div id="profile" class="active">
-   <%= image_tag  @user.avatar.url %>
+   <%= image_tag  @user.avatar.url(:thumb) %>
    <h3><%= @user.name %></h3>
 	<div id="profile_back">
    </div>
@@ -27,7 +27,7 @@
  	<a href="#leaderboard" class="scroll">
  		<%else%>
  		<a href="#leaderboard" class="scroll tip" title="<h6>The Leaders of Madison</h6>
- 		  Click to View">
+ 		  View the best of the best.  Browse the skillset of your talented campus">
  	<%end%>
    <div id="header_leaders">
     </a>
@@ -38,7 +38,8 @@
     <div id="header_logout" class="active">
     <%end%>
 <%else%>
-    <div id="header_login" class="active tip"  title="<h6>Create an Account to Get Started!</h6>">
+    <div id="header_login" class="active tip"  title="<h6>Create an Account!</h6>
+    	Create an account to begin your path internet fame">
     <a rel="#overlay_login"></a>
 <%end%>
     </div>
@@ -48,11 +49,15 @@
 </div>
     <%if signed_in? %>
     <div id="header_upload">
-       <%else%>
-       <div id="header_upload" class="tip" title="TOOOOLTIP">
-   <%end%>
-    	<%= link_to(new_video_path) do%>
-    	<% end %>
+      <%= link_to(new_video_path) do%>
+      <% end %>
+     
+    <%else%>
+       <div id="header_upload" class="tip" title="<h6>Get Recognized!</h6>
+       	Log in to start uploading your world class content! ">
+        <a rel="#overlay_login"></a>
+    <%end%>
+    	
     </div>
     
 
