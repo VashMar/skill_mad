@@ -9,11 +9,7 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-	$('.header_link a').hover(function(){
-		$(this).stop().animate({color: '#E4D8B8'});
-	},function(){
-		$(this).stop().animate({color: '#FFF'});
-	});
+
 	$('.leader_thumb .watch').click(function(){
 				window.history.pushState({state:2}, "Video", "/?video="+$(this).attr('title'));
 
@@ -76,7 +72,7 @@
 		effect: 'slide'
 	});
 	$(".tip[title]").tooltip({
-		offset: [160, 2],
+		offset: [152, 2],
 		direction: 'down',
 		effect: 'slide'
 	});

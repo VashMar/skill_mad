@@ -10,10 +10,9 @@ end
 
 
 def user_video_title(user,num)
-    @user = user
-   
-    @user.videos.order("points DESC")[num].title
-    end
+   @user = user
+   @user.videos.order("points DESC")[num].title
+end
 
 def user_video_points(user,num)
     @user = user
@@ -24,11 +23,6 @@ end
 def user_vid_id(user, num)
 @user = user
 @id = @user.videos.order("points DESC")[num].id
- if @id != nil
- @id
- else 
- @id = 1
- end
 
 
 end
@@ -59,5 +53,10 @@ def hasVid?(user)
       @user.hasVideo == true ?  true : false
     end
 end 
+def user_yt_id(user, num)
+@user = user
+@vid = @user.videos.order("points DESC")[num]
+@youtubeid = @vid.yt_video_id
+end
 
 end				 

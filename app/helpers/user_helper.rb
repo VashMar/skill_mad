@@ -53,12 +53,11 @@ def hasVid?(user)
       @user.hasVideo == true ?  true : false
     end
 end 
+
 def user_yt_id(user, num)
 @user = user
 @vid = @user.videos.order("points DESC")[num]
 @youtubeid = @vid.yt_video_id
-
-
 end
 
 end				 

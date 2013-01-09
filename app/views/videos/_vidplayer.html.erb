@@ -3,12 +3,15 @@
 
 
 
-<h1><%=@current_video.title%></h1>
+
 
 
 <%end%>	
 
-   <div id="vote_fake"></div>
+   <div id="vote_fake">
+
+   </div>
+   
    <div id="background_overlay">
 	<iframe width="837" height="464" title="<%=@current_video.yt_video_id%>" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
         </iframe>
@@ -20,10 +23,15 @@
   	 </div>
     <% end %>
     <div id="video_info">
+    	 		<div style="float:left;">
+ 		<a href="#" class="share_facebook"></a>
+ 		<a href="#" class="share_twitter"></a>
+ 	</div>
  	<div id="video_info_left">
+
+ 	<h1><%=@current_video.title%></h1>
  		
- 	<a href="#" class="share_facebook"></a>
- 	<a href="#" class="share_twitter"></a>
+ 	
  		<h3>April 20, 2069</h3>
  		<p><%= @current_video.description %></p>
  	</div>
@@ -38,6 +46,8 @@
  		
  		<h2><%=@current_video.user.name%></h2>
  		<h3><%=@current_video.user.major%></h3>
+ 		
+
  	</div>
  
    </div>
