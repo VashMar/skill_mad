@@ -13,6 +13,7 @@ def create
         flash[:success] = "Your account has been made! Go check your #{link}!".html_safe
         redirect_to home_path
     else 
+        flash[:failure] = "Account is invalid"
         redirect_to home_path
     end
 end

@@ -38,8 +38,8 @@ def verify
      end
 end
 
-def activate_account(token)
-  user = User.find_by_remember_token(token)
+def activate_account
+  user = User.find_by_remember_token(params[:format])
   
   if user.activated?
     flash[:notice] = "Account is already active"

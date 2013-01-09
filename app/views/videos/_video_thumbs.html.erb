@@ -1,7 +1,7 @@
    <%= link_to(vid_swap_path(:video => @video_list[@counter].id), :method => :post, "data_type" => :js, :remote=> true) do %>
    <div>   
    	
-       <%= image_tag("http://img.youtube.com/vi/#{@video_list[@counter].yt_video_id}/0.jpg", :height =>"100%", :width => "100%") %>
+       <%= image_tag("http://img.youtube.com/vi/#{@video_list[@counter].yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{@video_list[@counter].yt_video_id}") %>
        <span class="items_rank">
        <%= num_rank(@counter+1) %>
        </span>

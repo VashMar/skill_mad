@@ -37,4 +37,7 @@ Skillmad::Application.configure do
 
   #Paperclip route to ImageMagick
   Paperclip.options[:command_path]= "/usr/bin/"
+
+
+ 
 end

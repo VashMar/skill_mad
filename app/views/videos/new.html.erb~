@@ -1,5 +1,3 @@
-<div class="footer_wrapper">
-<% if signed_in? %>
 <div id="centered" class="istyle">
 	<h1>Fill this out..</h1>
 	<h4>So people know what the hell you're doing.</h4>
@@ -14,17 +12,6 @@
 	<%= f.submit "upload", :class => "button" %>
     	<% end %>
 </div>
-<% else %>
-
-<h1> Videos can only be uploaded by those with an account! </h1> 
-<div> <!-- login/join wrapper -->
-	
-       <%= render :partial => "sessions/login_join" %>
-</div> <!-- end login/join wrapper -->
-
-<% end %>
-<div class="push"></div>
-        </div>
 <div class="footer_container">
 	<div id="footer_light">
 	<%=render :partial=>"layouts/footer"%>

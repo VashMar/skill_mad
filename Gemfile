@@ -7,7 +7,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'mail'
+gem 'actionmailer', '3.2.6'
 gem 'json'
 gem 'youtube_it'
 gem 'inherited_resources'

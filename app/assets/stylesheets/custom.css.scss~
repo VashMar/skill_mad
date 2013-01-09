@@ -40,7 +40,7 @@ html {
   background-image:url(header_back.gif); 
 }
 
-#header a, #backtotop a{
+#backtotop a{
   display:block;
   width:100%;
   height:100%;
@@ -58,6 +58,8 @@ html {
   background-image:url(header_logo.gif);
   float:left;
 }
+
+
 #header_login{
   margin:40px 0 0 28px;
   width:85px;
@@ -81,16 +83,19 @@ html {
 #header_logout:hover{
   background-image:url(header_logout_hover.gif);  
 }
-#header_leaders{
-  margin-top:40px;
+.header_link{
+  margin-top:35px;
   margin-left:15px;
-  width:131px;
-  height:28px;
-  background-image:url(header_leaders.gif); 
   float:left;
+  font-size:38px;
+  font-family: 'Droid Sans', sans-serif;
+}
+.header_link a{
+    display:block;
+    color:white;
+    text-decoration:none;
 }
 #header_leaders:hover{
-  background-image:url(header_leaders_hover.gif); 
 }
 .background{
   padding:54px 0 34px 0;
@@ -112,7 +117,6 @@ html {
   
 }
 #header_container a{
-  display:block;
   width:100%;
   height:100%;
   cursor:pointer;
@@ -310,7 +314,11 @@ label{ // label for form boxes styling
   width:20000em;
   position:absolute;
 }
- 
+
+#scroll_container{
+  clear:both; margin:215px auto 0 auto; width: 855px; height:170px;
+}
+
 .items div {
   position:relative;
 }
@@ -609,8 +617,18 @@ color:#600001;
   font-size:16px;
   text-decoration: none;
 }
-
-
+.leader_thumb_link h4{
+  position:relative;
+  top:-20px;
+  text-align:center;
+  clear:both;
+}
+.leader_thumb_link h4:hover{
+ text-decoration:underline; 
+}
+#animation{
+  margin-top:20px;
+}
 .active{
   display:block;
 }
@@ -812,6 +830,7 @@ color:#600001;
   display:block;
   margin-top:6px;
   float:right;
+  font-weight:bold;
 }
 .leader_see_all:hover{
   text-decoration:underline;
@@ -952,7 +971,7 @@ resize: none;
   border: #1B6E2E;
 }
 
-#success .notice a{
+#success  a{
   color:white;
 }
 #intro{
@@ -1184,7 +1203,6 @@ label.error{
     height:65px;
     width:160px;
     padding:25px;
-    padding-top:30px;
     color:#111;
     font-family: Arial,Helvetica,sans-serif;
   }
@@ -1296,6 +1314,7 @@ label.error{
    z-index:10000;     /* styling */   
     //background-color:#ebe8df;  
     margin-top:45px; 
+    background-color:transparent;
 }
 #overlay_view_profile h2, #overlay_view_profile h3, #overlay_view_profile h4{
   float:right;

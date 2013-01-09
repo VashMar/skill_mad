@@ -4,24 +4,67 @@
 <head>
   
   <title><%= full_title(yield(:title)) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tag %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
   <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations"    %>
+  <%= javascript_include_tag "jquery.ba-hashchange.min.js"  %>
+  <%= javascript_include_tag "jquery.color.js"  %>
   <%= javascript_include_tag "waypoints.min"  %>
+
 </head>
 <body>
 <%@user = current_user %>
   
 
 <%= render 'layouts/header' %>
-<div id="background"> <!-- start background -->
+<div id="background">
+	<div id="overlay_login" class="istyle">
+		<div id="form_login">
 	
-     <div id="overlay_login" class="istyle"> <!-- overlay_login -->
-	<%= render :partial => "sessions/login_join" %>
-     </div> <!-- end overlay_login -->
+      <h1>Lets see those ID's kids..</h1>
+      <%=form_for(:session, :url => sessions_path, :html => { :id => 'login' }) do |f| %>
+
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "login", :class => "button" %>
+      <%end%>
+   		 </div>
+    <div id="form_divider"></div>
+    <div id="form_join">
+    
+   <h1>Sign up! UW Students Only.</h1>
+ 
+<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
+
+	  
+      <%= f.label :name, "Username" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Wisc Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      
+   
+      <%= f.submit "join", :class => "button" %>
+    <% end %>
+	 
+    </div>
+    
+    
+    </div>
  
   <div id="overlay_profile">
  <h1>Profile Setup</h1>

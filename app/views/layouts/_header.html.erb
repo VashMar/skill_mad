@@ -23,42 +23,48 @@
    </a>
    <%else%>
    <%end%>
-   <%if signed_in? %>
+ 
+   <div id="header_leaders" class="header_link">
+   	  <%if signed_in? %>
  	<a href="#leaderboard" class="scroll">
  		<%else%>
  		<a href="#leaderboard" class="scroll tip" title="<h6>The Leaders of Madison</h6>
  		  View the best of the best.  Browse the skillset of your talented campus">
  	<%end%>
-   <div id="header_leaders">
+   	leaders
     </a>
     </div>
     
+    <div class="header_link">
 <%if signed_in? %>
     <%= link_to(destroy_path) do%> 
-    <div id="header_logout" class="active">
+    	logout
     <%end%>
 <%else%>
-    <div id="header_login" class="active tip"  title="<h6>Create an Account!</h6>
-    	Create an account to begin your path internet fame">
-    <a rel="#overlay_login"></a>
+    <a class="active tip" rel="#overlay_login" title="<h6>Create an Account!</h6>
+    	Create an account to begin your path internet fame!">
+    login</a>
 <%end%>
+	
     </div>
     
     
 
 </div>
+<div class="header_link">
     <%if signed_in? %>
-    <div id="header_upload">
-      <%= link_to(new_video_path) do%>
-      <% end %>
-     
-    <%else%>
-       <div id="header_upload" class="tip" title="<h6>Get Recognized!</h6>
+        <%= link_to(new_video_path) do%>
+    	upload
+    	<% end %>
+       <%else%>
+          
+    	<a rel="#overlay_login" href="#" class="tip" title="<h6>Get Recognized!</h6>
        	Log in to start uploading your world class content! ">
-        <a rel="#overlay_login"></a>
-    <%end%>
+    	upload
+    	</a>
+    	   <%end%>
     	
     </div>
     
-
+</div>
 </div>

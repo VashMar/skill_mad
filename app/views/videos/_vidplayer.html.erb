@@ -10,7 +10,7 @@
 
    <div id="vote_fake"></div>
    <div id="background_overlay">
-	<iframe width="837" height="464" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+	<iframe width="837" height="464" title="<%=@current_video.yt_video_id%>" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
         </iframe>
    </div>
    
@@ -21,6 +21,7 @@
     <% end %>
     <div id="video_info">
  	<div id="video_info_left">
+ 		
  	<a href="#" class="share_facebook"></a>
  	<a href="#" class="share_twitter"></a>
  		<h3>April 20, 2069</h3>
@@ -43,3 +44,18 @@
 
   
     <div style="clear:both"></div>
+    <script>
+    $(".items_inner div img").click(function(){
+		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
+  	});
+  			$('div.items_description').each(function(){  
+        $(this).css('opacity', 0);    
+        $(this).css('display', 'block');  
+    });  
+  
+    $('.items div').hover(function(){  
+        $(this).children('.items_description').stop().fadeTo(500, 0.7);  
+    },function(){  
+        $(this).children('.items_description').stop().fadeTo(500, 0);  
+    });  
+    </script>

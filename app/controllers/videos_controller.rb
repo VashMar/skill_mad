@@ -37,7 +37,7 @@ class VideosController < InheritedResources::Base
       Video.delete_video(@video)
    end
     @user.update_attribute(:hasVideo, true)
-    flash[:success] = "You're video has been uploaded, please wait while we check to make sure you're content is safe to be seen by the rest of the world."
+    flash[:success] = "You're video has been uploaded, congrats on your first step to becoming a boss! Now please wait while we check to make sure you're content is safe to be seen by the rest of humanity."
     redirect_to home_path(:user_id => @user.id)
    end
 

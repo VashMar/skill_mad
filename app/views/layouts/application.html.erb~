@@ -17,17 +17,56 @@
   
 
 <%= render 'layouts/header' %>
-<div id="background"> <!-- start background -->
-	<div id="overlay_login" class="istyle"> <!-- overlay_login -->
-	<%= render :partial => "sessions/login_join" %>
+<div id="background">
+	<div id="overlay_login" class="istyle">
+		<div id="form_login">
+	
+      <h1>Lets see those ID's kids..</h1>
+      <%=form_for(:session, :url => sessions_path, :html => { :id => 'login' }) do |f| %>
+
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "login", :class => "button" %>
+      <%end%>
+   		 </div>
+    <div id="form_divider"></div>
+    <div id="form_join">
     
-        </div> <!-- end overlay_login -->
+   <h1>Sign up! UW Students Only.</h1>
+ 
+<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
+
+	  
+      <%= f.label :name, "Username" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Wisc Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      
+   
+      <%= f.submit "join", :class => "button" %>
+    <% end %>
+	 
+    </div>
+    
+    
+    </div>
  
   <div id="overlay_profile">
  <h1>Profile Setup</h1>
  <div style="float:left">
  <% if signed_in? %>
- <a href="#"><%= image_tag @user.avatar.url(:large) %></a>
+ <a href="#"><%= image_tag @user.avatar.url(:medium) %></a>
  
 <div id="wrapper_file">
 	<span id="browse2">Browse</span>
