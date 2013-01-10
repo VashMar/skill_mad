@@ -3,7 +3,7 @@
 <div id="leaderboard">
 		<div id="leaderboard_title"></div>
 		<div id="leaderboard_all"></div>
-		<div id="leaderboard_request"><a id="over" class="tip" title="Fuck" rel="#overlay_request">REQUEST LEADERBOARD</a></div>
+		<div id="leaderboard_request"><a id="over" class="tip" title="Request Leadboards for content you want to see or share!" rel="#overlay_request">REQUEST LEADERBOARD</a></div>
 		<div id="backtotop"><a class="scroll" href="#header"></a></div>
 		<div id="leader_all">
 			
