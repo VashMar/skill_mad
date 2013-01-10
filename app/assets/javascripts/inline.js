@@ -83,7 +83,11 @@
 		$('#profile_back').fadeOut('fast');
 	});
 
-    	
+    $('.share_twitter').click(function(){
+    x = $("#background_overlay iframe").attr("title");
+    y = $("#video_info h1").html();
+	window.open('https://twitter.com/intent/tweet?original_referer='+x+'&text='+y+'&tw_p=tweetbutton&url='+x, 'newwindow', 'width=500, height=400'); return false;
+    });
 
 	$('#fileinput').change( function() {
 		$('#filename').text(this.value);
@@ -140,3 +144,6 @@ $(".items_inner div img").click(function(){
         $(this).children('.items_description').stop().fadeTo(500, 0);  
     });  
     
+
+	
+

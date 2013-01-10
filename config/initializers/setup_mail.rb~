@@ -15,7 +15,7 @@ ActionMailer::Base.smtp_settings = {
 if Rails.env == "development"
    ActionMailer::Base.default_url_options = {:host => "localhost:3000"}
 else
-   ActionMailer::Base.default_url_options = {:host => "http://www.skillmad.com"}
+   ActionMailer::Base.default_url_options = {:host => "www.skillmad.com"}
 end
 
    ActionMailer::Base.register_interceptor( DevelopmentMailInterceptor ) if Rails.env.development?
