@@ -1,11 +1,5 @@
 <%if !@current_video.nil?%>
 
-
-
-
-
-
-
 <%end%>	
 
    
