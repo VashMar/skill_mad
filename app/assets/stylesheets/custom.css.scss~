@@ -96,7 +96,7 @@ html {
 }
 .header_link a:hover{
   color:white;
-  text-shadow: 0 0 0.1em #dda8a8
+  text-shadow: 0 0 0.1em #dda8a8;
 }
 .background{
   padding:54px 0 34px 0;
@@ -302,7 +302,7 @@ label{ // label for form boxes styling
 }
 
 .scrollable {
-  margin:5px 0 70px 0;
+  margin:5px 0 30px 0;
   /* required settings */
   position:relative;
   overflow:hidden;
@@ -318,7 +318,7 @@ label{ // label for form boxes styling
 }
 
 #scroll_container{
-  clear:both; margin:215px auto 0 auto; width: 855px; height:170px;
+  clear:both; margin:140px auto 0 auto; width: 855px; height:170px;
 }
 
 .items div {
@@ -448,9 +448,10 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
 }
 
 #video_container{
-  width:1230px;
+  width:1042px;
   max-height:500px;
   margin:auto;
+  padding-left:188px;
 }
 
 #video_container h1{
@@ -462,9 +463,14 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
   text-decoration:none;
 }
 
+#video_container iframe{
+  margin-left:188px;
+}
+
 #vidswitch{
   display:block;
   margin:auto;
+  margin-top:4px;
   width:820px;
   text-align:right;
   font-family:Arial,Helvetica,sans-serif;
@@ -472,7 +478,6 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
   font-size:12px;
   font-weight:normal;
   position:relative;
-  top:80px;
 }
 #vidswitch a{
   color:#0f0f0f;  
@@ -492,10 +497,12 @@ color:#600001;
   clear:both;
   margin:auto;
   width:838px;
-  height:115px;
+  height:124px;
   background-image:url(info_back.gif);
   background-repeat:no-repeat;
   background-position:bottom;
+  float:left;
+  padding-left:8px;
 }
 #video_info_left{
   width:495px;
@@ -594,29 +601,29 @@ color:#600001;
 
 #profile{
   margin-right:10px;
-  height:105px;
-  width:110px;
+  height:90px;
+  width:85px;
   float:left;
   text-align:center;
 }
 #profile_back{
   position:relative;
-  top:-101px;
-  height:105px;
-  width:110px;
+  top:-85px;
+  height:90px;
+  width:85px;
   background-image:url(trans.png);
   background-repeat:repeat;
   display:none;
 }
 #profile img{
-  margin-top:8px;
-  width:70px;
-  height:70px;
+  margin-top:6px;
+  width:60px;
+  height:60px;
 }
 #profile h3, .leader_thumb_link{
   font-family: Arial,Helvetica,sans-serif;
   color:#eceae1;
-  font-size:16px;
+  font-size:12px;
   text-decoration: none;
 }
 .leader_thumb_link h4{
@@ -1199,13 +1206,13 @@ label.error{
 }
 
   .tooltip {
+    padding-top:30px;
     display:none;
     background:transparent url(black_arrow_bottom.png);
     font-size:12px;
     height:65px;
     width:160px;
     padding:25px;
-    padding-top: 30px;
     color:#111;
     font-family: Arial,Helvetica,sans-serif;
   }

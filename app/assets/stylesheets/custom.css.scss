@@ -448,9 +448,10 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
 }
 
 #video_container{
-  width:1230px;
+  width:1042px;
   max-height:500px;
   margin:auto;
+  padding-left:188px;
 }
 
 #video_container h1{
@@ -461,6 +462,8 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
   font-weight:normal;
   text-decoration:none;
 }
+
+
 
 #vidswitch{
   display:block;
@@ -496,6 +499,8 @@ color:#600001;
   background-image:url(info_back.gif);
   background-repeat:no-repeat;
   background-position:bottom;
+  float:left;
+  padding-left:8px;
 }
 #video_info_left{
   width:495px;
