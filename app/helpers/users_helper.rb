@@ -49,7 +49,7 @@ def hasVid?(user)
     if user == nil
       false
     else
-      @user = User.find(user) 
+      @user = user
       @user.hasVideo == true ?  true : false
     end
 end 
