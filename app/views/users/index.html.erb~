@@ -36,7 +36,7 @@
 	<%= render 'layouts/leaderboard' %>
 	
 	<div id="id_card">
-	     <%= render :partial => "user/id_card"%>
+	     <%= render :partial => "users/id_card"%>
  	</div>
  	<%end%>
 

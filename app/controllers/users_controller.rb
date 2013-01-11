@@ -11,10 +11,10 @@ def create
         link =  "<a href=http://www.wiscmail.wisc.edu> Wiscmail </a>"   
         flash[:success] ="This account is not yet active, check your #{link}".html_safe
         flash[:success] = "Your account has been made! Go check your #{link}!".html_safe
-        redirect_to home_path
+        redirect_to home_url
     else 
         flash[:failure] = "Account is invalid"
-        redirect_to home_path
+        redirect_to home_url
     end
 end
   
@@ -26,7 +26,7 @@ def update
     @user = User.find(params[:id])
     @user.update_attributes(params[:user]) 
     sign_in(@user)
-    redirect_to home_path
+    redirect_to home_url
 end 
 
 def prof_update
