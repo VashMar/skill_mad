@@ -13,6 +13,7 @@ def create
         flash[:success] = "Your account has been made! Go check your #{link}!".html_safe
         redirect_to home_path
     else 
+        flash[:failure] = "Account is invalid"
         redirect_to home_path
     end
 end
@@ -39,7 +40,7 @@ def prof_update
   sign_in(@user)
     respond_to do |format|
      format.js{}
-   end
+    end
 end 
  
 def index
@@ -49,12 +50,10 @@ def index
       @myVid = false
     else
       @user = User.find(params[:user_id])
-      sign_in(@user)
       @myVid = true 
       @video_list = @user.videos 
     end 
-     
-     @user_list = User.order("points DESC").where(:hasVideo => true)
+      @user_list = User.order("points DESC").where(:hasVideo => true)
    
 end
   

@@ -15,16 +15,17 @@ Skillmad::Application.routes.draw do
   match '/check_email', :to => 'user#check_email'
   match '/check_name', :to =>  'user#check_name'
   match '/user_update', :to => 'user#update'
-  march 'prof_update', :to => 'user#prof_update'
+  match '/prof_update', :to => 'user#prof_update'
+  match '/select_user', :to => 'user#select_user'
   match '/add_vote', :to => 'votes#add_vote'
   match '/remove_vote', :to => 'votes#remove_vote'
   match '/verify', :to =>'sessions#verify'
-  match '/activate_account', :to => 'sessions#activate_account'
+  match '/activate_account/:token', :to => 'sessions#activate_account', :as => :activate_account
   match '/destroy', :to => 'sessions#destroy'
   match '/upload', :to => 'videos#upload'
   match '/save', :to => 'videos#save_video'
   match '/vid_swap', :to => 'videos#vid_swap'
-  
+  match '/vid_bank', :to => 'videos#vid_bank'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

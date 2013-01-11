@@ -20,7 +20,7 @@ Skillmad::Application.routes.draw do
   match '/add_vote', :to => 'votes#add_vote'
   match '/remove_vote', :to => 'votes#remove_vote'
   match '/verify', :to =>'sessions#verify'
-  match '/activate_account', :to => 'sessions#activate_account'
+  match '/activate_account/:token', :to => 'sessions#activate_account', :as => :activate_account
   match '/destroy', :to => 'sessions#destroy'
   match '/upload', :to => 'videos#upload'
   match '/save', :to => 'videos#save_video'
