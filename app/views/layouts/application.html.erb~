@@ -12,7 +12,6 @@
   <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations"    %>
   <%= javascript_include_tag "jquery.ba-hashchange.min.js"  %>
-  <%= javascript_include_tag "jquery.color.js"  %>
   <%= javascript_include_tag "waypoints.min"  %>
 
 </head>

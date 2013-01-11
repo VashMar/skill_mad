@@ -1,0 +1,12 @@
+ <% if signed_in? %>
+ <a href="#"><%= image_tag @user.avatar.url(:medium) %></a>
+ 
+<div id="wrapper_file">
+	<span id="browse2">Browse</span>
+	<span id="filename2">no file selected</span>
+
+  <%= form_for(@user, :html => { :multipart => true, :id => 'form_pic' }) do |f| %>
+  	<%= f.file_field :avatar, :id => "form_file" %>
+        <%= f.submit "upload", :class => "button" %>
+  <% end %>
+<% end %> 

@@ -8,14 +8,14 @@
 		<div id="leader_all">
 			
 		<% @user_list.each do |user| %>
-		<%= render :partial => "user/user_thumbs", :locals => {:user => user}%>
+		<%= render :partial => "users/user_thumbs", :locals => {:user => user}%>
 			
  		<% end %>
 			<div class="clear"></div>
 		</div>
        <div>
        <% @user_list.first(5).each_with_index do |user, i| %>
-       <%= render :partial => "user/leader", :locals => {:user => user, :i => i}%>
+       <%= render :partial => "users/leader", :locals => {:user => user, :i => i}%>
        <% end %>
        </div>
 </div>
