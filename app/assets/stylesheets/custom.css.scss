@@ -352,6 +352,7 @@ label{ // label for form boxes styling
   font-weight: normal;
   padding-left:95px;
   padding-bottom:6px;
+  float:left;
 }
 .items div {
   position:relative;
@@ -386,6 +387,7 @@ label{ // label for form boxes styling
   width:60px;
   height:69px;
   font-size: 1px;
+  clear:both;
 }
 /* right */
 a.right {
@@ -496,15 +498,14 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
 }
 
 #vidswitch{
-  display:block;
-  margin:auto;
   margin-top:4px;
-  width:820px;
   text-align:right;
   color:#0f0f0f;  
   font-size:12px;
   font-weight:normal;
   position:relative;
+  float:right;
+  padding-right:102px;
 }
 #vidswitch a{
   color:#0f0f0f;  
