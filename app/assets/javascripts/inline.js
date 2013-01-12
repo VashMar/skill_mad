@@ -123,6 +123,9 @@
  		 }).mouseleave(function(){
 		 $(this).fadeTo(200, .8);
 		 });
+$(".leader_videos a").click(function(){
+	$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500);
+})
 $(".items_inner div img").click(function(){
 		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
 		$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
