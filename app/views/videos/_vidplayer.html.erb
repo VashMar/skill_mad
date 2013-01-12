@@ -49,8 +49,10 @@
   
     <div style="clear:both"></div>
     <script>
+        x = $("#background_overlay iframe").attr("title");
+	window.history.pushState({state:2}, "Video", "/?video="+x);
     $(".items_inner div img").click(function(){
-		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
+				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
   	});
   			$('div.items_description').each(function(){  
         $(this).css('opacity', 0);    
