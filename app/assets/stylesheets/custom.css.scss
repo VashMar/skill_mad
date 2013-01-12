@@ -29,6 +29,7 @@ input[type="submit"]:focus, input[type="button"]:focus, input[type="text"]:focus
 { outline : none; }
 body{
   background-color:#ededed;
+  font-family: Arial, Helvetica, sans-serif;
 }
 html {
        overflow-y: scroll;
@@ -237,10 +238,10 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   text-decoration:none;
 }
 #footer a:hover{
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+  text-shadow: 0px 0px 0.1em white;
 }
 #footer_light a:hover{
-  text-shadow: 1px 1px 0px white;
+  text-shadow: 0px 0px 0.1em white;
 }
 #footer_light{
 
@@ -346,7 +347,12 @@ label{ // label for form boxes styling
 #scroll_container{
   clear:both; margin:140px auto 0 auto; width: 855px; height:170px;
 }
-
+#scroll_container h3{
+  font-size:24px;
+  font-weight: normal;
+  padding-left:95px;
+  padding-bottom:6px;
+}
 .items div {
   position:relative;
 }
@@ -357,7 +363,6 @@ label{ // label for form boxes styling
     display:none; /* hide it */  
     /* styling bellow */  
     background-color:black;  
-    font-family: 'tahoma';  
     font-size:15px;  
     color:white;  
     width:204px;
@@ -370,7 +375,6 @@ label{ // label for form boxes styling
     width:204px;
     margin:0;
     border:none;
-    font-family: Arial, Helvetica, sans-serif;
     
 }  
 /* prev, next, prevPage and nextPage buttons */
@@ -437,7 +441,6 @@ a.left:active {}
 
 #box{ //upload box
     margin:auto;
-    font-family: Arial, Helvetica, sans-serif;
     color:#6d0001;
     background-color:#ededed;  
     width:540px;   
@@ -459,7 +462,6 @@ a.left:active {}
 #box h1{ 
 margin: 8px;
 font-size: 34px;
-font-family: Arial,Helvetica,sans-serif;
 color: rgb(239, 239, 239);
 text-shadow: 0px 2px 0px rgb(50, 52, 54);
 }
@@ -481,7 +483,6 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
 
 #video_container h1{
   margin-bottom:2px;
-  font-family:Arial,Helvetica,sans-serif;
   font-size:32px;
   color:#0f0f0f;  
   font-weight:normal;
@@ -500,7 +501,6 @@ text-shadow: 0px 2px 0px rgb(50, 52, 54);
   margin-top:4px;
   width:820px;
   text-align:right;
-  font-family:Arial,Helvetica,sans-serif;
   color:#0f0f0f;  
   font-size:12px;
   font-weight:normal;
@@ -520,7 +520,6 @@ color:#600001;
 
 #video_info{
   padding-top:5px;
-  font-family:Arial,Helvetica,sans-serif;
   clear:both;
   margin:auto;
   width:838px;
@@ -614,7 +613,6 @@ color:#600001;
 } 
 #vote_counter{
   display:block;
-  font-family: Arial,Helvetica,sans-serif;
   color:#6d0001;
   text-align:center;
   font-size:32px;
@@ -646,7 +644,6 @@ color:#600001;
   height:60px;
 }
 #profile h3, .leader_thumb_link{
-  font-family: Arial,Helvetica,sans-serif;
   color:#eceae1;
   font-size:12px;
   text-decoration: none;
@@ -703,7 +700,6 @@ color:#600001;
  
   float:right;
   margin:95px 12px 0 0px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size:14px;
   text-align:center;
   cursor:pointer;
@@ -738,13 +734,11 @@ color:#600001;
   width:751px;
   height:223px;
   background-color:black;
-  font-family: Arial,Helvetica,sans-serif;
   clear:both;
 }
 .leader h3{
   padding-top:10px;
   color:#990003;
-  font-family: Arial,Helvetica,sans-serif;
   font-size:2em;
   display:block;
   float:left;
@@ -780,7 +774,7 @@ color:#600001;
 }
 .leader_info p{
   padding-top:5px;
-  font-size:13px;
+  font-size:14px;
 }
 .leader_divider{
   width:1px;
@@ -807,6 +801,7 @@ color:#600001;
   color:#bab7b1;
   text-shadow:
   1px 1px 0 #FFF;
+  margin-top:5px;
 }
 .leader_videos h5{
   text-align:center;
@@ -827,6 +822,13 @@ color:#600001;
  padding-left:20px; 
  color:#3f3f3c;
  text-decoration: none
+}
+.leader ol a{
+font-weight:bold;
+ padding-left:8px; 
+}
+.leader ol a:hover{
+text-decoration:underline;
 }
 .leader li{
   margin-top:6px;
@@ -983,7 +985,6 @@ resize: none;
   left:-9999px;
 }
 .notice{
-  font-family: Arial,Helvetica,sans-serif;
   color: #fff;
   border: 1px solid;
   width:500px;
@@ -1053,7 +1054,6 @@ resize: none;
   top: 0;
   left: 0;
   background: url(upload_button.gif) left top no-repeat;
-  font-family: Arial,Helvetica,sans-serif;
 text-align:center;
   color:white;
   font-size:14px;
@@ -1072,7 +1072,6 @@ padding-top:5px;
   width: 167px;
   height: 22px;
   left: 75px;
-  font-family: Arial,Helvetica,sans-serif;
   
   font-size:16px;
   background: url(file.gif) left top no-repeat;
@@ -1086,7 +1085,6 @@ padding-top:5px;
   background-repeat: no-repeat;
   height: 56px;
   width: 203px;
-  font-family: Arial,Helvetica,sans-serif;
   text-align:center;
   color:white;
   font-size:20px;
@@ -1114,7 +1112,6 @@ width:300px;
 text-align:center;
 }
 #centered h1{
-  font-family: Arial,Helvetica,sans-serif;
   font-size:32px;
   color:rgb(96, 0, 1);
 }
@@ -1127,11 +1124,9 @@ text-align:center;
 }
 #txt{
   display:block;
-  font-family: Arial,Helvetica,sans-serif;
   margin:5px auto 5px auto;
 }
 .istyle{
-    font-family: Arial,Helvetica,sans-serif;
 
 }
 
@@ -1149,6 +1144,7 @@ text-align:center;
   -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
 }
 .istyle textarea{
+    font-family: Arial,Helvetica,sans-serif;
   clear:right;
   margin-bottom:15px;
   background-color:#600001; 
@@ -1159,7 +1155,6 @@ text-align:center;
   height:150px;
   width:350px;
     -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
-  font-family: Arial,Helvetica,sans-serif;
   resize: none; 
 
 }
@@ -1174,7 +1169,6 @@ background-color:#770b0c;
   background-repeat: no-repeat;
   height: 56px;
   width: 203px;
-  font-family: Arial,Helvetica,sans-serif;
   text-align:center;
   color:white;
   font-size:20px;
@@ -1210,7 +1204,6 @@ label.error{
   text-transform:none;
 }
 #upload_youtube .error{
-  font-family: Arial,Helvetica,sans-serif;
 }
 
 .items_rank{
@@ -1224,7 +1217,6 @@ label.error{
   height:39px;
   padding-top:8px;
   text-align:center;
-  font-family: Arial,Helvetica,sans-serif;
   color:white;
   opacity:1;
 }
@@ -1238,7 +1230,6 @@ label.error{
     width:160px;
     padding:25px;
     color:#111;
-    font-family: Arial,Helvetica,sans-serif;
   }
   .tooltip h6{
     text-align:center;
@@ -1273,7 +1264,6 @@ label.error{
   width:500px;
   margin:auto;
   color:#111;
-  font-family: Arial,Helvetica,sans-serif;
 }
 #profile_info img{
   float:right;
@@ -1341,9 +1331,7 @@ label.error{
 
   width:600px;
   height:378px;
-  font-family:Arial, Helvetica, sans-serif;
   border:0;
-      font-family: Arial, Helvetica, sans-serif;
     color:#6d0001;
   display:none;     /* place overlay on top of other elements */
    z-index:10000;     /* styling */   
