@@ -1,3 +1,8 @@
+
+
+
+<div id="scroll_container">
+ <%= whos_vid(@bank) %> 
 <!-- "previous page" action -->
 <a class="prev browse left"></a>
 
@@ -28,4 +33,6 @@
 </div>
 <div style="clear:both;">
 </div>
+</div>
+
 </div>

@@ -23,8 +23,13 @@
 				<h5>Title</h5>
 				<h6>Pts</h6>
 				<ol>
-    <% user.videos.order("points DESC").each do |video| %>
-    <li><%= link_to(vid_swap_path(:video => video.id), :method => :post, "data_type" => :js, :remote=> true, :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%><%= video.title %><% end %><span><%= video.points %>+</span></li><%end%>
+           <% user.videos.order("points DESC").each do |video| %>
+              <li><%= link_to(vid_swap_path(:video => video.id), :method => :post, "data_type" => :js, :remote=> true, 
+                   :onclick => "$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)") do%>
+                   <%= video.title %>
+                   <% end %>
+              <span><%= video.points %>+</span></li>
+         <%end%>
    
 		
 				</ol>

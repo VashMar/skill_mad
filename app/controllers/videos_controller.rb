@@ -69,9 +69,11 @@ class VideosController < InheritedResources::Base
 
    if params[:user_id] == nil
     @video_list = Video.order("points DESC").limit(15)
+    @bank = nil
    else 
     @user = User.find(params[:user_id])
     @video_list = @user.videos.order("points DESC")
+    @bank = @user.name 
    end
 
 

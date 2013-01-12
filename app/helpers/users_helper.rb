@@ -1,11 +1,11 @@
 module UsersHelper
 
 def up_user_points
-self.update_column(:points, self.points + 1)
+    self.update_column(:points, self.points + 1)
 end
 
 def down_user_points
-User.decrement_counter(:points, current_video.user)
+    User.decrement_counter(:points, current_video.user)
 end
 
 
@@ -21,19 +21,17 @@ end
 
   
 def user_vid_id(user, num)
-@user = user
-@id = @user.videos.order("points DESC")[num].id
-
-
+    @user = user
+    @id = @user.videos.order("points DESC")[num].id
 end
 
 def users_with_video
     @user_list = User.all
-users_with_videos = Array.new
+    users_with_videos = Array.new
  
-@user_list.each do |user|
-    if user.videos != nil then users_with_videos.push user end
-end
+    @user_list.each do |user|
+      if user.videos != nil then users_with_videos.push user end
+    end
     users_with_videos.order("points ASC")
 end
 
@@ -58,6 +56,15 @@ def user_yt_id(user, num)
 @user = user
 @vid = @user.videos.order("points DESC")[num]
 @youtubeid = @vid.yt_video_id
+end
+
+def whos_vid(bank)
+   @bank = bank
+   if @bank == nil
+      @bank = "Top Video's" 
+   else
+      @bank = "#{@bank}'s Videos"
+   end
 end
 
 end				 

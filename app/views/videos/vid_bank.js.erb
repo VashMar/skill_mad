@@ -1,6 +1,6 @@
 
 $('#scroll_container').html(
-"<%=escape_javascript(render('videos/scroll', video_list: @video_list))%>");
+"<%=escape_javascript(render('videos/scroll', video_list: @video_list, bank: @bank))%>");
 
 $('#scrollable').scrollable(); //allows scroller to work after swap
 

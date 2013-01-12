@@ -29,9 +29,9 @@
 	     <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video}) %>
 	</div>
 
-	<div id="scroll_container">
-	     <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list}) %>		
-       </div>
+	
+	     <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank}) %>		
+       
 	
 	<%= render 'layouts/leaderboard' %>
 	
