@@ -29,6 +29,24 @@
 
 
   $(document).ready(function(){
+  	  	$.validator.addMethod("isImage", function(value,element){
+  		
+  		var filetype = $("#form_file").val();
+  		filetype = filetype.split('.').pop();
+  		filetype = filetype.toLowerCase();
+  		switch(filetype)
+  		{
+  			case "jpg":
+  			case "jpeg":
+  			case "gif":
+  			case "png":
+  			case "bmp":
+  				return true;
+  				break;
+  			default:
+  				return false;
+  		}	
+  	}, "Wrong file type");
   	$.validator.addMethod("isWisc", function(value,element){
   		var email = $("#user_email").val();
   		if(email.substring(email.length-8) == "wisc.edu"){
@@ -55,10 +73,10 @@
   				break;
   			default:
   				return false;
-  		}
-
-  		
+  		}	
   	}, "Wrong file type");
+  	
+  	
 	$('#join').validate({
  		rules: {
   			"user[name]": {required: true, remote:"/check_name"},
@@ -75,6 +93,17 @@
   			}
   		}		
   	});
+  	$('#form_pic').validate({
+ 		rules: {
+  			"user[avatar]": {required: true, isImage:true}
+			},
+  		messages: {
+  			"user[avatar]":{
+  				required:"Please select a file",
+  				accepts:"Wrong file type"
+  			}
+  		}
+  		});
   	$('#upload_youtube').validate({
  		rules: {
   			"file": {required: true, isVideo:true}
