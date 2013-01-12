@@ -14,7 +14,7 @@ development:
   reconnect: false
   database: skillmad_development
   pool: 5
-  username: skillex
+  username: tippi
   password: 
   socket: /var/run/mysqld/mysqld.sock
 
@@ -27,8 +27,16 @@ test:
   reconnect: false
   database: skillmad_test
   pool: 5
-  username: skillex
+  username: tippi
   password:
   socket: /var/run/mysqld/mysqld.sock
 
-
+production:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: skillmad_production
+  pool: 5
+  username: tippi
+  password: 
+  socket: /var/run/mysqld/mysqld.sock

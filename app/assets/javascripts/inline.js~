@@ -4,11 +4,24 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
+	
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
 	});
 
+	$('.leader_thumb .watch').click(function(){
+				window.history.pushState({state:2}, "Video", "/?video="+$(this).attr('title'));
+				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
+
+	});
+	$('#vidswitch a').click(function(){
+		x=0
+		if($(this).index == 0)
+			x=1;
+		$("#vidswitch a.active_menu").removeClass("active_menu");
+		$(this).addClass("active_menu");$(this).addClass("active_menu");
+		});
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
 		if(par == 'leader_thumb'){
@@ -21,7 +34,7 @@
 	  
 		$.ajax({
 		  type    : 'POST',
-		  url     : "http://localhost:3000/select_user", 
+		  url     : "/select_user", 
 		  data    : { number : x },
 		 
 		});
@@ -34,7 +47,7 @@
 	  	
 		$.ajax({
 		  type    : 'POST',
-		  url     : "http://localhost:3000/select_user", 
+		  url     : "/select_user", 
 		  data    : { number : x },
 		  success : function() {
 		     $("#overlay_view_profile").overlay().load();           
@@ -60,7 +73,7 @@
 		effect: 'slide'
 	});
 	$(".tip[title]").tooltip({
-		offset: [136, 2],
+		offset: [152, 2],
 		direction: 'down',
 		effect: 'slide'
 	});
@@ -71,7 +84,11 @@
 		$('#profile_back').fadeOut('fast');
 	});
 
-    	
+    $('.share_twitter').click(function(){
+    x = $("#background_overlay iframe").attr("title");
+    y = $("#video_info h1").html();
+	window.open('https://twitter.com/intent/tweet?original_referer='+x+'&text='+y+'&tw_p=tweetbutton&url='+x, 'newwindow', 'width=500, height=400'); return false;
+    });
 
 	$('#fileinput').change( function() {
 		$('#filename').text(this.value);
@@ -106,13 +123,15 @@
  		 }).mouseleave(function(){
 		 $(this).fadeTo(200, .8);
 		 });
-
-
-  		
+$(".items_inner div img").click(function(){
+		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
+		$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)
+  	});
 		$(".scrollable").scrollable();
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){	
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+		window.history.pushState({state:1}, "Leaders Of Madison", "/"+this.hash);
 		});
 		
 		//CAPTION CAPTION!!!    
@@ -127,3 +146,6 @@
         $(this).children('.items_description').stop().fadeTo(500, 0);  
     });  
     
+
+	
+
