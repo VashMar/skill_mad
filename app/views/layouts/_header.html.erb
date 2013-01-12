@@ -53,9 +53,9 @@
 </div>
 <div class="header_link">
     <%if signed_in? %>
-        <%= link_to(new_video_path) do%>
+        <a href="#" onclick="window.open('/videos/new', 'newwindow', 'width=450, height=575, top=30, left=50'); return false;">
     	upload
-    	<% end %>
+    	</a>
        <%else%>
           
     	<a rel="#overlay_login" href="#" class="tip" title="<h6>Get Recognized!</h6>
