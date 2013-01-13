@@ -48,8 +48,16 @@
   
     <div style="clear:both"></div>
     <script>
+    
         x = $("#background_overlay iframe").attr("title");
-	window.history.pushState({state:2}, "Video", "/?video="+x);
+        y=$("#scroll_container h3").html();
+               if(y.substring(1,4)=="Top"){
+       	y="t";
+       }else{
+       	y="u";
+       }
+	window.history.pushState({state:2}, "Video", "/"+y+"/?video="+x);
+	
     $(".items_inner div img").click(function(){
 				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
   	});
