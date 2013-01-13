@@ -38,8 +38,8 @@ class VideosController < InheritedResources::Base
    end
     @user.update_attribute(:hasVideo, true)
     sign_in(@user)
-    flash[:success] = "You're video has been uploaded, you're almost a somebody! Now please wait while your content gets processed."
-    redirect_to home_path(:user_id => @user.id)
+    
+    redirect_to submitted_url
    end
 
   def destroy

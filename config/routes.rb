@@ -26,6 +26,7 @@ Skillmad::Application.routes.draw do
   match '/save', :to => 'videos#save_video'
   match '/vid_swap', :to => 'videos#vid_swap'
   match '/vid_bank', :to => 'videos#vid_bank'
+  match '/submitted', :to => 'videos#submitted'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

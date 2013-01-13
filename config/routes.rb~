@@ -8,7 +8,7 @@ Skillmad::Application.routes.draw do
     get :save_video
   end
   end
-  root :to => "user#index"
+  root :to => "users#index"
 
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'

@@ -38,8 +38,8 @@ class VideosController < InheritedResources::Base
    end
     @user.update_attribute(:hasVideo, true)
     sign_in(@user)
-    flash[:success] = "You're video has been uploaded, you're almost a somebody! Now please wait while your content gets processed."
-    redirect_to home_path(:user_id => @user.id)
+    
+    redirect_to submitted_path
    end
 
   def destroy
@@ -77,7 +77,7 @@ class VideosController < InheritedResources::Base
    end
 
 
-   if(params[:video] != nil)
+   if params[:video] != nil
     @current_video = Video.find(params[:video])
    else 
     @current_video = @video_list[0]

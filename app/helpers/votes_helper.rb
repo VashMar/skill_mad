@@ -24,8 +24,8 @@ if(Votes.find_vote(current_user.id, current_video.id)[0])
     else
     @pressed_down = "vote_arrow"
   end
-  else
-  @pressed_down = "vote_arrow"
+else
+    @pressed_down = "vote_arrow"
 end 
 end
 
