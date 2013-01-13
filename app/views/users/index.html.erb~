@@ -28,7 +28,7 @@
 	</div>
 
 	
-	     <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
+	 <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
        
 	
 	<%= render 'layouts/leaderboard' %>
@@ -40,13 +40,13 @@
 
 <div id="hover_images"> 
 
- <%= image_tag "next_hover.gif" %>
- <%= image_tag "back_hover.gif" %>
- <%= image_tag "arrow_mad_hover.gif" %>
- <%= image_tag "arrow_bad_hover.gif" %>
- <%= image_tag "button_hover.gif" %> 
- <%= image_tag "share_fb_hover.gif" %> 
- <%= image_tag "share_twitter_hover.gif" %> 
+ <%= image_tag "/assets/next_hover.gif" %>
+ <%= image_tag "/assets/back_hover.gif" %>
+ <%= image_tag "/assets/arrow_mad_hover.gif" %>
+ <%= image_tag "/assets/arrow_bad_hover.gif" %>
+ <%= image_tag "/assets/button_hover.gif" %> 
+ <%= image_tag "/assets/share_fb_hover.gif" %> 
+ <%= image_tag "/assets/share_twitter_hover.gif" %> 
 </div>
 
   
