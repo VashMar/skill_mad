@@ -7,23 +7,28 @@
 				container.innerHTML = parseInt(container.innerHTML)+vote;
 				$("#vote_bad").removeClass("pressed");
 				$("#vote_mad").addClass("pressed");
+			}else{
+				$("#vote_mad").removeClass("pressed");
+				container.innerHTML = parseInt(container.innerHTML)-1;
 			}
 			
 		}
     	function decrement()
 		{
 	
-			
+			var container = document.getElementById("vote_counter");
 			var vote=1;
 			if($("#vote_mad").hasClass("pressed")){vote++}
 			if(!($("#vote_bad").hasClass("pressed"))){
-				var container = document.getElementById("vote_counter");
 				container.innerHTML = parseInt(container.innerHTML)-vote;
 				if(container.innerHTML=="-1"){
 					container.innerHTML=0;
 				} 
 			$("#vote_mad").removeClass("pressed");
 			$("#vote_bad").addClass("pressed");
+			}else{
+				$("#vote_bad").removeClass("pressed");
+				container.innerHTML = parseInt(container.innerHTML)+1;
 			}
 		}
 
