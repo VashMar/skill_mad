@@ -2,10 +2,10 @@ module VideosHelper
 
 def top_pressed(myvid)
 
- if myvid == true 
+ if myvid == "true" || myvid == ""
   @top_pressed = ""
  else
-  @top_pressed = "menu_active"
+  @top_pressed = "active_menu"
  end
 end
 
@@ -13,11 +13,13 @@ end
 
 def my_pressed(myvid)
 
- if myvid == true
- @my_pressed = "menu_active"
+ if myvid == "true"
+    @my_pressed = "active_menu"
  else
- @my_pressed = ""
+    @my_pressed = ""
  end 
+
+ 
 end
 
 

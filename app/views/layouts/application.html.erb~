@@ -84,7 +84,7 @@
 
  </div>
  <div id="form_divider"></div>
- <%= render :partial => "user/profile_form" %>
+ <%= render :partial => "users/profile_form" %>
   </div>
   
   

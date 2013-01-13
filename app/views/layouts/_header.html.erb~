@@ -42,7 +42,7 @@
     <%end%>
 <%else%>
     <a class="active tip" rel="#overlay_login" title="<h6>Create an Account!</h6>
-    	Create an account to begin your path internet fame! ">
+    	Create an account to begin your path internet fame!">
     login</a>
 <%end%>
 	

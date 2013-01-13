@@ -77,14 +77,14 @@ class VideosController < InheritedResources::Base
    end
 
 
-   if(params[:video] != nil)
+   if params[:video] != nil
     @current_video = Video.find(params[:video])
    else 
     @current_video = @video_list[0]
    end
 
-   if params[:myVid] == true 
-    @myVid = true
+   if params[:myVid] != nil 
+    @myVid = params[:myVid]
    end
 
    respond_to do |format|
