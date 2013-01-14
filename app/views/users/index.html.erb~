@@ -1,7 +1,7 @@
 <%provide(:title, 'Home') %>
 
 
-<% @current_video = current_video %>
+<% @current_video ||= current_video %>
 
 <!DOCTYPE html >
 <head>
@@ -24,6 +24,7 @@
 
 	
 	<div id="video_container">
+             
 	     <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video}) %>
 	</div>
 

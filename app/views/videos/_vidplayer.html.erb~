@@ -31,7 +31,6 @@
  	</div>
  	<div id="video_info_right">
  
- 		
 
     <%= link_to(select_user_path(:user => @current_video.user.id),  :remote => true ) do %>
      
@@ -39,7 +38,7 @@
     <% end %>   
  		
  		<h2><%=@current_video.user.name%></h2>
- 		<h3><%=@current_video.user.major%></h3>
+ 		<h3><%=@current_video.user.skill%></h3>
  		
 
  	</div>
@@ -49,8 +48,18 @@
   
     <div style="clear:both"></div>
     <script>
+    
+        x = $("#background_overlay iframe").attr("title");
+        y=$("#scroll_container h3").html();
+               if(y.substring(1,4)=="Top"){
+       	y="t";
+       }else{
+       	y="u";
+       }
+	window.history.pushState({state:2}, "Video", "/"+y+"?video="+x);
+	
     $(".items_inner div img").click(function(){
-		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
+				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
   	});
   			$('div.items_description').each(function(){  
         $(this).css('opacity', 0);    

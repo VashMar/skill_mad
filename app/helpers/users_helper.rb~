@@ -59,12 +59,12 @@ def user_yt_id(user, num)
 end
 
 def whos_vid(bank)
-   @bank = bank
-   if @bank == nil
+    @bank = bank
+    if @bank == "Top"
       @bank = "Top Video's" 
-   else
+    else
       @bank = "#{@bank}'s Videos"
-   end
+    end
 end
 
 

@@ -1,6 +1,6 @@
 $('html,body').animate({scrollTop:$('#video_container').offset().top}, 500);
 $('#scroll_container').html(
-"<%=escape_javascript(render('videos/scroll', video_list: @video_list, bank: @bank))%>");
+"<%=escape_javascript(render('videos/scroll', video_list: @video_list, bank: @bank, myVid: @myVid))%>");
 
 $('#scrollable').scrollable(); //allows scroller to work after swap
 

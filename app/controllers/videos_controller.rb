@@ -59,6 +59,7 @@ class VideosController < InheritedResources::Base
  def vid_swap
 
  @current_video = Video.find(params[:video])
+ 
 
 	respond_to do |format|
 	format.js{}	
@@ -90,6 +91,18 @@ class VideosController < InheritedResources::Base
    respond_to do |format|
      format.js{}
    end
+ end
+
+
+ def t
+ @video = Video.find_by_yt_video_id(params[:video])
+ redirect_to home_path(:video => @video)
+ end 
+
+
+ def u
+ @video = Video.find_by_yt_video_id(params[:video])
+ redirect_to home_path(:user_id => @video.user_id, :video => @video)
  end
 
   protected

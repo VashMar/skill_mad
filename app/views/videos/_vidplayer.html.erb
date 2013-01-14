@@ -1,5 +1,5 @@
 
-
+<h3> <%= whos_vid(@bank) %> </h3>
    <div id="vote_fake">
 
    </div>
@@ -56,7 +56,7 @@
        }else{
        	y="u";
        }
-	window.history.pushState({state:2}, "Video", "/"+y+"/?video="+x);
+	window.history.pushState({state:2}, "Video", "/"+y+"?video="+x);
 	
     $(".items_inner div img").click(function(){
 				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)

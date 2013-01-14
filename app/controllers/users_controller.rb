@@ -45,16 +45,26 @@ end
  
 def index
 
-    if params[:user_id] == nil   # display top videos in scroll
+     @user_id = params[:user_id] 
+
+
+    if params[:video] != nil
+       @current_video = Video.find_by_yt_video_id(params[:video])
+       params[:u] == true ? @user_id = @current_video.user_id : @user_id = nil
+    end
+
+    if @user_id == nil   # display top videos in scroll
       @video_list = Video.order("points DESC").limit(15)
       @myVid = false
+      @bank = nil
     else
-      @user = User.find(params[:user_id]) # display video bank in scroll
+      @user = User.find(@user_id) # display video bank in scroll
       @myVid = true 
       @video_list = @user.videos 
+      @bank = @user.name
     end 
       @user_list = User.order("points DESC").where(:hasVideo => true)
-      @bank = nil
+     
    
 end
   
