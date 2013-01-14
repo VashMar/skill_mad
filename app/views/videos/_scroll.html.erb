@@ -43,15 +43,4 @@
 </div>
 
 </div>
-    <script>
-    
-        x = $("#background_overlay iframe").attr("title");
-        y=$("#scroll_container h3").html();
-       if(y.substring(1,4)=="Top"){
-       	y="t";
-       }else{
-       	y="u";
-       }
-        
-	window.history.pushState({state:2}, "Video","/"+y+"?video="+x);
-    </script>
+
