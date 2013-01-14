@@ -60,29 +60,6 @@ html {
   background-image:url(header_logo.png);
   float:left;
 }
-#header_login{
-  margin:40px 0 0 28px;
-  width:85px;
-  height:35px;
-  background-image:url(header_login.gif);
-  float:left;
-}
-
-#header_logout{
-  margin:40px 0 0 28px;
-  width:112px;
-  height:35px;
-  background-image:url(header_logout.gif);
-  float:left;
-}
-
-#header_login:hover{
-  background-image:url(header_login_hover.gif);  
-}
-
-#header_logout:hover{
-  background-image:url(header_logout_hover.gif);  
-}
 .header_link{
   margin-top:25px;
   margin-left:24px;
@@ -204,9 +181,6 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   margin-left:28px;
 }
 
-#header_upload:hover {
-  background-image: url(header_upload_hover.gif);
-}
 #leaderboard_back{
   min-width:1230px;
   border-top:1px solid #999791;
@@ -602,7 +576,7 @@ color:#600001;
 }
 .pressed{
   opacity:0.45;
-  cursor:default;
+  cursor:pointer;
   filter:alpha(opacity=45);
 }
 #vote_mad{
@@ -1280,7 +1254,6 @@ label.error{
   height:185px;
   margin-top:40px;
 }
-
 
 #profile_info h2{
   margin-top:8px;
