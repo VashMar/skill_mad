@@ -59,6 +59,7 @@ class VideosController < InheritedResources::Base
  def vid_swap
 
  @current_video = Video.find(params[:video])
+ 
 
 	respond_to do |format|
 	format.js{}	
@@ -66,7 +67,7 @@ class VideosController < InheritedResources::Base
  end
  
  def vid_bank
-
+  
    if params[:user_id] == nil
     @video_list = Video.order("points DESC").limit(15)
     @bank = nil

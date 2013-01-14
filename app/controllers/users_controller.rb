@@ -56,12 +56,12 @@ def index
     if @user_id == nil   # display top videos in scroll
       @video_list = Video.order("points DESC").limit(15)
       @myVid = false
-      @bank = nil
+      @bank = "Top Videos"
     else
       @user = User.find(@user_id) # display video bank in scroll
       @myVid = true 
       @video_list = @user.videos 
-      @bank = @user.name
+      @bank = "#{@user.name}'s Videos"
     end 
       @user_list = User.order("points DESC").where(:hasVideo => true)
      
