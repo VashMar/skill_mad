@@ -22,22 +22,7 @@
 <%= render 'layouts/header' %>
 <div id="background">
 	<div id="overlay_login" class="istyle">
-		<div id="form_login">
-	
-      <h1>Lets see those ID's kids..</h1>
-      <%=form_for(:session, :url => sessions_path, :html => { :id => 'login' }) do |f| %>
-
-      <%= f.label :email, "Email" %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password, "Password" %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "login", :class => "button" %>
-      <%end%>
-   		 </div>
-    <div id="form_divider"></div>
-    <div id="form_join">
+		<div id="form_join">
     
    <h1>Sign up! UW Students Only.</h1>
  

@@ -9,6 +9,11 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
+	$('#sign_in input#session_email').click(function(){
+		if ($(this).val() == "email"){
+			$(this).val("");
+		}
+	});
 	$('#header_leaders a').click(function(){
 		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
 	});
