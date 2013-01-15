@@ -25,7 +25,7 @@
 	
 	<div id="video_container">
              
-	     <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video}) %>
+	     <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
 	</div>
 
 	

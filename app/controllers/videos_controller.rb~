@@ -59,7 +59,7 @@ class VideosController < InheritedResources::Base
  def vid_swap
 
  @current_video = Video.find(params[:video])
- 
+ @bank = params[:bank]
 
 	respond_to do |format|
 	format.js{}	
@@ -70,11 +70,11 @@ class VideosController < InheritedResources::Base
   
    if params[:user_id] == nil
     @video_list = Video.order("points DESC").limit(15)
-    @bank = nil
+    @bank = "Top Videos"
    else 
     @user = User.find(params[:user_id])
     @video_list = @user.videos.order("points DESC")
-    @bank = @user.name 
+    @bank = "#{@user.name}'s Videos" 
    end
 
 
@@ -93,17 +93,6 @@ class VideosController < InheritedResources::Base
    end
  end
 
-
- def t
- @video = Video.find_by_yt_video_id(params[:video])
- redirect_to home_path(:video => @video)
- end 
-
-
- def u
- @video = Video.find_by_yt_video_id(params[:video])
- redirect_to home_path(:user_id => @video.user_id, :video => @video)
- end
 
   protected
     def collection
