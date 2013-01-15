@@ -10,7 +10,12 @@
 		'visibility': 'visible'
 	});
 	$('#sign_in input#session_email').click(function(){
-		if ($(this).val() == "email"){
+		if ($(this).val() == "wiscmail"){
+			$(this).val("");
+		}
+	});
+	$('#sign_in input#session_password').click(function(){
+		if ($(this).val() == "password"){
 			$(this).val("");
 		}
 	});
@@ -142,6 +147,7 @@
         $(this).css('display', 'block');  
     });  
   
+
     $('.items div').hover(function(){  
         $(this).children('.items_description').stop().fadeTo(500, 0.7);  
     },function(){  
