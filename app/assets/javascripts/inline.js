@@ -20,7 +20,7 @@
 		}
 	});
 	$('#header_leaders a').click(function(){
-		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
+		window.history.replaceState({state:2}, "Leaders Of Madison", "/"+this.hash);
 	});
 	$('#backtotop a').click(function(){
 		window.history.pushState({state:2}, "Home", "/"+this.hash);
