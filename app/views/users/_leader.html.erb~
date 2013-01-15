@@ -11,10 +11,10 @@
 
 		
 			<div class="leader_info">
-			<h1><%=user.name%></h1>
-			<h2><%=user.major%></h2>	
+			<h1><%= user.name %></h1>
+			<h2><%= user.major %></h2>	
 			<p>
-			<%=user.about%>	
+			<%= user.about %>	
 			</p>
 			</div>
 			<div class="leader_divider"></div>
@@ -24,7 +24,7 @@
 				<h6>Pts</h6>
 				<ol>
            <% user.videos.order("points DESC").each do |video| %>
-              <li><%= link_to(vid_swap_path(:video => video.id, :bank => @bank), :method => :post, "data_type" => :js, :remote=> true) do%>
+              <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), :method => :post, "data_type" => :js, :remote=> true) do%>
                    <%= video.title %>
                    <% end %>
               <span><%= video.points %>+</span></li>

@@ -14,8 +14,16 @@ def add_vote
 	@vote.save
 	@owner.update_column(:points, @owner.points + 1) #increment video creator points
   	@video.increment!(:points) #increment video's points
+
+
+  elsif @vote.voted_up #video was previously voted up_user_points 
+        @vote.delete
+        if(@video.points > 0)
+	   @owner.update_column(:points, @owner.points - 1) #decrement by 1 to account for 1 of previous vote_up
+  	   @video.update_column(:points, @video.points - 1)
+       end
   
-  elsif @vote.voted_down #video was previously voted down
+  else  #video was previously voted down
 	@vote.voted_down = false # remove vote_down flag
 	@vote.voted_up = true # set vote_up flag
 	@vote.save
@@ -30,11 +38,7 @@ def add_vote
 
 
 
-  respond_to do |format|
-    format.js
-    format.html{redirect_to home_path}
-  end
-
+ render :nothing => true
 
 end 
 
@@ -56,7 +60,14 @@ def remove_vote
   	@video.decrement!(:points)
 	end
 
-  elsif @vote.voted_up
+
+  elsif @vote.voted_down #video was previously voted down_user_points 
+        @vote.delete
+	@owner.update_column(:points, @owner.points + 1) #increment by 1 to account for 1 of previous vote_up
+  	@video.update_column(:points, @video.points + 1)
+  
+
+  else 
 	@vote.voted_up = false # remove vote_up flag
 	@vote.voted_down = true # set vote_down flag
 	@vote.save 
@@ -72,11 +83,7 @@ def remove_vote
    end
 	
 
-  respond_to do |format|
-    format.js
-     format.html{redirect_to home_path}
-  end
-
+   render :none
 
 end  
 
