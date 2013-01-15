@@ -24,12 +24,11 @@
 
 	
 	<div id="video_container">
-             
-	     <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
+        <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
 	</div>
 
 	
-	 <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
+	<%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
        
 	
 	<%= render 'layouts/leaderboard' %>

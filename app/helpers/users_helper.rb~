@@ -58,14 +58,6 @@ def user_yt_id(user, num)
     @youtubeid = @vid.yt_video_id
 end
 
-def whos_vid(bank)
-    @bank = bank
-    if @bank == "Top"
-      @bank = "Top Video's" 
-    else
-      @bank = "#{@bank}'s Videos"
-    end
-end
 
 
 
