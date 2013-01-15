@@ -72,10 +72,10 @@ def remove_vote
 	@vote.voted_down = true # set vote_down flag
 	@vote.save 
         if(@video.points != 0) #don't decrement below 0
-           if(@video.points != 1)
+            if(@video.points != 1)
 	      @owner.update_column(:points, @owner.points - 2) #decrement by 2 to account for +1 of previous vote_up
   	      @video.update_column(:points, @video.points - 2)
-           else
+            else
               @owner.update_column(:points, @owner.points - 1) #decrement by 1 to account for 1 of previous vote_up
   	      @video.update_column(:points, @video.points - 1)
            end
@@ -83,7 +83,7 @@ def remove_vote
    end
 	
 
-   render :none
+   render :nothing => true
 
 end  
 

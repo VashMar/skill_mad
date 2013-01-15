@@ -9,7 +9,8 @@ Skillmad::Application.routes.draw do
   end
   end
   root :to => "users#index"
-
+  
+  match '/request_leaderboard', :to => 'application#request_leaderboard'
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'

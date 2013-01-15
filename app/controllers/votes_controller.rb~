@@ -38,7 +38,7 @@ def add_vote
 
 
 
- render :none
+ render :nothing => true
 
 end 
 

@@ -9,7 +9,8 @@ Skillmad::Application.routes.draw do
   end
   end
   root :to => "users#index"
-
+  
+  match '/leaderboard_request', :to => 'application#request_leaderboard'
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'
@@ -27,7 +28,7 @@ Skillmad::Application.routes.draw do
   match '/vid_swap', :to => 'videos#vid_swap'
   match '/vid_bank', :to => 'videos#vid_bank'
   match '/submitted', :to => 'videos#submitted'
-  match '/t', :to =>  'users#index', :user_id => nil 
+  match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
 
   # The priority is based upon order of creation:

@@ -11,7 +11,7 @@
   <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
   <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations"    %>
-  <%= javascript_include_tag "jquery.ba-hashchange.min.js"  %>
+
   <%= javascript_include_tag "waypoints.min"  %>
 
 </head>
@@ -76,17 +76,11 @@
   
   <div id="overlay_request">
   	 <h1>Request Leaderboard</h1>
-  	  <%= form_for(:user, :url => sessions_path, :html => { :id => 'form_request' , :class => 'istyle'} ) do |f| %>
-
- 
- <%= f.label :name, "Leaderboard Name" %>
- <%= f.text_field :name %>
- <%= f.label :name, "Leaderboard Description" %>
- <%= f.text_area :name %>
-
-
- 
- <%= f.submit "submit", :class => "button" %>
+  	  
+ <%= form_tag(request_leaderboard_path, :html => { :id => 'form_request' , :class => 'istyle'} ) do  %>
+ <%= text_field_tag "leaderboard_name", "Name" %>
+ <%= text_area_tag "leaderboard_description", "Description" %>
+ <%= submit_tag "submit", :class => "button" %>
  <% end %>
   </div>
   
