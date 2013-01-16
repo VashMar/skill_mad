@@ -25,13 +25,6 @@
 	$('#backtotop a').click(function(){
 		window.history.pushState({state:2}, "Home", "/"+this.hash);
 	});
-	$('#vidswitch a').click(function(){
-		x=0
-		if($(this).index == 0)
-			x=1;
-		$("#vidswitch a.active_menu").removeClass("active_menu");
-		$(this).addClass("active_menu");$(this).addClass("active_menu");
-		});
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
 		if(par == 'leader_thumb'){

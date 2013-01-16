@@ -64,7 +64,8 @@
     	</a>
     	   <%end%>
     	
-    </div>
+   </div>
+   <%if !signed_in? %>
     <div id="sign_in">
           <%=form_for(:session, :url => sessions_path) do |f| %>
 
@@ -73,5 +74,6 @@
     	<%= f.submit "login", :id => "button", :value => ">>" %>
      	<%end%>
     </div>
+    <%end%>
 </div>
 </div>
