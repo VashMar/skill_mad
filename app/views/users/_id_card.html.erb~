@@ -1,6 +1,7 @@
 
 <div id="overlay_view_profile">
   <div id="profile_videos">
+ 
   <h1>Top Videos</h1>
   <ul>
   
@@ -18,9 +19,8 @@
   <%=image_tag @selected_user.avatar.url(:large)%>
   </div>
   <h2><%= @selected_user.name  %></h2>
-  <h3><%= @selected_user.major %></h3>
   <h3><%= @selected_user.year  %></h3>
-  <h5> Reputation : <%= user_rep(@selected_user) %> </h5>
+  <h4> <%= "Repuatation: #{user_rep(@selected_user)}"%> <%= "[#{@selected_user.points}]"%> </h4>
   <h4><%= @selected_user.skill %></h4>
   
 </div>

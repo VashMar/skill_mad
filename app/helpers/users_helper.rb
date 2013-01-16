@@ -67,9 +67,9 @@ case @points
 when 0
 "A nobody"
 when 1...25
-"Waiting to be noticed"
+"Keg Filler"
 when 26...50
-"Party Favorite"
+"Life of the Party"
 when 51...75
 "About to blow up"
 when 75...300
@@ -77,7 +77,7 @@ when 75...300
 when 300..500
 "Mastered it"
 else
-"Madtown Elite"
+"Madtowns Finest"
 end 
 end
 
