@@ -50,8 +50,9 @@
     <script>
     
         x = $("#background_overlay iframe").attr("title");
-        y=$("#video_container h3").html();
-               if(y.substring(1,4)=="Top"){
+        y=$("#video_container h3").html().substring(1,4);
+
+               if(y=="Top" | y=="New"){
        	y="t";
        }else{
        	y="u";
