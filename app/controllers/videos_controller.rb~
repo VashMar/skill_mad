@@ -92,7 +92,7 @@ class VideosController < InheritedResources::Base
    if params[:myVid] != nil 
     @myVid = params[:myVid]
    else 
-    @new= true 
+    @new = true 
    end
 
   

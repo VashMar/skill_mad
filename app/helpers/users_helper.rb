@@ -58,7 +58,28 @@ def user_yt_id(user, num)
     @youtubeid = @vid.yt_video_id
 end
 
+def user_rep(user)
 
+@user = user 
+
+@points = @user.points 
+case @points 
+when 0
+"A nobody"
+when 1...25
+"Waiting to be noticed"
+when 26...50
+"Party Favorite"
+when 51...75
+"About to blow up"
+when 75...300
+"Made it"
+when 300..500
+"Mastered it"
+else
+"Madtown Elite"
+end 
+end
 
 
 
