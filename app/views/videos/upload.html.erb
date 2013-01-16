@@ -16,11 +16,11 @@
 <div id="wrapper">
 	<span  id="browse">browse</span>
 	<span id="filename">no file selected</span>
-	<%= form_tag @upload_info[:url], :id=>"upload_youtube", :multipart => true do %>
+    <%= form_tag @upload_info[:url], :id=>"upload_youtube", :multipart => true do %>
     <%= hidden_field_tag :token, @upload_info[:token] %>
     <%= file_field_tag :file, {:id => "fileinput"} %>
-   	<%= submit_tag "Upload Video", {:class => "button", :onsubmit => "loadText()"} %>
-	<% end %>
+    <%= submit_tag "Upload Video", {:class => "button", :onsubmit => "loadText()"} %>
+    <% end %>
 </div>
 </div>
 </div>

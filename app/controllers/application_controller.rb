@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
   
   def request_leaderboard
-  UserMailer.leaderboard_email(params[:leaderboard_name], params[:leaderboard_description]).deliver
-  flash[:success]= "Thank's for adding to the madness! We'll be in touch." 
-  redirect_to home_url
+      UserMailer.leaderboard_email(params[:leaderboard_name], params[:leaderboard_description]).deliver
+      flash[:success]= "Thank's for adding to the madness! We'll be in touch." 
+      redirect_to home_url
   end
 
 end

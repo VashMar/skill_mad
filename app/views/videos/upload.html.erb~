@@ -1,35 +1,26 @@
+<style>
+	#header{
+		display:none;
+	}
+
+</style>
 <div id="centered">
+	<h1>Select your file</h1>
 <div id="animation">
 	
 <%= image_tag("animation.gif")%>
 <br/>
 <span id="txt" ></span>
-<script>
-var loading = ["pregaming for midterms...", "spotting tunnel bob...", "bonging a beer with the cops...", "chasing piccalo pete...", "throwing up in mendota...", "writing in grout...", "teaching the gophers how to bucky...", "teaching the spartans how to bucky..", "pretending not to look at those people holding clipboards by east campus mall..", "trying to find a table at college library on a sunday...", "trying to find a table with an outlet on any night...", "being told that the tests will look just like what we covered in class...", "not going to miffin...", "" ];
-var n=1;
-var txt=document.getElementById("txt");
-var load = "pregaming for midterms...";
-txt.innerHTML=load;
-function loadText()
-{
-	setInterval(function(){
-		var load = loading[n];
-		txt.innerHTML=load;
-		if(n<5){
-		n++;
-		}
-	},3000);
-}
-</script>
+
 </div>
 <div id="wrapper">
 	<span  id="browse">browse</span>
 	<span id="filename">no file selected</span>
-	      <%= form_tag @upload_info[:url], :multipart => true do %>
-        <%= hidden_field_tag :token, @upload_info[:token] %>
-        <%= file_field_tag :file, {:id => "fileinput"} %>
-   	<%= submit_tag "Upload Video", {:class => "button", :onclick => "loadText()"} %>
-<% end %>
+    <%= form_tag @upload_info[:url], :id=>"upload_youtube", :multipart => true do %>
+    <%= hidden_field_tag :token, @upload_info[:token] %>
+    <%= file_field_tag :file, {:id => "fileinput"} %>
+    <%= submit_tag "Upload Video", {:class => "button", :onsubmit => "loadText()"} %>
+    <% end %>
 </div>
 </div>
 </div>

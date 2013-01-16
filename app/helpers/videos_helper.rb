@@ -22,5 +22,14 @@ def my_pressed(myvid)
  
 end
 
+def new_pressed(n)
+ 
+ if n == true
+   @new = "active_menu"
+ else
+   @new = ""
+ end
+
+end
 
 end
