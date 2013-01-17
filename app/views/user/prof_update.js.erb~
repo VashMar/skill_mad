@@ -1,6 +1,0 @@
-if("<%=escape_javascript(@valid)%>"){
-alert("Changes Saved!");
-}
-else{
-alert("Invalid change");
-}

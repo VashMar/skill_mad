@@ -1363,6 +1363,7 @@ label.error{
     background-color:transparent;
 }
 #overlay_view_profile h2, #overlay_view_profile h3, #overlay_view_profile h4{
+  color:black;
   float:right;
   clear:right;
   display:block;
@@ -1375,10 +1376,12 @@ label.error{
   font-size:28px;
 }
 #overlay_view_profile h3{
-  font-size:24px;
-  color:#6b0001;
+  font-size:18px;
+  font-weight:normal;
+  
 }
 #overlay_view_profile h4{
+  font-weight:normal;
   width:275px;
   margin:10px 14px 0 0;
   font-size:18px;
