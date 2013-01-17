@@ -45,7 +45,7 @@ end
  
 def index
 
-     @user_id = params[:user_id] 
+    @user_id = params[:user_id] 
 
 
     if params[:video] != nil
@@ -64,7 +64,7 @@ def index
       @bank = "#{@user.name}'s Videos"
     end 
       @user_list = User.order("points DESC").where(:hasVideo => true)
-      
+      @new = false 
    
 end
   

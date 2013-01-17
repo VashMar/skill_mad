@@ -15,5 +15,10 @@ class UserMailer < ActionMailer::Base
 
  end
 
+ def contact_email(email, message)
+  @email = email
+  @message = message
+  mail(:to => "management@skillmad.com", :subject =>  "Message from #{@email} ", :from => "welcome@skillmad.com")
+
 
 end

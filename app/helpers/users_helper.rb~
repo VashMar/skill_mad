@@ -77,7 +77,7 @@ when 75...300
 when 300..500
 "Mastered it"
 else
-"Madtown Elite"
+"Madtowns Finest"
 end 
 end
 

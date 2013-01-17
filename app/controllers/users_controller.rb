@@ -45,7 +45,7 @@ end
  
 def index
 
-     @user_id = params[:user_id] 
+    @user_id = params[:user_id] 
 
 
     if params[:video] != nil
