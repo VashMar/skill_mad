@@ -1,0 +1,2058 @@
+commit 84ea43f2a6e4cf55bbe3e632cb89803a655cfd70
+Author: Vash Marada <skillex@ubuntu.(none)>
+Date:   Sun Jan 13 16:54:58 2013 -0600
+
+    precompile fix
+
+diff --git a/app/views/users/index.html.erb b/app/views/users/index.html.erb
+index 480dfa4..90d5811 100644
+--- a/app/views/users/index.html.erb
++++ b/app/views/users/index.html.erb
+@@ -40,13 +40,13 @@
+ 
+ <div id="hover_images"> 
+ 
+- <%= image_tag "next_hover.gif" %>
+- <%= image_tag "back_hover.gif" %>
+- <%= image_tag "arrow_mad_hover.gif" %>
+- <%= image_tag "arrow_bad_hover.gif" %>
+- <%= image_tag "button_hover.gif" %> 
+- <%= image_tag "share_fb_hover.gif" %> 
+- <%= image_tag "share_twitter_hover.gif" %> 
++ <%= image_tag "/assets/next_hover.gif" %>
++ <%= image_tag "/assets/back_hover.gif" %>
++ <%= image_tag "/assets/arrow_mad_hover.gif" %>
++ <%= image_tag "/assets/arrow_bad_hover.gif" %>
++ <%= image_tag "/assets/button_hover.gif" %> 
++ <%= image_tag "/assets/share_fb_hover.gif" %> 
++ <%= image_tag "/assets/share_twitter_hover.gif" %> 
+ </div>
+ 
+   
+diff --git a/app/views/users/index.html.erb~ b/app/views/users/index.html.erb~
+index bf2e266..90d5811 100644
+--- a/app/views/users/index.html.erb~
++++ b/app/views/users/index.html.erb~
+@@ -28,7 +28,7 @@
+ 	</div>
+ 
+ 	
+-	     <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
++	 <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
+        
+ 	
+ 	<%= render 'layouts/leaderboard' %>
+@@ -40,13 +40,13 @@
+ 
+ <div id="hover_images"> 
+ 
+- <%= image_tag "next_hover.gif" %>
+- <%= image_tag "back_hover.gif" %>
+- <%= image_tag "arrow_mad_hover.gif" %>
+- <%= image_tag "arrow_bad_hover.gif" %>
+- <%= image_tag "button_hover.gif" %> 
+- <%= image_tag "share_fb_hover.gif" %> 
+- <%= image_tag "share_twitter_hover.gif" %> 
++ <%= image_tag "/assets/next_hover.gif" %>
++ <%= image_tag "/assets/back_hover.gif" %>
++ <%= image_tag "/assets/arrow_mad_hover.gif" %>
++ <%= image_tag "/assets/arrow_bad_hover.gif" %>
++ <%= image_tag "/assets/button_hover.gif" %> 
++ <%= image_tag "/assets/share_fb_hover.gif" %> 
++ <%= image_tag "/assets/share_twitter_hover.gif" %> 
+ </div>
+ 
+   
+diff --git a/log/development.log b/log/development.log
+index bbe2338..d7307b7 100644
+--- a/log/development.log
++++ b/log/development.log
+@@ -116059,3 +116059,1225 @@ Compiled sessions.css  (5ms)  (pid 23115)
+ Compiled user.css  (0ms)  (pid 23115)
+ Compiled videos.css  (0ms)  (pid 23115)
+ Compiled application.css  (281ms)  (pid 23115)
++
++
++Started GET "/vid_bank?myVid=false" for 127.0.0.1 at 2013-01-13 14:34:51 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"false"}
++  [1m[36mVideo Load (0.6ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.9ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.2ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.8ms)
++  Rendered videos/_scroll.html.erb (12.0ms)
++  [1m[36mVotes Load (0.3ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (3.2ms)
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (23.7ms)
++  Rendered videos/vid_bank.js.erb (37.4ms)
++Completed 200 OK in 43ms (Views: 38.6ms | ActiveRecord: 1.5ms)
++
++
++Started GET "/vid_bank?myVid=false" for 127.0.0.1 at 2013-01-13 14:34:51 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"false"}
++  [1m[35mVideo Load (5.8ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
++  [1m[36mUser Load (7.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.8ms)
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (8.2ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.1ms)
++  Rendered videos/_scroll.html.erb (31.3ms)
++  [1m[35mVotes Load (6.8ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (9.4ms)
++  [1m[35mUser Load (5.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (19.7ms)
++  Rendered videos/vid_bank.js.erb (52.8ms)
++Completed 200 OK in 62ms (Views: 35.1ms | ActiveRecord: 25.0ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=1" for 127.0.0.1 at 2013-01-13 14:35:52 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"1"}
++  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
++  [1m[35mVideo Load (2.9ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_video_thumbs.html.erb (1.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_inner_thumb_set.html.erb (8.8ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.6ms)
++  Rendered videos/_scroll.html.erb (15.6ms)
++  [1m[35mVotes Load (0.3ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (2.6ms)
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (6.0ms)
++  Rendered videos/vid_bank.js.erb (23.0ms)
++Completed 200 OK in 33ms (Views: 21.4ms | ActiveRecord: 8.8ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=1" for 127.0.0.1 at 2013-01-13 14:35:52 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"1"}
++  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
++  [1m[35mVideo Load (6.1ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (8.9ms)
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_inner_thumb_set.html.erb (11.8ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.0ms)
++  Rendered videos/_scroll.html.erb (17.4ms)
++  [1m[35mVotes Load (4.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (7.5ms)
++  [1m[35mUser Load (4.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (15.4ms)
++  Rendered videos/vid_bank.js.erb (43.4ms)
++Completed 200 OK in 57ms (Views: 34.3ms | ActiveRecord: 19.8ms)
++
++
++Started GET "/vid_bank?myVid=false" for 127.0.0.1 at 2013-01-13 14:36:10 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"false"}
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.8ms)
++  Rendered videos/_scroll.html.erb (10.5ms)
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (2.2ms)
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (5.1ms)
++  Rendered videos/vid_bank.js.erb (17.1ms)
++Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.9ms)
++
++
++Started GET "/home" for 127.0.0.1 at 2013-01-13 14:36:12 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (1.9ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (9.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (2.4ms)
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (6.7ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  Rendered videos/_video_thumbs.html.erb (1.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.6ms)
++  Rendered videos/_scroll.html.erb (11.0ms)
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (3.3ms)
++  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (4.3ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (3.4ms)
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.6ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_leader.html.erb (3.0ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.2ms)
++  Rendered layouts/_footer.html.erb (0.4ms)
++  Rendered layouts/_leaderboard.html.erb (27.7ms)
++  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5
++  Rendered users/_id_card.html.erb (3.2ms)
++  Rendered users/index.html.erb within layouts/application (125.4ms)
++  Rendered layouts/_header.html.erb (6.7ms)
++  Rendered users/_profile_form.html.erb (1.0ms)
++Completed 200 OK in 196ms (Views: 180.6ms | ActiveRecord: 14.5ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /custom.css - 304 Not Modified (3ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /jquery.js - 304 Not Modified (9ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 14:36:13 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (0ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=1" for 127.0.0.1 at 2013-01-13 14:43:33 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"1"}
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (4.9ms)
++  Rendered videos/_video_thumbs.html.erb (1.6ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (8.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (0.8ms)
++  Rendered videos/_scroll.html.erb (11.9ms)
++  [1m[35mVotes Load (0.3ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (3.3ms)
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (7.0ms)
++  Rendered videos/vid_bank.js.erb (20.5ms)
++Completed 200 OK in 26ms (Views: 21.4ms | ActiveRecord: 1.3ms)
++
++
++Started POST "/vid_bank?user_id=2" for 127.0.0.1 at 2013-01-13 14:43:36 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"user_id"=>"2"}
++  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  [1m[36mUser Load (3.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.0ms)
++  Rendered videos/_scroll.html.erb (7.5ms)
++  [1m[35mVotes Load (1.3ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 8)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 8)[0m
++  Rendered videos/_voter.html.erb (8.9ms)
++  [1m[35mUser Load (4.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (21.9ms)
++  Rendered videos/vid_bank.js.erb (30.7ms)
++Completed 200 OK in 38ms (Views: 23.1ms | ActiveRecord: 12.2ms)
++
++
++Started POST "/vid_bank?user_id=2" for 127.0.0.1 at 2013-01-13 14:43:37 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"user_id"=>"2"}
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.1ms)
++  Rendered videos/_scroll.html.erb (8.5ms)
++  [1m[35mVotes Load (6.5ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 8)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 8)[0m
++  Rendered videos/_voter.html.erb (8.3ms)
++  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (18.9ms)
++  Rendered videos/vid_bank.js.erb (29.6ms)
++Completed 200 OK in 41ms (Views: 18.6ms | ActiveRecord: 13.1ms)
++
++
++Started GET "/vid_bank?myVid=false" for 127.0.0.1 at 2013-01-13 14:43:49 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"false"}
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.5ms)
++  Rendered videos/_scroll.html.erb (9.2ms)
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (2.2ms)
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (5.2ms)
++  Rendered videos/vid_bank.js.erb (15.9ms)
++Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.9ms)
++
++
++Started GET "/videos/new" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Processing by VideosController#new as HTML
++  Rendered videos/new.html.erb within layouts/application (2.5ms)
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  Rendered layouts/_header.html.erb (6.9ms)
++  Rendered users/_profile_form.html.erb (1.2ms)
++Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.4ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /jquery.js - 304 Not Modified (7ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 14:44:16 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (0ms)
++
++
++Started POST "/vid_swap?video=3" for 127.0.0.1 at 2013-01-13 14:47:53 -0600
++Processing by VideosController#vid_swap as JS
++  Parameters: {"video"=>"3"}
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", "3"]]
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
++  Rendered videos/_voter.html.erb (2.5ms)
++  [1m[36mUser Load (5.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (13.1ms)
++  Rendered videos/vid_swap.js.erb (14.6ms)
++Completed 200 OK in 29ms (Views: 16.8ms | ActiveRecord: 5.8ms)
++
++
++Started POST "/vid_swap?video=3" for 127.0.0.1 at 2013-01-13 14:47:53 -0600
++Processing by VideosController#vid_swap as JS
++  Parameters: {"video"=>"3"}
++  [1m[35mVideo Load (3.9ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1  [["id", "3"]]
++  [1m[36mUser Load (5.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 3)[0m
++  Rendered videos/_voter.html.erb (2.8ms)
++  [1m[35mUser Load (3.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (16.6ms)
++  Rendered videos/vid_swap.js.erb (17.5ms)
++Completed 200 OK in 24ms (Views: 9.2ms | ActiveRecord: 13.7ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=1" for 127.0.0.1 at 2013-01-13 14:48:49 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"1"}
++  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered videos/_video_thumbs.html.erb (0.8ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.9ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (0.9ms)
++  Rendered videos/_scroll.html.erb (6.3ms)
++  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (2.1ms)
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (5.1ms)
++  Rendered videos/vid_bank.js.erb (13.0ms)
++Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 1.8ms)
++
++
++Started GET "/vid_bank?myVid=false" for 127.0.0.1 at 2013-01-13 15:02:34 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"false"}
++  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.8ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (4.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (7.0ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.4ms)
++  Rendered videos/_video_thumbs.html.erb (2.0ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.4ms)
++  Rendered videos/_scroll.html.erb (17.0ms)
++  [1m[36mVotes Load (0.3ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (7.3ms)
++  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (11.7ms)
++  Rendered videos/vid_bank.js.erb (30.8ms)
++Completed 200 OK in 41ms (Views: 32.2ms | ActiveRecord: 2.1ms)
++
++
++Started GET "/destroy" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Processing by SessionsController#destroy as HTML
++Redirected to http://localhost:3000/home
++Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
++
++
++Started GET "/home" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (3.9ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
++  Rendered videos/_video_thumbs.html.erb (1.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.6ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (2.0ms)
++  Rendered videos/_inner_thumb_set.html.erb (6.7ms)
++  Rendered videos/_scroll.html.erb (15.4ms)
++  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (3.4ms)
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (2.9ms)
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (3.3ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_leader.html.erb (3.5ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.2ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_leader.html.erb (2.9ms)
++  Rendered layouts/_footer.html.erb (0.6ms)
++  Rendered layouts/_leaderboard.html.erb (26.3ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5[0m
++  Rendered users/_id_card.html.erb (2.3ms)
++  Rendered users/index.html.erb within layouts/application (52.8ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered layouts/_header.html.erb (1.8ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered users/_profile_form.html.erb (0.3ms)
++Completed 200 OK in 69ms (Views: 65.3ms | ActiveRecord: 2.9ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /jquery.js - 304 Not Modified (4ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 15:13:14 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (2ms)
++
++
++Started GET "/" for 127.0.0.1 at 2013-01-13 16:12:31 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (102.9ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
++  Rendered videos/_video_thumbs.html.erb (1.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (5.9ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.7ms)
++  Rendered videos/_scroll.html.erb (12.8ms)
++  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (7.9ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (8.5ms)
++  [1m[35mVideo Load (0.5ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (7.6ms)
++  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_leader.html.erb (5.9ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.3ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_leader.html.erb (5.2ms)
++  Rendered layouts/_footer.html.erb (0.4ms)
++  Rendered layouts/_leaderboard.html.erb (45.2ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5[0m
++  Rendered users/_id_card.html.erb (2.3ms)
++  Rendered users/index.html.erb within layouts/application (223.4ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered layouts/_header.html.erb (1.8ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered users/_profile_form.html.erb (0.4ms)
++Completed 200 OK in 266ms (Views: 241.2ms | ActiveRecord: 10.8ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /jquery.js - 304 Not Modified (14ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:12:32 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (2ms)
++
++
++Started GET "/verify?session%5Bpassword%5D=[FILTERED]&session%5Bemail%5D=abberger2%40wisc.edu" for 127.0.0.1 at 2013-01-13 16:17:13 -0600
++Processing by SessionsController#verify as JSON
++  Parameters: {"session"=>{"password"=>"[FILTERED]", "email"=>"abberger2@wisc.edu"}}
++  [1m[35mUser Load (3.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1
++Completed 200 OK in 161ms (Views: 0.2ms | ActiveRecord: 3.0ms)
++
++
++Started POST "/sessions" for 127.0.0.1 at 2013-01-13 16:17:13 -0600
++Processing by SessionsController#create as HTML
++  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fyf6ryhaEQtgMj3LzIJivakZ4ysvOc3epUJudlCPHg0=", "session"=>{"email"=>"abberger2@wisc.edu", "password"=>"[FILTERED]"}}
++  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'abberger2@wisc.edu' LIMIT 1[0m
++Redirected to http://localhost:3000/home
++Completed 302 Found in 111ms (ActiveRecord: 0.4ms)
++
++
++Started GET "/home" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (1.6ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 1 AND video_id = 4)
++  Rendered videos/_voter.html.erb (71.0ms)
++  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (75.2ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  Rendered videos/_video_thumbs.html.erb (1.2ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.5ms)
++  Rendered videos/_scroll.html.erb (9.5ms)
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (6.5ms)
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (5.0ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (3.1ms)
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.7ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_leader.html.erb (2.7ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (2.7ms)
++  Rendered layouts/_footer.html.erb (0.3ms)
++  Rendered layouts/_leaderboard.html.erb (28.9ms)
++  [1m[35mVideo Load (1.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5
++  Rendered users/_id_card.html.erb (4.2ms)
++  Rendered users/index.html.erb within layouts/application (127.2ms)
++  Rendered layouts/_header.html.erb (1.8ms)
++  Rendered users/_profile_form.html.erb (1.3ms)
++Completed 200 OK in 143ms (Views: 134.8ms | ActiveRecord: 7.4ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /jquery.js - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:14 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (2ms)
++
++
++Started GET "/videos/new" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Processing by VideosController#new as HTML
++  Rendered videos/new.html.erb within layouts/application (4.9ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '13230090717ba4662ad60a0e42cf8e4d' LIMIT 1[0m
++  Rendered layouts/_header.html.erb (2.5ms)
++  Rendered users/_profile_form.html.erb (1.1ms)
++Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.3ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /jquery.js - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:17 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (6ms)
++
++
++Started GET "/destroy" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Processing by SessionsController#destroy as HTML
++Redirected to http://localhost:3000/home
++Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
++
++
++Started GET "/home" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (0.9ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (57.3ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
++  Rendered videos/_video_thumbs.html.erb (1.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.4ms)
++  Rendered videos/_video_thumbs.html.erb (1.7ms)
++  Rendered videos/_video_thumbs.html.erb (1.0ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (4.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.5ms)
++  Rendered videos/_scroll.html.erb (15.6ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (3.2ms)
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (2.7ms)
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (3.3ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_leader.html.erb (3.3ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (2.7ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_leader.html.erb (2.8ms)
++  Rendered layouts/_footer.html.erb (6.7ms)
++  Rendered layouts/_leaderboard.html.erb (29.9ms)
++  [1m[36mVideo Load (3.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5[0m
++  Rendered users/_id_card.html.erb (7.4ms)
++  Rendered users/index.html.erb within layouts/application (116.2ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered layouts/_header.html.erb (4.3ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
++  Rendered users/_profile_form.html.erb (0.4ms)
++Completed 200 OK in 159ms (Views: 149.5ms | ActiveRecord: 8.4ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /jquery.js - 304 Not Modified (15ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:24 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (8ms)
++
++
++Started GET "/verify?session%5Bpassword%5D=[FILTERED]&session%5Bemail%5D=marada%40wisc.edu" for 127.0.0.1 at 2013-01-13 16:17:33 -0600
++Processing by SessionsController#verify as JSON
++  Parameters: {"session"=>{"password"=>"[FILTERED]", "email"=>"marada@wisc.edu"}}
++  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'marada@wisc.edu' LIMIT 1
++Completed 200 OK in 146ms (Views: 0.2ms | ActiveRecord: 2.7ms)
++
++
++Started POST "/sessions" for 127.0.0.1 at 2013-01-13 16:17:33 -0600
++Processing by SessionsController#create as HTML
++  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fyf6ryhaEQtgMj3LzIJivakZ4ysvOc3epUJudlCPHg0=", "session"=>{"email"=>"marada@wisc.edu", "password"=>"[FILTERED]"}}
++  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'marada@wisc.edu' LIMIT 1[0m
++Redirected to http://localhost:3000/home
++Completed 302 Found in 93ms (ActiveRecord: 2.2ms)
++
++
++Started GET "/home" for 127.0.0.1 at 2013-01-13 16:17:33 -0600
++Processing by UsersController#index as HTML
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC
++  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1
++  [1m[36mVotes Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)
++  Rendered videos/_voter.html.erb (6.9ms)
++  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (12.7ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15[0m
++  Rendered videos/_video_thumbs.html.erb (1.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (4.0ms)
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (7.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.6ms)
++  Rendered videos/_scroll.html.erb (21.7ms)
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC
++  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (6.1ms)
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (3.2ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (5.4ms)
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (5.4ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_leader.html.erb (3.0ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (7.4ms)
++  Rendered layouts/_footer.html.erb (0.3ms)
++  Rendered layouts/_leaderboard.html.erb (37.4ms)
++  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC LIMIT 5
++  Rendered users/_id_card.html.erb (2.3ms)
++  Rendered users/index.html.erb within layouts/application (80.0ms)
++  Rendered layouts/_header.html.erb (1.9ms)
++  Rendered users/_profile_form.html.erb (1.0ms)
++Completed 200 OK in 111ms (Views: 106.1ms | ActiveRecord: 4.8ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (8ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:34 -0600
++Served asset /jquery.js - 304 Not Modified (0ms)
++
++
++Started GET "/videos/new" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Processing by VideosController#new as HTML
++  Rendered videos/new.html.erb within layouts/application (3.3ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1[0m
++  Rendered layouts/_header.html.erb (5.3ms)
++  Rendered users/_profile_form.html.erb (3.6ms)
++Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.3ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /jquery.js - 304 Not Modified (9ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:17:36 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (5ms)
++
++
++Started POST "/upload" for 127.0.0.1 at 2013-01-13 16:18:31 -0600
++Processing by VideosController#upload as HTML
++  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fyf6ryhaEQtgMj3LzIJivakZ4ysvOc3epUJudlCPHg0=", "video"=>{"title"=>"I built a time machine!!", "description"=>"7123915 B.C.E here I come!"}, "commit"=>"upload"}
++  [1m[35m (3.9ms)[0m  BEGIN
++  [1m[36mSQL (145.6ms)[0m  [1mINSERT INTO "videos" ("created_at", "description", "is_complete", "points", "title", "updated_at", "user_id", "yt_video_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Sun, 13 Jan 2013 22:18:31 UTC +00:00], ["description", "7123915 B.C.E here I come!"], ["is_complete", false], ["points", 0], ["title", "I built a time machine!!"], ["updated_at", Sun, 13 Jan 2013 22:18:31 UTC +00:00], ["user_id", nil], ["yt_video_id", nil]]
++  [1m[35m (1.5ms)[0m  COMMIT
++  Rendered videos/upload.html.erb within layouts/application (3.3ms)
++  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1[0m
++  Rendered layouts/_header.html.erb (4.3ms)
++  Rendered users/_profile_form.html.erb (1.2ms)
++Completed 200 OK in 9410ms (Views: 42.1ms | ActiveRecord: 152.0ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /custom.css - 304 Not Modified (15ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /jquery.js - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:18:41 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (0ms)
++
++
++Started GET "/videos/new" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Processing by VideosController#new as HTML
++  Rendered videos/new.html.erb within layouts/application (4.7ms)
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1
++  Rendered layouts/_header.html.erb (2.0ms)
++  Rendered users/_profile_form.html.erb (1.2ms)
++Completed 200 OK in 132ms (Views: 118.5ms | ActiveRecord: 4.8ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /jquery.js - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:23:55 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (6ms)
++
++
++Started POST "/upload" for 127.0.0.1 at 2013-01-13 16:24:03 -0600
++Processing by VideosController#upload as HTML
++  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fyf6ryhaEQtgMj3LzIJivakZ4ysvOc3epUJudlCPHg0=", "video"=>{"title"=>"ROund 2", "description"=>"Here we go! "}, "commit"=>"upload"}
++  [1m[36m (4.6ms)[0m  [1mBEGIN[0m
++  [1m[35mSQL (48.6ms)[0m  INSERT INTO "videos" ("created_at", "description", "is_complete", "points", "title", "updated_at", "user_id", "yt_video_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Sun, 13 Jan 2013 22:24:03 UTC +00:00], ["description", "Here we go! "], ["is_complete", false], ["points", 0], ["title", "ROund 2"], ["updated_at", Sun, 13 Jan 2013 22:24:03 UTC +00:00], ["user_id", nil], ["yt_video_id", nil]]
++  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
++  Rendered videos/upload.html.erb within layouts/application (1.6ms)
++  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1
++  Rendered layouts/_header.html.erb (4.3ms)
++  Rendered users/_profile_form.html.erb (1.3ms)
++Completed 200 OK in 8927ms (Views: 31.3ms | ActiveRecord: 57.2ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /jquery.js - 304 Not Modified (10ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:24:12 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (0ms)
++
++
++Started GET "/videos/new/save_video?video_id=18&status=200&id=NhJ2Xnaogsg" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Processing by VideosController#save_video as HTML
++  Parameters: {"video_id"=>"18", "status"=>"200", "id"=>"NhJ2Xnaogsg"}
++  [1m[36mVideo Load (2.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", "18"]]
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'a70fce96e39d7452d7bf04617883b504' LIMIT 1
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 28]]
++  [1m[35m (0.0ms)[0m  BEGIN
++  [1m[36m (20.1ms)[0m  [1mUPDATE "videos" SET "yt_video_id" = 'NhJ2Xnaogsg', "is_complete" = 't', "user_id" = 28, "updated_at" = '2013-01-13 22:24:43.064017' WHERE "videos"."id" = 18[0m
++  [1m[35m (0.8ms)[0m  COMMIT
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."is_complete" = 'f'[0m
++  [1m[35m (0.0ms)[0m  BEGIN
++  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "videos" WHERE "videos"."id" = $1[0m  [["id", 17]]
++  [1m[35m (0.6ms)[0m  COMMIT
++  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
++  [1m[35m (8.1ms)[0m  UPDATE "users" SET "hasVideo" = 't', "remember_token" = '89669845f5f3eac7cea28f31de1641fc', "updated_at" = '2013-01-13 22:24:43.129752' WHERE "users"."id" = 28
++[paperclip] Saving attachments.
++  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
++Redirected to http://localhost:3000/submitted
++Completed 302 Found in 89ms (ActiveRecord: 38.5ms)
++
++
++Started GET "/submitted" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Processing by VideosController#submitted as HTML
++  Rendered videos/submitted.html.erb within layouts/application (0.4ms)
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1
++  Rendered layouts/_header.html.erb (2.0ms)
++  Rendered users/_profile_form.html.erb (1.0ms)
++Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.3ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /jquery.js - 304 Not Modified (2ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:24:43 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (0ms)
++
++
++Started GET "/?video=Rw4ZYKf91Xo" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Processing by UsersController#index as HTML
++  Parameters: {"video"=>"Rw4ZYKf91Xo"}
++  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" ORDER BY points DESC[0m
++  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1[0m
++  [1m[35mVotes Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 4)[0m
++  Rendered videos/_voter.html.erb (19.6ms)
++  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (24.7ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count 
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "videos" LIMIT 15) subquery_for_count [0m
++  [1m[35mVideo Load (0.3ms)[0m  SELECT "videos".* FROM "videos" ORDER BY points DESC LIMIT 15
++  Rendered videos/_video_thumbs.html.erb (1.3ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (3.6ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.5ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_video_thumbs.html.erb (0.4ms)
++  Rendered videos/_inner_thumb_set.html.erb (2.2ms)
++  Rendered videos/_scroll.html.erb (10.5ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC[0m
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (7.2ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (5.2ms)
++  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC
++  Rendered users/_user_thumbs.html.erb (2.8ms)
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 28 ORDER BY points DESC[0m
++  Rendered users/_user_thumbs.html.erb (2.6ms)
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."hasVideo" = 't' ORDER BY points DESC LIMIT 5
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 1 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (3.3ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 2 ORDER BY points DESC
++  Rendered users/_leader.html.erb (2.8ms)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 3 ORDER BY points DESC[0m
++  Rendered users/_leader.html.erb (2.8ms)
++  [1m[35mCACHE (0.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 28 ORDER BY points DESC
++  Rendered users/_leader.html.erb (2.4ms)
++  Rendered layouts/_footer.html.erb (0.4ms)
++  Rendered layouts/_leaderboard.html.erb (35.4ms)
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 28 ORDER BY points DESC LIMIT 5[0m
++  Rendered users/_id_card.html.erb (1.9ms)
++  Rendered users/index.html.erb within layouts/application (79.7ms)
++  Rendered layouts/_header.html.erb (1.6ms)
++  Rendered users/_profile_form.html.erb (1.0ms)
++Completed 200 OK in 96ms (Views: 88.9ms | ActiveRecord: 5.5ms)
++
++
++Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /custom.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /jquery.js - 304 Not Modified (5ms)
++
++
++Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /videos.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /user.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /sessions.css - 304 Not Modified (0ms)
++
++
++Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-13 16:25:03 -0600
++Served asset /jquery_ujs.js - 304 Not Modified (6ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=28" for 127.0.0.1 at 2013-01-13 16:25:06 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"28"}
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "28"]]
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 28 ORDER BY points DESC[0m
++  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.6ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.0ms)
++  Rendered videos/_scroll.html.erb (2.8ms)
++  [1m[36mVotes Load (1.3ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)
++  Rendered videos/_voter.html.erb (3.3ms)
++  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 28 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (6.7ms)
++  Rendered videos/vid_bank.js.erb (10.9ms)
++Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 2.5ms)
++
++
++Started GET "/vid_bank?myVid=true&user_id=28" for 127.0.0.1 at 2013-01-13 16:25:06 -0600
++Processing by VideosController#vid_bank as JS
++  Parameters: {"myVid"=>"true", "user_id"=>"28"}
++  [1m[35mUser Load (5.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "28"]]
++  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."user_id" = 28 ORDER BY points DESC[0m
++  [1m[35mUser Load (10.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1
++  Rendered videos/_video_thumbs.html.erb (0.7ms)
++  Rendered videos/_inner_thumb_set.html.erb (1.2ms)
++  Rendered videos/_scroll.html.erb (14.0ms)
++  [1m[36mVotes Load (1.6ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)
++  Rendered videos/_voter.html.erb (3.4ms)
++  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 28 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (14.6ms)
++  Rendered videos/vid_bank.js.erb (29.9ms)
++Completed 200 OK in 40ms (Views: 18.7ms | ActiveRecord: 18.6ms)
++
++
++Started POST "/vid_swap?video=18" for 127.0.0.1 at 2013-01-13 16:31:46 -0600
++Processing by VideosController#vid_swap as JS
++  Parameters: {"video"=>"18"}
++  [1m[35mVideo Load (6.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1  [["id", "18"]]
++  [1m[36mUser Load (3.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1[0m
++  [1m[35mVotes Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)
++  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)[0m
++  Rendered videos/_voter.html.erb (1.9ms)
++  [1m[35mUser Load (6.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 28 LIMIT 1
++  Rendered videos/_vidplayer.html.erb (15.7ms)
++  Rendered videos/vid_swap.js.erb (16.5ms)
++Completed 200 OK in 26ms (Views: 8.3ms | ActiveRecord: 15.7ms)
++
++
++Started POST "/vid_swap?video=18" for 127.0.0.1 at 2013-01-13 16:31:46 -0600
++Processing by VideosController#vid_swap as JS
++  Parameters: {"video"=>"18"}
++  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", "18"]]
++  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '89669845f5f3eac7cea28f31de1641fc' LIMIT 1
++  [1m[36mVotes Load (2.4ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)[0m
++  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id = 28 AND video_id = 18)
++  Rendered videos/_voter.html.erb (4.1ms)
++  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 28 LIMIT 1[0m
++  Rendered videos/_vidplayer.html.erb (17.3ms)
++  Rendered videos/vid_swap.js.erb (18.0ms)
++Completed 200 OK in 21ms (Views: 12.3ms | ActiveRecord: 7.3ms)
+diff --git a/log/production.log b/log/production.log
+index 99d48d0..d74d980 100644
+--- a/log/production.log
++++ b/log/production.log
+@@ -470,3 +470,29 @@ Compiled sessions.css  (4ms)  (pid 23143)
+ Compiled user.css  (0ms)  (pid 23143)
+ Compiled videos.css  (0ms)  (pid 23143)
+ Compiled application.css  (221ms)  (pid 23143)
++Compiled jquery.js  (1ms)  (pid 24935)
++Compiled jquery.validate.js  (0ms)  (pid 24935)
++Compiled jquery_ujs.js  (0ms)  (pid 24935)
++Compiled application.js  (40ms)  (pid 24935)
++Compiled inline.js  (0ms)  (pid 24935)
++Compiled jquery.ba-hashchange.min.js  (0ms)  (pid 24935)
++Compiled validations.js  (0ms)  (pid 24935)
++Compiled waypoints.min.js  (0ms)  (pid 24935)
++Compiled custom.css  (206ms)  (pid 24935)
++Compiled sessions.css  (4ms)  (pid 24935)
++Compiled user.css  (0ms)  (pid 24935)
++Compiled videos.css  (0ms)  (pid 24935)
++Compiled application.css  (224ms)  (pid 24935)
++Compiled jquery.js  (1ms)  (pid 24935)
++Compiled jquery.validate.js  (0ms)  (pid 24935)
++Compiled jquery_ujs.js  (0ms)  (pid 24935)
++Compiled application.js  (41ms)  (pid 24935)
++Compiled inline.js  (0ms)  (pid 24935)
++Compiled jquery.ba-hashchange.min.js  (0ms)  (pid 24935)
++Compiled validations.js  (0ms)  (pid 24935)
++Compiled waypoints.min.js  (0ms)  (pid 24935)
++Compiled custom.css  (199ms)  (pid 24935)
++Compiled sessions.css  (5ms)  (pid 24935)
++Compiled user.css  (0ms)  (pid 24935)
++Compiled videos.css  (0ms)  (pid 24935)
++Compiled application.css  (242ms)  (pid 24935)
+diff --git a/tmp/cache/assets/BED/930/sprockets%2F5f703804b1238017823b194de8088235 b/tmp/cache/assets/BED/930/sprockets%2F5f703804b1238017823b194de8088235
+index 6f5c5ac..ac7b4ce 100644
+Binary files a/tmp/cache/assets/BED/930/sprockets%2F5f703804b1238017823b194de8088235 and b/tmp/cache/assets/BED/930/sprockets%2F5f703804b1238017823b194de8088235 differ
+diff --git a/tmp/cache/assets/C03/5A0/sprockets%2F7b739f7038e43c36b449479790070391 b/tmp/cache/assets/C03/5A0/sprockets%2F7b739f7038e43c36b449479790070391
+index 049ac5b..5d75ae9 100644
+Binary files a/tmp/cache/assets/C03/5A0/sprockets%2F7b739f7038e43c36b449479790070391 and b/tmp/cache/assets/C03/5A0/sprockets%2F7b739f7038e43c36b449479790070391 differ
+diff --git a/tmp/cache/assets/C19/310/sprockets%2F1247d3d8614f8812b3733829f22000f3 b/tmp/cache/assets/C19/310/sprockets%2F1247d3d8614f8812b3733829f22000f3
+index d01972a..6612dd3 100644
+Binary files a/tmp/cache/assets/C19/310/sprockets%2F1247d3d8614f8812b3733829f22000f3 and b/tmp/cache/assets/C19/310/sprockets%2F1247d3d8614f8812b3733829f22000f3 differ
+diff --git a/tmp/cache/assets/C23/F10/sprockets%2F439a40f4396a3167755e249b574c3601 b/tmp/cache/assets/C23/F10/sprockets%2F439a40f4396a3167755e249b574c3601
+index 9bf0307..eda98a0 100644
+Binary files a/tmp/cache/assets/C23/F10/sprockets%2F439a40f4396a3167755e249b574c3601 and b/tmp/cache/assets/C23/F10/sprockets%2F439a40f4396a3167755e249b574c3601 differ
+diff --git a/tmp/cache/assets/C30/A00/sprockets%2F537f193bd74b818268d82f2499100629 b/tmp/cache/assets/C30/A00/sprockets%2F537f193bd74b818268d82f2499100629
+index 4aaec6a..af4a5c2 100644
+Binary files a/tmp/cache/assets/C30/A00/sprockets%2F537f193bd74b818268d82f2499100629 and b/tmp/cache/assets/C30/A00/sprockets%2F537f193bd74b818268d82f2499100629 differ
+diff --git a/tmp/cache/assets/C3D/9A0/sprockets%2Fd55d1a293427316d17076ba44003a466 b/tmp/cache/assets/C3D/9A0/sprockets%2Fd55d1a293427316d17076ba44003a466
+index 9312759..fec8b96 100644
+Binary files a/tmp/cache/assets/C3D/9A0/sprockets%2Fd55d1a293427316d17076ba44003a466 and b/tmp/cache/assets/C3D/9A0/sprockets%2Fd55d1a293427316d17076ba44003a466 differ
+diff --git a/tmp/cache/assets/C4C/FB0/sprockets%2F03670991338c9a16d3eb49b09191323b b/tmp/cache/assets/C4C/FB0/sprockets%2F03670991338c9a16d3eb49b09191323b
+index b5d7f87..03cf900 100644
+Binary files a/tmp/cache/assets/C4C/FB0/sprockets%2F03670991338c9a16d3eb49b09191323b and b/tmp/cache/assets/C4C/FB0/sprockets%2F03670991338c9a16d3eb49b09191323b differ
+diff --git a/tmp/cache/assets/C50/EF0/sprockets%2F5202689e3f362403469c3c80c5b05e75 b/tmp/cache/assets/C50/EF0/sprockets%2F5202689e3f362403469c3c80c5b05e75
+index 67a0d2a..e8081ab 100644
+Binary files a/tmp/cache/assets/C50/EF0/sprockets%2F5202689e3f362403469c3c80c5b05e75 and b/tmp/cache/assets/C50/EF0/sprockets%2F5202689e3f362403469c3c80c5b05e75 differ
+diff --git a/tmp/cache/assets/C59/070/sprockets%2F99e335f17c849061215866505f0abf81 b/tmp/cache/assets/C59/070/sprockets%2F99e335f17c849061215866505f0abf81
+index 5827e57..bafd29c 100644
+Binary files a/tmp/cache/assets/C59/070/sprockets%2F99e335f17c849061215866505f0abf81 and b/tmp/cache/assets/C59/070/sprockets%2F99e335f17c849061215866505f0abf81 differ
+diff --git a/tmp/cache/assets/C5A/E00/sprockets%2F5815028d9ed8604f141d6891f5274d41 b/tmp/cache/assets/C5A/E00/sprockets%2F5815028d9ed8604f141d6891f5274d41
+index e136499..21bdc12 100644
+Binary files a/tmp/cache/assets/C5A/E00/sprockets%2F5815028d9ed8604f141d6891f5274d41 and b/tmp/cache/assets/C5A/E00/sprockets%2F5815028d9ed8604f141d6891f5274d41 differ
+diff --git a/tmp/cache/assets/C61/E40/sprockets%2F8990072656d59e24c6738bf7d023c437 b/tmp/cache/assets/C61/E40/sprockets%2F8990072656d59e24c6738bf7d023c437
+index c93a735..79e1d00 100644
+Binary files a/tmp/cache/assets/C61/E40/sprockets%2F8990072656d59e24c6738bf7d023c437 and b/tmp/cache/assets/C61/E40/sprockets%2F8990072656d59e24c6738bf7d023c437 differ
+diff --git a/tmp/cache/assets/C65/F30/sprockets%2F45f4d06627589e442d80bc306972799c b/tmp/cache/assets/C65/F30/sprockets%2F45f4d06627589e442d80bc306972799c
+index f8db227..bdefa8b 100644
+Binary files a/tmp/cache/assets/C65/F30/sprockets%2F45f4d06627589e442d80bc306972799c and b/tmp/cache/assets/C65/F30/sprockets%2F45f4d06627589e442d80bc306972799c differ
+diff --git a/tmp/cache/assets/C73/160/sprockets%2F5b174e6660bfa496c2422e2320470a66 b/tmp/cache/assets/C73/160/sprockets%2F5b174e6660bfa496c2422e2320470a66
+index bb12b0b..20bf82c 100644
+Binary files a/tmp/cache/assets/C73/160/sprockets%2F5b174e6660bfa496c2422e2320470a66 and b/tmp/cache/assets/C73/160/sprockets%2F5b174e6660bfa496c2422e2320470a66 differ
+diff --git a/tmp/cache/assets/C76/340/sprockets%2Fdef267211036aa046778690c2501fc46 b/tmp/cache/assets/C76/340/sprockets%2Fdef267211036aa046778690c2501fc46
+index c65ca06..8945554 100644
+Binary files a/tmp/cache/assets/C76/340/sprockets%2Fdef267211036aa046778690c2501fc46 and b/tmp/cache/assets/C76/340/sprockets%2Fdef267211036aa046778690c2501fc46 differ
+diff --git a/tmp/cache/assets/C77/5C0/sprockets%2F35ae1a1124993201b06a5498616fff90 b/tmp/cache/assets/C77/5C0/sprockets%2F35ae1a1124993201b06a5498616fff90
+index ad73b51..c518b63 100644
+Binary files a/tmp/cache/assets/C77/5C0/sprockets%2F35ae1a1124993201b06a5498616fff90 and b/tmp/cache/assets/C77/5C0/sprockets%2F35ae1a1124993201b06a5498616fff90 differ
+diff --git a/tmp/cache/assets/C78/0D0/sprockets%2F7564690c7a12d29b77a630b5e3504c23 b/tmp/cache/assets/C78/0D0/sprockets%2F7564690c7a12d29b77a630b5e3504c23
+index 7f1894e..926e044 100644
+Binary files a/tmp/cache/assets/C78/0D0/sprockets%2F7564690c7a12d29b77a630b5e3504c23 and b/tmp/cache/assets/C78/0D0/sprockets%2F7564690c7a12d29b77a630b5e3504c23 differ
+diff --git a/tmp/cache/assets/C7C/C90/sprockets%2F9703f258b3fd518b67179e00c04512f1 b/tmp/cache/assets/C7C/C90/sprockets%2F9703f258b3fd518b67179e00c04512f1
+index 5cf347e..3b81bdf 100644
+Binary files a/tmp/cache/assets/C7C/C90/sprockets%2F9703f258b3fd518b67179e00c04512f1 and b/tmp/cache/assets/C7C/C90/sprockets%2F9703f258b3fd518b67179e00c04512f1 differ
+diff --git a/tmp/cache/assets/C84/080/sprockets%2F13e9d22273082d0fe3792495213b99fb b/tmp/cache/assets/C84/080/sprockets%2F13e9d22273082d0fe3792495213b99fb
+index 37f5da5..db1a5dc 100644
+Binary files a/tmp/cache/assets/C84/080/sprockets%2F13e9d22273082d0fe3792495213b99fb and b/tmp/cache/assets/C84/080/sprockets%2F13e9d22273082d0fe3792495213b99fb differ
+diff --git a/tmp/cache/assets/C8F/A70/sprockets%2F2e769636d34c5f993ed8702816f1032d b/tmp/cache/assets/C8F/A70/sprockets%2F2e769636d34c5f993ed8702816f1032d
+index 245a650..87b2dfa 100644
+Binary files a/tmp/cache/assets/C8F/A70/sprockets%2F2e769636d34c5f993ed8702816f1032d and b/tmp/cache/assets/C8F/A70/sprockets%2F2e769636d34c5f993ed8702816f1032d differ
+diff --git a/tmp/cache/assets/CA1/880/sprockets%2F47c5825b422145e5b4612bdd634b5f11 b/tmp/cache/assets/CA1/880/sprockets%2F47c5825b422145e5b4612bdd634b5f11
+index e0985e7..890994a 100644
+Binary files a/tmp/cache/assets/CA1/880/sprockets%2F47c5825b422145e5b4612bdd634b5f11 and b/tmp/cache/assets/CA1/880/sprockets%2F47c5825b422145e5b4612bdd634b5f11 differ
+diff --git a/tmp/cache/assets/CA2/230/sprockets%2F36ba7aa143838c3b4486c6117f130f15 b/tmp/cache/assets/CA2/230/sprockets%2F36ba7aa143838c3b4486c6117f130f15
+index 2163fed..c509a65 100644
+Binary files a/tmp/cache/assets/CA2/230/sprockets%2F36ba7aa143838c3b4486c6117f130f15 and b/tmp/cache/assets/CA2/230/sprockets%2F36ba7aa143838c3b4486c6117f130f15 differ
+diff --git a/tmp/cache/assets/CA3/ED0/sprockets%2F22143b7fca684c03da651af948172801 b/tmp/cache/assets/CA3/ED0/sprockets%2F22143b7fca684c03da651af948172801
+index df3896c..7af221d 100644
+Binary files a/tmp/cache/assets/CA3/ED0/sprockets%2F22143b7fca684c03da651af948172801 and b/tmp/cache/assets/CA3/ED0/sprockets%2F22143b7fca684c03da651af948172801 differ
+diff --git a/tmp/cache/assets/CA7/280/sprockets%2F62c75f68133550e1496aa2bb323bc953 b/tmp/cache/assets/CA7/280/sprockets%2F62c75f68133550e1496aa2bb323bc953
+index 9c2f2dc..c392240 100644
+Binary files a/tmp/cache/assets/CA7/280/sprockets%2F62c75f68133550e1496aa2bb323bc953 and b/tmp/cache/assets/CA7/280/sprockets%2F62c75f68133550e1496aa2bb323bc953 differ
+diff --git a/tmp/cache/assets/CA8/200/sprockets%2Fe24a706d368452015256b3d6a59a4bb9 b/tmp/cache/assets/CA8/200/sprockets%2Fe24a706d368452015256b3d6a59a4bb9
+index b4a1aff..128006d 100644
+Binary files a/tmp/cache/assets/CA8/200/sprockets%2Fe24a706d368452015256b3d6a59a4bb9 and b/tmp/cache/assets/CA8/200/sprockets%2Fe24a706d368452015256b3d6a59a4bb9 differ
+diff --git a/tmp/cache/assets/CA9/C40/sprockets%2Fc7bc4550c21738073405b67b86bad942 b/tmp/cache/assets/CA9/C40/sprockets%2Fc7bc4550c21738073405b67b86bad942
+index 0311d63..aef95a7 100644
+Binary files a/tmp/cache/assets/CA9/C40/sprockets%2Fc7bc4550c21738073405b67b86bad942 and b/tmp/cache/assets/CA9/C40/sprockets%2Fc7bc4550c21738073405b67b86bad942 differ
+diff --git a/tmp/cache/assets/CAB/4F0/sprockets%2F326cb67a7b622c7169943d1574dbf021 b/tmp/cache/assets/CAB/4F0/sprockets%2F326cb67a7b622c7169943d1574dbf021
+index 8bee4a7..fc1ed01 100644
+Binary files a/tmp/cache/assets/CAB/4F0/sprockets%2F326cb67a7b622c7169943d1574dbf021 and b/tmp/cache/assets/CAB/4F0/sprockets%2F326cb67a7b622c7169943d1574dbf021 differ
+diff --git a/tmp/cache/assets/CAD/3B0/sprockets%2Fe301e21576b593e8045e3541ea1bf668 b/tmp/cache/assets/CAD/3B0/sprockets%2Fe301e21576b593e8045e3541ea1bf668
+index 6e50237..408a425 100644
+Binary files a/tmp/cache/assets/CAD/3B0/sprockets%2Fe301e21576b593e8045e3541ea1bf668 and b/tmp/cache/assets/CAD/3B0/sprockets%2Fe301e21576b593e8045e3541ea1bf668 differ
+diff --git a/tmp/cache/assets/CAE/820/sprockets%2Fd0409b06edc4d799ba2a305178483483 b/tmp/cache/assets/CAE/820/sprockets%2Fd0409b06edc4d799ba2a305178483483
+index ad287b4..41b6cff 100644
+Binary files a/tmp/cache/assets/CAE/820/sprockets%2Fd0409b06edc4d799ba2a305178483483 and b/tmp/cache/assets/CAE/820/sprockets%2Fd0409b06edc4d799ba2a305178483483 differ
+diff --git a/tmp/cache/assets/CAE/950/sprockets%2Feeaad65f84c887023b130367f2840219 b/tmp/cache/assets/CAE/950/sprockets%2Feeaad65f84c887023b130367f2840219
+index bbc5fba..d912299 100644
+Binary files a/tmp/cache/assets/CAE/950/sprockets%2Feeaad65f84c887023b130367f2840219 and b/tmp/cache/assets/CAE/950/sprockets%2Feeaad65f84c887023b130367f2840219 differ
+diff --git a/tmp/cache/assets/CAE/AD0/sprockets%2F5bc1d65955df3881544fba38b1512470 b/tmp/cache/assets/CAE/AD0/sprockets%2F5bc1d65955df3881544fba38b1512470
+index 9ab4852..12ee2c7 100644
+Binary files a/tmp/cache/assets/CAE/AD0/sprockets%2F5bc1d65955df3881544fba38b1512470 and b/tmp/cache/assets/CAE/AD0/sprockets%2F5bc1d65955df3881544fba38b1512470 differ
+diff --git a/tmp/cache/assets/CAF/C50/sprockets%2Fb6a2a618e03f60e418d9311e959315f5 b/tmp/cache/assets/CAF/C50/sprockets%2Fb6a2a618e03f60e418d9311e959315f5
+index c0643a6..9b75676 100644
+Binary files a/tmp/cache/assets/CAF/C50/sprockets%2Fb6a2a618e03f60e418d9311e959315f5 and b/tmp/cache/assets/CAF/C50/sprockets%2Fb6a2a618e03f60e418d9311e959315f5 differ
+diff --git a/tmp/cache/assets/CB0/1B0/sprockets%2F74152a718b7d08223e52a6379f19bd7a b/tmp/cache/assets/CB0/1B0/sprockets%2F74152a718b7d08223e52a6379f19bd7a
+index 04e46e7..56d77f1 100644
+Binary files a/tmp/cache/assets/CB0/1B0/sprockets%2F74152a718b7d08223e52a6379f19bd7a and b/tmp/cache/assets/CB0/1B0/sprockets%2F74152a718b7d08223e52a6379f19bd7a differ
+diff --git a/tmp/cache/assets/CB0/D60/sprockets%2F0335d87ebd93523744c2fec4426f4432 b/tmp/cache/assets/CB0/D60/sprockets%2F0335d87ebd93523744c2fec4426f4432
+index c4522da..4ea3dd2 100644
+Binary files a/tmp/cache/assets/CB0/D60/sprockets%2F0335d87ebd93523744c2fec4426f4432 and b/tmp/cache/assets/CB0/D60/sprockets%2F0335d87ebd93523744c2fec4426f4432 differ
+diff --git a/tmp/cache/assets/CB0/ED0/sprockets%2F5f1841f3c94789da74e510f532a226c1 b/tmp/cache/assets/CB0/ED0/sprockets%2F5f1841f3c94789da74e510f532a226c1
+index 8afc3aa..533ca5e 100644
+Binary files a/tmp/cache/assets/CB0/ED0/sprockets%2F5f1841f3c94789da74e510f532a226c1 and b/tmp/cache/assets/CB0/ED0/sprockets%2F5f1841f3c94789da74e510f532a226c1 differ
+diff --git a/tmp/cache/assets/CB4/570/sprockets%2F8f44014508b7dfa7ae37803c852f1467 b/tmp/cache/assets/CB4/570/sprockets%2F8f44014508b7dfa7ae37803c852f1467
+index 2d2231a..128de17 100644
+Binary files a/tmp/cache/assets/CB4/570/sprockets%2F8f44014508b7dfa7ae37803c852f1467 and b/tmp/cache/assets/CB4/570/sprockets%2F8f44014508b7dfa7ae37803c852f1467 differ
+diff --git a/tmp/cache/assets/CB4/720/sprockets%2Fa891208a4c234c4d82e4419a46d83e96 b/tmp/cache/assets/CB4/720/sprockets%2Fa891208a4c234c4d82e4419a46d83e96
+index e60477b..44fcc47 100644
+Binary files a/tmp/cache/assets/CB4/720/sprockets%2Fa891208a4c234c4d82e4419a46d83e96 and b/tmp/cache/assets/CB4/720/sprockets%2Fa891208a4c234c4d82e4419a46d83e96 differ
+diff --git a/tmp/cache/assets/CBB/300/sprockets%2Ff17e77ad9144afb216e84e0378519752 b/tmp/cache/assets/CBB/300/sprockets%2Ff17e77ad9144afb216e84e0378519752
+index e3606bd..724a8b8 100644
+Binary files a/tmp/cache/assets/CBB/300/sprockets%2Ff17e77ad9144afb216e84e0378519752 and b/tmp/cache/assets/CBB/300/sprockets%2Ff17e77ad9144afb216e84e0378519752 differ
+diff --git a/tmp/cache/assets/CBE/560/sprockets%2F65d019576d473ed79491d32225e6fcf2 b/tmp/cache/assets/CBE/560/sprockets%2F65d019576d473ed79491d32225e6fcf2
+index b238f5a..83c8195 100644
+Binary files a/tmp/cache/assets/CBE/560/sprockets%2F65d019576d473ed79491d32225e6fcf2 and b/tmp/cache/assets/CBE/560/sprockets%2F65d019576d473ed79491d32225e6fcf2 differ
+diff --git a/tmp/cache/assets/CC0/480/sprockets%2Ffd5481364ef419f558a536178a2f35f4 b/tmp/cache/assets/CC0/480/sprockets%2Ffd5481364ef419f558a536178a2f35f4
+index 6607466..43ff5a0 100644
+Binary files a/tmp/cache/assets/CC0/480/sprockets%2Ffd5481364ef419f558a536178a2f35f4 and b/tmp/cache/assets/CC0/480/sprockets%2Ffd5481364ef419f558a536178a2f35f4 differ
+diff --git a/tmp/cache/assets/CC2/B10/sprockets%2F151a1c6b128721d8923ba0c380a2af17 b/tmp/cache/assets/CC2/B10/sprockets%2F151a1c6b128721d8923ba0c380a2af17
+index 66e8469..e0366b7 100644
+Binary files a/tmp/cache/assets/CC2/B10/sprockets%2F151a1c6b128721d8923ba0c380a2af17 and b/tmp/cache/assets/CC2/B10/sprockets%2F151a1c6b128721d8923ba0c380a2af17 differ
+diff --git a/tmp/cache/assets/CC3/290/sprockets%2Fafa5066c85172650885991e6a74b9fe4 b/tmp/cache/assets/CC3/290/sprockets%2Fafa5066c85172650885991e6a74b9fe4
+index 52c9ca3..a3094a8 100644
+Binary files a/tmp/cache/assets/CC3/290/sprockets%2Fafa5066c85172650885991e6a74b9fe4 and b/tmp/cache/assets/CC3/290/sprockets%2Fafa5066c85172650885991e6a74b9fe4 differ
+diff --git a/tmp/cache/assets/CC3/E00/sprockets%2Fc9d944192defb6833075871bf886401f b/tmp/cache/assets/CC3/E00/sprockets%2Fc9d944192defb6833075871bf886401f
+index 5884b07..87c008a 100644
+Binary files a/tmp/cache/assets/CC3/E00/sprockets%2Fc9d944192defb6833075871bf886401f and b/tmp/cache/assets/CC3/E00/sprockets%2Fc9d944192defb6833075871bf886401f differ
+diff --git a/tmp/cache/assets/CC7/0A0/sprockets%2F68f789f8e832d0fc919a830f938231a2 b/tmp/cache/assets/CC7/0A0/sprockets%2F68f789f8e832d0fc919a830f938231a2
+index 42fe4ac..7e5e7d4 100644
+Binary files a/tmp/cache/assets/CC7/0A0/sprockets%2F68f789f8e832d0fc919a830f938231a2 and b/tmp/cache/assets/CC7/0A0/sprockets%2F68f789f8e832d0fc919a830f938231a2 differ
+diff --git a/tmp/cache/assets/CCA/890/sprockets%2F0f89685dc64b9c38169e48233ebf1919 b/tmp/cache/assets/CCA/890/sprockets%2F0f89685dc64b9c38169e48233ebf1919
+index 83c0397..db6a928 100644
+Binary files a/tmp/cache/assets/CCA/890/sprockets%2F0f89685dc64b9c38169e48233ebf1919 and b/tmp/cache/assets/CCA/890/sprockets%2F0f89685dc64b9c38169e48233ebf1919 differ
+diff --git a/tmp/cache/assets/CCB/050/sprockets%2F11951fbf30d6d978c967759867e2c16c b/tmp/cache/assets/CCB/050/sprockets%2F11951fbf30d6d978c967759867e2c16c
+index 9b382d1..f951be0 100644
+Binary files a/tmp/cache/assets/CCB/050/sprockets%2F11951fbf30d6d978c967759867e2c16c and b/tmp/cache/assets/CCB/050/sprockets%2F11951fbf30d6d978c967759867e2c16c differ
+diff --git a/tmp/cache/assets/CCB/C00/sprockets%2F50cea74a08470801b26e82c7e3420eb1 b/tmp/cache/assets/CCB/C00/sprockets%2F50cea74a08470801b26e82c7e3420eb1
+index 537a489..5c1720b 100644
+Binary files a/tmp/cache/assets/CCB/C00/sprockets%2F50cea74a08470801b26e82c7e3420eb1 and b/tmp/cache/assets/CCB/C00/sprockets%2F50cea74a08470801b26e82c7e3420eb1 differ
+diff --git a/tmp/cache/assets/CCF/220/sprockets%2Fb509a42e1ec27a8b9200023598d09be0 b/tmp/cache/assets/CCF/220/sprockets%2Fb509a42e1ec27a8b9200023598d09be0
+index 21ec831..21755ae 100644
+Binary files a/tmp/cache/assets/CCF/220/sprockets%2Fb509a42e1ec27a8b9200023598d09be0 and b/tmp/cache/assets/CCF/220/sprockets%2Fb509a42e1ec27a8b9200023598d09be0 differ
+diff --git a/tmp/cache/assets/CD1/740/sprockets%2F18b40dc283a7b260e52172f8e0b24e91 b/tmp/cache/assets/CD1/740/sprockets%2F18b40dc283a7b260e52172f8e0b24e91
+index cd7dbea..d8655a1 100644
+Binary files a/tmp/cache/assets/CD1/740/sprockets%2F18b40dc283a7b260e52172f8e0b24e91 and b/tmp/cache/assets/CD1/740/sprockets%2F18b40dc283a7b260e52172f8e0b24e91 differ
+diff --git a/tmp/cache/assets/CD1/890/sprockets%2F812a25628d682df3ded1e22615c2112e b/tmp/cache/assets/CD1/890/sprockets%2F812a25628d682df3ded1e22615c2112e
+index 2e4b60c..2f8fa2b 100644
+Binary files a/tmp/cache/assets/CD1/890/sprockets%2F812a25628d682df3ded1e22615c2112e and b/tmp/cache/assets/CD1/890/sprockets%2F812a25628d682df3ded1e22615c2112e differ
+diff --git a/tmp/cache/assets/CD3/790/sprockets%2F4394ce130a2dbf85d2026b7247d0747a b/tmp/cache/assets/CD3/790/sprockets%2F4394ce130a2dbf85d2026b7247d0747a
+index 02f85db..67e556d 100644
+Binary files a/tmp/cache/assets/CD3/790/sprockets%2F4394ce130a2dbf85d2026b7247d0747a and b/tmp/cache/assets/CD3/790/sprockets%2F4394ce130a2dbf85d2026b7247d0747a differ
+diff --git a/tmp/cache/assets/CD3/7F0/sprockets%2Fc1535cb71f53d9bd12db4928366004e0 b/tmp/cache/assets/CD3/7F0/sprockets%2Fc1535cb71f53d9bd12db4928366004e0
+index d8d85a8..f464218 100644
+Binary files a/tmp/cache/assets/CD3/7F0/sprockets%2Fc1535cb71f53d9bd12db4928366004e0 and b/tmp/cache/assets/CD3/7F0/sprockets%2Fc1535cb71f53d9bd12db4928366004e0 differ
+diff --git a/tmp/cache/assets/CD5/460/sprockets%2F22b501b6ecbc266e491943a12559b5a8 b/tmp/cache/assets/CD5/460/sprockets%2F22b501b6ecbc266e491943a12559b5a8
+index 1ca43dc..9a676df 100644
+Binary files a/tmp/cache/assets/CD5/460/sprockets%2F22b501b6ecbc266e491943a12559b5a8 and b/tmp/cache/assets/CD5/460/sprockets%2F22b501b6ecbc266e491943a12559b5a8 differ
+diff --git a/tmp/cache/assets/CD7/470/sprockets%2Ff4fd53a7237656a44eb4c007b4194c32 b/tmp/cache/assets/CD7/470/sprockets%2Ff4fd53a7237656a44eb4c007b4194c32
+index 383d233..c3a4673 100644
+Binary files a/tmp/cache/assets/CD7/470/sprockets%2Ff4fd53a7237656a44eb4c007b4194c32 and b/tmp/cache/assets/CD7/470/sprockets%2Ff4fd53a7237656a44eb4c007b4194c32 differ
+diff --git a/tmp/cache/assets/CD8/370/sprockets%2F357970feca3ac29060c1e3861e2c0953 b/tmp/cache/assets/CD8/370/sprockets%2F357970feca3ac29060c1e3861e2c0953
+index 5afc8e9..56f9c73 100644
+Binary files a/tmp/cache/assets/CD8/370/sprockets%2F357970feca3ac29060c1e3861e2c0953 and b/tmp/cache/assets/CD8/370/sprockets%2F357970feca3ac29060c1e3861e2c0953 differ
+diff --git a/tmp/cache/assets/CD8/9C0/sprockets%2F484282203a7f238a43d2b0de475ddb76 b/tmp/cache/assets/CD8/9C0/sprockets%2F484282203a7f238a43d2b0de475ddb76
+index 1b2135e..5a982a5 100644
+Binary files a/tmp/cache/assets/CD8/9C0/sprockets%2F484282203a7f238a43d2b0de475ddb76 and b/tmp/cache/assets/CD8/9C0/sprockets%2F484282203a7f238a43d2b0de475ddb76 differ
+diff --git a/tmp/cache/assets/CDA/550/sprockets%2F59c4c7953d16d57ce6d6c937997d6954 b/tmp/cache/assets/CDA/550/sprockets%2F59c4c7953d16d57ce6d6c937997d6954
+index 503ba37..5ea1b65 100644
+Binary files a/tmp/cache/assets/CDA/550/sprockets%2F59c4c7953d16d57ce6d6c937997d6954 and b/tmp/cache/assets/CDA/550/sprockets%2F59c4c7953d16d57ce6d6c937997d6954 differ
+diff --git a/tmp/cache/assets/CDB/860/sprockets%2F0e5427acd9b91a59809a916c134dd061 b/tmp/cache/assets/CDB/860/sprockets%2F0e5427acd9b91a59809a916c134dd061
+index 4fcec59..0716e1b 100644
+Binary files a/tmp/cache/assets/CDB/860/sprockets%2F0e5427acd9b91a59809a916c134dd061 and b/tmp/cache/assets/CDB/860/sprockets%2F0e5427acd9b91a59809a916c134dd061 differ
+diff --git a/tmp/cache/assets/CDC/210/sprockets%2F2898ba685517b6a60ad6522510d8d2cd b/tmp/cache/assets/CDC/210/sprockets%2F2898ba685517b6a60ad6522510d8d2cd
+index 35db93b..ff30b84 100644
+Binary files a/tmp/cache/assets/CDC/210/sprockets%2F2898ba685517b6a60ad6522510d8d2cd and b/tmp/cache/assets/CDC/210/sprockets%2F2898ba685517b6a60ad6522510d8d2cd differ
+diff --git a/tmp/cache/assets/CDD/690/sprockets%2F7859178604279cd6eff8943dd98973db b/tmp/cache/assets/CDD/690/sprockets%2F7859178604279cd6eff8943dd98973db
+index b4c808e..ba8ce93 100644
+Binary files a/tmp/cache/assets/CDD/690/sprockets%2F7859178604279cd6eff8943dd98973db and b/tmp/cache/assets/CDD/690/sprockets%2F7859178604279cd6eff8943dd98973db differ
+diff --git a/tmp/cache/assets/CE0/810/sprockets%2F39ad7a053bf6a7343a52280e9d09e098 b/tmp/cache/assets/CE0/810/sprockets%2F39ad7a053bf6a7343a52280e9d09e098
+index a49990e..63dd9f9 100644
+Binary files a/tmp/cache/assets/CE0/810/sprockets%2F39ad7a053bf6a7343a52280e9d09e098 and b/tmp/cache/assets/CE0/810/sprockets%2F39ad7a053bf6a7343a52280e9d09e098 differ
+diff --git a/tmp/cache/assets/CE5/E60/sprockets%2F38c48f599212ca4b951532afa47de383 b/tmp/cache/assets/CE5/E60/sprockets%2F38c48f599212ca4b951532afa47de383
+index 4c60a90..c324ce8 100644
+Binary files a/tmp/cache/assets/CE5/E60/sprockets%2F38c48f599212ca4b951532afa47de383 and b/tmp/cache/assets/CE5/E60/sprockets%2F38c48f599212ca4b951532afa47de383 differ
+diff --git a/tmp/cache/assets/CE6/190/sprockets%2F50e1e7537bd3297fe7b86e360c2f1148 b/tmp/cache/assets/CE6/190/sprockets%2F50e1e7537bd3297fe7b86e360c2f1148
+index f1e9729..26b8052 100644
+Binary files a/tmp/cache/assets/CE6/190/sprockets%2F50e1e7537bd3297fe7b86e360c2f1148 and b/tmp/cache/assets/CE6/190/sprockets%2F50e1e7537bd3297fe7b86e360c2f1148 differ
+diff --git a/tmp/cache/assets/CE7/0F0/sprockets%2Ff3f4eebd3747985e9d58d10d15112326 b/tmp/cache/assets/CE7/0F0/sprockets%2Ff3f4eebd3747985e9d58d10d15112326
+index 7f83687..8342707 100644
+Binary files a/tmp/cache/assets/CE7/0F0/sprockets%2Ff3f4eebd3747985e9d58d10d15112326 and b/tmp/cache/assets/CE7/0F0/sprockets%2Ff3f4eebd3747985e9d58d10d15112326 differ
+diff --git a/tmp/cache/assets/CE7/1D0/sprockets%2Fdb73f0d5069bb153668089784ee624aa b/tmp/cache/assets/CE7/1D0/sprockets%2Fdb73f0d5069bb153668089784ee624aa
+index 5862919..367f311 100644
+Binary files a/tmp/cache/assets/CE7/1D0/sprockets%2Fdb73f0d5069bb153668089784ee624aa and b/tmp/cache/assets/CE7/1D0/sprockets%2Fdb73f0d5069bb153668089784ee624aa differ
+diff --git a/tmp/cache/assets/CE8/490/sprockets%2F3a532759d20a569761cf8d1d563c6ff3 b/tmp/cache/assets/CE8/490/sprockets%2F3a532759d20a569761cf8d1d563c6ff3
+index 18c58e6..d4ec820 100644
+Binary files a/tmp/cache/assets/CE8/490/sprockets%2F3a532759d20a569761cf8d1d563c6ff3 and b/tmp/cache/assets/CE8/490/sprockets%2F3a532759d20a569761cf8d1d563c6ff3 differ
+diff --git a/tmp/cache/assets/CE8/FF0/sprockets%2Ff938dea49e65462a256aaf8125a72861 b/tmp/cache/assets/CE8/FF0/sprockets%2Ff938dea49e65462a256aaf8125a72861
+index 994e2b5..c0fb80d 100644
+Binary files a/tmp/cache/assets/CE8/FF0/sprockets%2Ff938dea49e65462a256aaf8125a72861 and b/tmp/cache/assets/CE8/FF0/sprockets%2Ff938dea49e65462a256aaf8125a72861 differ
+diff --git a/tmp/cache/assets/CE9/2A0/sprockets%2Fb93fa40553346dbf905e923a98d6b663 b/tmp/cache/assets/CE9/2A0/sprockets%2Fb93fa40553346dbf905e923a98d6b663
+index 3fc4729..ac5b418 100644
+Binary files a/tmp/cache/assets/CE9/2A0/sprockets%2Fb93fa40553346dbf905e923a98d6b663 and b/tmp/cache/assets/CE9/2A0/sprockets%2Fb93fa40553346dbf905e923a98d6b663 differ
+diff --git a/tmp/cache/assets/CE9/8F0/sprockets%2F47383471d24eef93d42c58874d1de10f b/tmp/cache/assets/CE9/8F0/sprockets%2F47383471d24eef93d42c58874d1de10f
+index 47d314c..0c7a6a9 100644
+Binary files a/tmp/cache/assets/CE9/8F0/sprockets%2F47383471d24eef93d42c58874d1de10f and b/tmp/cache/assets/CE9/8F0/sprockets%2F47383471d24eef93d42c58874d1de10f differ
+diff --git a/tmp/cache/assets/CEA/2F0/sprockets%2Fb9d8c72198c233e0391fb2a4d95d9239 b/tmp/cache/assets/CEA/2F0/sprockets%2Fb9d8c72198c233e0391fb2a4d95d9239
+index 2cfef73..64b5a2c 100644
+Binary files a/tmp/cache/assets/CEA/2F0/sprockets%2Fb9d8c72198c233e0391fb2a4d95d9239 and b/tmp/cache/assets/CEA/2F0/sprockets%2Fb9d8c72198c233e0391fb2a4d95d9239 differ
+diff --git a/tmp/cache/assets/CEA/B60/sprockets%2F8813ca2ab2d8e679303763da7b49786b b/tmp/cache/assets/CEA/B60/sprockets%2F8813ca2ab2d8e679303763da7b49786b
+index e493cf8..b8982ab 100644
+Binary files a/tmp/cache/assets/CEA/B60/sprockets%2F8813ca2ab2d8e679303763da7b49786b and b/tmp/cache/assets/CEA/B60/sprockets%2F8813ca2ab2d8e679303763da7b49786b differ
+diff --git a/tmp/cache/assets/CEC/8C0/sprockets%2Fab08006ca6c310260ebad43f6a552127 b/tmp/cache/assets/CEC/8C0/sprockets%2Fab08006ca6c310260ebad43f6a552127
+index f5f53b7..52f9070 100644
+Binary files a/tmp/cache/assets/CEC/8C0/sprockets%2Fab08006ca6c310260ebad43f6a552127 and b/tmp/cache/assets/CEC/8C0/sprockets%2Fab08006ca6c310260ebad43f6a552127 differ
+diff --git a/tmp/cache/assets/CEE/160/sprockets%2F93e35e4e89a3b086d9845a4e5fc30058 b/tmp/cache/assets/CEE/160/sprockets%2F93e35e4e89a3b086d9845a4e5fc30058
+index e7fe7de..0232863 100644
+Binary files a/tmp/cache/assets/CEE/160/sprockets%2F93e35e4e89a3b086d9845a4e5fc30058 and b/tmp/cache/assets/CEE/160/sprockets%2F93e35e4e89a3b086d9845a4e5fc30058 differ
+diff --git a/tmp/cache/assets/CF0/DA0/sprockets%2Fd7d5b37686831d37c4dd75e645f5e016 b/tmp/cache/assets/CF0/DA0/sprockets%2Fd7d5b37686831d37c4dd75e645f5e016
+index 0ee24c3..5d8dc88 100644
+Binary files a/tmp/cache/assets/CF0/DA0/sprockets%2Fd7d5b37686831d37c4dd75e645f5e016 and b/tmp/cache/assets/CF0/DA0/sprockets%2Fd7d5b37686831d37c4dd75e645f5e016 differ
+diff --git a/tmp/cache/assets/CF2/EA0/sprockets%2F7e7aa8d7d449ee98a8b3237960b50833 b/tmp/cache/assets/CF2/EA0/sprockets%2F7e7aa8d7d449ee98a8b3237960b50833
+index 5cff8e9..26a5482 100644
+Binary files a/tmp/cache/assets/CF2/EA0/sprockets%2F7e7aa8d7d449ee98a8b3237960b50833 and b/tmp/cache/assets/CF2/EA0/sprockets%2F7e7aa8d7d449ee98a8b3237960b50833 differ
+diff --git a/tmp/cache/assets/CF3/DB0/sprockets%2F9b0c2646c1c79f631f839ecc2567647f b/tmp/cache/assets/CF3/DB0/sprockets%2F9b0c2646c1c79f631f839ecc2567647f
+index 5fe2945..8b90bce 100644
+Binary files a/tmp/cache/assets/CF3/DB0/sprockets%2F9b0c2646c1c79f631f839ecc2567647f and b/tmp/cache/assets/CF3/DB0/sprockets%2F9b0c2646c1c79f631f839ecc2567647f differ
+diff --git a/tmp/cache/assets/CF6/330/sprockets%2F295acdf7732578395b3279f283a93dcf b/tmp/cache/assets/CF6/330/sprockets%2F295acdf7732578395b3279f283a93dcf
+index 7895a24..3e7d659 100644
+Binary files a/tmp/cache/assets/CF6/330/sprockets%2F295acdf7732578395b3279f283a93dcf and b/tmp/cache/assets/CF6/330/sprockets%2F295acdf7732578395b3279f283a93dcf differ
+diff --git a/tmp/cache/assets/CF8/610/sprockets%2F8886482ac6ddd8970f37557cf2623d3d b/tmp/cache/assets/CF8/610/sprockets%2F8886482ac6ddd8970f37557cf2623d3d
+index 4ca559c..7e1ead5 100644
+Binary files a/tmp/cache/assets/CF8/610/sprockets%2F8886482ac6ddd8970f37557cf2623d3d and b/tmp/cache/assets/CF8/610/sprockets%2F8886482ac6ddd8970f37557cf2623d3d differ
+diff --git a/tmp/cache/assets/CFC/660/sprockets%2F21bd8b431628b43c82293f7032aa5faa b/tmp/cache/assets/CFC/660/sprockets%2F21bd8b431628b43c82293f7032aa5faa
+index acd650c..2beaaf5 100644
+Binary files a/tmp/cache/assets/CFC/660/sprockets%2F21bd8b431628b43c82293f7032aa5faa and b/tmp/cache/assets/CFC/660/sprockets%2F21bd8b431628b43c82293f7032aa5faa differ
+diff --git a/tmp/cache/assets/CFC/9F0/sprockets%2F2d6c59791453683f2f4e7e1664fdf68c b/tmp/cache/assets/CFC/9F0/sprockets%2F2d6c59791453683f2f4e7e1664fdf68c
+index cbf736c..d0b424a 100644
+Binary files a/tmp/cache/assets/CFC/9F0/sprockets%2F2d6c59791453683f2f4e7e1664fdf68c and b/tmp/cache/assets/CFC/9F0/sprockets%2F2d6c59791453683f2f4e7e1664fdf68c differ
+diff --git a/tmp/cache/assets/CFE/660/sprockets%2Faf065a6002021fef0f5cc9d41375e291 b/tmp/cache/assets/CFE/660/sprockets%2Faf065a6002021fef0f5cc9d41375e291
+index 7b32219..a5eb32b 100644
+Binary files a/tmp/cache/assets/CFE/660/sprockets%2Faf065a6002021fef0f5cc9d41375e291 and b/tmp/cache/assets/CFE/660/sprockets%2Faf065a6002021fef0f5cc9d41375e291 differ
+diff --git a/tmp/cache/assets/CFE/B50/sprockets%2Fb9fff74d7902029c68886b0529f6d6a9 b/tmp/cache/assets/CFE/B50/sprockets%2Fb9fff74d7902029c68886b0529f6d6a9
+index 7d8ed76..aeaedcb 100644
+Binary files a/tmp/cache/assets/CFE/B50/sprockets%2Fb9fff74d7902029c68886b0529f6d6a9 and b/tmp/cache/assets/CFE/B50/sprockets%2Fb9fff74d7902029c68886b0529f6d6a9 differ
+diff --git a/tmp/cache/assets/D07/F30/sprockets%2F1a3f64e48635be405af75082521ae3ed b/tmp/cache/assets/D07/F30/sprockets%2F1a3f64e48635be405af75082521ae3ed
+index 9c78bee..b6b2676 100644
+Binary files a/tmp/cache/assets/D07/F30/sprockets%2F1a3f64e48635be405af75082521ae3ed and b/tmp/cache/assets/D07/F30/sprockets%2F1a3f64e48635be405af75082521ae3ed differ
+diff --git a/tmp/cache/assets/D08/980/sprockets%2Fd904c8248cba33cb16a560e9475d902a b/tmp/cache/assets/D08/980/sprockets%2Fd904c8248cba33cb16a560e9475d902a
+index 7b35682..94f2284 100644
+Binary files a/tmp/cache/assets/D08/980/sprockets%2Fd904c8248cba33cb16a560e9475d902a and b/tmp/cache/assets/D08/980/sprockets%2Fd904c8248cba33cb16a560e9475d902a differ
+diff --git a/tmp/cache/assets/D08/F40/sprockets%2F77fca1cf3add58d8757221b006b93043 b/tmp/cache/assets/D08/F40/sprockets%2F77fca1cf3add58d8757221b006b93043
+index fb189b8..3bdc7c0 100644
+Binary files a/tmp/cache/assets/D08/F40/sprockets%2F77fca1cf3add58d8757221b006b93043 and b/tmp/cache/assets/D08/F40/sprockets%2F77fca1cf3add58d8757221b006b93043 differ
+diff --git a/tmp/cache/assets/D09/B40/sprockets%2Fdea242b99d69a0b7340ed022781c9a45 b/tmp/cache/assets/D09/B40/sprockets%2Fdea242b99d69a0b7340ed022781c9a45
+index 9148c84..f34c0e0 100644
+Binary files a/tmp/cache/assets/D09/B40/sprockets%2Fdea242b99d69a0b7340ed022781c9a45 and b/tmp/cache/assets/D09/B40/sprockets%2Fdea242b99d69a0b7340ed022781c9a45 differ
+diff --git a/tmp/cache/assets/D09/F20/sprockets%2F0d74bf932be52bf657373bad2881b205 b/tmp/cache/assets/D09/F20/sprockets%2F0d74bf932be52bf657373bad2881b205
+index f26ad95..da54087 100644
+Binary files a/tmp/cache/assets/D09/F20/sprockets%2F0d74bf932be52bf657373bad2881b205 and b/tmp/cache/assets/D09/F20/sprockets%2F0d74bf932be52bf657373bad2881b205 differ
+diff --git a/tmp/cache/assets/D09/FB0/sprockets%2F29bccf5a6241f330e3ed4585165c3b28 b/tmp/cache/assets/D09/FB0/sprockets%2F29bccf5a6241f330e3ed4585165c3b28
+index f8088c0..58631be 100644
+Binary files a/tmp/cache/assets/D09/FB0/sprockets%2F29bccf5a6241f330e3ed4585165c3b28 and b/tmp/cache/assets/D09/FB0/sprockets%2F29bccf5a6241f330e3ed4585165c3b28 differ
+diff --git a/tmp/cache/assets/D0B/B80/sprockets%2F5b7b5e6bbc05db8e21371580b21769c7 b/tmp/cache/assets/D0B/B80/sprockets%2F5b7b5e6bbc05db8e21371580b21769c7
+index 22b1bbd..ccc77fc 100644
+Binary files a/tmp/cache/assets/D0B/B80/sprockets%2F5b7b5e6bbc05db8e21371580b21769c7 and b/tmp/cache/assets/D0B/B80/sprockets%2F5b7b5e6bbc05db8e21371580b21769c7 differ
+diff --git a/tmp/cache/assets/D0D/1F0/sprockets%2F99b78395856a8de2e9699d77a2f8c42d b/tmp/cache/assets/D0D/1F0/sprockets%2F99b78395856a8de2e9699d77a2f8c42d
+index 5853d5c..9af9bd7 100644
+Binary files a/tmp/cache/assets/D0D/1F0/sprockets%2F99b78395856a8de2e9699d77a2f8c42d and b/tmp/cache/assets/D0D/1F0/sprockets%2F99b78395856a8de2e9699d77a2f8c42d differ
+diff --git a/tmp/cache/assets/D0D/860/sprockets%2Fddbdd238d22c5562921c4b4387a6f409 b/tmp/cache/assets/D0D/860/sprockets%2Fddbdd238d22c5562921c4b4387a6f409
+index cd558b9..ea51d4d 100644
+Binary files a/tmp/cache/assets/D0D/860/sprockets%2Fddbdd238d22c5562921c4b4387a6f409 and b/tmp/cache/assets/D0D/860/sprockets%2Fddbdd238d22c5562921c4b4387a6f409 differ
+diff --git a/tmp/cache/assets/D0E/4E0/sprockets%2F77b74ede37a207a13b685c296b30d49a b/tmp/cache/assets/D0E/4E0/sprockets%2F77b74ede37a207a13b685c296b30d49a
+index 34642a9..c8383ae 100644
+Binary files a/tmp/cache/assets/D0E/4E0/sprockets%2F77b74ede37a207a13b685c296b30d49a and b/tmp/cache/assets/D0E/4E0/sprockets%2F77b74ede37a207a13b685c296b30d49a differ
+diff --git a/tmp/cache/assets/D0E/570/sprockets%2F1d823c934adc38b768b5203d9553d1bf b/tmp/cache/assets/D0E/570/sprockets%2F1d823c934adc38b768b5203d9553d1bf
+index 521d1b8..eebcc3f 100644
+Binary files a/tmp/cache/assets/D0E/570/sprockets%2F1d823c934adc38b768b5203d9553d1bf and b/tmp/cache/assets/D0E/570/sprockets%2F1d823c934adc38b768b5203d9553d1bf differ
+diff --git a/tmp/cache/assets/D0E/C90/sprockets%2F45a0896ad5a9ab82e47afe49306451b2 b/tmp/cache/assets/D0E/C90/sprockets%2F45a0896ad5a9ab82e47afe49306451b2
+index 27eed3e..b07b424 100644
+Binary files a/tmp/cache/assets/D0E/C90/sprockets%2F45a0896ad5a9ab82e47afe49306451b2 and b/tmp/cache/assets/D0E/C90/sprockets%2F45a0896ad5a9ab82e47afe49306451b2 differ
+diff --git a/tmp/cache/assets/D0F/110/sprockets%2Faf01e3dc3961a062d699f87a5b0f0818 b/tmp/cache/assets/D0F/110/sprockets%2Faf01e3dc3961a062d699f87a5b0f0818
+index 40f1d32..d702888 100644
+Binary files a/tmp/cache/assets/D0F/110/sprockets%2Faf01e3dc3961a062d699f87a5b0f0818 and b/tmp/cache/assets/D0F/110/sprockets%2Faf01e3dc3961a062d699f87a5b0f0818 differ
+diff --git a/tmp/cache/assets/D0F/CE0/sprockets%2Fd6c7ce3ac277094b04690a43947ede22 b/tmp/cache/assets/D0F/CE0/sprockets%2Fd6c7ce3ac277094b04690a43947ede22
+index ea3c1dc..c6137ea 100644
+Binary files a/tmp/cache/assets/D0F/CE0/sprockets%2Fd6c7ce3ac277094b04690a43947ede22 and b/tmp/cache/assets/D0F/CE0/sprockets%2Fd6c7ce3ac277094b04690a43947ede22 differ
+diff --git a/tmp/cache/assets/D10/670/sprockets%2F4b644d8fffc900441c97810cea5c7234 b/tmp/cache/assets/D10/670/sprockets%2F4b644d8fffc900441c97810cea5c7234
+index cfcde6f..3b85058 100644
+Binary files a/tmp/cache/assets/D10/670/sprockets%2F4b644d8fffc900441c97810cea5c7234 and b/tmp/cache/assets/D10/670/sprockets%2F4b644d8fffc900441c97810cea5c7234 differ
+diff --git a/tmp/cache/assets/D11/070/sprockets%2Ffa963c5b0e049307ff57b3ca350668e4 b/tmp/cache/assets/D11/070/sprockets%2Ffa963c5b0e049307ff57b3ca350668e4
+index 7432988..bcf5b83 100644
+Binary files a/tmp/cache/assets/D11/070/sprockets%2Ffa963c5b0e049307ff57b3ca350668e4 and b/tmp/cache/assets/D11/070/sprockets%2Ffa963c5b0e049307ff57b3ca350668e4 differ
+diff --git a/tmp/cache/assets/D11/140/sprockets%2F835c3ab327396ebe55f52182e8b71ba6 b/tmp/cache/assets/D11/140/sprockets%2F835c3ab327396ebe55f52182e8b71ba6
+index 32729d1..6fecfca 100644
+Binary files a/tmp/cache/assets/D11/140/sprockets%2F835c3ab327396ebe55f52182e8b71ba6 and b/tmp/cache/assets/D11/140/sprockets%2F835c3ab327396ebe55f52182e8b71ba6 differ
+diff --git a/tmp/cache/assets/D11/C30/sprockets%2F0de156368f17506ab17af43f908d85bc b/tmp/cache/assets/D11/C30/sprockets%2F0de156368f17506ab17af43f908d85bc
+index a2b5db3..af2ca67 100644
+Binary files a/tmp/cache/assets/D11/C30/sprockets%2F0de156368f17506ab17af43f908d85bc and b/tmp/cache/assets/D11/C30/sprockets%2F0de156368f17506ab17af43f908d85bc differ
+diff --git a/tmp/cache/assets/D12/E20/sprockets%2F334fc9360116180b18c81b9ea9d9a6ef b/tmp/cache/assets/D12/E20/sprockets%2F334fc9360116180b18c81b9ea9d9a6ef
+index bf2cc58..657aaff 100644
+Binary files a/tmp/cache/assets/D12/E20/sprockets%2F334fc9360116180b18c81b9ea9d9a6ef and b/tmp/cache/assets/D12/E20/sprockets%2F334fc9360116180b18c81b9ea9d9a6ef differ
+diff --git a/tmp/cache/assets/D13/370/sprockets%2F98c03005186acf958dae9f73fe1b6302 b/tmp/cache/assets/D13/370/sprockets%2F98c03005186acf958dae9f73fe1b6302
+index 26dd6c4..4164ac3 100644
+Binary files a/tmp/cache/assets/D13/370/sprockets%2F98c03005186acf958dae9f73fe1b6302 and b/tmp/cache/assets/D13/370/sprockets%2F98c03005186acf958dae9f73fe1b6302 differ
+diff --git a/tmp/cache/assets/D17/EF0/sprockets%2Ff4adf80799282682cb7182db1fb828a0 b/tmp/cache/assets/D17/EF0/sprockets%2Ff4adf80799282682cb7182db1fb828a0
+index 32b355b..3874f4c 100644
+Binary files a/tmp/cache/assets/D17/EF0/sprockets%2Ff4adf80799282682cb7182db1fb828a0 and b/tmp/cache/assets/D17/EF0/sprockets%2Ff4adf80799282682cb7182db1fb828a0 differ
+diff --git a/tmp/cache/assets/D18/730/sprockets%2Fda0c0b583a67bc39927474be6ac58866 b/tmp/cache/assets/D18/730/sprockets%2Fda0c0b583a67bc39927474be6ac58866
+index 080ba4c..7571b7e 100644
+Binary files a/tmp/cache/assets/D18/730/sprockets%2Fda0c0b583a67bc39927474be6ac58866 and b/tmp/cache/assets/D18/730/sprockets%2Fda0c0b583a67bc39927474be6ac58866 differ
+diff --git a/tmp/cache/assets/D1A/260/sprockets%2F76198ec40545a21d9f26e2c45f158dfe b/tmp/cache/assets/D1A/260/sprockets%2F76198ec40545a21d9f26e2c45f158dfe
+index ea4a96b..e5f2411 100644
+Binary files a/tmp/cache/assets/D1A/260/sprockets%2F76198ec40545a21d9f26e2c45f158dfe and b/tmp/cache/assets/D1A/260/sprockets%2F76198ec40545a21d9f26e2c45f158dfe differ
+diff --git a/tmp/cache/assets/D1A/710/sprockets%2Fb4db503eb314b79e654880887ad81ec8 b/tmp/cache/assets/D1A/710/sprockets%2Fb4db503eb314b79e654880887ad81ec8
+index 47c5961..5a401e7 100644
+Binary files a/tmp/cache/assets/D1A/710/sprockets%2Fb4db503eb314b79e654880887ad81ec8 and b/tmp/cache/assets/D1A/710/sprockets%2Fb4db503eb314b79e654880887ad81ec8 differ
+diff --git a/tmp/cache/assets/D1D/400/sprockets%2Fca3b10048050d564dcd5c7b0ce02570a b/tmp/cache/assets/D1D/400/sprockets%2Fca3b10048050d564dcd5c7b0ce02570a
+index ba8e818..92fbe9d 100644
+Binary files a/tmp/cache/assets/D1D/400/sprockets%2Fca3b10048050d564dcd5c7b0ce02570a and b/tmp/cache/assets/D1D/400/sprockets%2Fca3b10048050d564dcd5c7b0ce02570a differ
+diff --git a/tmp/cache/assets/D21/B30/sprockets%2Fb7b70e23b728f7ff94189f5c8f0e2722 b/tmp/cache/assets/D21/B30/sprockets%2Fb7b70e23b728f7ff94189f5c8f0e2722
+index 3218b8a..0bf508a 100644
+Binary files a/tmp/cache/assets/D21/B30/sprockets%2Fb7b70e23b728f7ff94189f5c8f0e2722 and b/tmp/cache/assets/D21/B30/sprockets%2Fb7b70e23b728f7ff94189f5c8f0e2722 differ
+diff --git a/tmp/cache/assets/D22/7B0/sprockets%2F1469bebbfdde99513462824733cdb979 b/tmp/cache/assets/D22/7B0/sprockets%2F1469bebbfdde99513462824733cdb979
+index 18627d4..9b981c0 100644
+Binary files a/tmp/cache/assets/D22/7B0/sprockets%2F1469bebbfdde99513462824733cdb979 and b/tmp/cache/assets/D22/7B0/sprockets%2F1469bebbfdde99513462824733cdb979 differ
+diff --git a/tmp/cache/assets/D24/A00/sprockets%2F9a0af52b21915b46f7230aa11c3cf1b8 b/tmp/cache/assets/D24/A00/sprockets%2F9a0af52b21915b46f7230aa11c3cf1b8
+index 1337ad2..4c28147 100644
+Binary files a/tmp/cache/assets/D24/A00/sprockets%2F9a0af52b21915b46f7230aa11c3cf1b8 and b/tmp/cache/assets/D24/A00/sprockets%2F9a0af52b21915b46f7230aa11c3cf1b8 differ
+diff --git a/tmp/cache/assets/D26/2C0/sprockets%2Ff3dba8129281d8f78de2f17af3379497 b/tmp/cache/assets/D26/2C0/sprockets%2Ff3dba8129281d8f78de2f17af3379497
+index 5367cff..90b0771 100644
+Binary files a/tmp/cache/assets/D26/2C0/sprockets%2Ff3dba8129281d8f78de2f17af3379497 and b/tmp/cache/assets/D26/2C0/sprockets%2Ff3dba8129281d8f78de2f17af3379497 differ
+diff --git a/tmp/cache/assets/D28/AB0/sprockets%2F4b176cbe975b10241c5c2cb304b37cb5 b/tmp/cache/assets/D28/AB0/sprockets%2F4b176cbe975b10241c5c2cb304b37cb5
+index 5c48267..fc76fd6 100644
+Binary files a/tmp/cache/assets/D28/AB0/sprockets%2F4b176cbe975b10241c5c2cb304b37cb5 and b/tmp/cache/assets/D28/AB0/sprockets%2F4b176cbe975b10241c5c2cb304b37cb5 differ
+diff --git a/tmp/cache/assets/D2D/E20/sprockets%2F7bfc238788cb69f40948df9a73c6292d b/tmp/cache/assets/D2D/E20/sprockets%2F7bfc238788cb69f40948df9a73c6292d
+index 1d36704..ac3acdb 100644
+Binary files a/tmp/cache/assets/D2D/E20/sprockets%2F7bfc238788cb69f40948df9a73c6292d and b/tmp/cache/assets/D2D/E20/sprockets%2F7bfc238788cb69f40948df9a73c6292d differ
+diff --git a/tmp/cache/assets/D2F/1F0/sprockets%2Fe05ed6116514540cf3aaef733aa960d4 b/tmp/cache/assets/D2F/1F0/sprockets%2Fe05ed6116514540cf3aaef733aa960d4
+index 1ea16ad..b453935 100644
+Binary files a/tmp/cache/assets/D2F/1F0/sprockets%2Fe05ed6116514540cf3aaef733aa960d4 and b/tmp/cache/assets/D2F/1F0/sprockets%2Fe05ed6116514540cf3aaef733aa960d4 differ
+diff --git a/tmp/cache/assets/D30/CC0/sprockets%2Fc4f766996fbb4357e7f0ce9661e9146f b/tmp/cache/assets/D30/CC0/sprockets%2Fc4f766996fbb4357e7f0ce9661e9146f
+index dcd7f87..613d5fe 100644
+Binary files a/tmp/cache/assets/D30/CC0/sprockets%2Fc4f766996fbb4357e7f0ce9661e9146f and b/tmp/cache/assets/D30/CC0/sprockets%2Fc4f766996fbb4357e7f0ce9661e9146f differ
+diff --git a/tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705 b/tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705
+index db9903f..51f039a 100644
+Binary files a/tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705 and b/tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705 differ
+diff --git a/tmp/cache/assets/D34/2F0/sprockets%2F45075a6be52cfdca023ecd304687186a b/tmp/cache/assets/D34/2F0/sprockets%2F45075a6be52cfdca023ecd304687186a
+index 862e0b8..dfe5dac 100644
+Binary files a/tmp/cache/assets/D34/2F0/sprockets%2F45075a6be52cfdca023ecd304687186a and b/tmp/cache/assets/D34/2F0/sprockets%2F45075a6be52cfdca023ecd304687186a differ
+diff --git a/tmp/cache/assets/D34/560/sprockets%2F1c32ecb31f3870cbe97164c0e2ef6324 b/tmp/cache/assets/D34/560/sprockets%2F1c32ecb31f3870cbe97164c0e2ef6324
+index b168d22..5ebbefb 100644
+Binary files a/tmp/cache/assets/D34/560/sprockets%2F1c32ecb31f3870cbe97164c0e2ef6324 and b/tmp/cache/assets/D34/560/sprockets%2F1c32ecb31f3870cbe97164c0e2ef6324 differ
+diff --git a/tmp/cache/assets/D34/FB0/sprockets%2Fa433ef3ca4199cf92c83d2004cd522b6 b/tmp/cache/assets/D34/FB0/sprockets%2Fa433ef3ca4199cf92c83d2004cd522b6
+index 6be818e..be66a92 100644
+Binary files a/tmp/cache/assets/D34/FB0/sprockets%2Fa433ef3ca4199cf92c83d2004cd522b6 and b/tmp/cache/assets/D34/FB0/sprockets%2Fa433ef3ca4199cf92c83d2004cd522b6 differ
+diff --git a/tmp/cache/assets/D3A/3A0/sprockets%2F1350f34a4dca9894e05b13eb7ac7356f b/tmp/cache/assets/D3A/3A0/sprockets%2F1350f34a4dca9894e05b13eb7ac7356f
+index 1cf9ae5..f3ebf8f 100644
+Binary files a/tmp/cache/assets/D3A/3A0/sprockets%2F1350f34a4dca9894e05b13eb7ac7356f and b/tmp/cache/assets/D3A/3A0/sprockets%2F1350f34a4dca9894e05b13eb7ac7356f differ
+diff --git a/tmp/cache/assets/D3D/590/sprockets%2F87b93cdce0dc8322cf32b18e760805e2 b/tmp/cache/assets/D3D/590/sprockets%2F87b93cdce0dc8322cf32b18e760805e2
+index 1a66fbe..ca61216 100644
+Binary files a/tmp/cache/assets/D3D/590/sprockets%2F87b93cdce0dc8322cf32b18e760805e2 and b/tmp/cache/assets/D3D/590/sprockets%2F87b93cdce0dc8322cf32b18e760805e2 differ
+diff --git a/tmp/cache/assets/D3D/640/sprockets%2F20c254ef25280a30ef9ccae9748e109f b/tmp/cache/assets/D3D/640/sprockets%2F20c254ef25280a30ef9ccae9748e109f
+index fa4b9a9..b2ed3ba 100644
+Binary files a/tmp/cache/assets/D3D/640/sprockets%2F20c254ef25280a30ef9ccae9748e109f and b/tmp/cache/assets/D3D/640/sprockets%2F20c254ef25280a30ef9ccae9748e109f differ
+diff --git a/tmp/cache/assets/D3D/C80/sprockets%2F828d8b0d60036e8cd6b5d3d3b705ec27 b/tmp/cache/assets/D3D/C80/sprockets%2F828d8b0d60036e8cd6b5d3d3b705ec27
+index 08e928b..fa3e49b 100644
+Binary files a/tmp/cache/assets/D3D/C80/sprockets%2F828d8b0d60036e8cd6b5d3d3b705ec27 and b/tmp/cache/assets/D3D/C80/sprockets%2F828d8b0d60036e8cd6b5d3d3b705ec27 differ
+diff --git a/tmp/cache/assets/D3E/130/sprockets%2Ff00645a7d54560f883a272bef4cc65ea b/tmp/cache/assets/D3E/130/sprockets%2Ff00645a7d54560f883a272bef4cc65ea
+index 3b24ef9..fd910ce 100644
+Binary files a/tmp/cache/assets/D3E/130/sprockets%2Ff00645a7d54560f883a272bef4cc65ea and b/tmp/cache/assets/D3E/130/sprockets%2Ff00645a7d54560f883a272bef4cc65ea differ
+diff --git a/tmp/cache/assets/D3E/ED0/sprockets%2Fef46f3d5a001409f390b7b1f3cff7474 b/tmp/cache/assets/D3E/ED0/sprockets%2Fef46f3d5a001409f390b7b1f3cff7474
+index 2400be7..9517c63 100644
+Binary files a/tmp/cache/assets/D3E/ED0/sprockets%2Fef46f3d5a001409f390b7b1f3cff7474 and b/tmp/cache/assets/D3E/ED0/sprockets%2Fef46f3d5a001409f390b7b1f3cff7474 differ
+diff --git a/tmp/cache/assets/D3F/770/sprockets%2Fef95bed76203831d42be91d36b18fa34 b/tmp/cache/assets/D3F/770/sprockets%2Fef95bed76203831d42be91d36b18fa34
+index d25ce97..a52816e 100644
+Binary files a/tmp/cache/assets/D3F/770/sprockets%2Fef95bed76203831d42be91d36b18fa34 and b/tmp/cache/assets/D3F/770/sprockets%2Fef95bed76203831d42be91d36b18fa34 differ
+diff --git a/tmp/cache/assets/D40/770/sprockets%2F09acf9d46d6330ad5949beea950c6150 b/tmp/cache/assets/D40/770/sprockets%2F09acf9d46d6330ad5949beea950c6150
+index 850b116..9bb7c13 100644
+Binary files a/tmp/cache/assets/D40/770/sprockets%2F09acf9d46d6330ad5949beea950c6150 and b/tmp/cache/assets/D40/770/sprockets%2F09acf9d46d6330ad5949beea950c6150 differ
+diff --git a/tmp/cache/assets/D44/2B0/sprockets%2Fd9bac31748e5c50d4449d815f3b704fe b/tmp/cache/assets/D44/2B0/sprockets%2Fd9bac31748e5c50d4449d815f3b704fe
+index 2cfd29a..04b79e8 100644
+Binary files a/tmp/cache/assets/D44/2B0/sprockets%2Fd9bac31748e5c50d4449d815f3b704fe and b/tmp/cache/assets/D44/2B0/sprockets%2Fd9bac31748e5c50d4449d815f3b704fe differ
+diff --git a/tmp/cache/assets/D44/6C0/sprockets%2F4cd2eac8187d1c35f64c8297f081a2b9 b/tmp/cache/assets/D44/6C0/sprockets%2F4cd2eac8187d1c35f64c8297f081a2b9
+index e321ef2..491fbac 100644
+Binary files a/tmp/cache/assets/D44/6C0/sprockets%2F4cd2eac8187d1c35f64c8297f081a2b9 and b/tmp/cache/assets/D44/6C0/sprockets%2F4cd2eac8187d1c35f64c8297f081a2b9 differ
+diff --git a/tmp/cache/assets/D44/7B0/sprockets%2F40bc5c46f53cae9557f460e95a5eb039 b/tmp/cache/assets/D44/7B0/sprockets%2F40bc5c46f53cae9557f460e95a5eb039
+index 912a6b9..a6623b4 100644
+Binary files a/tmp/cache/assets/D44/7B0/sprockets%2F40bc5c46f53cae9557f460e95a5eb039 and b/tmp/cache/assets/D44/7B0/sprockets%2F40bc5c46f53cae9557f460e95a5eb039 differ
+diff --git a/tmp/cache/assets/D46/690/sprockets%2F48913ea8a6fab487c597cf5dd01691a0 b/tmp/cache/assets/D46/690/sprockets%2F48913ea8a6fab487c597cf5dd01691a0
+index 2221999..ca79031 100644
+Binary files a/tmp/cache/assets/D46/690/sprockets%2F48913ea8a6fab487c597cf5dd01691a0 and b/tmp/cache/assets/D46/690/sprockets%2F48913ea8a6fab487c597cf5dd01691a0 differ
+diff --git a/tmp/cache/assets/D46/ED0/sprockets%2F6be19bda0de29294da8d52557f08b178 b/tmp/cache/assets/D46/ED0/sprockets%2F6be19bda0de29294da8d52557f08b178
+index 96cb1db..32e9bc1 100644
+Binary files a/tmp/cache/assets/D46/ED0/sprockets%2F6be19bda0de29294da8d52557f08b178 and b/tmp/cache/assets/D46/ED0/sprockets%2F6be19bda0de29294da8d52557f08b178 differ
+diff --git a/tmp/cache/assets/D4A/B10/sprockets%2F8a9a9647920febb7734b1517e4b6e2fd b/tmp/cache/assets/D4A/B10/sprockets%2F8a9a9647920febb7734b1517e4b6e2fd
+index 007ee0d..2f3c89f 100644
+Binary files a/tmp/cache/assets/D4A/B10/sprockets%2F8a9a9647920febb7734b1517e4b6e2fd and b/tmp/cache/assets/D4A/B10/sprockets%2F8a9a9647920febb7734b1517e4b6e2fd differ
+diff --git a/tmp/cache/assets/D4C/720/sprockets%2F89e5e30c1e7254f1bc5fc773915b8f6b b/tmp/cache/assets/D4C/720/sprockets%2F89e5e30c1e7254f1bc5fc773915b8f6b
+index e537f4d..45519a7 100644
+Binary files a/tmp/cache/assets/D4C/720/sprockets%2F89e5e30c1e7254f1bc5fc773915b8f6b and b/tmp/cache/assets/D4C/720/sprockets%2F89e5e30c1e7254f1bc5fc773915b8f6b differ
+diff --git a/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655 b/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655
+index 12a40fe..b9d5699 100644
+Binary files a/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655 and b/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655 differ
+diff --git a/tmp/cache/assets/D4E/970/sprockets%2Fc8fd3183703b9debf5c5f692f1b84816 b/tmp/cache/assets/D4E/970/sprockets%2Fc8fd3183703b9debf5c5f692f1b84816
+index ddb1566..ac282cb 100644
+Binary files a/tmp/cache/assets/D4E/970/sprockets%2Fc8fd3183703b9debf5c5f692f1b84816 and b/tmp/cache/assets/D4E/970/sprockets%2Fc8fd3183703b9debf5c5f692f1b84816 differ
+diff --git a/tmp/cache/assets/D4E/E80/sprockets%2Fa4f160f29e77ed24da586f4f7c81159c b/tmp/cache/assets/D4E/E80/sprockets%2Fa4f160f29e77ed24da586f4f7c81159c
+index 9c97969..8d833c2 100644
+Binary files a/tmp/cache/assets/D4E/E80/sprockets%2Fa4f160f29e77ed24da586f4f7c81159c and b/tmp/cache/assets/D4E/E80/sprockets%2Fa4f160f29e77ed24da586f4f7c81159c differ
+diff --git a/tmp/cache/assets/D50/B10/sprockets%2F883fb9fec5b42e204ff3796855c33fc1 b/tmp/cache/assets/D50/B10/sprockets%2F883fb9fec5b42e204ff3796855c33fc1
+index 0d4fe0b..43fe018 100644
+Binary files a/tmp/cache/assets/D50/B10/sprockets%2F883fb9fec5b42e204ff3796855c33fc1 and b/tmp/cache/assets/D50/B10/sprockets%2F883fb9fec5b42e204ff3796855c33fc1 differ
+diff --git a/tmp/cache/assets/D51/6C0/sprockets%2Fe43123b4ca8ad84e7b1c020e5a2c037b b/tmp/cache/assets/D51/6C0/sprockets%2Fe43123b4ca8ad84e7b1c020e5a2c037b
+index 817853c..74be64c 100644
+Binary files a/tmp/cache/assets/D51/6C0/sprockets%2Fe43123b4ca8ad84e7b1c020e5a2c037b and b/tmp/cache/assets/D51/6C0/sprockets%2Fe43123b4ca8ad84e7b1c020e5a2c037b differ
+diff --git a/tmp/cache/assets/D55/B60/sprockets%2Fb9a0dd81263e821d02542a1ccd5ead50 b/tmp/cache/assets/D55/B60/sprockets%2Fb9a0dd81263e821d02542a1ccd5ead50
+index 64d5c71..2aec555 100644
+Binary files a/tmp/cache/assets/D55/B60/sprockets%2Fb9a0dd81263e821d02542a1ccd5ead50 and b/tmp/cache/assets/D55/B60/sprockets%2Fb9a0dd81263e821d02542a1ccd5ead50 differ
+diff --git a/tmp/cache/assets/D56/EB0/sprockets%2F3ed24f59e8e1f596a82762a0e9a6f94d b/tmp/cache/assets/D56/EB0/sprockets%2F3ed24f59e8e1f596a82762a0e9a6f94d
+index 2ce4354..37db1a0 100644
+Binary files a/tmp/cache/assets/D56/EB0/sprockets%2F3ed24f59e8e1f596a82762a0e9a6f94d and b/tmp/cache/assets/D56/EB0/sprockets%2F3ed24f59e8e1f596a82762a0e9a6f94d differ
+diff --git a/tmp/cache/assets/D57/840/sprockets%2Fd869791d85fe5ddf2e8bcc12691853d2 b/tmp/cache/assets/D57/840/sprockets%2Fd869791d85fe5ddf2e8bcc12691853d2
+index 228b065..1fba68f 100644
+Binary files a/tmp/cache/assets/D57/840/sprockets%2Fd869791d85fe5ddf2e8bcc12691853d2 and b/tmp/cache/assets/D57/840/sprockets%2Fd869791d85fe5ddf2e8bcc12691853d2 differ
+diff --git a/tmp/cache/assets/D5A/EA0/sprockets%2Fd771ace226fc8215a3572e0aa35bb0d6 b/tmp/cache/assets/D5A/EA0/sprockets%2Fd771ace226fc8215a3572e0aa35bb0d6
+index fc14452..3d0e363 100644
+Binary files a/tmp/cache/assets/D5A/EA0/sprockets%2Fd771ace226fc8215a3572e0aa35bb0d6 and b/tmp/cache/assets/D5A/EA0/sprockets%2Fd771ace226fc8215a3572e0aa35bb0d6 differ
+diff --git a/tmp/cache/assets/D5D/D30/sprockets%2Fdc7aeb4779a812de12a0c92fb403b044 b/tmp/cache/assets/D5D/D30/sprockets%2Fdc7aeb4779a812de12a0c92fb403b044
+index aa0403c..bd4570a 100644
+Binary files a/tmp/cache/assets/D5D/D30/sprockets%2Fdc7aeb4779a812de12a0c92fb403b044 and b/tmp/cache/assets/D5D/D30/sprockets%2Fdc7aeb4779a812de12a0c92fb403b044 differ
+diff --git a/tmp/cache/assets/D5F/2D0/sprockets%2F0297e2e31d19cfc612a405f3c90bdbd3 b/tmp/cache/assets/D5F/2D0/sprockets%2F0297e2e31d19cfc612a405f3c90bdbd3
+index 677bb3e..47931cf 100644
+Binary files a/tmp/cache/assets/D5F/2D0/sprockets%2F0297e2e31d19cfc612a405f3c90bdbd3 and b/tmp/cache/assets/D5F/2D0/sprockets%2F0297e2e31d19cfc612a405f3c90bdbd3 differ
+diff --git a/tmp/cache/assets/D61/860/sprockets%2F6816a7ea87d00ceaa92b735bca353c14 b/tmp/cache/assets/D61/860/sprockets%2F6816a7ea87d00ceaa92b735bca353c14
+index 4d41bc3..65bcfea 100644
+Binary files a/tmp/cache/assets/D61/860/sprockets%2F6816a7ea87d00ceaa92b735bca353c14 and b/tmp/cache/assets/D61/860/sprockets%2F6816a7ea87d00ceaa92b735bca353c14 differ
+diff --git a/tmp/cache/assets/D62/560/sprockets%2F96037e4c1b6735e3529aa4bc1ab07dbe b/tmp/cache/assets/D62/560/sprockets%2F96037e4c1b6735e3529aa4bc1ab07dbe
+index e04ffc6..c032299 100644
+Binary files a/tmp/cache/assets/D62/560/sprockets%2F96037e4c1b6735e3529aa4bc1ab07dbe and b/tmp/cache/assets/D62/560/sprockets%2F96037e4c1b6735e3529aa4bc1ab07dbe differ
+diff --git a/tmp/cache/assets/D64/BB0/sprockets%2Fa8ffd991f899e5879105baf158beb794 b/tmp/cache/assets/D64/BB0/sprockets%2Fa8ffd991f899e5879105baf158beb794
+index d465a3f..4efbad6 100644
+Binary files a/tmp/cache/assets/D64/BB0/sprockets%2Fa8ffd991f899e5879105baf158beb794 and b/tmp/cache/assets/D64/BB0/sprockets%2Fa8ffd991f899e5879105baf158beb794 differ
+diff --git a/tmp/cache/assets/D64/F60/sprockets%2Fc65612006d1d7d14bb5e9fc0eddc8145 b/tmp/cache/assets/D64/F60/sprockets%2Fc65612006d1d7d14bb5e9fc0eddc8145
+index 9fcb9d8..c0fa61a 100644
+Binary files a/tmp/cache/assets/D64/F60/sprockets%2Fc65612006d1d7d14bb5e9fc0eddc8145 and b/tmp/cache/assets/D64/F60/sprockets%2Fc65612006d1d7d14bb5e9fc0eddc8145 differ
+diff --git a/tmp/cache/assets/D65/250/sprockets%2Ff0c206c1e4bc070d787b14e8e147d5dc b/tmp/cache/assets/D65/250/sprockets%2Ff0c206c1e4bc070d787b14e8e147d5dc
+index 388d88d..1538548 100644
+Binary files a/tmp/cache/assets/D65/250/sprockets%2Ff0c206c1e4bc070d787b14e8e147d5dc and b/tmp/cache/assets/D65/250/sprockets%2Ff0c206c1e4bc070d787b14e8e147d5dc differ
+diff --git a/tmp/cache/assets/D65/9A0/sprockets%2F44fc5b1eb1db76dce24a4c43318c6861 b/tmp/cache/assets/D65/9A0/sprockets%2F44fc5b1eb1db76dce24a4c43318c6861
+index c5fb1d7..75e2c5b 100644
+Binary files a/tmp/cache/assets/D65/9A0/sprockets%2F44fc5b1eb1db76dce24a4c43318c6861 and b/tmp/cache/assets/D65/9A0/sprockets%2F44fc5b1eb1db76dce24a4c43318c6861 differ
+diff --git a/tmp/cache/assets/D65/FD0/sprockets%2F73d0e29bf7f796b3911061abbe0f10fb b/tmp/cache/assets/D65/FD0/sprockets%2F73d0e29bf7f796b3911061abbe0f10fb
+index 6f03a09..62fa1e2 100644
+Binary files a/tmp/cache/assets/D65/FD0/sprockets%2F73d0e29bf7f796b3911061abbe0f10fb and b/tmp/cache/assets/D65/FD0/sprockets%2F73d0e29bf7f796b3911061abbe0f10fb differ
+diff --git a/tmp/cache/assets/D66/990/sprockets%2Fa859fd9cd5b305a31735d0e5bc2a03f7 b/tmp/cache/assets/D66/990/sprockets%2Fa859fd9cd5b305a31735d0e5bc2a03f7
+index 0b1e843..b427536 100644
+Binary files a/tmp/cache/assets/D66/990/sprockets%2Fa859fd9cd5b305a31735d0e5bc2a03f7 and b/tmp/cache/assets/D66/990/sprockets%2Fa859fd9cd5b305a31735d0e5bc2a03f7 differ
+diff --git a/tmp/cache/assets/D68/850/sprockets%2F9dca82430bbca266667ff1f2a1555d6a b/tmp/cache/assets/D68/850/sprockets%2F9dca82430bbca266667ff1f2a1555d6a
+index 4817bf7..bdaeb7e 100644
+Binary files a/tmp/cache/assets/D68/850/sprockets%2F9dca82430bbca266667ff1f2a1555d6a and b/tmp/cache/assets/D68/850/sprockets%2F9dca82430bbca266667ff1f2a1555d6a differ
+diff --git a/tmp/cache/assets/D6C/790/sprockets%2Ffc70505a8baacb461f4f22990b5d7c86 b/tmp/cache/assets/D6C/790/sprockets%2Ffc70505a8baacb461f4f22990b5d7c86
+index 27b074e..d94f335 100644
+Binary files a/tmp/cache/assets/D6C/790/sprockets%2Ffc70505a8baacb461f4f22990b5d7c86 and b/tmp/cache/assets/D6C/790/sprockets%2Ffc70505a8baacb461f4f22990b5d7c86 differ
+diff --git a/tmp/cache/assets/D6F/530/sprockets%2Fce3ff65b167e8e0408f59210ad91af0f b/tmp/cache/assets/D6F/530/sprockets%2Fce3ff65b167e8e0408f59210ad91af0f
+index 4f8d056..2280a03 100644
+Binary files a/tmp/cache/assets/D6F/530/sprockets%2Fce3ff65b167e8e0408f59210ad91af0f and b/tmp/cache/assets/D6F/530/sprockets%2Fce3ff65b167e8e0408f59210ad91af0f differ
+diff --git a/tmp/cache/assets/D6F/550/sprockets%2F93e9e45e2b10d505b963c19fd26cedb2 b/tmp/cache/assets/D6F/550/sprockets%2F93e9e45e2b10d505b963c19fd26cedb2
+index 0d32ed1..93521fe 100644
+Binary files a/tmp/cache/assets/D6F/550/sprockets%2F93e9e45e2b10d505b963c19fd26cedb2 and b/tmp/cache/assets/D6F/550/sprockets%2F93e9e45e2b10d505b963c19fd26cedb2 differ
+diff --git a/tmp/cache/assets/D6F/6B0/sprockets%2F78a4b643dde96a32b2d560f4bf6a74c4 b/tmp/cache/assets/D6F/6B0/sprockets%2F78a4b643dde96a32b2d560f4bf6a74c4
+index d469544..ff2b2ae 100644
+Binary files a/tmp/cache/assets/D6F/6B0/sprockets%2F78a4b643dde96a32b2d560f4bf6a74c4 and b/tmp/cache/assets/D6F/6B0/sprockets%2F78a4b643dde96a32b2d560f4bf6a74c4 differ
+diff --git a/tmp/cache/assets/D6F/CC0/sprockets%2F380560c5c3f6c996896faacb3ea2a05c b/tmp/cache/assets/D6F/CC0/sprockets%2F380560c5c3f6c996896faacb3ea2a05c
+index 6343a54..2861bf9 100644
+Binary files a/tmp/cache/assets/D6F/CC0/sprockets%2F380560c5c3f6c996896faacb3ea2a05c and b/tmp/cache/assets/D6F/CC0/sprockets%2F380560c5c3f6c996896faacb3ea2a05c differ
+diff --git a/tmp/cache/assets/D71/200/sprockets%2Fb19e3bbcc0067bf3e8e14f58b76c4582 b/tmp/cache/assets/D71/200/sprockets%2Fb19e3bbcc0067bf3e8e14f58b76c4582
+index 7671289..6bb13f6 100644
+Binary files a/tmp/cache/assets/D71/200/sprockets%2Fb19e3bbcc0067bf3e8e14f58b76c4582 and b/tmp/cache/assets/D71/200/sprockets%2Fb19e3bbcc0067bf3e8e14f58b76c4582 differ
+diff --git a/tmp/cache/assets/D71/D90/sprockets%2F257c626547c6f30b97ae01d5dd8b2efc b/tmp/cache/assets/D71/D90/sprockets%2F257c626547c6f30b97ae01d5dd8b2efc
+index f0b178c..8207430 100644
+Binary files a/tmp/cache/assets/D71/D90/sprockets%2F257c626547c6f30b97ae01d5dd8b2efc and b/tmp/cache/assets/D71/D90/sprockets%2F257c626547c6f30b97ae01d5dd8b2efc differ
+diff --git a/tmp/cache/assets/D72/D40/sprockets%2F9ed4af4e5cf695426166a543aece3a60 b/tmp/cache/assets/D72/D40/sprockets%2F9ed4af4e5cf695426166a543aece3a60
+index d1168a3..c01ab10 100644
+Binary files a/tmp/cache/assets/D72/D40/sprockets%2F9ed4af4e5cf695426166a543aece3a60 and b/tmp/cache/assets/D72/D40/sprockets%2F9ed4af4e5cf695426166a543aece3a60 differ
+diff --git a/tmp/cache/assets/D73/1B0/sprockets%2F0d29e7d1c6ceb6775f48da4da70f5612 b/tmp/cache/assets/D73/1B0/sprockets%2F0d29e7d1c6ceb6775f48da4da70f5612
+index f502a74..ce46bf0 100644
+Binary files a/tmp/cache/assets/D73/1B0/sprockets%2F0d29e7d1c6ceb6775f48da4da70f5612 and b/tmp/cache/assets/D73/1B0/sprockets%2F0d29e7d1c6ceb6775f48da4da70f5612 differ
+diff --git a/tmp/cache/assets/D73/6E0/sprockets%2F0bc1b1f1f5ba386eb90f9729426b9c9d b/tmp/cache/assets/D73/6E0/sprockets%2F0bc1b1f1f5ba386eb90f9729426b9c9d
+index 84feab9..fd85ca2 100644
+Binary files a/tmp/cache/assets/D73/6E0/sprockets%2F0bc1b1f1f5ba386eb90f9729426b9c9d and b/tmp/cache/assets/D73/6E0/sprockets%2F0bc1b1f1f5ba386eb90f9729426b9c9d differ
+diff --git a/tmp/cache/assets/D75/6A0/sprockets%2F77df92177bd43fba9c7e52ea72d561c0 b/tmp/cache/assets/D75/6A0/sprockets%2F77df92177bd43fba9c7e52ea72d561c0
+index 044d2ea..43d5923 100644
+Binary files a/tmp/cache/assets/D75/6A0/sprockets%2F77df92177bd43fba9c7e52ea72d561c0 and b/tmp/cache/assets/D75/6A0/sprockets%2F77df92177bd43fba9c7e52ea72d561c0 differ
+diff --git a/tmp/cache/assets/D75/7B0/sprockets%2F80e50ac7b9198293cbfb1ec9b5e84c25 b/tmp/cache/assets/D75/7B0/sprockets%2F80e50ac7b9198293cbfb1ec9b5e84c25
+index 69f8bbf..a2cbaa9 100644
+Binary files a/tmp/cache/assets/D75/7B0/sprockets%2F80e50ac7b9198293cbfb1ec9b5e84c25 and b/tmp/cache/assets/D75/7B0/sprockets%2F80e50ac7b9198293cbfb1ec9b5e84c25 differ
+diff --git a/tmp/cache/assets/D76/720/sprockets%2F42e981a9f67b11f1bb286edb869db51c b/tmp/cache/assets/D76/720/sprockets%2F42e981a9f67b11f1bb286edb869db51c
+index 1ab4b7c..a906137 100644
+Binary files a/tmp/cache/assets/D76/720/sprockets%2F42e981a9f67b11f1bb286edb869db51c and b/tmp/cache/assets/D76/720/sprockets%2F42e981a9f67b11f1bb286edb869db51c differ
+diff --git a/tmp/cache/assets/D78/FE0/sprockets%2Fbb3b6c737b50846df349b52f98dbe16d b/tmp/cache/assets/D78/FE0/sprockets%2Fbb3b6c737b50846df349b52f98dbe16d
+index 6b7f38b..b11bdfa 100644
+Binary files a/tmp/cache/assets/D78/FE0/sprockets%2Fbb3b6c737b50846df349b52f98dbe16d and b/tmp/cache/assets/D78/FE0/sprockets%2Fbb3b6c737b50846df349b52f98dbe16d differ
+diff --git a/tmp/cache/assets/D7E/0F0/sprockets%2F8717beda1df406ffa79ca164899ef036 b/tmp/cache/assets/D7E/0F0/sprockets%2F8717beda1df406ffa79ca164899ef036
+index 5d736e8..8e755d0 100644
+Binary files a/tmp/cache/assets/D7E/0F0/sprockets%2F8717beda1df406ffa79ca164899ef036 and b/tmp/cache/assets/D7E/0F0/sprockets%2F8717beda1df406ffa79ca164899ef036 differ
+diff --git a/tmp/cache/assets/D7E/E50/sprockets%2Febc1b5377661de648da85cf26b9bf728 b/tmp/cache/assets/D7E/E50/sprockets%2Febc1b5377661de648da85cf26b9bf728
+index f9cca66..6a88491 100644
+Binary files a/tmp/cache/assets/D7E/E50/sprockets%2Febc1b5377661de648da85cf26b9bf728 and b/tmp/cache/assets/D7E/E50/sprockets%2Febc1b5377661de648da85cf26b9bf728 differ
+diff --git a/tmp/cache/assets/D7F/700/sprockets%2Fa14a94942868dd9ea7fcda29e08e8b70 b/tmp/cache/assets/D7F/700/sprockets%2Fa14a94942868dd9ea7fcda29e08e8b70
+index bf44940..53f7b62 100644
+Binary files a/tmp/cache/assets/D7F/700/sprockets%2Fa14a94942868dd9ea7fcda29e08e8b70 and b/tmp/cache/assets/D7F/700/sprockets%2Fa14a94942868dd9ea7fcda29e08e8b70 differ
+diff --git a/tmp/cache/assets/D7F/DF0/sprockets%2F13a51ee9cbf1e84010b0cc88ca32ac11 b/tmp/cache/assets/D7F/DF0/sprockets%2F13a51ee9cbf1e84010b0cc88ca32ac11
+index 820cf75..5d468c0 100644
+Binary files a/tmp/cache/assets/D7F/DF0/sprockets%2F13a51ee9cbf1e84010b0cc88ca32ac11 and b/tmp/cache/assets/D7F/DF0/sprockets%2F13a51ee9cbf1e84010b0cc88ca32ac11 differ
+diff --git a/tmp/cache/assets/D8A/D40/sprockets%2Fc2893b1e3866a75257ef59dfdfb9cc49 b/tmp/cache/assets/D8A/D40/sprockets%2Fc2893b1e3866a75257ef59dfdfb9cc49
+index 128e44f..1d389b4 100644
+Binary files a/tmp/cache/assets/D8A/D40/sprockets%2Fc2893b1e3866a75257ef59dfdfb9cc49 and b/tmp/cache/assets/D8A/D40/sprockets%2Fc2893b1e3866a75257ef59dfdfb9cc49 differ
+diff --git a/tmp/cache/assets/D90/010/sprockets%2Fce074d79c4dacd65ba0e7cb0326141c7 b/tmp/cache/assets/D90/010/sprockets%2Fce074d79c4dacd65ba0e7cb0326141c7
+index f76e7f7..f8bde7a 100644
+Binary files a/tmp/cache/assets/D90/010/sprockets%2Fce074d79c4dacd65ba0e7cb0326141c7 and b/tmp/cache/assets/D90/010/sprockets%2Fce074d79c4dacd65ba0e7cb0326141c7 differ
+diff --git a/tmp/cache/assets/D94/5B0/sprockets%2Fc6fae78241ae94a1fc1ee3801dd1c048 b/tmp/cache/assets/D94/5B0/sprockets%2Fc6fae78241ae94a1fc1ee3801dd1c048
+index 1ff0782..c7c1b04 100644
+Binary files a/tmp/cache/assets/D94/5B0/sprockets%2Fc6fae78241ae94a1fc1ee3801dd1c048 and b/tmp/cache/assets/D94/5B0/sprockets%2Fc6fae78241ae94a1fc1ee3801dd1c048 differ
+diff --git a/tmp/cache/assets/D94/C50/sprockets%2Fca8ac5c0e91f24432a4c776eefb3d205 b/tmp/cache/assets/D94/C50/sprockets%2Fca8ac5c0e91f24432a4c776eefb3d205
+index 8257b23..0a01615 100644
+Binary files a/tmp/cache/assets/D94/C50/sprockets%2Fca8ac5c0e91f24432a4c776eefb3d205 and b/tmp/cache/assets/D94/C50/sprockets%2Fca8ac5c0e91f24432a4c776eefb3d205 differ
+diff --git a/tmp/cache/assets/D94/E80/sprockets%2Fab4cf35c4d11186d01f8af8a64ce5a36 b/tmp/cache/assets/D94/E80/sprockets%2Fab4cf35c4d11186d01f8af8a64ce5a36
+index 95e1fbb..fa56158 100644
+Binary files a/tmp/cache/assets/D94/E80/sprockets%2Fab4cf35c4d11186d01f8af8a64ce5a36 and b/tmp/cache/assets/D94/E80/sprockets%2Fab4cf35c4d11186d01f8af8a64ce5a36 differ
+diff --git a/tmp/cache/assets/D95/420/sprockets%2F32e8d1fc42fd43b1da1ec9455eed5160 b/tmp/cache/assets/D95/420/sprockets%2F32e8d1fc42fd43b1da1ec9455eed5160
+index 205e04c..bdb62e9 100644
+Binary files a/tmp/cache/assets/D95/420/sprockets%2F32e8d1fc42fd43b1da1ec9455eed5160 and b/tmp/cache/assets/D95/420/sprockets%2F32e8d1fc42fd43b1da1ec9455eed5160 differ
+diff --git a/tmp/cache/assets/D97/EA0/sprockets%2F2f4e0d9e794c0b071ae8a219e04cd6bd b/tmp/cache/assets/D97/EA0/sprockets%2F2f4e0d9e794c0b071ae8a219e04cd6bd
+index a133bee..368c558 100644
+Binary files a/tmp/cache/assets/D97/EA0/sprockets%2F2f4e0d9e794c0b071ae8a219e04cd6bd and b/tmp/cache/assets/D97/EA0/sprockets%2F2f4e0d9e794c0b071ae8a219e04cd6bd differ
+diff --git a/tmp/cache/assets/D98/7C0/sprockets%2Fba993f074b284dbf9277032ace2aa8bb b/tmp/cache/assets/D98/7C0/sprockets%2Fba993f074b284dbf9277032ace2aa8bb
+index a2216c6..7a71c02 100644
+Binary files a/tmp/cache/assets/D98/7C0/sprockets%2Fba993f074b284dbf9277032ace2aa8bb and b/tmp/cache/assets/D98/7C0/sprockets%2Fba993f074b284dbf9277032ace2aa8bb differ
+diff --git a/tmp/cache/assets/D9A/580/sprockets%2Fb4bfcf53eb8a91e22dd4e6a007925b56 b/tmp/cache/assets/D9A/580/sprockets%2Fb4bfcf53eb8a91e22dd4e6a007925b56
+index 9806f96..c77dbaf 100644
+Binary files a/tmp/cache/assets/D9A/580/sprockets%2Fb4bfcf53eb8a91e22dd4e6a007925b56 and b/tmp/cache/assets/D9A/580/sprockets%2Fb4bfcf53eb8a91e22dd4e6a007925b56 differ
+diff --git a/tmp/cache/assets/D9B/1A0/sprockets%2Ff2a83d34ffa2be6630c89ca25aa832d9 b/tmp/cache/assets/D9B/1A0/sprockets%2Ff2a83d34ffa2be6630c89ca25aa832d9
+index 578905b..d3f2995 100644
+Binary files a/tmp/cache/assets/D9B/1A0/sprockets%2Ff2a83d34ffa2be6630c89ca25aa832d9 and b/tmp/cache/assets/D9B/1A0/sprockets%2Ff2a83d34ffa2be6630c89ca25aa832d9 differ
+diff --git a/tmp/cache/assets/D9B/280/sprockets%2Fa2cbb8416b80e9b2c17a0169ccc7f9f5 b/tmp/cache/assets/D9B/280/sprockets%2Fa2cbb8416b80e9b2c17a0169ccc7f9f5
+index 1fb5567..930713d 100644
+Binary files a/tmp/cache/assets/D9B/280/sprockets%2Fa2cbb8416b80e9b2c17a0169ccc7f9f5 and b/tmp/cache/assets/D9B/280/sprockets%2Fa2cbb8416b80e9b2c17a0169ccc7f9f5 differ
+diff --git a/tmp/cache/assets/D9C/910/sprockets%2Ff27dda06ba8456e1fa0598b4605d6cdc b/tmp/cache/assets/D9C/910/sprockets%2Ff27dda06ba8456e1fa0598b4605d6cdc
+index 06b8fe5..fc32cfa 100644
+Binary files a/tmp/cache/assets/D9C/910/sprockets%2Ff27dda06ba8456e1fa0598b4605d6cdc and b/tmp/cache/assets/D9C/910/sprockets%2Ff27dda06ba8456e1fa0598b4605d6cdc differ
+diff --git a/tmp/cache/assets/D9D/A00/sprockets%2F95d4d41546fb4ebbd7b8e4eb0b83421e b/tmp/cache/assets/D9D/A00/sprockets%2F95d4d41546fb4ebbd7b8e4eb0b83421e
+index 0e7218f..176869e 100644
+Binary files a/tmp/cache/assets/D9D/A00/sprockets%2F95d4d41546fb4ebbd7b8e4eb0b83421e and b/tmp/cache/assets/D9D/A00/sprockets%2F95d4d41546fb4ebbd7b8e4eb0b83421e differ
+diff --git a/tmp/cache/assets/D9E/2E0/sprockets%2F699d459aee1b11c5ea2d321bc84fd46e b/tmp/cache/assets/D9E/2E0/sprockets%2F699d459aee1b11c5ea2d321bc84fd46e
+index d7faff4..6367d31 100644
+Binary files a/tmp/cache/assets/D9E/2E0/sprockets%2F699d459aee1b11c5ea2d321bc84fd46e and b/tmp/cache/assets/D9E/2E0/sprockets%2F699d459aee1b11c5ea2d321bc84fd46e differ
+diff --git a/tmp/cache/assets/D9E/370/sprockets%2F0b9492e93c31eccaeca76660f9bc161f b/tmp/cache/assets/D9E/370/sprockets%2F0b9492e93c31eccaeca76660f9bc161f
+index 18e373a..458f98b 100644
+Binary files a/tmp/cache/assets/D9E/370/sprockets%2F0b9492e93c31eccaeca76660f9bc161f and b/tmp/cache/assets/D9E/370/sprockets%2F0b9492e93c31eccaeca76660f9bc161f differ
+diff --git a/tmp/cache/assets/D9E/A20/sprockets%2F1f9e55cff7551c94c7bcb41f41a131ef b/tmp/cache/assets/D9E/A20/sprockets%2F1f9e55cff7551c94c7bcb41f41a131ef
+index 76ff01f..9e15086 100644
+Binary files a/tmp/cache/assets/D9E/A20/sprockets%2F1f9e55cff7551c94c7bcb41f41a131ef and b/tmp/cache/assets/D9E/A20/sprockets%2F1f9e55cff7551c94c7bcb41f41a131ef differ
+diff --git a/tmp/cache/assets/DA0/DD0/sprockets%2F6abe2fe9ca9b262d79a36fcad5803065 b/tmp/cache/assets/DA0/DD0/sprockets%2F6abe2fe9ca9b262d79a36fcad5803065
+index b2e367e..b944927 100644
+Binary files a/tmp/cache/assets/DA0/DD0/sprockets%2F6abe2fe9ca9b262d79a36fcad5803065 and b/tmp/cache/assets/DA0/DD0/sprockets%2F6abe2fe9ca9b262d79a36fcad5803065 differ
+diff --git a/tmp/cache/assets/DA2/190/sprockets%2Fc7eb85d262d0d633bfa8f2872de74c0e b/tmp/cache/assets/DA2/190/sprockets%2Fc7eb85d262d0d633bfa8f2872de74c0e
+index 5448f6e..11de4fe 100644
+Binary files a/tmp/cache/assets/DA2/190/sprockets%2Fc7eb85d262d0d633bfa8f2872de74c0e and b/tmp/cache/assets/DA2/190/sprockets%2Fc7eb85d262d0d633bfa8f2872de74c0e differ
+diff --git a/tmp/cache/assets/DA3/5F0/sprockets%2F0f8983bd11ed2e228e674afcbd8427db b/tmp/cache/assets/DA3/5F0/sprockets%2F0f8983bd11ed2e228e674afcbd8427db
+index 66c0d9e..b440638 100644
+Binary files a/tmp/cache/assets/DA3/5F0/sprockets%2F0f8983bd11ed2e228e674afcbd8427db and b/tmp/cache/assets/DA3/5F0/sprockets%2F0f8983bd11ed2e228e674afcbd8427db differ
+diff --git a/tmp/cache/assets/DA4/E60/sprockets%2Facc78bc557f31a66416f586aec2f27cd b/tmp/cache/assets/DA4/E60/sprockets%2Facc78bc557f31a66416f586aec2f27cd
+index 4bc9b1d..62519d7 100644
+Binary files a/tmp/cache/assets/DA4/E60/sprockets%2Facc78bc557f31a66416f586aec2f27cd and b/tmp/cache/assets/DA4/E60/sprockets%2Facc78bc557f31a66416f586aec2f27cd differ
+diff --git a/tmp/cache/assets/DA5/890/sprockets%2F4e5de77c87066283faaad2de437c82ea b/tmp/cache/assets/DA5/890/sprockets%2F4e5de77c87066283faaad2de437c82ea
+index 4b6bbc3..54b1b10 100644
+Binary files a/tmp/cache/assets/DA5/890/sprockets%2F4e5de77c87066283faaad2de437c82ea and b/tmp/cache/assets/DA5/890/sprockets%2F4e5de77c87066283faaad2de437c82ea differ
+diff --git a/tmp/cache/assets/DA6/5B0/sprockets%2Fcdf5f50d63c7aa0a5ee9573d619e077e b/tmp/cache/assets/DA6/5B0/sprockets%2Fcdf5f50d63c7aa0a5ee9573d619e077e
+index 934d799..3d078e9 100644
+Binary files a/tmp/cache/assets/DA6/5B0/sprockets%2Fcdf5f50d63c7aa0a5ee9573d619e077e and b/tmp/cache/assets/DA6/5B0/sprockets%2Fcdf5f50d63c7aa0a5ee9573d619e077e differ
+diff --git a/tmp/cache/assets/DA7/260/sprockets%2Fcf9c0430d0f69cc9b89c9253eea6ea07 b/tmp/cache/assets/DA7/260/sprockets%2Fcf9c0430d0f69cc9b89c9253eea6ea07
+index 4578657..2394ac9 100644
+Binary files a/tmp/cache/assets/DA7/260/sprockets%2Fcf9c0430d0f69cc9b89c9253eea6ea07 and b/tmp/cache/assets/DA7/260/sprockets%2Fcf9c0430d0f69cc9b89c9253eea6ea07 differ
+diff --git a/tmp/cache/assets/DA7/2F0/sprockets%2F61da396fb86c5ecd844a2d83ac759b4b b/tmp/cache/assets/DA7/2F0/sprockets%2F61da396fb86c5ecd844a2d83ac759b4b
+index 19db356..91cb2a7 100644
+Binary files a/tmp/cache/assets/DA7/2F0/sprockets%2F61da396fb86c5ecd844a2d83ac759b4b and b/tmp/cache/assets/DA7/2F0/sprockets%2F61da396fb86c5ecd844a2d83ac759b4b differ
+diff --git a/tmp/cache/assets/DA7/3B0/sprockets%2Fec62aa64665775cfb017d1f98db7dc4d b/tmp/cache/assets/DA7/3B0/sprockets%2Fec62aa64665775cfb017d1f98db7dc4d
+index be1155d..69b0cca 100644
+Binary files a/tmp/cache/assets/DA7/3B0/sprockets%2Fec62aa64665775cfb017d1f98db7dc4d and b/tmp/cache/assets/DA7/3B0/sprockets%2Fec62aa64665775cfb017d1f98db7dc4d differ
+diff --git a/tmp/cache/assets/DA7/6E0/sprockets%2F76f77dd2eee0d5bd062dd0e0c8999e11 b/tmp/cache/assets/DA7/6E0/sprockets%2F76f77dd2eee0d5bd062dd0e0c8999e11
+index 6970196..5398c3a 100644
+Binary files a/tmp/cache/assets/DA7/6E0/sprockets%2F76f77dd2eee0d5bd062dd0e0c8999e11 and b/tmp/cache/assets/DA7/6E0/sprockets%2F76f77dd2eee0d5bd062dd0e0c8999e11 differ
+diff --git a/tmp/cache/assets/DA9/900/sprockets%2F18e7e0cdb5e841636beb2f4e57e7ad49 b/tmp/cache/assets/DA9/900/sprockets%2F18e7e0cdb5e841636beb2f4e57e7ad49
+index 0c93002..b9db4d7 100644
+Binary files a/tmp/cache/assets/DA9/900/sprockets%2F18e7e0cdb5e841636beb2f4e57e7ad49 and b/tmp/cache/assets/DA9/900/sprockets%2F18e7e0cdb5e841636beb2f4e57e7ad49 differ
+diff --git a/tmp/cache/assets/DAC/FD0/sprockets%2Fbaae655d213d8de88acd5d8367f837d3 b/tmp/cache/assets/DAC/FD0/sprockets%2Fbaae655d213d8de88acd5d8367f837d3
+index 53ae3ee..6dd35cb 100644
+Binary files a/tmp/cache/assets/DAC/FD0/sprockets%2Fbaae655d213d8de88acd5d8367f837d3 and b/tmp/cache/assets/DAC/FD0/sprockets%2Fbaae655d213d8de88acd5d8367f837d3 differ
+diff --git a/tmp/cache/assets/DB3/290/sprockets%2F989eeec4f82416fa447f6f93ab04ebc7 b/tmp/cache/assets/DB3/290/sprockets%2F989eeec4f82416fa447f6f93ab04ebc7
+index 0e02841..0505cee 100644
+Binary files a/tmp/cache/assets/DB3/290/sprockets%2F989eeec4f82416fa447f6f93ab04ebc7 and b/tmp/cache/assets/DB3/290/sprockets%2F989eeec4f82416fa447f6f93ab04ebc7 differ
+diff --git a/tmp/cache/assets/DB4/BD0/sprockets%2F95e08fafea8e55c0570498ca975de5ec b/tmp/cache/assets/DB4/BD0/sprockets%2F95e08fafea8e55c0570498ca975de5ec
+index 621b4fa..6c2e9f4 100644
+Binary files a/tmp/cache/assets/DB4/BD0/sprockets%2F95e08fafea8e55c0570498ca975de5ec and b/tmp/cache/assets/DB4/BD0/sprockets%2F95e08fafea8e55c0570498ca975de5ec differ
+diff --git a/tmp/cache/assets/DB8/6F0/sprockets%2F7b1ea7f04a2ad22fb7d1a2de16247fe0 b/tmp/cache/assets/DB8/6F0/sprockets%2F7b1ea7f04a2ad22fb7d1a2de16247fe0
+index 71ccffa..3bb5440 100644
+Binary files a/tmp/cache/assets/DB8/6F0/sprockets%2F7b1ea7f04a2ad22fb7d1a2de16247fe0 and b/tmp/cache/assets/DB8/6F0/sprockets%2F7b1ea7f04a2ad22fb7d1a2de16247fe0 differ
+diff --git a/tmp/cache/assets/DBA/8F0/sprockets%2F1f307bdbff03b0a66c50afbf9182d52a b/tmp/cache/assets/DBA/8F0/sprockets%2F1f307bdbff03b0a66c50afbf9182d52a
+index 83a80fc..793d5e5 100644
+Binary files a/tmp/cache/assets/DBA/8F0/sprockets%2F1f307bdbff03b0a66c50afbf9182d52a and b/tmp/cache/assets/DBA/8F0/sprockets%2F1f307bdbff03b0a66c50afbf9182d52a differ
+diff --git a/tmp/cache/assets/DBD/EA0/sprockets%2Fa76b068b52eb521ad09a4a4970baeaee b/tmp/cache/assets/DBD/EA0/sprockets%2Fa76b068b52eb521ad09a4a4970baeaee
+index e19c533..0ed34e1 100644
+Binary files a/tmp/cache/assets/DBD/EA0/sprockets%2Fa76b068b52eb521ad09a4a4970baeaee and b/tmp/cache/assets/DBD/EA0/sprockets%2Fa76b068b52eb521ad09a4a4970baeaee differ
+diff --git a/tmp/cache/assets/DBF/0A0/sprockets%2Fa334a18a0faaddec47f9207de50444dd b/tmp/cache/assets/DBF/0A0/sprockets%2Fa334a18a0faaddec47f9207de50444dd
+index 9b40499..3fbcc82 100644
+Binary files a/tmp/cache/assets/DBF/0A0/sprockets%2Fa334a18a0faaddec47f9207de50444dd and b/tmp/cache/assets/DBF/0A0/sprockets%2Fa334a18a0faaddec47f9207de50444dd differ
+diff --git a/tmp/cache/assets/DC9/D20/sprockets%2Febea2bda43e4215e9a53dbb5594c909d b/tmp/cache/assets/DC9/D20/sprockets%2Febea2bda43e4215e9a53dbb5594c909d
+index 4c74519..f138b2f 100644
+Binary files a/tmp/cache/assets/DC9/D20/sprockets%2Febea2bda43e4215e9a53dbb5594c909d and b/tmp/cache/assets/DC9/D20/sprockets%2Febea2bda43e4215e9a53dbb5594c909d differ
+diff --git a/tmp/cache/assets/DCA/B40/sprockets%2F2ecbd27047bc99300ae8dfd70ce33ee5 b/tmp/cache/assets/DCA/B40/sprockets%2F2ecbd27047bc99300ae8dfd70ce33ee5
+index 1ad3418..e2f5c29 100644
+Binary files a/tmp/cache/assets/DCA/B40/sprockets%2F2ecbd27047bc99300ae8dfd70ce33ee5 and b/tmp/cache/assets/DCA/B40/sprockets%2F2ecbd27047bc99300ae8dfd70ce33ee5 differ
+diff --git a/tmp/cache/assets/DCA/D60/sprockets%2Fc16f6f0356f8da24cf0e947adfafc013 b/tmp/cache/assets/DCA/D60/sprockets%2Fc16f6f0356f8da24cf0e947adfafc013
+index da8e8d7..8636065 100644
+Binary files a/tmp/cache/assets/DCA/D60/sprockets%2Fc16f6f0356f8da24cf0e947adfafc013 and b/tmp/cache/assets/DCA/D60/sprockets%2Fc16f6f0356f8da24cf0e947adfafc013 differ
+diff --git a/tmp/cache/assets/DCD/AD0/sprockets%2Fadc8a6f91db7f0850c1af6f7e1f2c371 b/tmp/cache/assets/DCD/AD0/sprockets%2Fadc8a6f91db7f0850c1af6f7e1f2c371
+index 3c10c3c..78cc28a 100644
+Binary files a/tmp/cache/assets/DCD/AD0/sprockets%2Fadc8a6f91db7f0850c1af6f7e1f2c371 and b/tmp/cache/assets/DCD/AD0/sprockets%2Fadc8a6f91db7f0850c1af6f7e1f2c371 differ
+diff --git a/tmp/cache/assets/DCE/A10/sprockets%2Fedbf63d87f211c17de329b8a471a7caf b/tmp/cache/assets/DCE/A10/sprockets%2Fedbf63d87f211c17de329b8a471a7caf
+index 1ae157b..b85e070 100644
+Binary files a/tmp/cache/assets/DCE/A10/sprockets%2Fedbf63d87f211c17de329b8a471a7caf and b/tmp/cache/assets/DCE/A10/sprockets%2Fedbf63d87f211c17de329b8a471a7caf differ
+diff --git a/tmp/cache/assets/DD1/170/sprockets%2Fbfd4019b3059b73fbac67e7869ddaa0f b/tmp/cache/assets/DD1/170/sprockets%2Fbfd4019b3059b73fbac67e7869ddaa0f
+index 2d959c0..98c6f2e 100644
+Binary files a/tmp/cache/assets/DD1/170/sprockets%2Fbfd4019b3059b73fbac67e7869ddaa0f and b/tmp/cache/assets/DD1/170/sprockets%2Fbfd4019b3059b73fbac67e7869ddaa0f differ
+diff --git a/tmp/cache/assets/DD5/8E0/sprockets%2Fe18447e3ed7349187ab6daebf5cc0ee4 b/tmp/cache/assets/DD5/8E0/sprockets%2Fe18447e3ed7349187ab6daebf5cc0ee4
+index d8c43bf..8371808 100644
+Binary files a/tmp/cache/assets/DD5/8E0/sprockets%2Fe18447e3ed7349187ab6daebf5cc0ee4 and b/tmp/cache/assets/DD5/8E0/sprockets%2Fe18447e3ed7349187ab6daebf5cc0ee4 differ
+diff --git a/tmp/cache/assets/DD7/200/sprockets%2F92d6b2ead0b3e5603112adb1abfa1ce1 b/tmp/cache/assets/DD7/200/sprockets%2F92d6b2ead0b3e5603112adb1abfa1ce1
+index 139c10b..02bc7ba 100644
+Binary files a/tmp/cache/assets/DD7/200/sprockets%2F92d6b2ead0b3e5603112adb1abfa1ce1 and b/tmp/cache/assets/DD7/200/sprockets%2F92d6b2ead0b3e5603112adb1abfa1ce1 differ
+diff --git a/tmp/cache/assets/DDC/400/sprockets%2Fcffd775d018f68ce5dba1ee0d951a994 b/tmp/cache/assets/DDC/400/sprockets%2Fcffd775d018f68ce5dba1ee0d951a994
+index 8a259ff..ffa6a9c 100644
+Binary files a/tmp/cache/assets/DDC/400/sprockets%2Fcffd775d018f68ce5dba1ee0d951a994 and b/tmp/cache/assets/DDC/400/sprockets%2Fcffd775d018f68ce5dba1ee0d951a994 differ
+diff --git a/tmp/cache/assets/DDD/FD0/sprockets%2Fdb034d9f78bfd6f691c0faf83e7b193d b/tmp/cache/assets/DDD/FD0/sprockets%2Fdb034d9f78bfd6f691c0faf83e7b193d
+index a52f977..084ec5c 100644
+Binary files a/tmp/cache/assets/DDD/FD0/sprockets%2Fdb034d9f78bfd6f691c0faf83e7b193d and b/tmp/cache/assets/DDD/FD0/sprockets%2Fdb034d9f78bfd6f691c0faf83e7b193d differ
+diff --git a/tmp/cache/assets/DE2/3E0/sprockets%2F518f1a53eb25d0dadb44e3e02e1fbba3 b/tmp/cache/assets/DE2/3E0/sprockets%2F518f1a53eb25d0dadb44e3e02e1fbba3
+index 66c936f..08dd63f 100644
+Binary files a/tmp/cache/assets/DE2/3E0/sprockets%2F518f1a53eb25d0dadb44e3e02e1fbba3 and b/tmp/cache/assets/DE2/3E0/sprockets%2F518f1a53eb25d0dadb44e3e02e1fbba3 differ
+diff --git a/tmp/cache/assets/DE3/0F0/sprockets%2Fbfedf20436d9f69d03abb88881bd9d9f b/tmp/cache/assets/DE3/0F0/sprockets%2Fbfedf20436d9f69d03abb88881bd9d9f
+index 02eabb7..153db9f 100644
+Binary files a/tmp/cache/assets/DE3/0F0/sprockets%2Fbfedf20436d9f69d03abb88881bd9d9f and b/tmp/cache/assets/DE3/0F0/sprockets%2Fbfedf20436d9f69d03abb88881bd9d9f differ
+diff --git a/tmp/cache/assets/DE9/300/sprockets%2F8d10bd4353b4ad6d61d21cbaff35feb1 b/tmp/cache/assets/DE9/300/sprockets%2F8d10bd4353b4ad6d61d21cbaff35feb1
+index 59efb82..af16713 100644
+Binary files a/tmp/cache/assets/DE9/300/sprockets%2F8d10bd4353b4ad6d61d21cbaff35feb1 and b/tmp/cache/assets/DE9/300/sprockets%2F8d10bd4353b4ad6d61d21cbaff35feb1 differ
+diff --git a/tmp/cache/assets/DF2/130/sprockets%2Fe60eef71dfede007b0c3e8a670d25ac2 b/tmp/cache/assets/DF2/130/sprockets%2Fe60eef71dfede007b0c3e8a670d25ac2
+index f0097a9..06008a2 100644
+Binary files a/tmp/cache/assets/DF2/130/sprockets%2Fe60eef71dfede007b0c3e8a670d25ac2 and b/tmp/cache/assets/DF2/130/sprockets%2Fe60eef71dfede007b0c3e8a670d25ac2 differ
+diff --git a/tmp/cache/assets/DF3/5F0/sprockets%2Fa3de438ffbfceb32b720471c17deb2a8 b/tmp/cache/assets/DF3/5F0/sprockets%2Fa3de438ffbfceb32b720471c17deb2a8
+index df12420..8a04e27 100644
+Binary files a/tmp/cache/assets/DF3/5F0/sprockets%2Fa3de438ffbfceb32b720471c17deb2a8 and b/tmp/cache/assets/DF3/5F0/sprockets%2Fa3de438ffbfceb32b720471c17deb2a8 differ
+diff --git a/tmp/cache/assets/DF7/270/sprockets%2F9a0a5365ca36f1bff517eafa2b7bbd77 b/tmp/cache/assets/DF7/270/sprockets%2F9a0a5365ca36f1bff517eafa2b7bbd77
+index 2c64151..e8cc593 100644
+Binary files a/tmp/cache/assets/DF7/270/sprockets%2F9a0a5365ca36f1bff517eafa2b7bbd77 and b/tmp/cache/assets/DF7/270/sprockets%2F9a0a5365ca36f1bff517eafa2b7bbd77 differ
+diff --git a/tmp/cache/assets/DF8/AD0/sprockets%2F43f6617fdd9fba6a3aba31b2aef283f6 b/tmp/cache/assets/DF8/AD0/sprockets%2F43f6617fdd9fba6a3aba31b2aef283f6
+index b010422..e203372 100644
+Binary files a/tmp/cache/assets/DF8/AD0/sprockets%2F43f6617fdd9fba6a3aba31b2aef283f6 and b/tmp/cache/assets/DF8/AD0/sprockets%2F43f6617fdd9fba6a3aba31b2aef283f6 differ
+diff --git a/tmp/cache/assets/DFA/0D0/sprockets%2Fffe7cdf0a001a48c8bfa85af6205d74f b/tmp/cache/assets/DFA/0D0/sprockets%2Fffe7cdf0a001a48c8bfa85af6205d74f
+index cbc2229..353ec6c 100644
+Binary files a/tmp/cache/assets/DFA/0D0/sprockets%2Fffe7cdf0a001a48c8bfa85af6205d74f and b/tmp/cache/assets/DFA/0D0/sprockets%2Fffe7cdf0a001a48c8bfa85af6205d74f differ
+diff --git a/tmp/cache/assets/DFC/470/sprockets%2F8a0e7cc1ca5e1af0b1a30ac42ea00e1a b/tmp/cache/assets/DFC/470/sprockets%2F8a0e7cc1ca5e1af0b1a30ac42ea00e1a
+index 9dcdecd..abb01f3 100644
+Binary files a/tmp/cache/assets/DFC/470/sprockets%2F8a0e7cc1ca5e1af0b1a30ac42ea00e1a and b/tmp/cache/assets/DFC/470/sprockets%2F8a0e7cc1ca5e1af0b1a30ac42ea00e1a differ
+diff --git a/tmp/cache/assets/DFC/BB0/sprockets%2Fd695adf7a2d2fda7a1319c3e2ab73ff6 b/tmp/cache/assets/DFC/BB0/sprockets%2Fd695adf7a2d2fda7a1319c3e2ab73ff6
+index 75a56ac..2a82fe4 100644
+Binary files a/tmp/cache/assets/DFC/BB0/sprockets%2Fd695adf7a2d2fda7a1319c3e2ab73ff6 and b/tmp/cache/assets/DFC/BB0/sprockets%2Fd695adf7a2d2fda7a1319c3e2ab73ff6 differ
+diff --git a/tmp/cache/assets/E04/2B0/sprockets%2F1b9aa6b7be999bbaea2502d7875c4fde b/tmp/cache/assets/E04/2B0/sprockets%2F1b9aa6b7be999bbaea2502d7875c4fde
+index f7a7e4e..140b094 100644
+Binary files a/tmp/cache/assets/E04/2B0/sprockets%2F1b9aa6b7be999bbaea2502d7875c4fde and b/tmp/cache/assets/E04/2B0/sprockets%2F1b9aa6b7be999bbaea2502d7875c4fde differ
+diff --git a/tmp/cache/assets/E04/330/sprockets%2Ff129d4ded2fcd1edfb89c468047e0cd3 b/tmp/cache/assets/E04/330/sprockets%2Ff129d4ded2fcd1edfb89c468047e0cd3
+index 7460f80..7d0b125 100644
+Binary files a/tmp/cache/assets/E04/330/sprockets%2Ff129d4ded2fcd1edfb89c468047e0cd3 and b/tmp/cache/assets/E04/330/sprockets%2Ff129d4ded2fcd1edfb89c468047e0cd3 differ
+diff --git a/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af b/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af
+index d19d7f9..6075f33 100644
+Binary files a/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af and b/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af differ
+diff --git a/tmp/cache/assets/E06/BD0/sprockets%2F92abbdd0325cc7fd68f1d5c77efb25f8 b/tmp/cache/assets/E06/BD0/sprockets%2F92abbdd0325cc7fd68f1d5c77efb25f8
+index 706431c..acd4203 100644
+Binary files a/tmp/cache/assets/E06/BD0/sprockets%2F92abbdd0325cc7fd68f1d5c77efb25f8 and b/tmp/cache/assets/E06/BD0/sprockets%2F92abbdd0325cc7fd68f1d5c77efb25f8 differ
+diff --git a/tmp/cache/assets/E09/6F0/sprockets%2Fddefb3cbb565fe7f410f992772f6ea2c b/tmp/cache/assets/E09/6F0/sprockets%2Fddefb3cbb565fe7f410f992772f6ea2c
+index f8723bd..0345c49 100644
+Binary files a/tmp/cache/assets/E09/6F0/sprockets%2Fddefb3cbb565fe7f410f992772f6ea2c and b/tmp/cache/assets/E09/6F0/sprockets%2Fddefb3cbb565fe7f410f992772f6ea2c differ
+diff --git a/tmp/cache/assets/E0E/940/sprockets%2F68cacdcba6d0c0022ba43247e3db5eab b/tmp/cache/assets/E0E/940/sprockets%2F68cacdcba6d0c0022ba43247e3db5eab
+index c4d033a..8e28b28 100644
+Binary files a/tmp/cache/assets/E0E/940/sprockets%2F68cacdcba6d0c0022ba43247e3db5eab and b/tmp/cache/assets/E0E/940/sprockets%2F68cacdcba6d0c0022ba43247e3db5eab differ
+diff --git a/tmp/cache/assets/E0F/930/sprockets%2F1cf513b5fd9785cff7d3c9bd8a912ede b/tmp/cache/assets/E0F/930/sprockets%2F1cf513b5fd9785cff7d3c9bd8a912ede
+index 74a58e4..4aa6b92 100644
+Binary files a/tmp/cache/assets/E0F/930/sprockets%2F1cf513b5fd9785cff7d3c9bd8a912ede and b/tmp/cache/assets/E0F/930/sprockets%2F1cf513b5fd9785cff7d3c9bd8a912ede differ
+diff --git a/tmp/cache/assets/E1A/A40/sprockets%2Fcd2e2bd44aaaf87b7320e1aaac69c56a b/tmp/cache/assets/E1A/A40/sprockets%2Fcd2e2bd44aaaf87b7320e1aaac69c56a
+index 76eaadb..a0b0cd6 100644
+Binary files a/tmp/cache/assets/E1A/A40/sprockets%2Fcd2e2bd44aaaf87b7320e1aaac69c56a and b/tmp/cache/assets/E1A/A40/sprockets%2Fcd2e2bd44aaaf87b7320e1aaac69c56a differ
+diff --git a/tmp/cache/assets/E1D/2F0/sprockets%2Fcbdea42b18aada0ba95e7f95620ad34e b/tmp/cache/assets/E1D/2F0/sprockets%2Fcbdea42b18aada0ba95e7f95620ad34e
+index b40a439..a920128 100644
+Binary files a/tmp/cache/assets/E1D/2F0/sprockets%2Fcbdea42b18aada0ba95e7f95620ad34e and b/tmp/cache/assets/E1D/2F0/sprockets%2Fcbdea42b18aada0ba95e7f95620ad34e differ
+diff --git a/tmp/cache/assets/E1F/B70/sprockets%2F9bc75db1145c12bcdca9eb44f9faa2c1 b/tmp/cache/assets/E1F/B70/sprockets%2F9bc75db1145c12bcdca9eb44f9faa2c1
+index aafc0c0..d898257 100644
+Binary files a/tmp/cache/assets/E1F/B70/sprockets%2F9bc75db1145c12bcdca9eb44f9faa2c1 and b/tmp/cache/assets/E1F/B70/sprockets%2F9bc75db1145c12bcdca9eb44f9faa2c1 differ
+diff --git a/tmp/cache/assets/E20/890/sprockets%2F381b3ebcb8ae6abca408bded35575cd1 b/tmp/cache/assets/E20/890/sprockets%2F381b3ebcb8ae6abca408bded35575cd1
+index c6fb2a9..ac36160 100644
+Binary files a/tmp/cache/assets/E20/890/sprockets%2F381b3ebcb8ae6abca408bded35575cd1 and b/tmp/cache/assets/E20/890/sprockets%2F381b3ebcb8ae6abca408bded35575cd1 differ
+diff --git a/tmp/cache/assets/E21/710/sprockets%2Feafecef46c4bac5d0fb80b650b74182a b/tmp/cache/assets/E21/710/sprockets%2Feafecef46c4bac5d0fb80b650b74182a
+index df631ee..3b7a887 100644
+Binary files a/tmp/cache/assets/E21/710/sprockets%2Feafecef46c4bac5d0fb80b650b74182a and b/tmp/cache/assets/E21/710/sprockets%2Feafecef46c4bac5d0fb80b650b74182a differ
+diff --git a/tmp/cache/assets/E25/4C0/sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6 b/tmp/cache/assets/E25/4C0/sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6
+index b575d02..9423330 100644
+Binary files a/tmp/cache/assets/E25/4C0/sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6 and b/tmp/cache/assets/E25/4C0/sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6 differ
+diff --git a/tmp/cache/assets/E28/180/sprockets%2Fdbbec3ac2acb70dff288db5d69632c35 b/tmp/cache/assets/E28/180/sprockets%2Fdbbec3ac2acb70dff288db5d69632c35
+index 0a40bd6..3d12786 100644
+Binary files a/tmp/cache/assets/E28/180/sprockets%2Fdbbec3ac2acb70dff288db5d69632c35 and b/tmp/cache/assets/E28/180/sprockets%2Fdbbec3ac2acb70dff288db5d69632c35 differ
+diff --git a/tmp/cache/assets/E2A/890/sprockets%2Fe6635d8ce294cbcc3fcb70fedb0e1f32 b/tmp/cache/assets/E2A/890/sprockets%2Fe6635d8ce294cbcc3fcb70fedb0e1f32
+index 09325a5..77978b2 100644
+Binary files a/tmp/cache/assets/E2A/890/sprockets%2Fe6635d8ce294cbcc3fcb70fedb0e1f32 and b/tmp/cache/assets/E2A/890/sprockets%2Fe6635d8ce294cbcc3fcb70fedb0e1f32 differ
+diff --git a/tmp/cache/assets/E37/B00/sprockets%2Fbcf811ae6dc9423afc6fea905e7eda98 b/tmp/cache/assets/E37/B00/sprockets%2Fbcf811ae6dc9423afc6fea905e7eda98
+index 044d411..ae7f1f8 100644
+Binary files a/tmp/cache/assets/E37/B00/sprockets%2Fbcf811ae6dc9423afc6fea905e7eda98 and b/tmp/cache/assets/E37/B00/sprockets%2Fbcf811ae6dc9423afc6fea905e7eda98 differ
+diff --git a/tmp/cache/assets/E40/BF0/sprockets%2Ff7b28a8ed8fa6fc0f22d9fe1f66e1c9d b/tmp/cache/assets/E40/BF0/sprockets%2Ff7b28a8ed8fa6fc0f22d9fe1f66e1c9d
+index c1e6e48..ef46f26 100644
+Binary files a/tmp/cache/assets/E40/BF0/sprockets%2Ff7b28a8ed8fa6fc0f22d9fe1f66e1c9d and b/tmp/cache/assets/E40/BF0/sprockets%2Ff7b28a8ed8fa6fc0f22d9fe1f66e1c9d differ
+diff --git a/tmp/cache/assets/E9C/750/sprockets%2F9f54f97debd2bde3f520febd7d2fd7eb b/tmp/cache/assets/E9C/750/sprockets%2F9f54f97debd2bde3f520febd7d2fd7eb
+index a1cc3a2..b6a4bf3 100644
+Binary files a/tmp/cache/assets/E9C/750/sprockets%2F9f54f97debd2bde3f520febd7d2fd7eb and b/tmp/cache/assets/E9C/750/sprockets%2F9f54f97debd2bde3f520febd7d2fd7eb differ
