@@ -11,6 +11,7 @@ Skillmad::Application.routes.draw do
   root :to => "users#index"
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'
+  match '/contact_email', :to => 'application#contact_email'
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'

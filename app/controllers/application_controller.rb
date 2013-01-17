@@ -18,5 +18,7 @@ class ApplicationController < ActionController::Base
      UserMailer.contact_email(params[:contact_email], params[:contact_message]).deliver
      flash[:success]= "Message recieved, we will get back to you shortly!"
      redirect_to home_url
+ end
+
 
 end

@@ -87,17 +87,10 @@
   
     <div id="overlay_contact">
   	 <h1>Contact SkillMad</h1>
-  	  <%= form_for(:user, :url => sessions_path, :html => { :id => 'form_request' , :class => 'istyle'} ) do |f| %>
-
- 
- <%= f.label :name, "Email" %>
- <%= f.text_field :name %>
- <%= f.label :name, "Message" %>
- <%= f.text_area :name %>
-
-
- 
- <%= f.submit "send", :class => "button" %>
+ <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do  %>
+ <%= text_field_tag "contact_email", "Name/Email" %>
+ <%= text_area_tag "contact_message", "Message" %>
+ <%= submit_tag "submit", {:class => "button"} %>
  <% end %>
   </div>
   
