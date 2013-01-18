@@ -57,8 +57,12 @@
        }else{
        	y="u";
        }
-	window.history.pushState({state:2}, "Video", "/"+y+"?video="+x);
-	
+    if($.cookie("zomg"))
+    {
+    	$.removeCookie('zomg');
+    }else{
+	window.history.pushState({state:x}, "Video", "/"+y+"?video="+x);
+	}
     $(".items_inner div img").click(function(){
 				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
   	});

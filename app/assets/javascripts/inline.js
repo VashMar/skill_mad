@@ -5,6 +5,7 @@
 		'visibility': 'visible'
 	});
 	$(window).bind('popstate', function(event) {
+	$.cookie("zomg","zomg");
 	location.reload(); 
 });
 	$('#form_file').css({
