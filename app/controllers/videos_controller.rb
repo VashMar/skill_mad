@@ -49,7 +49,7 @@ class VideosController < InheritedResources::Base
     else
       flash[:error] = "video unsuccessfully deleted"
     end
-    redirect_to videos_path
+    redirect_to home_url
   end
 
   def pre_upload
