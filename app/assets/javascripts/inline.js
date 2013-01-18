@@ -4,7 +4,9 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-	
+	$(window).bind('popstate', function(event) {
+	location.reload(); 
+});
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
@@ -20,10 +22,12 @@
 		}
 	});
 	$('#header_leaders a').click(function(){
-		window.history.replaceState({state:2}, "Leaders Of Madison", "/"+this.hash);
+		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
 	});
 	$('#backtotop a').click(function(){
 		window.history.pushState({state:2}, "Home", "/"+this.hash);
+		return event.preventDefault();
+
 	});
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
