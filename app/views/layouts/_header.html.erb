@@ -67,7 +67,7 @@
    </div>
    <%if !signed_in? %>
     <div id="sign_in">
-          <%=form_for(:session, :url => sessions_path) do |f| %>
+          <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
 
     	<%= f.text_field :email, :value => "wiscmail" %>
     	<%= f.password_field :password, :value=>"password" %>

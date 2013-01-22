@@ -172,7 +172,6 @@
   	$('#login').validate({
   		onkeyup: false,
   		rules: {
-  			"session[email]": {required: true, email:true},
   			"session[password]": {required: true, 	
   				remote:{
   					url: "/verify",

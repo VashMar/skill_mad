@@ -4,10 +4,13 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-	$(window).bind('popstate', function(event) {
-	$.cookie("zomg","zomg");
-	location.reload(); 
-});
+	
+	window.setTimeout(function() {
+		$(window).bind('popstate', function(event) {
+		$.cookie("zomg","zomg");
+		location.reload(); 
+	}, 1000)});
+	
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
@@ -102,10 +105,11 @@
 		$('#filename').text(this.value);
 	});
 	$('#fileinput').mouseenter(function() {
-		$('#browse').css({'background-image': 'url(upload_button_hover.gif)'});
+		
+		$('#browse').css({'background-image': 'url(/assets/upload_button_hover.gif)'});
 	});
 	$('#fileinput').mouseleave(function() {
-		$('#browse').css({'background-image': 'url(upload_button.gif)'});
+		$('#browse').css({'background-image': 'url(/assets/upload_button.gif)'});
 	});
 	
 	
@@ -113,10 +117,10 @@
 		$('#filename2').text(this.value);
 	});
 	$('#form_file').mouseenter(function() {
-		$('#browse2').css({'background-image': 'url(upload_button_hover.gif)'});
+		$('#browse2').css({'background-image': 'url(/assets/upload_button_hover.gif)'});
 	});
 	$('#form_file').mouseleave(function() {
-		$('#browse2').css({'background-image': 'url(upload_button.gif)'});
+		$('#browse2').css({'background-image': 'url(/assets/upload_button.gif)'});
 	});
 	$('.notice').click(function(){
 		$(this).fadeOut();
