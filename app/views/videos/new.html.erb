@@ -1,20 +1,23 @@
 <style>
 	#header{
-		display:none;
+	 display:none;
 	}
-
 </style>
+
 <div id="centered" class="istyle">
-	<h1>Fill this out..</h1>
-	<h4>So people know what the hell you're doing.</h4>
+	<h1>Tell us about your video..</h1>
+	<h4>Yes, a catchier title will get you more views </h4>
+
 	<%= form_for(@video, :url => upload_path, :html => { :id => 'upload'} ) do |f| %>
 	
-	 <%= f.label :title, "Title" %>
-	 <%= f.text_field :title%>
+	<%= f.label :title, "Title" %>
+	<%= f.text_field :title %>
 	
 	<%= f.label :description, "Description"%>
-	<%= f.text_area :description%>
-	
+	<%= f.text_area :description %>
+
+	<%= check_box_tag :is_private, true %>
+	<%= label_tag(:is_private, "I want my video only seen to skillmad members and not on youtube") %>
 	<%= f.submit "upload", :class => "button" %>
     	<% end %>
 </div>
