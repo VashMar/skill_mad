@@ -79,7 +79,7 @@
   	 <h1>Request Leaderboard</h1>
   	  
  <%= form_tag(request_leaderboard_path, :id => 'form_request' , :class => 'istyle' ) do  %>
- <%= text_field_tag "leaderboard_name", "Name" %>
+ <%= text_field_tag "leaderboard_name", "Leaderboard Name" %>
  <%= text_area_tag "leaderboard_description", "Description" %>
  <%= submit_tag "submit", {:class => "button"} %>
  <% end %>

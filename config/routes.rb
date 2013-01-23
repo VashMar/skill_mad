@@ -29,6 +29,7 @@ Skillmad::Application.routes.draw do
   match '/vid_swap', :to => 'videos#vid_swap'
   match '/vid_bank', :to => 'videos#vid_bank'
   match '/submitted', :to => 'videos#submitted'
+  match '/delete_video', :to => 'videos#destroy'
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
 

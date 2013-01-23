@@ -16,7 +16,7 @@
 	<%= f.label :description, "Description"%>
 	<%= f.text_area :description %>
 
-	<%= check_box_tag :is_private, true %>
+	<%= f.check_box :is_private, {}, true, false %>
 	<%= label_tag(:is_private, "I want my video only seen to skillmad members and not on youtube", :id => "is_private") %>
 	<%= f.submit "upload", :class => "button" %>
     	<% end %>

@@ -4,7 +4,7 @@ class Video < ActiveRecord::Base
   has_many :votes
   scope :completes,   where(:is_complete => true)
   scope :incompletes, where(:is_complete => false)
-  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :private
+  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private
     
   def self.yt_session
     @yt_session ||= YouTubeIt::Client.new(:username => YouTubeITConfig.username , :password => YouTubeITConfig.password , :dev_key => YouTubeITConfig.dev_key)    
@@ -35,7 +35,8 @@ class Video < ActiveRecord::Base
       opts = {:title => params[:title],
              :description => params[:description],
              :category => "People",
-             :keywords => ["skill"]}
-      params[:is_private] == "true" ? opts.merge(:private => "true") : opts.merge(:private => "false")
+             :keywords => ["skill"],
+             :is_private => params[:is_private]}
+      params[:is_private] == "true" ? opts.merge(:list => "denied") : opts
     end
 end
