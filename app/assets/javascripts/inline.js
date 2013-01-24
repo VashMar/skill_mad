@@ -10,7 +10,15 @@
 		$.cookie("zomg","zomg");
 		location.reload(); 
 	}, 1000)});
-	
+	$("#header_categories, #categories").hover(function(){
+   		$("#categories").show();
+   		clearTimeout(x);
+   	},function(){
+   		x=setTimeout(function(){
+   			$("#categories").hide();
+   			},700)
+   		
+   	});
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'

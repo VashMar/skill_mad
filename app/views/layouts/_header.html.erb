@@ -47,7 +47,7 @@
 <%end%>
 	
     </div>
-    
+
     
 
 </div>
@@ -64,16 +64,31 @@
     	</a>
     	   <%end%>
     	
-   </div>
+</div>
+
+<div class="header_link">
+    <a id="header_categories" href="#">categories</a>
+</div>   
+<div id="categories">
+	<ul>
+		<li>fuck</li>
+		<li>fuck</li>
+		<li>fuck</li>
+	</ul>
+</div>
+
+   
+   
    <%if !signed_in? %>
     <div id="sign_in">
           <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
 
-    	<%= f.text_field :email, :value => "wiscmail" %>
+    	<%= f.text_field :email, :value => "email" %>
     	<%= f.password_field :password, :value=>"password" %>
     	<%= f.submit "login", :id => "button", :value => ">>" %>
      	<%end%>
     </div>
     <%end%>
 </div>
+
 </div>
