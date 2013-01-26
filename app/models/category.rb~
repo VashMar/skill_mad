@@ -1,10 +1,11 @@
 class Category < ActiveRecord::Base
-
+ 
+ 
  has_many :videos 
- has_many :leaderboards 
+ has_many :leader_boards 
  attr_accessible :category_name 
 
- validates :category_name, :presence => true 
+ validates :category_name, :presence => true, :uniqueness => {:case_sensitive=> false} 
  
 
 

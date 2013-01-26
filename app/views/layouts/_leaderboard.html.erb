@@ -1,8 +1,10 @@
  <div id="leaderboard_back">
 
 <div id="leaderboard">
-		<%= select("category" , "category_id" , all_categories, {:include_blank => "ALL"}) %>
-                <%= select("leaderboard" , "leaderboard_id" , all_categories, {:include_blank => "ALL"}) %>
+ 		
+		<%= select_tag('category_id' , options_for_select(all_categories), :class => "select_style") %>
+                <%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category)), :class => "select_style") %>
+         
 		<div id="leaderboard_title"></div>
 		
 		<div id="backtotop"><a class="scroll" href="#header"></a></div>

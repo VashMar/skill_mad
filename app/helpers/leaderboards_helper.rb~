@@ -1,0 +1,14 @@
+module LeaderboardsHelper
+
+def leaderboard_list(category)
+
+@category = category 
+
+if @category == nil
+   LeaderBoard.all 
+end
+end 
+
+
+
+end

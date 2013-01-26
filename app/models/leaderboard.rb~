@@ -1,4 +1,4 @@
-class LeaderBoard < ActiveRecord::Base 
+class Leaderboard < ActiveRecord::Base 
 
  belongs_to :category 
  has_many :videos
@@ -9,13 +9,8 @@ class LeaderBoard < ActiveRecord::Base
  validates :leaderboard_description, :presence => true
  
 
- def build
 
- :leaderboard_name => params[:leaderboard_name]
- :leaderboard_description => params[:leaderboard_description]
- :leaderboard_rules => params[:leaderboard_rules]
- :leaderboard_type => params[:leaderboard_type]
- end 
+  
  
 
 

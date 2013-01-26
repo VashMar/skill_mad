@@ -65,7 +65,7 @@ def index
     end 
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
-   
+      @category = nil 
 end
   
 def check_email

@@ -1,4 +1,4 @@
-class LeaderBoard < ActiveRecord::Base 
+class Leaderboard < ActiveRecord::Base 
 
  belongs_to :category 
  has_many :videos
