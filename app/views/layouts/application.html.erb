@@ -8,14 +8,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tag %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
-  <%= javascript_include_tag "jquery.validate"%>
-  <%= javascript_include_tag "validations"    %>
-   <%= javascript_include_tag "jquery.cookie"    %>
-
-  <%= javascript_include_tag "waypoints.min"  %>
-
-</head>
+  </head>
 <body>
 <%@user = current_user %>
 <%@leaderpage = true %> 
@@ -111,10 +104,18 @@
 
 
 
-  
-       <%= javascript_include_tag "inline"%>   
+    
+  <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
+  <%= javascript_include_tag "jquery.validate"%>
+  <%= javascript_include_tag "validations"    %>
+   <%= javascript_include_tag "jquery.cookie"    %>
+	<%= javascript_include_tag "customSelect.jquery.min.js"    %>
+  <%= javascript_include_tag "waypoints.min"  %>
+  <%= javascript_include_tag "inline"%>   
+       
 
 
 
 </body>
+
 </html>
