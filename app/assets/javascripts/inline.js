@@ -11,11 +11,11 @@
 		location.reload(); 
 	}, 1000)});
 	$("#header_categories, #categories").hover(function(){
-   		$("#categories").show();
+   		$("#categories").stop().show();
    		clearTimeout(x);
    	},function(){
    		x=setTimeout(function(){
-   			$("#categories").hide();
+   			$("#categories").fadeOut('fast');
    			},700)
    		
    	});
