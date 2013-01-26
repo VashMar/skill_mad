@@ -1,12 +1,12 @@
  <div id="leaderboard_back">
 
 <div id="leaderboard">
- 		
-		<%= select_tag('category_id' , options_for_select(all_categories), :class => "select_style") %>
-                <%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category)), {:include_blank => "ALL"}, :class => "select_style") %>
-         
+
 		<div id="leaderboard_title"></div>
-		
+		 		<form id="leader_select">
+		<%= select_tag('category_id' , options_for_select(all_categories), :class => "select_style", :prompt => "Categories") %>
+                <%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category)), :class => "select_style") %>
+        </form>
 		<div id="backtotop"><a class="scroll" href="#header"></a></div>
 		<div id="leader_all">
 			

@@ -5,8 +5,17 @@ def leaderboard_list(category)
 @category = category 
 
 if @category == nil
-   LeaderBoard.all 
+   Leaderboard.all 
+else
+  @leaderboards = Leaderboard.find_by_category_name(@category.category_name)
+  @leaderboard_list = @leaderboards.collect{|l| [l.leaderboard_name]}
 end
+end
+    
+
+
+end
+
 end 
 
 
