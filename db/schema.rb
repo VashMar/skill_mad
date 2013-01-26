@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123053632) do
+ActiveRecord::Schema.define(:version => 20130126015622) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "category_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "leaderboards", :force => true do |t|
+    t.string   "leaderboard_name"
+    t.string   "leaderboard_rules"
+    t.string   "leaderboard_type"
+    t.text     "leaderboard_description"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "category_name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

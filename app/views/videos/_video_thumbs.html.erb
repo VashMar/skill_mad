@@ -9,6 +9,11 @@
       		<div class="items_description_content">
       		<%= @video_list[@counter].title %>
       		</div> 
+                <% if current_user %>
+ 		<% if @video_list[@counter].user_id == current_user.id %>
+		<%= link_to "delete", delete_video_path(:id => @video_list[@counter].id) %>
+ 		 <%end%>
+                <% end %>
   		   </div>
   </div>
   <% end %>

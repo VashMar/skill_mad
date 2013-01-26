@@ -1,17 +1,14 @@
  <div id="leaderboard_back">
 
 <div id="leaderboard">
+		<%= select("category" , "category_id" , all_categories, {:include_blank => "ALL"}) %>
 		<div id="leaderboard_title"></div>
-		<div id="leaderboard_all"></div>
-		<div id="leaderboard_request"><a id="over" class="tip" title="Request leaderboards for content you want to see or share!" rel="#overlay_request">REQUEST LEADERBOARD</a></div>
+		
 		<div id="backtotop"><a class="scroll" href="#header"></a></div>
 		<div id="leader_all">
 			
-		<% @user_list.each do |user| %>
-		<%= render :partial => "users/user_thumbs", :locals => {:user => user}%>
-			
- 		<% end %>
-			<div class="clear"></div>
+		
+		<div class="clear"></div>
 		</div>
        <div>
        <% @user_list.first(5).each_with_index do |user, i| %>

@@ -37,6 +37,6 @@ class Video < ActiveRecord::Base
              :category => "People",
              :keywords => ["skill"],
              :is_private => params[:is_private]}
-      params[:is_private] == "true" ? opts.merge(:list => "allowed") : opts
+      params[:is_private] == "true" ? opts.merge(:list => "denied") : opts
     end
 end

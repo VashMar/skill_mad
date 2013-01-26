@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
  
   belongs_to :user
+  belongs_to :category
   has_many :votes
   scope :completes,   where(:is_complete => true)
   scope :incompletes, where(:is_complete => false)

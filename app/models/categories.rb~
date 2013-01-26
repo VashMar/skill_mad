@@ -1,0 +1,9 @@
+class Categories < ActiveRecord::Base
+   attr_accessible :category_name 
+
+
+ 
+
+
+
+end

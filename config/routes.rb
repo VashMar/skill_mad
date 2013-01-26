@@ -1,6 +1,7 @@
 Skillmad::Application.routes.draw do
   
   resources :users
+  resources :categories
   resources :sessions, :only => [:new, :create, :destroy, :verify, :activate_account]
   resources :videos do
   new do

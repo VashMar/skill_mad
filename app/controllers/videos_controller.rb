@@ -45,9 +45,9 @@ class VideosController < InheritedResources::Base
   def destroy
     @video = Video.find(params[:id])
     if Video.delete_video(@video)
-      flash[:notice] = "video successfully deleted"
+      flash[:success] = "video successfully deleted"
     else
-      flash[:error] = "video unsuccessfully deleted"
+      flash[:failure] = "video deletion unsuccessful"
     end
     redirect_to home_url
   end
