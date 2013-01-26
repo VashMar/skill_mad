@@ -1,0 +1,13 @@
+		<div id="categories">
+	<ul>
+
+
+               <% all_categories.each do |cat| %>
+
+ 		<li> <%= link_to cat[0] , "#"  %> </li>
+  
+	    
+		<% end %>
+		
+	</ul>
+                </div>

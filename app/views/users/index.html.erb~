@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Skillmad | <%= yield(:title) %></title>
 </head>
-
 	<%if flash[:success]%>
 	   <div id="success" class="notice"><%=flash[:success]%><span></span></div>
 	<% end %>
@@ -24,6 +23,24 @@
 
 	
 	<div id="video_container">
+		<div id="categories">
+	<ul>
+		<li><a href="#"><a href="#">Music</a></li>
+		<li><a href="#">Film</a></li>
+		<li><a href="#">Sports</a></li>
+		<li><a href="#">Funny</a></li>
+		<li><a href="#">Food</a></li>
+		<li><a href="#">Art</a></li>
+		<li><a href="#">DIY</a></li>
+		<li><a href="#">Physical</a></li>
+		<li><a href="#">Gaming</a></li>
+		<li><a href="#">Talk</a></li>
+		<li><a href="#">Drinking</a></li>
+		<li><a href="#">Misc</a></li>
+		
+		
+	</ul>
+                </div>
         <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
 	</div>
 
