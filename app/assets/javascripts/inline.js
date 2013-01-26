@@ -10,15 +10,8 @@
 		$.cookie("zomg","zomg");
 		location.reload(); 
 	}, 1000)});
-	$("#header_categories, #categories").hover(function(){
-   		$("#categories").stop().show();
-   		clearTimeout(x);
-   	},function(){
-   		x=setTimeout(function(){
-   			$("#categories").fadeOut('fast');
-   			},700)
-   		
-   	});
+
+   	$(".select_style").customSelect();
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'

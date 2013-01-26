@@ -48,7 +48,7 @@
   
     <div style="clear:both"></div>
     <script>
-    
+     $(document).ready(function() {
         x = $("#background_overlay iframe").attr("title");
         y=$("#video_container h3").html().substring(1,4);
 
@@ -76,4 +76,14 @@
     },function(){  
         $(this).children('.items_description').stop().fadeTo(500, 0);  
     });  
+    	$("#header_categories, #categories").hover(function(){
+   		$("#categories").stop().show();
+   		clearTimeout(x);
+   	},function(){
+   		x=setTimeout(function(){
+   			$("#categories").fadeOut('fast');
+   			},700)
+   		
+   	});
+   	});
     </script>
