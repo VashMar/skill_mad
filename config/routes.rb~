@@ -1,12 +1,16 @@
 Skillmad::Application.routes.draw do
   
   resources :users
+  resources :categories
+  resources :leaderboards
   resources :sessions, :only => [:new, :create, :destroy, :verify, :activate_account]
   resources :videos do
+  
   new do
     post :upload
     get :save_video
   end
+
   end
   root :to => "users#index"
   
@@ -15,7 +19,7 @@ Skillmad::Application.routes.draw do
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'
-  match '/check_name', :to =>  'users#check_name'
+  match '/check_name',  :to =>  'users#check_name'
   match '/user_update', :to => 'users#update'
   match '/prof_update', :to => 'users#prof_update'
   match '/select_user', :to => 'users#select_user'
@@ -30,6 +34,9 @@ Skillmad::Application.routes.draw do
   match '/vid_bank', :to => 'videos#vid_bank'
   match '/submitted', :to => 'videos#submitted'
   match '/delete_video', :to => 'videos#destroy'
+  match '/category_swap', :to => 'categories#swap'
+  match '/video_board',  :to => 'leaderboard#video_board'
+  match '/people_board', :to => 'leaderboard#people_board'	
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
 
