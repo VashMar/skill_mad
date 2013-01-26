@@ -6,15 +6,15 @@
 <%if hasVid?(current_user)%>
  <h2 id="vidswitch">
  
-  <%= link_to "my videos", vid_bank_path(:user_id => current_user.id, :myVid => true), :remote => true, :class => my_pressed(@myVid) %> | <%= link_to "top", vid_bank_path(:myVid => false), :remote => true, :class => top_pressed(@myVid)%> | <%= link_to "new", vid_bank_path(:new => true), :remote => true, :class => new_pressed(@new)%> 
+  <%= link_to "my videos", vid_bank_path(:user_id => current_user.id, :myVid => true), :remote => true, :class => my_pressed(@myVid) %> | <%= link_to "top", vid_bank_path(:myVid => false), :remote => true, :class => top_pressed(@myVid)%> | <%= link_to "new", vid_bank_path(:new => true), :remote => true, :class => new_pressed(@new) %> 
   </h2>
-  <%end%> 
+ <% end %> 
 
-<!-- "previous page" action -->
-<a class="prev browse left"></a>
+ <!-- "previous page" action -->
+ <a class="prev browse left"></a>
 
-<!-- root element for scrollable -->
-<div class="scrollable" id="scrollable">
+ <!-- root element for scrollable -->
+ <div class="scrollable" id="scrollable">
 
   <!-- root element for the items -->
   <div class="items">

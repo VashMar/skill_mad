@@ -4,10 +4,9 @@
 
                <% all_categories.each do |cat| %>
 
- 		<li> <%= link_to cat[0] , "#"  %> </li>
+ 		<li> <%= link_to cat[0] , "#",  %> </li>
   
-	    
-		<% end %>
+	       <% end %>
 		
 	</ul>
                 </div>

@@ -5,18 +5,17 @@
 		<div id="leaderboard_title"></div>
 		 		<form id="leader_select">
 		<%= select_tag('category_id' , options_for_select(all_categories), :class => "select_style", :prompt => "Categories") %>
-                <%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category)), :class => "select_style") %>
+                <%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category)), :class => "select_style", :prompt => "Leaderboards") %>
         </form>
 		<div id="backtotop"><a class="scroll" href="#header"></a></div>
-		<div id="leader_all">
+		
 			
 		
+		<div id="leader_switch"><%= link_to "people", people_board_path, :remote => true %> | <%= link_to "video", video_board_path, :remote => true %> </div>
 		<div class="clear"></div>
-		</div>
-       <div>
-       <% @user_list.first(5).each_with_index do |user, i| %>
-       <%= render :partial => "users/leader", :locals => {:user => user, :i => i}%>
-       <% end %>
+		
+       <div id="leaders_container">
+        <%= render :partial => "users/leader", :locals => {:user_list => @user_list} %>
        </div>
 </div>
 <div id="footer">

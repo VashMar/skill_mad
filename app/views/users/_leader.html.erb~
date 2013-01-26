@@ -1,3 +1,4 @@
+<% @user_list.first(5).each_with_index do |user, i| %>
 <div class="leader">
 			<h3><%= num_rank(i+1) %></h3>
 			
@@ -17,25 +18,31 @@
 			<%= user.about %>	
 			</p>
 			</div>
+
 			<div class="leader_divider"></div>
+
 			<div class="leader_videos">
 				<h2>Top Videos</h2>
 				<h5>Title</h5>
 				<h6>Pts</h6>
 				<ol>
            <% user.videos.order("points DESC").each do |video| %>
-              <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), :method => :post, "data_type" => :js, :remote=> true) do%>
+              <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
+               :method => :post, 
+               "data_type" => :js, :remote=> true) do%>
                    <%= video.title %>
-                   <% end %>
+               <% end %>
               <span><%= video.points %>+</span></li>
-         <%end%>
+           <%end%>
    
 		
 				</ol>
 				
-   <%= link_to( "see all" , vid_bank_path(:user_id => user.id), :class=>"leader_see_all", :method => :post, "data_type" => :js, :remote=> true)%>
 			</div>
+
 			<div class="leader_bottom"></div>
 			<div class="leader_left"></div>
 			<div class="leader_right"></div>
 		</div>
+
+<% end %>

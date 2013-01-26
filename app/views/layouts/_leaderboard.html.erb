@@ -11,13 +11,11 @@
 		
 			
 		
-		<div id="leader_switch"><a href="#">people</a> | <a href="#">videos</a></div>
+		<div id="leader_switch"><%= link_to "people", people_board_path, :remote => true %> | <%= link_to "video", video_board_path, :remote => true %> </div>
 		<div class="clear"></div>
 		
-       <div>
-       <% @user_list.first(5).each_with_index do |user, i| %>
-       <%= render :partial => "users/leader", :locals => {:user => user, :i => i}%>
-       <% end %>
+       <div id="leaders_container">
+        <%= render :partial => "users/leader", :locals => {:user_list => @user_list} %>
        </div>
 </div>
 <div id="footer">
