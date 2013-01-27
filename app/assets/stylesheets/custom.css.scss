@@ -421,6 +421,18 @@ font-size:12px;
 text-align: left;
 padding-left: 5px;
 }
+label#password_info{
+  position:absolute;
+  color:gray;
+  font-size:10px;
+  text-transform: none;
+  left:-19px;
+  top:16px;
+
+}
+.holder{
+  position:relative;
+}
 label#filetypes{
   padding-left:28px;
   text-align:center;
