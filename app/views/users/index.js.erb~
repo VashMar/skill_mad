@@ -1,0 +1,4 @@
+$('#leaderboard_id').html(
+"<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category)) %>");
+		
+alert("This worked!");
