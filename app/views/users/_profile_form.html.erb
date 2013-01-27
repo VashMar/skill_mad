@@ -14,5 +14,7 @@
   <%= f.label :about, "About Me" %>
  <%= f.text_area :about %>
  <%= f.submit "save", :class => "button" %>
+ 
+ <%= link_to("view profile",select_user_path(:user => current_user.id),  :remote => true ) %>
  <% end %>
 <% end %>

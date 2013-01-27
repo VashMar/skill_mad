@@ -190,7 +190,7 @@ border-top:none;
   cursor:pointer;
   display:block;
 }
-#overlay_login, #overlay_join, #overlay_upload, #overlay_profile, #overlay_request, #overlay_contact{
+#overlay_login, #overlay_join, #overlay_upload, #overlay_profile, #overlay_request, #overlay_contact, #overlay_upload_info{
     font-family: Arial, Helvetica, sans-serif;
     color:#6d0001;
   display:none;     /* place overlay on top of other elements */
@@ -235,7 +235,11 @@ background-image: -webkit-linear-gradient(top right, #FFFFFF 0%, #EBEBEB 100%);
 /* W3C Markup, IE10 Release Preview */ 
 background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 }
-#overlay_login .close, #overlay_join .close, #overlay_upload .close, #overlay_profile .close ,#overlay_view_profile .close, #overlay_request .close, #overlay_contact .close{    
+#overlay_upload_info{
+  width:300px;
+  padding:20px;
+}
+#overlay_login .close, #overlay_join .close, #overlay_upload .close, #overlay_profile .close ,#overlay_view_profile .close, #overlay_request .close, #overlay_contact .close, #overlay_upload_info .close{    
   background-image:url(close.png);
   position:absolute;
   right:-15px;
@@ -1063,6 +1067,12 @@ resize: none;
   padding:0;
   width:400px;
   float:right;
+}
+#form_info a{
+  color:rgb(96,0,1);
+  position:absolute;
+  right:20px;
+  bottom:20px;
 }
 #form_info textarea{
   width:330px;
