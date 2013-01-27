@@ -1,1 +1,1 @@
-<%= select_tag('leaderboard_id' , options_for_select(leaderboard_list(@category), leaderboard_list(@category)[0]), :class => "select_style", :prompt => "Leaderboards") %>
+<%= select_tag(:leaderboard , options_for_select(leaderboard_list(@category)), :class => "select_style", :prompt => "All Leaderboards", :data => {:remote => true, :url => home_path}) %>

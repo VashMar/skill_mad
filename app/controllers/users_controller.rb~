@@ -65,11 +65,16 @@ def index
     end 
     params[:category] ? @category = params[:category] : @category = nil
     
+    if @category 
+       @cat_obj = Category.find_by_category_name(@category)
+       @cat_videos = Video.find_in_cat(@cat_obj.id)
+    end 
+
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
   respond_to do |format|
    format.js{}
-   format.html{render home_url}
+   format.html{}
    end 
      
      

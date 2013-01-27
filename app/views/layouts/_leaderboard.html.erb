@@ -1,10 +1,10 @@
- <div id="leaderboard_back">
 
+ <div id="leaderboard_back">
 <div id="leaderboard">
 
 		<div id="leaderboard_title"></div>
 		 		<form id="leader_select">
-		<%= select_tag( :category , options_for_select(all_categories, selected_value(@category)), :class => "select_style", :prompt => "Categories",
+		<%= select_tag( :category , options_for_select(all_categories, selected_value(@category)), :class => "select_style", :prompt => "All Categories",
   :data => {:remote => true, :url => home_path})%>
 
 		
@@ -22,6 +22,7 @@
         <%= render :partial => "users/leader", :locals => {:user_list => @user_list} %>
        </div>
 </div>
+
 <div id="footer">
 <%=render :partial=>"layouts/footer"%>
 </div>

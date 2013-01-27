@@ -7,7 +7,9 @@ def create
 end 
 
 def video_board
-@user_list = User.order("points DESC").where(:hasVideo => true)
+@cat_videos = 
+
+
 
 respond_to do |format|
  format.js{}

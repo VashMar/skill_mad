@@ -2,11 +2,14 @@ class Category < ActiveRecord::Base
  
  
  has_many :videos 
- has_many :leader_boards 
+ has_many :leaderboards 
  attr_accessible :category_name 
 
  validates :category_name, :presence => true, :uniqueness => {:case_sensitive=> false} 
  
+def self.findCategory
+
+end 
 
 
 
