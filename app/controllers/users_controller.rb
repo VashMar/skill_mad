@@ -63,7 +63,7 @@ def index
       @video_list = @user.videos 
       @bank = "#{@user.name}'s Videos"
     end 
-    params[:category] ? @category = params[:category] : @category = nil
+    params[:category] != nil ? @category = params[:category] : @category = nil
     
     if @category 
        @cat_obj = Category.find_by_category_name(@category)

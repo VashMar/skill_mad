@@ -32,7 +32,7 @@ class Video < ActiveRecord::Base
   end
 
   def self.find_in_cat(category_id)
-    
+     where("category_id = ?" , category_id)
   end
 
   private

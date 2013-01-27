@@ -15,7 +15,7 @@
 		
 			
 		
-		<div id="leader_switch"><%= link_to "people", people_board_path, :remote => true %> | <%= link_to "video", video_board_path, :remote => true %> </div>
+		<div id="leader_switch"><%= render :partial => "leaderboards/leader_switch", :locals => {:category => @category} %> </div>
 		<div class="clear"></div>
 		
        <div id="leaders_container">

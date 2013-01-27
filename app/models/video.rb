@@ -35,6 +35,10 @@ class Video < ActiveRecord::Base
      where("category_id = ?" , category_id)
   end
 
+  def self.find_in_lb(leaderboard_id)
+     where("leaderboard_id =?", leaderboard_id)	
+  end 
+
   private
     def self.video_options(params)
       opts = {:title => params[:title],

@@ -1,4 +1,7 @@
 $('#leaderboard_id').html(
 "<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category)) %>");
+
+$('#leader_switch').html(
+"<%=escape_javascript(render('leaderboards/leader_switch', category: @category)) %>");
 		
-$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', video_list: @video_list))%>");
+$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', cat_videos: @cat_videos))%>");

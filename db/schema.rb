@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126015622) do
+ActiveRecord::Schema.define(:version => 20130127025254) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130126015622) do
     t.integer  "points",      :default => 0,     :null => false
     t.integer  "user_id"
     t.boolean  "is_private",  :default => false
+    t.integer  "category_id"
   end
 
   create_table "votes", :force => true do |t|

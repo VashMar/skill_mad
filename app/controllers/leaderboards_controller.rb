@@ -7,7 +7,14 @@ def create
 end 
 
 def video_board
-@cat_videos = 
+
+if !params[:category] == nil
+@category = Category.find_by_category_name(params[:category])
+@cat_videos = Video.find_in_cat(@category.id)
+else 
+@cat_videos = Video.order("points DESC").limit(15)
+end 
+
 
 
 
