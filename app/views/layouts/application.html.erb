@@ -29,7 +29,8 @@
       <%= f.label :email, "Wisc Email" %> 
       <%= f.text_field :email %>
 
-      <%= f.label :password, "Password" %>
+      <label class="holder" for="user_password">Password<label id="password_info">6 or more characters</label></label>
+      
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
