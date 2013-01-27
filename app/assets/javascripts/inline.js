@@ -17,7 +17,7 @@
 		'visibility': 'visible'
 	});
 	$('#sign_in input#session_email').click(function(){
-		if ($(this).val() == "wiscmail"){
+		if ($(this).val() == "email"){
 			$(this).val("");
 		}
 	});
