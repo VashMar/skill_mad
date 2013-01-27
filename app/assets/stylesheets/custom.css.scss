@@ -407,7 +407,7 @@ label{ // label for form boxes styling
 form#login{
   position:relative;
 }
-label#is_private{
+label#is_private, label#filetypes{
   color: gray;
   clear:none;
 float: left;
@@ -416,6 +416,10 @@ width:200px;
 font-size:12px;
 text-align: left;
 padding-left: 5px;
+}
+label#filetypes{
+  padding-left:28px;
+  text-align:center;
 }
 input#is_private{
   margin-top:15px;
@@ -552,7 +556,7 @@ a.left:active {}
 }
 .new_video{
   width:360px;
-  margin-left:46px;
+  margin-left:65px;
 }
 #box h1{ 
 margin: 8px;
@@ -1147,7 +1151,7 @@ resize: none;
   float: left;
   position: relative;
   margin:auto;
-  left:25px;
+  left:38px;
   margin-top:35px;
 }
 #wrapper_file{
@@ -1228,11 +1232,11 @@ padding-top:5px;
 margin:auto;
 margin-top:18px;
 height:300px;
-width:300px;
+width:340px;
 text-align:center;
 }
 #centered h1{
-  font-size:32px;
+  font-size:28px;
   color:rgb(96, 0, 1);
 }
 #wrapper .button{
@@ -1323,9 +1327,6 @@ background-color:#770b0c;
 label.error{
   text-transform:none;
 }
-#upload_youtube .error{
-}
-
 .items_rank{
   display:block;
   position:relative;

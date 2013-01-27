@@ -2,7 +2,9 @@
 	#header{
 		display:none;
 	}
-
+	#animation{
+		display:none;
+	}
 </style>
 <div id="centered">
 	<h1>Select your file</h1>
@@ -19,7 +21,12 @@
     <%= form_tag @upload_info[:url], :id=>"upload_youtube", :multipart => true do %>
     <%= hidden_field_tag :token, @upload_info[:token] %>
     <%= file_field_tag :file, {:id => "fileinput"} %>
+
+    <label class="error" style="width:137px;height:19px;"></label>
     <%= submit_tag "Upload Video", {:class => "button", :onsubmit => "loadText()"} %>
+        <label id="filetypes">
+    	mov-mpg-flv-wmv-avi-mp4
+    </label>
     <% end %>
 </div>
 </div>
