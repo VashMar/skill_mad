@@ -1,1 +1,1 @@
-<%= select_tag(:leaderboard , options_for_select(leaderboard_list(@category)), :class => "select_style", :prompt => "All Leaderboards") %>
+<%= select_tag(:leaderboard, options_for_select(["Shit", "Bitch", "Ass"]), :class => "select_style", :prompt => "All Leaderboards", :data => {:remote => true, :url => home_path}) %>

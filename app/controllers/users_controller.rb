@@ -63,6 +63,7 @@ def index
       @video_list = @user.videos 
       @bank = "#{@user.name}'s Videos"
     end 
+
     params[:category] != nil ? @category = params[:category] : @category = nil
     
     if @category 
@@ -72,6 +73,7 @@ def index
 
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
+
   respond_to do |format|
    format.js{}
    format.html{}

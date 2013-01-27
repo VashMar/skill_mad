@@ -5,23 +5,35 @@
 		'visibility': 'visible'
 	});
 	
+	window.setTimeout(function() {
+		$(window).bind('popstate', function(event) {
+		$.cookie("zomg","zomg");
+		location.reload(); 
+	}, 1000)});
+
+   	
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-
-	$('.leader_thumb .watch').click(function(){
-				window.history.pushState({state:2}, "Video", "/?video="+$(this).attr('title'));
-				$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500)
+	$('#sign_in input#session_email').click(function(){
+		if ($(this).val() == "email"){
+			$(this).val("");
+		}
+	});
+	$('#sign_in input#session_password').click(function(){
+		if ($(this).val() == "password"){
+			$(this).val("");
+		}
+	});
+	$('#header_leaders a').click(function(){
+		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
+	});
+	$('#backtotop a').click(function(){
+		window.history.pushState({state:2}, "Home", "/"+this.hash);
+		return event.preventDefault();
 
 	});
-	$('#vidswitch a').click(function(){
-		x=0
-		if($(this).index == 0)
-			x=1;
-		$("#vidswitch a.active_menu").removeClass("active_menu");
-		$(this).addClass("active_menu");$(this).addClass("active_menu");
-		});
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
 		if(par == 'leader_thumb'){
@@ -94,10 +106,11 @@
 		$('#filename').text(this.value);
 	});
 	$('#fileinput').mouseenter(function() {
-		$('#browse').css({'background-image': 'url(upload_button_hover.gif)'});
+		
+		$('#browse').css({'background-image': 'url(/assets/upload_button_hover.gif)'});
 	});
 	$('#fileinput').mouseleave(function() {
-		$('#browse').css({'background-image': 'url(upload_button.gif)'});
+		$('#browse').css({'background-image': 'url(/assets/upload_button.gif)'});
 	});
 	
 	
@@ -105,10 +118,10 @@
 		$('#filename2').text(this.value);
 	});
 	$('#form_file').mouseenter(function() {
-		$('#browse2').css({'background-image': 'url(upload_button_hover.gif)'});
+		$('#browse2').css({'background-image': 'url(/assets/upload_button_hover.gif)'});
 	});
 	$('#form_file').mouseleave(function() {
-		$('#browse2').css({'background-image': 'url(upload_button.gif)'});
+		$('#browse2').css({'background-image': 'url(/assets/upload_button.gif)'});
 	});
 	$('.notice').click(function(){
 		$(this).fadeOut();
@@ -123,15 +136,12 @@
  		 }).mouseleave(function(){
 		 $(this).fadeTo(200, .8);
 		 });
-$(".items_inner div img").click(function(){
-		window.history.pushState({state:3}, "Video", "/?video="+$(this).attr('rel'));
-		$('html,body').animate({scrollTop:$('#video_container h1').offset().top}, 500)
-  	});
+
 		$(".scrollable").scrollable();
 		$(".scroll").click(function(event){	
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-		window.history.pushState({state:1}, "Leaders Of Madison", "/"+this.hash);
+		
 		});
 		
 		//CAPTION CAPTION!!!    
@@ -140,6 +150,7 @@ $(".items_inner div img").click(function(){
         $(this).css('display', 'block');  
     });  
   
+
     $('.items div').hover(function(){  
         $(this).children('.items_description').stop().fadeTo(500, 0.7);  
     },function(){  
