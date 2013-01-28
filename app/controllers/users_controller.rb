@@ -64,20 +64,34 @@ def index
       @bank = "#{@user.name}'s Videos"
     end 
 
-    params[:category] != nil ? @category = params[:category] : @category = nil
-    
-    if @category 
-       @cat_obj = Category.find_by_category_name(@category)
-       @cat_videos = Video.find_in_cat(@cat_obj.id)
+    if params[:leaderboard] && params[:category] != nil 
+       @category = params[:category] 
+       @leaderboard = params[:leaderboard]
+    elsif params[:category] != nil && params[:category] != ""
+       @category = params[:category]
+       @leaderboard = nil
+    else 
+       @category = nil
+       @leaderboard = nil 
+    end
+
+    if @leaderboard  
+       @obj = LeaderBoard.find_by_leaderboard_name(@leaderboard)
+       @videos = Video.find_in_lb(@obj.id)
+    elsif @category 
+       @obj = Category.find_by_category_name(@category)
+       @videos = Video.find_in_cat(@obj.id)
+    else
+       @videos = Video.order("points DESC").limit(15)
     end 
 
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
 
   respond_to do |format|
-   format.js{}
-   format.html{}
-   end 
+     format.js{}
+     format.html{}
+  end 
      
      
 end

@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   has_many :votes
   scope :completes,   where(:is_complete => true)
   scope :incompletes, where(:is_complete => false)
-  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id
+  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id, :leaderboard_id 
     
   def self.yt_session
     @yt_session ||= YouTubeIt::Client.new(:username => YouTubeITConfig.username , :password => YouTubeITConfig.password , :dev_key => YouTubeITConfig.dev_key)    
@@ -34,6 +34,10 @@ class Video < ActiveRecord::Base
   def self.find_in_cat(category_id)
      where("category_id = ?" , category_id)
   end
+
+  def self.find_in_lb(leaderboard_id)
+     where("leaderboard_id =?", leaderboard_id)	
+  end 
 
   private
     def self.video_options(params)

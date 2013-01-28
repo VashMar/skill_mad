@@ -2,10 +2,11 @@ class Video < ActiveRecord::Base
  
   belongs_to :user
   belongs_to :category
+  belongs_to :leaderboard 
   has_many :votes
   scope :completes,   where(:is_complete => true)
   scope :incompletes, where(:is_complete => false)
-  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id
+  attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id, :leaderboard_id 
     
   def self.yt_session
     @yt_session ||= YouTubeIt::Client.new(:username => YouTubeITConfig.username , :password => YouTubeITConfig.password , :dev_key => YouTubeITConfig.dev_key)    

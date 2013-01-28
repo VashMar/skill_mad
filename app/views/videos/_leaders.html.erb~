@@ -3,13 +3,16 @@
 <h3>leaderboard name</h3>
 
 </div>
-<% @cat_videos.first(5).each_with_index do |video, i| %>
+<% if videos.empty? %>
+
+<% else %> 
+<% @videos.first(5).each_with_index do |video, i| %>
 <div class="leader video">
 			<h3><%= num_rank(i+1) %></h3>
 			
 			<div class="leader_pic"> 
 			<%= link_to("#", :class => "leader_thumb_link", :onclick => select_user(video), :remote => true) do %> 
-     			<%= image_tag("http://img.youtube.com/vi/#{@video_list[@counter].yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
+     			<%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
      			<% end %>   
 				
 				
@@ -32,5 +35,8 @@
 			<div class="leader_left"></div>
 			<div class="leader_right"></div>
 </div>
+<% end %> <!-- end if/else -->
+
+
 
 <% end %>

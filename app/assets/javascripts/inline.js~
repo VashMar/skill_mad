@@ -11,7 +11,7 @@
 		location.reload(); 
 	}, 1000)});
 
-   	
+   	$(".select_style").customSelect();
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'

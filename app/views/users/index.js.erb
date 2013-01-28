@@ -1,7 +1,7 @@
 $('#leaderboard_id').html(
-"<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category)) %>");
+"<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category )) %>");
 
 $('#leader_switch').html(
-"<%=escape_javascript(render('leaderboards/leader_switch', category: @category)) %>");
+"<%=escape_javascript(render('leaderboards/leader_switch', category: @category, leaderboard: @leaderboard)) %>");
 		
-$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', cat_videos: @cat_videos))%>");
+$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos))%>");
