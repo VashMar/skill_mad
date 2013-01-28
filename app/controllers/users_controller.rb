@@ -64,7 +64,7 @@ def index
       @bank = "#{@user.name}'s Videos"
     end 
 
-    if params[:leaderboard] && params[:category] != nil 
+    if params[:leaderboard] && params[:category] != nil && params[:leaderboard] && params[:category] != "" 
        @category = params[:category] 
        @leaderboard = params[:leaderboard]
     elsif params[:category] != nil && params[:category] != ""
@@ -77,10 +77,10 @@ def index
 
     if @leaderboard  
        @obj = LeaderBoard.find_by_leaderboard_name(@leaderboard)
-       @videos = Video.find_in_lb(@obj.id)
+       @videos = Video.find_in_lb(@obj.id).order("points DESC")
     elsif @category 
        @obj = Category.find_by_category_name(@category)
-       @videos = Video.find_in_cat(@obj.id)
+       @videos = Video.find_in_cat(@obj.id).order("points DESC")
     else
        @videos = Video.order("points DESC").limit(15)
     end 

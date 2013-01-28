@@ -71,6 +71,9 @@
 			$('#leader_all').fadeIn();
 		});
 	});
+	$("#categories li a").click(function(){
+		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
+	});
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
 			$('.leader').fadeIn();
