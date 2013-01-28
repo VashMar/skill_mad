@@ -1,9 +1,35 @@
 module CategoriesHelper
 
+
 def all_categories
+
 @categories = Category.all.collect{|c| [c.category_name]}
+
 end 
 
 
+
+def top_categories(cat)
+
+
+@categories = Category.all.collect{|c| [c.category_name]}
+
+if cat == nil
+@categories
+else
+@categories.delete([cat])
+@categories.unshift([cat])
+end
+
+end 
+
+def current_category(cat)
+@current_category = cat
+end 
+
+
+def current_category
+@current_category ||= nil
+end 
 
 end

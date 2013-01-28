@@ -5,13 +5,14 @@ def leaderboard_list(category)
 @category = category 
 
 if @category == nil
-   Leaderboard.all 
+   Leaderboard.all.collect{|l| [l.leaderboard_name]}
 else
-  @leaderboards = Leaderboard.find_by_category_name(@category)
+  @category = Category.find_by_category_name(@category)
+  @leaderboards = @category.leaderboards 
   if @leaderboards 
   @leaderboard_list = @leaderboards.collect{|l| [l.leaderboard_name]}
   else 
-  @leaderboard_list = ["None"] 
+  @leaderboard_list = ["Empty"] 
   end
 end
     

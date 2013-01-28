@@ -2,7 +2,8 @@ class Leaderboard < ActiveRecord::Base
 
  belongs_to :category 
  has_many :videos
- attr_accessible :leaderboard_name, :leaderboard_type, :leaderboard_description, :leaderboard_rules  
+ has_many :users 
+ attr_accessible :leaderboard_name, :leaderboard_type, :leaderboard_description, :leaderboard_rules, :category_id
 
 
  validates :leaderboard_name, :presence => true, :uniqueness => {:case_sensitive=> false}, :length => {:maximum => 100} 
