@@ -4,7 +4,7 @@ def leaderboard_list(category)
 
 @category = category 
 
-if @category == nil
+if @category == nil || @category == ""
    Leaderboard.all.collect{|l| [l.leaderboard_name]}
 else
   @category = Category.find_by_category_name(@category)

@@ -1,17 +1,24 @@
-$('#leaderboard_select').html(
-"<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category )) %>");
+<% if @category == nil %>
+<% @viewed = "All Categories" %>
+<% else %>
+<% @viewed = @category %>
+<% end %>
+
+$('.customSelectInner')[0].innerHTML= "<%=escape_javascript(@viewed)%>";
 
 $('#category_select').html(
 "<%=escape_javascript(render('categories/category_select', category: @category )) %>");
 
+$('#leaderboard_select').html(
+"<%=escape_javascript(render('leaderboards/leaderboard_select', category: @category )) %>");
+
+
+
 $('#leader_switch').html(
 "<%=escape_javascript(render('leaderboards/leader_switch', category: @category, leaderboard: @leaderboard)) %>");
 
-<% if @category == nil %>
-<% @category = "All Categories" %>
-<% end %>
 
-$('.customSelectInner')[0].innerHTML= "<%= escape_javascript(@category) %>";
+
 
 
 		

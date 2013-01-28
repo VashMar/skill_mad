@@ -54,35 +54,31 @@ def index
     end
 
     if @user_id == nil   # display top videos in scroll
-      @video_list = Video.order("points DESC").limit(15)
-      @myVid = false
-      @bank = "Top Videos"
+       @video_list = Video.order("points DESC").limit(15)
+       @myVid = false
+       @bank = "Top Videos"
     else
-      @user = User.find(@user_id) # display video bank in scroll
-      @myVid = true 
-      @video_list = @user.videos 
-      @bank = "#{@user.name}'s Videos"
+       @user = User.find(@user_id) # display video bank in scroll
+       @myVid = true 
+       @video_list = @user.videos 
+       @bank = "#{@user.name}'s Videos"
     end 
 
-    if params[:leaderboard] && params[:category] != nil && params[:leaderboard] && params[:category] != "" 
-       @category = params[:category] 
-       @leaderboard = params[:leaderboard]
-    elsif params[:category] != nil && params[:category] != ""
-       @category = params[:category]
-       @leaderboard = nil
-    else 
-       @category = nil
-       @leaderboard = nil 
-    end
+  
+      @category = params[:category] 
+      @leaderboard = params[:leaderboard]
 
-    if @leaderboard  
+   
+    if @leaderboard  != nil && @leaderboard != "" 
        @obj = LeaderBoard.find_by_leaderboard_name(@leaderboard)
        @videos = Video.find_in_lb(@obj.id).order("points DESC")
-    elsif @category 
+    elsif @category != nil && @category != "" 
        @obj = Category.find_by_category_name(@category)
        @videos = Video.find_in_cat(@obj.id).order("points DESC")
     else
        @videos = Video.order("points DESC").limit(15)
+       @category = nil
+       @leaderboard = nil
     end 
 
       @user_list = User.order("points DESC").where(:hasVideo => true)

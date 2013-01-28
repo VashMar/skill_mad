@@ -1,9 +1,5 @@
 
-<%= select_tag(:category , options_for_select(all_categories, selected_value(@category)), :class => "select_style", :id=> "category_select", :prompt => "All Categories", 
-  :data => {:remote => true, :url => home_path})%>
-
-
-<%= select_tag(:leaderboard, options_for_select(leaderboard_list(@category)), :class => "select_style", :id => "leaderboard_select", :prompt => "All Leaderboards", :data => {:remote => true, :url => home_path(:category => @category)}) %>
+<%= select_tag(:leaderboard, options_for_select(@category), :class => "select_style", :id => "leaderboard_select", :prompt => "All Leaderboards", :data => {:remote => true, :url => home_path(:category => @category)}) %>
 
 
 

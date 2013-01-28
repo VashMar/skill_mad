@@ -1,0 +1,4 @@
+
+<%= select_tag(:category , options_for_select(all_categories), :class => "select_style", :id=> "category_select", :prompt => "All Categories", 
+  :data => {:remote => true, :url => home_path})%>
+
