@@ -14,6 +14,7 @@
 <%@leaderpage = true %>
 
 <%= render 'layouts/header' %>
+<%if signed_in? %>
 <div id="background">
 <div id="overlay_login" class="istyle">
 <div id="form_join">
@@ -103,7 +104,11 @@
 
 
 <%= yield %>
-
+<%else%>
+<div id="lander_background">
+	
+</div>
+<% end %>
 
 
 </div>
