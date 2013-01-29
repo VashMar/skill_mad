@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127025254) do
+ActiveRecord::Schema.define(:version => 20130129184011) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130127025254) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "category_name"
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20130127025254) do
     t.string   "skill"
     t.text     "about"
     t.boolean  "hasVideo",            :default => false
+    t.integer  "category_id"
+    t.integer  "leaderboard_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -56,13 +59,14 @@ ActiveRecord::Schema.define(:version => 20130127025254) do
     t.string   "title"
     t.string   "description"
     t.string   "yt_video_id"
-    t.boolean  "is_complete", :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "points",      :default => 0,     :null => false
+    t.boolean  "is_complete",    :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "points",         :default => 0,     :null => false
     t.integer  "user_id"
-    t.boolean  "is_private",  :default => false
+    t.boolean  "is_private",     :default => false
     t.integer  "category_id"
+    t.integer  "leaderboard_id"
   end
 
   create_table "votes", :force => true do |t|

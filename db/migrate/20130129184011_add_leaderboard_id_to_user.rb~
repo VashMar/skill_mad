@@ -1,0 +1,4 @@
+class AddLeaderboardIdToUser < ActiveRecord::Migration
+  def change
+  end
+end

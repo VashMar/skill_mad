@@ -1,0 +1,4 @@
+class AddCategoryIdToLeaderboard < ActiveRecord::Migration
+  def change
+  end
+end

@@ -11,7 +11,7 @@
 		location.reload(); 
 	}, 1000)});
 
-   	$(".select_style").customSelect();
+   	
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
@@ -70,6 +70,9 @@
 		$('.leader').fadeOut(function(){
 			$('#leader_all').fadeIn();
 		});
+	});
+	$("#categories li a").click(function(){
+		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
 	});
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
