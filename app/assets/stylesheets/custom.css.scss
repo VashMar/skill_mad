@@ -285,6 +285,9 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
     border-radius:0px;
   border:none;
 }
+.istyle.simple input:active{
+  border:none;
+}
 #form_login{
   width:480px;
   float:left;
