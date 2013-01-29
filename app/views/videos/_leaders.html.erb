@@ -11,7 +11,7 @@
 			<h3><%= num_rank(i+1) %></h3>
 			
 			<div class="video_pic"> 
-			<%= link_to("#", :class => "leader_thumb_link", :onclick => select_user(video), :remote => true) do %> 
+			<%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), :class => "leader_thumb_link", :remote => true) do %> 
      			<%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
      			<% end %>   
 				
@@ -20,11 +20,19 @@
 
 		
 			<div class="leader_info">
+  		      <%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
+               :method => :post, 
+               "data_type" => :js, :remote=> true) do%>
 			<h1><%= video.title %></h1>
-			<h2><%= video.title %></h2>
+                <% end %>
+			<h2><%= video.user.name %></h2>
 			<p>
-			<%= video.description %>	
+			<%= video.description %>
+			<br />
+ 		        Points: <%= video.points %>
+		
 			</p>
+
 			</div>
 			<div class="leader_bottom"></div>
 			<div class="leader_left"></div>

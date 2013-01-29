@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
 def new
 end
   
@@ -65,12 +65,12 @@ def index
     end 
 
   
-      @category = params[:category] 
-      @leaderboard = params[:leaderboard]
+    @category = params[:category] 
+    @leaderboard = params[:leaderboard]
 
    
     if @leaderboard  != nil && @leaderboard != "" 
-       @obj = LeaderBoard.find_by_leaderboard_name(@leaderboard)
+       @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
        @videos = Video.find_in_lb(@obj.id).order("points DESC")
     elsif @category != nil && @category != "" 
        @obj = Category.find_by_category_name(@category)

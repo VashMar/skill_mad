@@ -23,6 +23,11 @@ end
 
 def people_board
 
+@category = params[:category]
+@leaderboard = params[:leaderboard] 
+
+
+
 @user_list = User.order("points DESC").where(:hasVideo => true)
 
 respond_to do |format|
