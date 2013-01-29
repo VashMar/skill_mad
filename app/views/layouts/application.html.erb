@@ -17,39 +17,7 @@
 <%if signed_in? %>
 <div id="background">
 <div id="overlay_login" class="istyle">
-<div id="form_join">
-    
-   <h1>Sign up! UW Students Only.</h1>
- 
-<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
 
-
-      <%= f.label :name, "Username" %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email, "Wisc Email" %> 
-      <%= f.text_field :email %>
-
-      <label class="holder" for="user_password">Password<label id="password_info">6 or more characters</label></label>
-      
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-      
-   
-      <%= f.submit "join", :class => "button" %>
-    <% end %>
-
-    </div>
-    
-    
-    </div>
-    
-    <div id="overlay_upload_info" class="istyle">
-    	<h3>having trouble uploading video?</h3>
-    	<p>blow me<p>
-    </div>
  
   <div id="overlay_profile">
  <h1>Profile Setup</h1>
@@ -108,6 +76,33 @@
 <div id="lander_bg">
 	<img src="assets/madison.jpg" alt="">
 </div>
+<div id="form_join" >
+    
+   <h1>Sign up! UW Students Only.</h1>
+ 
+<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
+<span class="istyle simple">
+<%= f.text_field :name %>
+      <%= f.label :name, "Username" %>
+      
+    <%= f.text_field :email %>
+      <%= f.label :email, "Wisc Email" %> 
+  
+ <%= f.password_field :password %>
+      <label class="holder" for="user_password">Password<label id="password_info">6 or more characters</label></label>
+      
+     
+<%= f.password_field :password_confirmation %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      
+      
+   </span>
+      <%= f.submit "join", :class => "button2" %>
+    <% end %>
+    
+    </div>
+
+
 <% end %>
 
 
