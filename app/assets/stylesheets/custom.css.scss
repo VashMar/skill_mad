@@ -18,11 +18,12 @@ a:focus {
   width:200%; 
   height:200%;
   z-index:-2;
+  background-color:#030308;
 
 }
 #lander_bg img {
   position:absolute; 
-  top:0; 
+  top:350px; 
   left:0; 
   right:0; 
   bottom:0; 
@@ -281,12 +282,18 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 #form_join input, #form_join label{
   margin-right:10px;
   float:right;
+  font-weight:bold;
+  color:white;
+  
+}
+#form_join label{
+  margin-top:6px;
 }
 .istyle.simple input{
     border-radius:0px;
   border:none;
 }
-.istyle.simple input:active{
+#form_join input:focus{
   border:none;
 }
 #form_login{
@@ -447,9 +454,8 @@ label{ // label for form boxes styling
 }
 
 #join label.error{ // invalid form error messages styling and placement for join overlay
-  
   font-size: 14px;
-  float:right;
+  float:left;
   margin-top: -52px;
 }
 
@@ -477,12 +483,13 @@ padding-left: 5px;
 }
 label#password_info{
   position:absolute;
-  color:gray;
+  margin-top:0;
   font-size:10px;
   text-transform: none;
   left:-1px;
   width:100px;
   top:16px;
+  font-weight:normal;
 
 }
 .holder{
