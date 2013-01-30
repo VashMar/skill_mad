@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-
+gggggggvvclass UsersController < ApplicationController
+  
 def new
 end
   
@@ -64,31 +64,67 @@ def index
        @bank = "#{@user.name}'s Videos"
     end 
 
-  
-    @category = params[:category] 
-    @leaderboard = params[:leaderboard]
-
    
+   @category = params[:category] 
+   @leaderboard = params[:leaderboard]
+ 
+   # sets default leaderboard list to all leaderboards 
+   @leaderboard_list = Leaderboard.all.collect{|l| [l.leaderboard_name]}
+   @leaderboard_list.unshift(["All Leaderboards"]) 
+     
+    # if leaderboard parameter is passed leaderboard_list doesnt need to be filled, simply just have to render appropriate videos for that leaderboard 
     if @leaderboard  != nil && @leaderboard != "" 
-       @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
-       @videos = Video.find_in_lb(@obj.id).order("points DESC")
+       @fill = "false"
+       if @leaderboard == "All Leaderboards" # if "All Leaderboards" is selected, we need all the videos for current category
+          @cat = Category.find_by_category_name(@category)
+          # if the category is nil "All Categories" must be selected, therefore we render the videos with highest points overall, otherwise we get the ranked videos from respective category
+	  @cat == nil ? @videos = Video.order("points DESC").limit(15) : @videos = @cat.videos.order("points DESC") 
+       # if a specific leaderboard is chosen, simply get the videos, ordered by points, for that leaderboard
+       else 
+          @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
+          @videos = Video.find_in_lb(@obj.id).order("points DESC")
+       end
+    # if leaderboard parameter isn't sent, check to see if a category was selected
     elsif @category != nil && @category != "" 
-       @obj = Category.find_by_category_name(@category)
-       @videos = Video.find_in_cat(@obj.id).order("points DESC")
-    else
-       @videos = Video.order("points DESC").limit(15)
-       @category = nil
-       @leaderboard = nil
-    end 
+          @fill = "true" # need to fill leaderboard_list if so 
+            
+          # if "All Categories" is chosen, get all videos on the site ranked by points, and get the values of all the leaderboard names 
+          if @category == "All Categories"
+          @videos = Video.order("points DESC")
+          @string = ""
+              @leaderboard_list.each do |l|                   # converts array to delimited string 
+              @string = @string + l[0] + "|"
+              end
+          # otherwise find what category is chosen and get the videos for that category, along with the leaderboards in that category 
+          else
+          @obj = Category.find_by_category_name(@category)
+          @videos = Video.find_in_cat(@obj.id).order("points DESC")
+          @leaderboards = @obj.leaderboards
+             
+             if @leaderboards.empty? # if no leaderboards exist for that category, make an empty array 
+             @leaderboards = [""]
+             else 
+             @leaderboards = @leaderboards.collect{|l| [l.leaderboard_name]} # if leaderboards do exist, get the names of all the leaderboards 
+             @leaderboards.unshift(["All Leaderboards"]) # add "All Leaderboards" to the list of names 
+             @string = "" 		#convert the list of name arrays to delimited string for javascript 
+                 @leaderboards.each do |l|
+                 @string = @string + l[0] + "|"
+                 end
+       	     end 
+          end   
+      end
 
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
+
+
+      @category_list = Category.all.collect{|c| [c.category_name]}
+      @category_list.unshift(["All Categories"])
 
   respond_to do |format|
      format.js{}
      format.html{}
   end 
-     
      
 end
   
@@ -107,7 +143,6 @@ def check_name
    respond_to do |format|
      format.json{render :json => !@user}
    end
-
 end
   
 def select_user

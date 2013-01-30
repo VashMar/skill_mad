@@ -12,12 +12,13 @@
 $('#leader_switch').html(
 "<%=escape_javascript(render('leaderboards/leader_switch', category: @category, leaderboard: @leaderboard)) %>");
 
-
+if("<% escape_javascript(@fill) %> == "true"){
 t = "<%=escape_javascript(@string) %>";
 t = t.substring(0,t.length-1).split("|");
 $("#leaderboard_select").html("");
-$("#leaderboard_select").append('<option value="asdf">asdf</option>');
-$("#leaderboard_select").append('<option value="rooofie">rooofie</option>');
+$("#leaderboard_select").append('<option value="asdf">+"t[0]"+</option>');
+$("#leaderboard_select").append('<option value="rooofie">+"t[1]"+</option>');
 $("#leaderboard_select").append('<option value="blah">blah</option>');
+}
 		
 $('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos))%>");
