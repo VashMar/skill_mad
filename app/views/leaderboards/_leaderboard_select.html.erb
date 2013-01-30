@@ -1,5 +1,9 @@
 
-<%= select_tag(:leaderboard, options_for_select(leaderboard_list(@category)), :class => "select_style", :id => "leaderboard_select", :prompt => "All Leaderboards", :data => {:remote => true, :url => home_path(:category => @category)}) %>
-
+	<select id="leaderboard_select" class="select_style" name="leaderboard" >
+		<option>All Leaderboards</option>
+				<% @leaderboard_list.each do |leaderboard| %>
+		<option value="<%= leaderboard[0] %>"><%= leaderboard[0] %></option>
+		<%end%>
+	</select>
 
 

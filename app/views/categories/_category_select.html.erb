@@ -1,4 +1,8 @@
 
-<%= select_tag(:category , options_for_select(all_categories, selected_value(@category)), :class => "select_style", :id=> "category_select", :prompt => "All Categories", 
-  :data => {:remote => true, :url => home_path})%>
+	<select id="category_select" class="select_style" name="category" >
+		<% @category_list.each do |category| %>
+		<option value="<%= category[0] %>"><%= category[0] %></option>
+		<%end%>
+	</select>
+
 
