@@ -58,11 +58,20 @@
    
    <%if !signed_in? %>
     <div id="sign_in">
-          <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
-
-    	<%= f.text_field :email, :value => "email" %>
-    	<%= f.password_field :password, :value=>"password" %>
-    	<%= f.submit "login", :id => "button", :value => ">>" %>
+        <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
+        <table cellspacing="0">
+        	<tbody>
+        		<tr>
+        			<td><%= f.label :email, "Wisc Email" %> </td>
+        			<td><%= f.label :password, "Password" %> </td>
+        		</tr>
+        		<tr>
+        			<td><%= f.text_field :email %></td>
+        			<td><%= f.password_field :password%></td>
+        			<td><%= f.submit "login", :id => "button", :value => "login" %></td>
+        		</tr>
+    		</tbody>
+    	</table>
      	<%end%>
     </div>
     <%end%>
