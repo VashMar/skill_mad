@@ -68,13 +68,29 @@ def index
     @category = params[:category] 
     @leaderboard = params[:leaderboard]
 
-   
+   @leaderboard_list = Leaderboard.all.collect{|l| [l.leaderboard_name]}
+
     if @leaderboard  != nil && @leaderboard != "" 
        @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
        @videos = Video.find_in_lb(@obj.id).order("points DESC")
     elsif @category != nil && @category != "" 
        @obj = Category.find_by_category_name(@category)
        @videos = Video.find_in_cat(@obj.id).order("points DESC")
+       @leaderboards = @obj.leaderboards
+       if @leaderboards.empty?
+          @leaderboards = [""]
+       else 
+           @leaderboards = @leaderboards.collect{|l| [l.leaderboard_name]}
+       
+           
+           @string = ""
+           @leaderboards.each do |l|
+              @string = @string + l[0] + "|"
+           end
+           
+           
+           @size = @leaderboards.to_s
+       end
     else
        @videos = Video.order("points DESC").limit(15)
        @category = nil
@@ -83,6 +99,9 @@ def index
 
       @user_list = User.order("points DESC").where(:hasVideo => true)
       @new = false 
+
+
+@category_list = Category.all.collect{|c| [c.category_name]}
 
   respond_to do |format|
      format.js{}

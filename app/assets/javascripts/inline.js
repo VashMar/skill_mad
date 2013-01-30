@@ -11,7 +11,7 @@
 		location.reload(); 
 	}, 1000)});
 
-   	$(".select_style").customSelect();
+  
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
@@ -34,6 +34,32 @@
 		return event.preventDefault();
 
 	});
+	
+	
+	$('#category_select').change(function(){
+		x = $(this).val();
+		$.ajax({
+		  type    : 'POST',
+		  url     : "/home", 
+		  data    : { category : x},
+		 
+		});
+	});
+	
+	$('#leaderboard_select').change(function(){
+		leaderVal = $(this).val();
+		categoryVal =$('#category_select').val();
+		$.ajax({
+		  type    : 'POST',
+		  url     : "/home", 
+		  data    : { leaderboard : leaderVal, category : categoryVal},
+		 
+		});
+	});
+	
+	
+	
+	
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
 		if(par == 'leader_thumb'){
