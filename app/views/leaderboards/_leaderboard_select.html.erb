@@ -1,6 +1,8 @@
 
 	<select id="leaderboard_select" class="select_style" name="leaderboard" >
-		<option>All Leaderboards</option>
+		<% @leaderboard_list.each do |leaderboard| %>
+		<option value="<%= leaderboard[0] %>"><%= leaderboard[0] %></option>
+		<%end%>
 	</select>
 
 
