@@ -99,7 +99,8 @@
 	});
 	$("#categories li a").click(function(){
 		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
-		$('.customSelectInner')[0].innerHTML = this.innerHTML
+		$('.customSelectInner')[0].innerHTML = this.innerHTML;
+		$('#category_select').val(this.innerHTML);
 	});
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
