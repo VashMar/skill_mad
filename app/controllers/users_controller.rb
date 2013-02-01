@@ -111,7 +111,10 @@ def index
                  @string = @string + l[0] + "|"
                  end
        	     end 
-          end   
+          end
+      else 
+          @category = "All Categories"
+          @leaderboard = "All Leaderboards"
       end
 
       @user_list = User.order("points DESC").where(:hasVideo => true)

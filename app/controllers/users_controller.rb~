@@ -1,4 +1,4 @@
-gggggggvvclass UsersController < ApplicationController
+class UsersController < ApplicationController
   
 def new
 end
@@ -111,7 +111,10 @@ def index
                  @string = @string + l[0] + "|"
                  end
        	     end 
-          end   
+          end
+      else 
+       @category = "All Categories"
+       @leaderboard = "All Leaderboards"
       end
 
       @user_list = User.order("points DESC").where(:hasVideo => true)

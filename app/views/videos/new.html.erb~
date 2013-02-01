@@ -25,13 +25,16 @@
 
           <optgroup label= "Category: <%= cat.category_name %>" >
           <% leaderboard_list(cat).each do |l| %> 
-          <option> l.leaderboard_name </option>
+          <option> <%= l.leaderboard_name %> </option>
           <% end %>
 
           </optgroup>
            <% end %> 
         </select>
+
+          <%= f.submit "submit" %>
     	<% end %>
+     
 </div>
 
 

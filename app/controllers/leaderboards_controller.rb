@@ -8,13 +8,18 @@ end
 
 def video_board
 
-if !params[:category] == nil
+if params[:leaderboard] == "All Leaderboards"
+   if params [:category] == "All Categories"
+       @videos = Video.order("points DESC").limit(15)
+   else 
+        @category = Category.find_by_category_name(params[:category])
+        @videos = Video.find_in_cat(@category.id).order("points DESC")
+   end
+else 
+    @leaderboard = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
+    @videos = @leaderboard.videos.order("points DESC")
+end
 
-  @category = Category.find_by_category_name(params[:category])
-  @videos = Video.find_in_cat(@category.id)
- else 
-  @videos = Video.order("points DESC").limit(15)
- end 
 
  respond_to do |format|
   format.js{}
