@@ -2,6 +2,9 @@
 	#header{
 	 display:none;
 	}
+	.istyle textarea{
+		height:100px;
+	}
 </style>
 
 <div id="centered" class="istyle">
@@ -16,7 +19,7 @@
 	<input id="video_title" name="video[title]" size="30" type="text">
 	
 	<label for="video_description">Description</label>
-	<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
+	<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
 	<label for="leaderboard">Leaderboard</label>
          <select name="leaderboard" > 
           <% all_categories.each do |cat| %> 
@@ -30,8 +33,10 @@
         </select>
 
 	<div id="create_leaderboard">
-		<input type="text"></input>
-		<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
+		<label for="leaderboard_name">Name</label>
+		<input name="leaderboard_name" type="text"></input>
+		<label for="leaderboard_description">Description</label>
+		<textarea name="leaderboard_description"cols="40" id="video_description" name="video[description]" rows="9"></textarea>
 	</div>
 	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
 	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
