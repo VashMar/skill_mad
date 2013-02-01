@@ -1,12 +1,17 @@
+
+<% if @videos.empty? %>
+  
+  <div> </div>
+
+<% else %> 
+
 <div id="leaderboard_info">
 
 <h3>leaderboard name</h3>
 
 </div>
-<% if @videos.empty? %> 
-
-<% else %> 
 <% @videos.first(5).each_with_index do |video, i| %>
+
 <div class="leader video">
 			<h3><%= num_rank(i+1) %></h3>
 			
