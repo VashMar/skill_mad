@@ -4,7 +4,8 @@ def leaderboard_list(category)
 
 @category = category
 
-@leaderboard_list = @category.leaderboards 
+@leaderboard_list = @category.leaderboards.map {|l| l.leaderboard_name}.uniq
+@leaderboard_list << "Create New Leaderboard" 
     
 end
 

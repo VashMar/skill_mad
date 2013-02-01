@@ -10,7 +10,7 @@
 
 <% if @leaderboard != "All Leaderboards" %>
 <div id="leaderboard_info">
-<h3><%= @leaderboard %> </h3>
+<h3> <%= @leaderboard %> </h3>
 </div>
 <% end %>
 

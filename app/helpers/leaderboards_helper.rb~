@@ -4,18 +4,13 @@ def leaderboard_list(category)
 
 @category = category
 
-@leaderboard_list = @category.leaderboards 
-    
+@leaderboard_list = @category.leaderboards.map {|l| l.leaderboard_name}.uniq
+
 
     
 end
 
-leaderboard_find(category) 
 
-@category = category 
-
-
-end  
 
 
 def selected_value(category) 

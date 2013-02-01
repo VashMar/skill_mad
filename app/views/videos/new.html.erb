@@ -22,7 +22,7 @@
           <% all_categories.each do |cat| %> 
           <optgroup label= "Category: <%= cat.category_name %>">
           <% leaderboard_list(cat).each do |l| %> 
-          <option value="<%= l.leaderboard_name %>, <%= cat.category_name %> "> <%= l.leaderboard_name %> </option>
+          <option value="<%= l %>, <%= cat.category_name %> "> <%= l %> </option>
           <% end %>
 
           </optgroup>
