@@ -5,19 +5,19 @@ if("<%= escape_javascript(@fill) %>" == "true"){
 	t = "<%=escape_javascript(@string) %>";
 	$("#leaderboard_select").html("");
 	if(t==""){
-		$("#leaderboard_select").append('<option value="asdf">All Leaderboards</option>');
+		$("#leaderboard_select").append('<option value="All Leaderboards">All Leaderboards</option>');
+		$("#leaderboard_select").val("All Leaderboards");
 	}else{
 		
 		t = t.substring(0,t.length-1).split("|");
-		
-		alert(t);
 		// this code should empty the options which exist and fill the list with all the options in @string making sure the first option is what is visible 
 		
 		
 		for(var leaderboard in t){
-			$("#leaderboard_select").append('<option value="asdf">'+t[leaderboard]+'</option>');	
+			$("#leaderboard_select").append('<option value="'+t[leaderboard]+'">'+t[leaderboard]+'</option>');	
 		}
 	}
+	$(".customSelectInner").get(1).innerHTML = "All Leaderboards";
 	
 }
 

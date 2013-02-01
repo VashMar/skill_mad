@@ -4,7 +4,7 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-	
+	$(".select_style").customSelect();
 	window.setTimeout(function() {
 		$(window).bind('popstate', function(event) {
 		$.cookie("zomg","zomg");
@@ -99,6 +99,7 @@
 	});
 	$("#categories li a").click(function(){
 		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
+		$('.customSelectInner')[0].innerHTML = this.innerHTML
 	});
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
