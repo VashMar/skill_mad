@@ -33,7 +33,7 @@
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
 			<h1><%= video.title %></h1>
-                <% end %>
+                       <% end %>
 			<h2><%= video.user.name %></h2>
 			<p>
 			<%= video.description %>

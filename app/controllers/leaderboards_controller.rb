@@ -9,21 +9,20 @@ end
 def video_board
 
 if params[:leaderboard] == "All Leaderboards"
-   if params [:category] == "All Categories"
+   if params[:category] == "All Categories"
        @videos = Video.order("points DESC").limit(15)
    else 
-        @category = Category.find_by_category_name(params[:category])
-        @videos = Video.find_in_cat(@category.id).order("points DESC")
+        @cat = Category.find_by_category_name(params[:category])
+        @videos = Video.find_in_cat(@cat.id).order("points DESC")
    end
 else 
-    @leaderboard = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
-    @videos = @leaderboard.videos.order("points DESC")
+    @leaders = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
+    @videos = @leaders.videos.order("points DESC")
 end
 
-
- respond_to do |format|
-  format.js{}
- end 
+  respond_to do |format|
+   format.js{}
+  end 
 end
 
 def people_board
