@@ -3,6 +3,7 @@ class VideosController < InheritedResources::Base
 
  
   def upload
+    
     @video = Video.create(params[:video])
     if @video
       @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
