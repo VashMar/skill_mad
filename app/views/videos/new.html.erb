@@ -29,6 +29,10 @@
           <% end %> 
         </select>
 
+	<div id="poop">
+		<input type="text"></input>
+		<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
+	</div>
 	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
 	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
     
@@ -36,7 +40,13 @@
 </form>
 
         
-
+<script>
+	 $(document).ready(function() {
+	 		$("#upload select").change(function(){
+	 			
+	 		});
+	 });
+</script>
 
 
 
