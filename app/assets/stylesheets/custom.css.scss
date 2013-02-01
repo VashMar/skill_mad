@@ -11,6 +11,33 @@ a:focus {
     outline: none; 
     border:0;
 }
+#empty_prompt{
+  font-size: 2em;
+  letter-spacing: -0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5em;
+  padding:65px 0 45px;
+}
+#empty_prompt a{
+  
+    color:black;
+}
+#empty_prompt a:hover{
+  color:white;
+}
+#empty_prompt h1{
+  
+    color:white;
+}
+#empty_prompt hr{
+  margin:6px auto 25px auto;
+  color:white;
+  width:575px;
+}
+#empty_prompt span{
+  border-bottom:1px solid;
+}
 #lander_bg {
   position:fixed; 
   top:-50%; 
@@ -220,46 +247,27 @@ border-top:none;
 #overlay_login, #overlay_join, #overlay_upload, #overlay_profile, #overlay_request, #overlay_contact, #overlay_upload_info{
     font-family: Arial, Helvetica, sans-serif;
     color:#6d0001;
-  display:none;     /* place overlay on top of other elements */
-   z-index:10000;     /* styling */   
-    //background-color:#ebe8df;  
+  display:none;
+   z-index:10000;
 
      width:960px;   
       min-height:200px;   
     margin-top:45px; 
 
     border: 1px solid rgb(204, 204, 204);
-
-    /* CSS3 styling for latest browsers */   
     -moz-box-shadow:0 0 40px 4px #000;    
     -webkit-box-shadow: 0 0 40px 4px #000;
     box-shadow: 0 0 40px 4px #000;
     
-    
-    
-    
-    
       -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
-border-radius: 10px; /* future proofing */
+border-radius: 10px; 
 -khtml-border-radius: 10px;
-
-/* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top right, #FFFFFF 0%, #EBEBEB 100%);
-
-/* Mozilla Firefox */ 
 background-image: -moz-linear-gradient(top right, #FFFFFF 0%, #EBEBEB 100%);
-
-/* Opera */ 
 background-image: -o-linear-gradient(top right, #FFFFFF 0%, #EBEBEB 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
 background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #EBEBEB));
-
-/* Webkit (Chrome 11+) */ 
 background-image: -webkit-linear-gradient(top right, #FFFFFF 0%, #EBEBEB 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
 background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 }
 #overlay_upload_info{
