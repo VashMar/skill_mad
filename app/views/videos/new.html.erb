@@ -29,7 +29,7 @@
           <% end %> 
         </select>
 
-	<div id="poop">
+	<div id="create_leaderboard">
 		<input type="text"></input>
 		<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
 	</div>
@@ -44,6 +44,11 @@
 	 $(document).ready(function() {
 	 		$("#upload select").change(function(){
 	 			
+	 			if($(this).val().substring(0,22) == "Create New Leaderboard"){
+	 				$("#create_leaderboard").stop().fadeIn();
+	 			}else{
+	 				$("#create_leaderboard").hide();
+	 			}
 	 		});
 	 });
 </script>
