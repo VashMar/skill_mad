@@ -10,7 +10,7 @@
 
 	<form novalidate="novalidate" accept-charset="UTF-8" action="/upload" class="new_video" id="upload" method="post"><div style="margin:0;padding:0;display:inline">
 		
-		<input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="r4IOVjQW2A4QhHBH7iBqfDQGaXV9EOnB12VVil8KdZg=" type="hidden"></div>
+	<input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="r4IOVjQW2A4QhHBH7iBqfDQGaXV9EOnB12VVil8KdZg=" type="hidden"></div>
 	
 	<label for="video_title">Title</label>
 	<input id="video_title" name="video[title]" size="30" type="text">
@@ -20,14 +20,13 @@
 
          <select name="leaderboard" style="width:100px"> 
           <% all_categories.each do |cat| %> 
-
-          <optgroup label= "Category: <%= cat.category_name %>" >
+          <optgroup label= "Category: <%= cat.category_name %>">
           <% leaderboard_list(cat).each do |l| %> 
-          <option value="<%= l.leaderboard_name %>,<%= cat.category_name %> "> <%= l.leaderboard_name %> </option>
+          <option value="<%= l.leaderboard_name %>, <%= cat.category_name %> "> <%= l.leaderboard_name %> </option>
           <% end %>
 
           </optgroup>
-           <% end %> 
+          <% end %> 
         </select>
 
 	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
