@@ -17,8 +17,8 @@
 	
 	<label for="video_description">Description</label>
 	<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
-
-         <select name="leaderboard" style="width:100px"> 
+	<label for="leaderboard">Leaderboard</label>
+         <select name="leaderboard" > 
           <% all_categories.each do |cat| %> 
           <optgroup label= "Category: <%= cat.category_name %>">
           <% leaderboard_list(cat).each do |l| %> 
@@ -39,7 +39,11 @@
 
 
 
-     
+     <script>
+      $(document).ready(function() {
+     	$("form#upload select").customSelect();
+     });
+     </script>
 </div>
 
 

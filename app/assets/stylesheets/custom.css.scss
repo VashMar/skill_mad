@@ -11,6 +11,12 @@ a:focus {
     outline: none; 
     border:0;
 }
+form#upload select, form#upload .customSelect{
+  width:182px;
+  clear:left;
+  float:left;
+  margin:4px 0 16px;
+}
 #empty_prompt{
   font-size: 2em;
   letter-spacing: -0.15em;
