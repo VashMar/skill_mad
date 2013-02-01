@@ -1,4 +1,4 @@
-
+<%= render(:partial => "categories/category_list") %>
 <h3 class="hidden"> <%= @bank %> </h3>
    <div id="vote_fake">
 
@@ -85,5 +85,11 @@
    			},700)
    		
    	});
+   	$("#categories li a").click(function(){
+		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
+		$('.customSelectInner')[0].innerHTML = this.innerHTML;
+		$('#category_select').val(this.innerHTML);
+	});
    	});
+   	
     </script>

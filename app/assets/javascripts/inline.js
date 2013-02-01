@@ -45,7 +45,7 @@
 		 
 		});
 	});
-	
+
 	$('#leaderboard_select').change(function(){
 		leaderVal = $(this).val();
 		categoryVal =$('#category_select').val();
@@ -97,11 +97,7 @@
 			$('#leader_all').fadeIn();
 		});
 	});
-	$("#categories li a").click(function(){
-		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
-		$('.customSelectInner')[0].innerHTML = this.innerHTML;
-		$('#category_select').val(this.innerHTML);
-	});
+
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
 			$('.leader').fadeIn();
