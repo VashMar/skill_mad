@@ -8,32 +8,38 @@
 	<h1>Tell us about your video..</h1>
 	<h4>Yes, a catchier title will get you more views </h4>
 
-	<%= form_for(@video, :url => upload_path, :html => { :id => 'upload'} ) do |f| %>
+	<form novalidate="novalidate" accept-charset="UTF-8" action="/upload" class="new_video" id="upload" method="post"><div style="margin:0;padding:0;display:inline">
+		
+		<input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="r4IOVjQW2A4QhHBH7iBqfDQGaXV9EOnB12VVil8KdZg=" type="hidden"></div>
 	
-	<%= f.label :title, "Title" %>
-	<%= f.text_field :title %>
+	<label for="video_title">Title</label>
+	<input id="video_title" name="video[title]" size="30" type="text">
 	
-	<%= f.label :description, "Description"%>
-	<%= f.text_area :description %>
+	<label for="video_description">Description</label>
+	<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
 
-	<%= f.check_box :is_private, {}, true, false %>
-	<%= label_tag(:is_private, "I want my video only seen to skillmad members and not on youtube", :id => "is_private") %>
-
-        
-        <select style="width:100px"> 
+         <select name="leaderboard" style="width:100px"> 
           <% all_categories.each do |cat| %> 
 
           <optgroup label= "Category: <%= cat.category_name %>" >
           <% leaderboard_list(cat).each do |l| %> 
-          <option> <%= l.leaderboard_name %> </option>
+          <option > <%= l.leaderboard_name %> </option>
           <% end %>
 
           </optgroup>
            <% end %> 
         </select>
 
-          <%= f.submit "submit" %>
-    	<% end %>
+	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
+	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
+    
+          <input class="button" name="commit" value="submit" type="submit">
+</form>
+
+        
+
+
+
      
 </div>
 

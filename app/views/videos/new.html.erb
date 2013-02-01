@@ -18,9 +18,7 @@
 	<label for="video_description">Description</label>
 	<textarea cols="40" id="video_description" name="video[description]" rows="20"></textarea>
 
-	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
-	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
-        <select name="video[leaderboard]" style="width:100px"> 
+         <select name="leaderboard" style="width:100px"> 
           <% all_categories.each do |cat| %> 
 
           <optgroup label= "Category: <%= cat.category_name %>" >
@@ -31,6 +29,10 @@
           </optgroup>
            <% end %> 
         </select>
+
+	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
+	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
+    
           <input class="button" name="commit" value="submit" type="submit">
 </form>
 
