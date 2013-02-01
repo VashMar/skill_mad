@@ -11,6 +11,9 @@ a:focus {
     outline: none; 
     border:0;
 }
+#create_leaderboard{
+  display:none;
+}
 form#upload select, form#upload .customSelect{
   width:182px;
   clear:left;
