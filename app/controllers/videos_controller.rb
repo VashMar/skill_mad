@@ -4,7 +4,15 @@ class VideosController < InheritedResources::Base
  
   def upload
     
-    @video = Video.create(params[:video])
+    @video = Video.create(params[:video])				# creates video 
+    leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
+    @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
+     if leadncat[0] != "Create New"                                     # if the user isn't creating a new leaderboard   
+        @lead = Leaderboard.find_by_leaderboard_name(leadncat[0])       # find existing leaderboard 
+        @video.update_attribute(:leaderboard_id, @lead.id)              # add the video to it 
+        @video.update_attribute(:category_id, @cat.id)                  # also add the video to that category 
+     end 
+    
     if @video
       @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
     end

@@ -1,13 +1,19 @@
 
-<% if @videos.empty? %> 
+<% if @videos.empty? %>
+  
+  <div id="empty_prompt"> 
+  		<h1>No Leaderboards in this category.</h1>
+  		<h2><span><a onclick="window.open('/videos/new', 'newwindow', 'width=550, height=575, top=30, left=50'); return false;" href="#">Upload a video</a></span> to create one</h2>
+  </div>
 
 <% else %> 
 
+<% if @leaderboard != "All Leaderboards" %>
 <div id="leaderboard_info">
-
-<h3>leaderboard name</h3>
-
+<h3><%= @leaderboard %> </h3>
 </div>
+<% end %>
+
 <% @videos.first(5).each_with_index do |video, i| %>
 
 <div class="leader video">
