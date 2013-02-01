@@ -7,21 +7,13 @@ def all_categories
 
 end 
 
-
-
-def top_categories(cat)
-
+def all_categories_upload
 
 @categories = Category.all.collect{|c| [c.category_name]}
-
-if cat == nil
-@categories
-else
-@categories.delete([cat])
-@categories.unshift([cat])
-end
+@categories.unshift(["Select a category to upload to!"])
 
 end 
+ 
 
 def current_category(cat)
 @current_category = cat

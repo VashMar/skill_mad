@@ -4,7 +4,7 @@
 
                <% all_categories.each do |cat| %>
 
- 		<li> <%= link_to cat[0] , home_path(:category => cat[0]), :remote => true %> </li>
+ 		<li> <%= link_to cat.category_name , home_path(:category => cat.category_name), :remote => true %> </li>
   
 	       <% end %>
 		

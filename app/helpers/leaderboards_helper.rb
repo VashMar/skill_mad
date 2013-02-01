@@ -2,22 +2,13 @@ module LeaderboardsHelper
 
 def leaderboard_list(category)
 
-   @category = category 
- 
-if @category == nil || @category == ""
-    @lbs = Leaderboard.all.collect{|l| [l.leaderboard_name]}
+@category = category
 
-else
-    @category = Category.find_by_category_name(@category)
-    @leaderboards = @category.leaderboards 
-  if !@leaderboards.empty? 
-    @leaderboard_list = @leaderboards.collect{|l| [l.leaderboard_name]}
-  else 
-    @leaderboard_list = ["Empty"] 
-  end
-end
+@leaderboard_list = @category.leaderboards 
     
 end
+
+
 
 
 def selected_value(category) 

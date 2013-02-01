@@ -3,10 +3,16 @@ module CategoriesHelper
 
 def all_categories
 
-@categories = Category.all.collect{|c| [c.category_name]}
+@categories = Category.all
 
 end 
 
+def all_categories_upload
+
+@categories = Category.all.collect{|c| [c.category_name]}
+@categories.unshift(["Select a category to upload to!"])
+
+end 
  
 
 def current_category(cat)

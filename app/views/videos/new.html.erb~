@@ -16,9 +16,21 @@
 	<%= f.label :description, "Description"%>
 	<%= f.text_area :description %>
 
-	<%= f.check_box :is_private %>
+	<%= f.check_box :is_private, {}, true, false %>
 	<%= label_tag(:is_private, "I want my video only seen to skillmad members and not on youtube", :id => "is_private") %>
-	<%= f.submit "upload", :class => "button" %>
+
+        
+        <select style="width:100px"> 
+          <% all_categories.each do |cat| %> 
+
+          <optgroup label= "Category: <%= cat.category_name %>" >
+          <% leaderboard_list(cat).each do |l| %> 
+          <option> l.leaderboard_name </option>
+          <% end %>
+
+          </optgroup>
+           <% end %> 
+        </select>
     	<% end %>
 </div>
 
