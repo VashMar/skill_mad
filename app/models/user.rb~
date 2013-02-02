@@ -2,6 +2,8 @@
 
   has_many :videos
   has_many :votes
+  belongs_to :category
+  belongs_to :leaderboard 
   attr_accessible :email, :name, :password, :password_confirmation, :activated, :avatar, :points, :major, 
   :skill, :about, :year , :activated 
                  
