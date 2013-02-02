@@ -85,7 +85,7 @@ class VideosController < InheritedResources::Base
   
     if params[:user_id] == nil
        if params[:new] != nil
-         @video_list = Video.order("created_at DESC")
+         @video_list = Video.where(:yt_video_id != nil).order("created_at DESC")
          @bank = "New Videos"  
        else
          @video_list = Video.order("points DESC").limit(15)

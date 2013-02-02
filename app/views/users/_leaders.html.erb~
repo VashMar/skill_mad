@@ -25,16 +25,20 @@
                       	
 			<p>
 			<%= user.about %>
-                        <%= @leaderboard %>	
+                        	
 			</p>
 			</div>
 
 			<div class="leader_divider"></div>
 
 			<div class="leader_videos">
+                          <%if @leaderboard == "All Leaderboards" || @leaderboard == nil %> 
 				<h2>Top Videos</h2>
+                          <%else%> 
+                               <h2><%=@leaderboard%> Videos</h2>
+                           <%end%>
 				<h5>Title</h5>
-				<h6>Pts</h6>
+				<h6>Rep</h6>
 				<ol>
            <% user.videos.order("points DESC").each do |video| %>
               <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 

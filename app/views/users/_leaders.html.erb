@@ -32,8 +32,11 @@
 			<div class="leader_divider"></div>
 
 			<div class="leader_videos">
-                             
+                          <%if @leaderboard == "All Leaderboards" || @leaderboard == nil %> 
 				<h2>Top Videos</h2>
+                          <%else%> 
+                               <h2><%=@leaderboard%> Videos</h2>
+                           <%end%>
 				<h5>Title</h5>
 				<h6>Rep</h6>
 				<ol>

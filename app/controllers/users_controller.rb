@@ -115,8 +115,8 @@ def index
              @leaderboards = [""]
              else 
              @leaderboards = @leaderboards.collect{|l| [l.leaderboard_name]} # if leaderboards do exist, get the names of all the leaderboards 
-             @leaderboards.unshift(["All Leaderboards"]) # add "All Leaderboards" to the list of names 
-             @string = "" 		#convert the list of name arrays to delimited string for javascript 
+             @leaderboards.unshift(["All Leaderboards"])   # add "All Leaderboards" to the list of names 
+             @string = "" 		                   # convert the list of name arrays to delimited string for javascript 
                  @leaderboards.each do |l|
                  @string = @string + l[0] + "|"
                  end
