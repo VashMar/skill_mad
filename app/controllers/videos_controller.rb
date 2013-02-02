@@ -13,9 +13,10 @@ class VideosController < InheritedResources::Base
         @video.update_attribute(:category_id, @cat.id)                  # also add the video to that category 
      else 
                                                                         # create a new leaderboard with the passed in name and description 
-      @lead = Leaderboard.create(params[:new_board]);
-      @lead.update_attribute(:category_id, @cat.id); 
-       
+      @lead = Leaderboard.create(params[:new_board])
+      @lead.update_attribute(:category_id, @cat.id) 
+      @video.update_attribute(:category_id, @cat.id) 
+      @video.update_attribute(:leaderboard_id, @lead.id) 
      end 
      
     if @video
