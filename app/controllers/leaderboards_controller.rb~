@@ -8,15 +8,11 @@ end
 
 def video_board
 
-@category = params[:category]
 
-if params[:leaderboard] == nil
-@leaderboard == "All Leaderboards" 
-else
+@category = params[:category]
 @leaderboard = params[:leaderboard] 
-end
  
-if  @leaderboard == "All Leaderboards" 
+if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if params[:category] == "All Categories"
        @videos = Video.order("points DESC").limit(15)
    else 
@@ -29,8 +25,9 @@ else
 end
 
   respond_to do |format|
-   format.js{}
+    format.js{}
   end 
+
 end
 
 def people_board

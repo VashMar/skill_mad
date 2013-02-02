@@ -16,6 +16,7 @@ class VideosController < InheritedResources::Base
       @lead = Leaderboard.create(params[:new_board])
       @lead.update_attribute(:category_id, @cat.id) 
       @video.update_attribute(:category_id, @cat.id) 
+      @video.update_attribute(:leaderboard_id, @lead.id) 
      end 
      
     if @video
