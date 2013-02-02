@@ -9,7 +9,7 @@ end
 def video_board
 
 if params[:leaderboard] == "All Leaderboards"
-   if params [:category] == "All Categories"
+   if params[:category] == "All Categories"
        @videos = Video.order("points DESC").limit(15)
    else 
         @cat = Category.find_by_category_name(params[:category])
@@ -30,9 +30,14 @@ def people_board
 @category = params[:category]
 @leaderboard = params[:leaderboard] 
 
+if @leaderboard == "All Leaderboards" 
+   if @category == "All Categories"
+      @user_list = User.order("points DESC").where(:hasVideo => true)
+   else 
+      
+   end
 
 
-@user_list = User.order("points DESC").where(:hasVideo => true)
 
 respond_to do |format|
  format.js{}
