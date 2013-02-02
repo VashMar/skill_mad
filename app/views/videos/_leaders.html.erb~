@@ -8,7 +8,7 @@
 
 <% else %> 
 
-<% if @leaderboard != "All Leaderboards" %>
+<% if @leaderboard != "All Leaderboards" || @leaderboard != nil %>
 <div id="leaderboard_info">
 <h3> <%= @leaderboard %> </h3>
 </div>
@@ -38,7 +38,7 @@
 			<p>
 			<%= video.description %>
 			<br />
- 		        \Rep: <%= video.points %>
+ 		        Rep: <%= video.points %>
 		
 			</p>
 

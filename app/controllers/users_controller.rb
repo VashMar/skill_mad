@@ -45,6 +45,16 @@ end
  
 def index
 
+    junk = Video.where(:yt_video_id => nil)
+    
+    junk.each do |vid|
+     t = Time.now.to_i - vid.updated_at.to_i 
+     if t >= 400
+        vid.delete 
+     end 
+    end 
+    
+
     @user_id = params[:user_id] 
 
 
