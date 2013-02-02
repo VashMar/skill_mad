@@ -1001,6 +1001,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeae2', end
   padding-top:11px;
 
 }
+.leader_info a{
+color:black;
+}
+.leader_info a:hover{
+color:rgb(92,0,1);
+}
+
 .leader_info h1{
   font-size:24px;
 }
