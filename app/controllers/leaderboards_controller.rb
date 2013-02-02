@@ -8,7 +8,15 @@ end
 
 def video_board
 
-if params[:leaderboard] == "All Leaderboards"
+@category = params[:category]
+
+if params[:leaderboard] == nil
+@leaderboard == "All Leaderboards" 
+else
+@leaderboard = params[:leaderboard] 
+end
+ 
+if  @leaderboard == "All Leaderboards" 
    if params[:category] == "All Categories"
        @videos = Video.order("points DESC").limit(15)
    else 
@@ -17,7 +25,7 @@ if params[:leaderboard] == "All Leaderboards"
    end
 else 
     @leaders = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
-    @videos = @leaders.videos.order("points DESC")
+    @videos =  Video.find_in_lb(@leaders.id)
 end
 
   respond_to do |format|
@@ -30,13 +38,17 @@ def people_board
 @category = params[:category]
 @leaderboard = params[:leaderboard] 
 
-if @leaderboard == "All Leaderboards" 
+if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if @category == "All Categories"
       @user_list = User.order("points DESC").where(:hasVideo => true)
    else 
-         
+      @cat = Category.find_by_category_name(@category)
+      @user_list = @cat.users.order("points DESC")     
    end
-
+else 
+      @lead = Leaderboard.find_by_leaderboard_name(@leaderboard)
+      @user_list = @lead.users.order("points DESC")
+end 
 
 
 respond_to do |format|

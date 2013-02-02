@@ -2,7 +2,7 @@ class Leaderboard < ActiveRecord::Base
 
  belongs_to :category 
  has_many :videos
- has_many :users 
+ has_many :users, :through => :videos  
 
  attr_accessible :leaderboard_name, :leaderboard_type, :leaderboard_description, :category_id
 

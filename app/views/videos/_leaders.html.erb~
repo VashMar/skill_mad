@@ -3,7 +3,7 @@
   
   <div id="empty_prompt"> 
   		<h1>No Leaderboards in this category.</h1>
-  		<h2><span><a onclick="window.open('/videos/new', 'newwindow', 'width=550, height=575, top=30, left=50'); return false;" href="#">Upload a video</a></span> to create one</h2>
+  		<h2><span><a onclick="window.open('/videos/new', 'newwindow', 'width=550, height=750, top=30, left=50'); return false;" href="#">Upload a video</a></span> to create one</h2>
   </div>
 
 <% else %> 
@@ -38,7 +38,7 @@
 			<p>
 			<%= video.description %>
 			<br />
- 		        Points: <%= video.points %>
+ 		        \Rep: <%= video.points %>
 		
 			</p>
 

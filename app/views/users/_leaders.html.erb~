@@ -1,3 +1,8 @@
+<% if @user_list.empty? %>
+
+ 
+<% else %>
+
 <% @user_list.first(5).each_with_index do |user, i| %>
 <div class="leader">
 			<h3><%= num_rank(i+1) %></h3>
@@ -44,5 +49,5 @@
 			<div class="leader_left"></div>
 			<div class="leader_right"></div>
 </div>
-
+<% end %>
 <% end %>
