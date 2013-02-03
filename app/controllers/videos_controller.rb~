@@ -69,7 +69,7 @@ class VideosController < InheritedResources::Base
     else 
      flash[:failure] = "Stop trying to delete other people's videos"    
     end
-    
+    redirect_to home_url
   end
 
   def pre_upload
@@ -131,7 +131,18 @@ class VideosController < InheritedResources::Base
       if t >= 400
         vid.delete 
       end
-    end 
+     end 
+  
+   Leaderboard.all.each do |lead|
+
+   if lead.videos.empty?
+         lead.delete 
+   end 
+
+   end 
+  
+
+    
    redirect_to home_url 
  end 
 

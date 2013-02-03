@@ -34,6 +34,7 @@ Skillmad::Application.routes.draw do
   match '/vid_bank', :to => 'videos#vid_bank'
   match '/submitted', :to => 'videos#submitted'
   match '/delete_video', :to => 'videos#destroy'
+  match '/flush_junk' , :to => 'videos#flush_junk'
   match '/category_swap', :to => 'categories#swap'
   match '/video_board',  :to => 'leaderboards#video_board'
   match '/people_board', :to => 'leaderboards#people_board'	

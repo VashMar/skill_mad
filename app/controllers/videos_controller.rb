@@ -47,7 +47,7 @@ class VideosController < InheritedResources::Base
       @video = Video.find(params[:video_id])
       @user = User.find(current_user.id)
       @video.update_attributes(:yt_video_id =>params[:id].to_s, :is_complete => true, :user_id => current_user.id) 
-   if params[:status].to_i == 200
+      if params[:status].to_i == 200
       Video.delete_incomplete_videos
    else
       Video.delete_video(@video)
@@ -131,7 +131,18 @@ class VideosController < InheritedResources::Base
       if t >= 400
         vid.delete 
       end
-    end 
+     end 
+  
+   Leaderboard.all.each do |lead|
+
+   if lead.videos.empty?
+         lead.delete 
+   end 
+
+   end 
+  
+
+    
    redirect_to home_url 
  end 
 
