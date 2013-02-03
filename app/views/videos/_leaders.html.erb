@@ -1,5 +1,6 @@
 
 <% if @videos.empty? %>
+
   
   <div id="empty_prompt"> 
   		<h1>No Leaderboards in this category.</h1>
@@ -34,7 +35,7 @@
                "data_type" => :js, :remote=> true) do%>
 			<h1><%= video.title %></h1>
                        <% end %>
-			<h2><%= video.user.name %></h2>
+			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id), :remote => true %></h2>
 			<p>
 			<%= video.description %>
 			<br />

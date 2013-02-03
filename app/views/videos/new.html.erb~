@@ -22,11 +22,11 @@
 	<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
 	<label for="leaderboard">Leaderboard</label>
          <select name="leaderboard" >
-	  <option>Choose a leaderboard </option> 
+	  <option value="">Choose a leaderboard </option> 
           <% all_categories.each do |cat| %> 
           <optgroup label= "Category: <%= cat.category_name %>">
           <% leaderboard_list(cat).each do |l| %> 
-          <option value="<%= l %>,<%= cat.category_name %> "> <%= l %> </option>
+          <option value="<%= l %>,<%= cat.category_name %>"> <%= l %> </option>
           <% end %>
 
           </optgroup>
@@ -37,7 +37,7 @@
 		<label for="leaderboard_name">Name</label>
 		<input name="new_board[leaderboard_name]" type="text"></input>
 		<label for="new_board[leaderboard_description]">Description</label>
-		<textarea name="leaderboard_description"cols="40" id="video_description" name="video[description]" rows="9"></textarea>
+		<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9"></textarea>
 	</div>
 	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
 	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
@@ -52,6 +52,7 @@
 	 			
 	 			if($(this).val().substring(0,22) == "Create New Leaderboard"){
 	 				$("#create_leaderboard").stop().fadeIn();
+
 	 			}else{
 	 				$("#create_leaderboard").hide();
 	 			}

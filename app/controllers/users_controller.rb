@@ -45,14 +45,7 @@ end
  
 def index
 
-    junk = Video.where(:yt_video_id => nil)
-    
-    junk.each do |vid|
-     t = Time.now.to_i - vid.updated_at.to_i 
-     if t >= 400
-        vid.delete 
-     end 
-    end 
+ 
     
 
     @user_id = params[:user_id] 
@@ -64,7 +57,7 @@ def index
     end
 
     if @user_id == nil   # display top videos in scroll
-       @video_list = Video.order("points DESC").limit(15)
+       @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
        @myVid = false
        @bank = "Top Videos"
     else

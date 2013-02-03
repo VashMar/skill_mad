@@ -1,9 +1,10 @@
 class VideosController < InheritedResources::Base
-  
+   
+
 
  
   def upload
-    
+  
     @video = Video.create(params[:video])				# creates video 
     leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
     @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
@@ -43,7 +44,7 @@ class VideosController < InheritedResources::Base
 
  def save_video
      
-    @video = Video.find(params[:video_id])
+      @video = Video.find(params[:video_id])
       @user = User.find(current_user.id)
       @video.update_attributes(:yt_video_id =>params[:id].to_s, :is_complete => true, :user_id => current_user.id) 
    if params[:status].to_i == 200
@@ -59,10 +60,14 @@ class VideosController < InheritedResources::Base
 
   def destroy
     @video = Video.find(params[:id])
-    if Video.delete_video(@video)
-      flash[:success] = "video successfully deleted"
-    else
-      flash[:failure] = "video deletion unsuccessful"
+    if current_user.id == @video.user_id 
+       if Video.delete_video(@video)
+       flash[:success] = "video successfully deleted"
+       else
+       flash[:failure] = "video deletion unsuccessful"
+       end 
+    else 
+     flash[:failure] = "Stop trying to delete other people's videos"    
     end
     redirect_to home_url
   end
@@ -85,10 +90,10 @@ class VideosController < InheritedResources::Base
   
     if params[:user_id] == nil
        if params[:new] != nil
-         @video_list = Video.where(:yt_video_id != nil).order("created_at DESC")
+         @video_list = Video.where("yt_video_id is not null").order("created_at DESC")
          @bank = "New Videos"  
        else
-         @video_list = Video.order("points DESC").limit(15)
+         @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
          @bank = "Top Videos"
        end
     else 
@@ -116,6 +121,19 @@ class VideosController < InheritedResources::Base
      format.js{}
    end
  end
+
+
+ def flush_junk
+   junk = Video.where(:yt_video_id => nil)
+    
+    junk.each do |vid|
+     t = Time.now.to_i - vid.updated_at.to_i 
+      if t >= 400
+        vid.delete 
+      end
+    end 
+   redirect_to home_url 
+ end 
 
 
   protected
