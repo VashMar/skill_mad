@@ -24,4 +24,4 @@ if("<%= escape_javascript(@fill) %>" == "true"){
 $('#leader_switch').html(
 "<%=escape_javascript(render('leaderboards/leader_switch', category: @category, leaderboard: @leaderboard)) %>");
 		
-$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos))%>");
+$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos, description: @description))%>");

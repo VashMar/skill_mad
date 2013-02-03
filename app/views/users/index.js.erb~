@@ -2,13 +2,23 @@
 
 
 if("<%= escape_javascript(@fill) %>" == "true"){
-alert("This got hit");
-t = "<%=escape_javascript(@string) %>";
-t = t.substring(0,t.length-1).split("|");
-$("#leaderboard_select").html("");
-$("#leaderboard_select").append('<option value="asdf">+"t[0]"+</option>');
-$("#leaderboard_select").append('<option value="rooofie">+"t[1]"+</option>');
-$("#leaderboard_select").append('<option value="blah">blah</option>');
+	t = "<%=escape_javascript(@string) %>";
+	$("#leaderboard_select").html("");
+	if(t==""){
+		$("#leaderboard_select").append('<option value="All Leaderboards">All Leaderboards</option>');
+		$("#leaderboard_select").val("All Leaderboards");
+	}else{
+		
+		t = t.substring(0,t.length-1).split("|");
+		// this code should empty the options which exist and fill the list with all the options in @string making sure the first option is what is visible 
+		
+		
+		for(var leaderboard in t){
+			$("#leaderboard_select").append('<option value="'+t[leaderboard]+'">'+t[leaderboard]+'</option>');	
+		}
+	}
+	$(".customSelectInner").get(1).innerHTML = "All Leaderboards";
+	
 }
 
 $('#leader_switch').html(

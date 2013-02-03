@@ -85,6 +85,7 @@ def index
        # if a specific leaderboard is chosen, simply get the videos, ordered by points, for that leaderboard
        else 
           @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
+          @description = @obj.leaderboard_description 
           @videos = Video.find_in_lb(@obj.id).order("points DESC")
        end
     # if leaderboard parameter isn't sent, check to see if a category was selected
