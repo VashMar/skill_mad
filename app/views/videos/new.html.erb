@@ -22,7 +22,7 @@
 	<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
 	<label for="leaderboard">Leaderboard</label>
          <select name="leaderboard" >
-	  <option>Choose a leaderboard </option> 
+	  <option value="">Choose a leaderboard </option> 
           <% all_categories.each do |cat| %> 
           <optgroup label= "Category: <%= cat.category_name %>">
           <% leaderboard_list(cat).each do |l| %> 

@@ -148,6 +148,7 @@
  		rules: {
   			"video[title]": {required: true},
   			"video[description]": {required: true},
+  			"leaderboard": {required: true},
   			"new_board[leaderboard_name]": {required: true},
   			"new_board[leaderboard_description]":{required:true}
 			},
