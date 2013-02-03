@@ -45,6 +45,16 @@ end
  
 def index
 
+    junk = Video.where(:yt_video_id => nil)
+    
+    junk.each do |vid|
+     t = Time.now.to_i - vid.updated_at.to_i 
+     if t >= 400
+        vid.delete 
+     end 
+    end 
+    
+
     @user_id = params[:user_id] 
 
 
@@ -113,8 +123,8 @@ def index
        	     end 
           end
       else 
-       @category = "All Categories"
-       @leaderboard = "All Leaderboards"
+          @category = "All Categories"
+          @leaderboard = "All Leaderboards"
       end
 
       @user_list = User.order("points DESC").where(:hasVideo => true)

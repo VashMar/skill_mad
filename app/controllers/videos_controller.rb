@@ -7,20 +7,20 @@ class VideosController < InheritedResources::Base
     @video = Video.create(params[:video])				# creates video 
     leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
     @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
-     if leadncat[0] != "Create New Leaderboard"                                     # if the user isn't creating a new leaderboard   
+     if leadncat[0] != "Create New Leaderboard"                         # if the user isn't creating a new leaderboard   
         @lead = Leaderboard.find_by_leaderboard_name(leadncat[0])       # find existing leaderboard 
         @video.update_attribute(:leaderboard_id, @lead.id)              # add the video to it 
         @video.update_attribute(:category_id, @cat.id)                  # also add the video to that category 
      else 
                                                                         # create a new leaderboard with the passed in name and description 
-      @lead = Leaderboard.create(params[:new_board])
-      @lead.update_attribute(:category_id, @cat.id) 
-      @video.update_attribute(:category_id, @cat.id) 
-      @video.update_attribute(:leaderboard_id, @lead.id) 
+        @lead = Leaderboard.create(params[:new_board])
+        @lead.update_attribute(:category_id, @cat.id) 
+        @video.update_attribute(:category_id, @cat.id) 
+        @video.update_attribute(:leaderboard_id, @lead.id) 
      end 
      
     if @video
-      @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
+       @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
     end
    
   end
@@ -85,7 +85,7 @@ class VideosController < InheritedResources::Base
   
     if params[:user_id] == nil
        if params[:new] != nil
-         @video_list = Video.order("created_at DESC")
+         @video_list = Video.where(:yt_video_id != nil).order("created_at DESC")
          @bank = "New Videos"  
        else
          @video_list = Video.order("points DESC").limit(15)
