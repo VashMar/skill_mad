@@ -146,12 +146,16 @@
   	});
   	$('#upload').validate({
  		rules: {
-  			"video[title]": {required: true}
+  			"video[title]": {required: true},
+  			"video[description]": {required: true},
+  			"new_board[leaderboard_name]": {required: true},
+  			"new_board[leaderboard_description]":{required:true}
 			},
   		messages: {
   			"video[title]":{
   				required:"Please enter a title"
   			},
+  	
   		}		
   	});
 
