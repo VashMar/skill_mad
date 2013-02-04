@@ -21,6 +21,7 @@ if @leaderboard == "All Leaderboards" || @leaderboard == nil
    end
 else 
     @leaders = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
+    @description = @leaders.leaderboard_description 
     @videos =  Video.find_in_lb(@leaders.id)
 end
 
@@ -44,6 +45,7 @@ if @leaderboard == "All Leaderboards" || @leaderboard == nil
    end
 else 
       @lead = Leaderboard.find_by_leaderboard_name(@leaderboard)
+      @board_id = @lead.id 
       @user_list = @lead.users.order("points DESC")
 end 
 

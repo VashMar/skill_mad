@@ -20,11 +20,12 @@
 <% if @leaderboard != "All Leaderboards" && @leaderboard != nil %>
 <div id="leaderboard_info">
 <h3> <%= @leaderboard %> </h3>
+<br />
 <p> <%= @description %> <p> 
 </div>
 <% end %>
 
-<% @videos.first(5).each_with_index do |video, i| %>
+<% @videos.each_with_index do |video, i| %>
 
 <div class="leader video">
 			<h3><%= num_rank(i+1) %></h3>
