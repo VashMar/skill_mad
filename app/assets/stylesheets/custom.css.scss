@@ -15,7 +15,7 @@ a:focus {
   display:none;
 }
 form#upload select, form#upload .customSelect{
-  width:182px;
+  width:207px;
   clear:left;
   float:left;
   margin:4px 0 16px;
@@ -64,17 +64,6 @@ form#upload select, form#upload .customSelect{
   min-height:50%;
   z-index:-2;
 }
-.button input:focus, .button input:active{ 
-    outline: none; 
-    border:0;
-}
-/* removing dotted line on buttons and clickable input elements for Firefox */
-input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, button::-moz-focus-inner
-{ border : 0; }
- 
-/* Remove outline on buttons and clickable input elements for WebKit Browsers & IE8 */
-input[type="submit"]:focus, input[type="button"]:focus, input[type="text"]:focus, button
-{ outline : none; }
 body{
   background-color:#ededed;
   font-family: Arial, Helvetica, sans-serif;
@@ -253,8 +242,7 @@ border-top:none;
   cursor:pointer;
   display:block;
 }
-#overlay_login, #overlay_join, #overlay_upload, #overlay_profile, #overlay_request, #overlay_contact, #overlay_upload_info{
-    font-family: Arial, Helvetica, sans-serif;
+#overlay_upload, #overlay_profile, #overlay_contact, #overlay_upload_info{
     color:#6d0001;
   display:none;
    z-index:10000;
@@ -283,7 +271,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   width:300px;
   padding:20px;
 }
-#overlay_login .close, #overlay_join .close, #overlay_upload .close, #overlay_profile .close ,#overlay_view_profile .close, #overlay_request .close, #overlay_contact .close, #overlay_upload_info .close{    
+#overlay_profile .close ,#overlay_view_profile .close,  #overlay_contact .close, #overlay_upload_info .close{    
   background-image:url(close.png);
   position:absolute;
   right:-15px;
@@ -292,10 +280,6 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   height:26px; 
   width:26px;
   }
- #overlay_login{
-   width:575px;
-  padding:20px 0;
- }
 #form_join{
   width:470px;
   margin-top:30px;
@@ -354,15 +338,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   border:none;
   position:relative;
   top:1px;
-}
-#form_divider{
-  float:left;
-  width:1px;
-  height:300px;
-  margin-top:25px;
-  background-color:rgb(216, 216, 216)
-}
-  
+} 
 #header_upload {
   cursor:pointer;
   background-image: url(header_upload.gif);
@@ -384,7 +360,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
  
 }
 
-#footer, #footer_light{
+#footer{
   margin:35px auto;
   width:340px;
   height:60px;
@@ -404,21 +380,8 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   text-decoration:none;
 }
 
-#footer_light a{
-  color:#6B0001;
-  text-decoration:none;
-}
 #footer a:hover{
   text-shadow: 0px 0px 0.1em white;
-}
-#footer_light a:hover{
-  text-shadow: 0px 0px 0.1em white;
-}
-#footer_light{
-
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
-    color:#6B0001;
-   text-shadow:none;
 }
 #clearfooter{
     height:100px;
@@ -433,28 +396,17 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 height: 560px;
 margin: 0 auto -4em;
 }
-#footer h2, #footer_light h2{
+#footer h2{
   margin-top:15px;
   font-size:16px;
 }
-#footer ul li, #footer_light ul li{
+#footer ul li{
   text-transform:uppercase;
     font-size:15px;
   display:inline;
   padding:0 1px;
 }
-#upload_close{
-  display:none;
-  background-image:url(close.png);
-  position:absolute;       
-  cursor:pointer; 
-  height:26px;
-  width:26px;
-  top: 122px;
-  right: 550px;
-  z-index:99999999;
-  }
-  
+
  //all overlay form box styling 
 
 textarea{
@@ -474,16 +426,6 @@ label{ // label for form boxes styling
   clear:left;
   float:left;
   text-transform:uppercase;
-}
-#overlay_login label{ // label placement for login overlay form boxes
-  margin-left:20px;
-    width:120px;
-    font-size:14px;
-  
-}
-#overlay_join label{ // label placement for join overlay form boxes
-  margin-left: 10px;
-    width:120px;
 }
 
 #join label.error{ // invalid form error messages styling and placement for join overlay
@@ -870,14 +812,6 @@ color:#600001;
 .inactive{
   display:none;
 }
-#leaderboard_all{
-  width:47px;
-  height:22px;
-  float:left;
-  margin:114px 0 24px 24px;
-  background-image:url(all.gif);
-  cursor:pointer;
-}
 #leaderboard{
   position:relative;
   margin:auto;
@@ -893,19 +827,10 @@ color:#600001;
   float:left;
   cursor:pointer;
 }
-#leaderboard_request{
-    background-image:url(trans.png);
-  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;
-  height:38px;
-}
-#leaderboard_request, #backtotop{
+#backtotop{
   padding-top:5px;
-  width:130px;
- 
   float:right;
   margin:95px 12px 0 0px;
-  font-size:14px;
-  text-align:center;
   cursor:pointer;
 }
 #backtotop{
@@ -919,17 +844,7 @@ color:#600001;
   top:0;
   display:none;
 }
-#leaderboard_request a, #backtotop a{
-  color:#ebe8df;
-  text-shadow:
-  1px 1px 0 #260000,
-  1px 1px 0 #260000; 
-  text-decoration:none;
-}
-#leaderboard_request a:hover{
-  text-shadow:
-  2px 2px 0 #260000;
-}
+
 .leader{
   margin-top:20px;
   background-image:url(leaderboard_back.gif);
@@ -1103,21 +1018,7 @@ text-decoration:underline;
   top:0;
   right:0;
 }
-.leader_see_all{
-  color: rgb(63, 63, 60);
-  font-size:14px;
-  text-decoration:none;
-  display:block;
-  margin-top:6px;
-  float:right;
-  font-weight:bold;
-}
-.leader_see_all:hover{
-  text-decoration:underline;
-}
-
 #form_login .button{ //submit button placement for login overlay 
-  
   margin-top: 145px;
   margin-left: -207px;
   float:none;
@@ -1137,27 +1038,19 @@ text-decoration:underline;
   display:none;
   margin:auto;
 }
-#overlay_request{
-  text-align:center;
-  padding:30px;
-  padding-right:55px;
-  width:336px;
-  height:450px;
-  display:none;
-  margin:auto;
-}
-#overlay_request input, #overlay_contact input{
+
+#overlay_contact input{
 clear:left;
 }
-#overlay_request textarea, #overlay_contact textarea{
+#overlay_contact textarea{
 clear:left;
 float:left;
 resize: none; 
 }
-#overlay_request label, #overlay_contact label{
+#overlay_contact label{
   text-transform:none;
 }
-#overlay_request .button, #overlay_contact .button{
+#overlay_contact .button{
   margin-top:20px;
   margin-left:80px;
 }
@@ -1380,9 +1273,6 @@ text-align:center;
   display:block;
   margin:5px auto 5px auto;
 }
-.istyle{
-
-}
 
  //all overlay form box styling 
 .istyle input{  clear:right;
@@ -1471,21 +1361,6 @@ label.error{
   color:white;
   opacity:1;
 }
-
-  .tooltip {
-    padding-top:30px;
-    display:none;
-    background:transparent url(black_arrow_bottom.png);
-    font-size:12px;
-    height:65px;
-    width:160px;
-    padding:25px;
-    color:#111;
-  }
-  .tooltip h6{
-    text-align:center;
-  }
-  
 .share_facebook, .share_twitter{
   margin-top:4px;
   width:34px;
@@ -1545,31 +1420,6 @@ label.error{
 }
 #profile_info a:hover{
     color: black;
-}
-
-.leader_thumb{
-  margin: 8px 8px 14px 8px;
-  float:left;
-  width: 110px;
-  height:110px;
-}
-.leader_thumb img{
-  position:relative;
-  top:-18px;
-}
-.leader_thumb a.watch{
-  position:relative;
-  z-index:10;
-  display:block;
-  width:20px;
-  height:18px;
-  background-image:url('watch.png');
-}
-#leader_all{
-  display:none;
-  clear:both;
-  width:605px;
-  margin:auto;
 }
 .clear{
   clear:both;

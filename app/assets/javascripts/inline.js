@@ -16,16 +16,6 @@
 		'opacity': 0,
 		'visibility': 'visible'
 	});
-	$('#sign_in input#session_email').click(function(){
-		if ($(this).val() == "email"){
-			$(this).val("");
-		}
-	});
-	$('#sign_in input#session_password').click(function(){
-		if ($(this).val() == "password"){
-			$(this).val("");
-		}
-	});
 	$('#header_leaders a').click(function(){
 		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
 	});
@@ -105,16 +95,6 @@
 	});
 	$('#leaderboard').waypoint(function() {
    		$('#backtotop').fadeToggle('fast');
-	});
-	$(".tip_logo[title]").tooltip({
-		offset: [170, 2],
-		direction: 'down',
-		effect: 'slide'
-	});
-	$(".tip[title]").tooltip({
-		offset: [152, 2],
-		direction: 'down',
-		effect: 'slide'
 	});
 	$('#profile').hover(function(){
 		$('#profile_back').fadeIn('fast');
