@@ -18,6 +18,10 @@ def current_video
     @current_video ||= Video.order("points DESC")[0]
 end
 
+def paginate(collection, params= {})
+    will_paginate collection, params.merge(:renderer => RemoteLinkPaginationHelper::LinkRenderer)
+  end
+
 def num_rank(num)
    if(num == 1)
      @rank = "1st"
