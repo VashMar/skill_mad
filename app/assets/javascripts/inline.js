@@ -5,11 +5,14 @@
 		'visibility': 'visible'
 	});
 	$(".select_style").customSelect();
+
+	
 	window.setTimeout(function() {
-		$(window).bind('popstate', function(event) {
-		$.cookie("zomg","zomg");
+	  window.addEventListener('popstate', function() {
+	    $.cookie("zomg","zomg");
 		location.reload(); 
-	}, 1000)});
+	  });
+	}, 1000);
 
   
 	$('#form_file').css({
