@@ -93,6 +93,7 @@ class VideosController < InheritedResources::Base
        else
  	if params[:leaderboard] != nil && params[:leaderboard] != "All Leaderboards"
          @video_list = Leaderboard.find_by_leaderboard_name(params[:leaderboard]).videos.order("points DESC")
+	 @board = "leaderboard"
          @bank = "#{params[:leaderboard]}'s Videos"
 	 else 
          @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)

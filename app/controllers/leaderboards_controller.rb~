@@ -11,10 +11,15 @@ def video_board
 
 @category = params[:category]
 @leaderboard = params[:leaderboard] 
+
+
+if params[:page] == nil  
+params[:page] = 1 
+end 
  
 if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if params[:category] == "All Categories"
-       @videos = Video.paginate :page => 1, :order -> 'points DESC', :per_page => 5
+       @videos = Video.paginate :page => params[:page], :order => 'points DESC', :per_page => 5
    else 
         @cat = Category.find_by_category_name(params[:category])
         @videos = Video.find_in_cat(@cat.id).order("points DESC")

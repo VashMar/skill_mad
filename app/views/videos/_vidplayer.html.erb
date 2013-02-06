@@ -1,5 +1,9 @@
 <%= render(:partial => "categories/category_list") %>
-<h3 class="hidden"> <%= @bank %> </h3>
+<% if @board == nil %>
+<h3 class="hidden" > <%= @bank %> </h3>
+<% else %>
+<h3 class="hidden" > <%= @board %> </h3>
+<% end %>
    <div id="vote_fake">
 
    </div>

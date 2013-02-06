@@ -5,5 +5,5 @@ $('#scroll_container').html(
 $('#scrollable').scrollable(); //allows scroller to work after swap
 
 $('#video_container').html(
-"<%=escape_javascript(render('videos/vidplayer', current_video: @current_video, bank: @bank)) %>");
+"<%=escape_javascript(render('videos/vidplayer', current_video: @current_video, bank: @bank, board: @board)) %>");
 
