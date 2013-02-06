@@ -60,7 +60,12 @@ class VideosController < InheritedResources::Base
     @video = Video.find(params[:id])
     if current_user.id == @video.user_id 
        if Video.delete_video(@video)
-       flash[:success] = "video successfully deleted"
+         if current_user.videos.empty?
+         current_user.update_attribute(:hasVideo, false)
+         flash[:success] = "video successfully deleted"
+	 else
+         flash[:success] = "video successfully deleted"
+         end 
        else
        flash[:failure] = "video deletion unsuccessful"
        end 
@@ -79,6 +84,7 @@ class VideosController < InheritedResources::Base
  @current_video = Video.find(params[:video])
  @bank = params[:bank]
  @board = params[:board]
+
 	respond_to do |format|
 	format.js{}	
 	end
