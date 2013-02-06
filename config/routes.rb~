@@ -40,7 +40,7 @@ Skillmad::Application.routes.draw do
   match '/people_board', :to => 'leaderboards#people_board'	
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

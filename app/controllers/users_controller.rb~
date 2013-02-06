@@ -49,13 +49,23 @@ def index
 
     if params[:video] != nil
        @current_video = Video.find_by_yt_video_id(params[:video])
+       if params[:l] != true  		# if leaderboard value 
        params[:u] == true ? @user_id = @current_video.user_id : @user_id = nil
+       else 
+       @lbsave = true            #set leaderboard flag to true 
+       @user_id = nil 
+       end 
     end
 
     if @user_id == nil   # display top videos in scroll
+       if @lbsave != true 
        @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
        @myVid = false
        @bank = "Top Videos"
+       else 
+       @video_list = @current_video.leaderboard.videos.order("points DESC")
+       @bank = "#{@current_video.leaderboard.leaderboard_name}'s Videos " 
+       end 
     else
        @user = User.find(@user_id) # display video bank in scroll
        @myVid = true 

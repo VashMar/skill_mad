@@ -1,8 +1,8 @@
 <%= render(:partial => "categories/category_list") %>
 <% if @board == nil %>
-<h3 > <%= @bank %> </h3>
+<h3 class= > <%= @bank %> </h3>
 <% else %>
-<h3 > <%= @board %> </h3>
+<h3 class= > <%= @board %> </h3>
 <% end %>
    <div id="vote_fake">
 
@@ -58,6 +58,8 @@
 
                if(y=="Top" | y=="New"){
        	y="t";
+       }else if(y=="lea"){
+       	y="l";
        }else{
        	y="u";
        }
