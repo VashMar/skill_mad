@@ -5,7 +5,7 @@
      <% 3.times do%>
         <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank} %>
         <% @counter += 1 %>
-     <% end %>
+     <%end%>
   <% else %>
      <% @diff.times do%>
         <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank} %>

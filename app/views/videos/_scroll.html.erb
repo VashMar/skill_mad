@@ -28,7 +28,7 @@
   <% end %>
 
   <% @innerNum.times do %>
-  <%= render :partial => "videos/inner_thumb_set", :locals =>{:counter => @counter, :bank => @bank}%>
+  <%= render :partial => "videos/inner_thumb_set", :locals =>{:counter => @counter, :bank => @bank, :board => @board }%>
   <%end%>
   
    

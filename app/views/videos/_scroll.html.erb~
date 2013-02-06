@@ -10,11 +10,11 @@
   </h2>
  <% end %> 
 
-<!-- "previous page" action -->
-<a class="prev browse left"></a>
+ <!-- "previous page" action -->
+ <a class="prev browse left"></a>
 
-<!-- root element for scrollable -->
-<div class="scrollable" id="scrollable">
+ <!-- root element for scrollable -->
+ <div class="scrollable" id="scrollable">
 
   <!-- root element for the items -->
   <div class="items">
@@ -28,7 +28,7 @@
   <% end %>
 
   <% @innerNum.times do %>
-  <%= render :partial => "videos/inner_thumb_set", :locals =>{:counter => @counter, :bank => @bank}%>
+  <%= render :partial => "videos/inner_thumb_set", :locals =>{:counter => @counter, :bank => @bank, :board => @}%>
   <%end%>
   
    

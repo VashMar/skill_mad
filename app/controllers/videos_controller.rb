@@ -78,6 +78,7 @@ class VideosController < InheritedResources::Base
 
  @current_video = Video.find(params[:video])
  @bank = params[:bank]
+ @board = params[:board]
 
 	respond_to do |format|
 	format.js{}	

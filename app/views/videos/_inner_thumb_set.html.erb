@@ -3,12 +3,12 @@
   <% @diff = @video_list.size - @counter %>	
   <% if @diff >= 3 %>
      <% 3.times do%>
-        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank} %>
+        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank, :board => @board } %>
         <% @counter += 1 %>
      <%end%>
   <% else %>
      <% @diff.times do%>
-        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank} %>
+        <%= render :partial =>"videos/video_thumbs", :locals => {:counter => @counter, :bank => @bank, :board => @board} %>
         <% @counter += 1 %>
      <% end %>
   <% end %>
