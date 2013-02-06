@@ -1,9 +1,7 @@
 class VideosController < InheritedResources::Base
    
 
-
- 
-  def upload
+ def upload
   
     @video = Video.create(params[:video])				# creates video 
     leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
@@ -93,8 +91,13 @@ class VideosController < InheritedResources::Base
          @video_list = Video.where("yt_video_id is not null").order("created_at DESC")
          @bank = "New Videos"  
        else
+ 	if params[:leaderboard] != nil && params[:leaderboard] != "All Leaderboards"
+         @video_list = Leaderboard.find_by_leaderboard_name(params[:leaderboard]).videos.order("points DESC")
+         @bank = "#{params[:leaderboard]}'s Videos"
+	 else 
          @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
          @bank = "Top Videos"
+         end 
        end
     else 
          @user = User.find(params[:user_id])

@@ -2,113 +2,117 @@
 <html>
 
 <head>
-  
   <title><%= full_title(yield(:title)) %></title>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tag %>
   <%= javascript_include_tag "application" %>
-  </head>
+</head>
+
 <body>
+
 <%@user = current_user %>
 <%@leaderpage = true %>
 
 <%= render 'layouts/header' %>
-<%if signed_in? %>
+
+<% if signed_in? %>
+
 <div id="background">
 
 
   <div id="overlay_upload_info">
-  	<p>
-  		Having trouble uploading your video?
-  		Make sure the filetype is supported
-  	</p>
-  	</div>
+    <p>
+    Having trouble uploading your video?
+    Make sure the filetype is supported
+    </p>
+  </div>
  
  
   <div id="overlay_profile">
- <h1>Profile Setup</h1>
- <div style="float:left">
- <% if signed_in? %>
- <a href="#"><%= image_tag @user.avatar.url(:large) %></a>
+    <h1>Profile Setup</h1>
+
+  <div style="float:left">
+  
+   <a href="#"><%= image_tag @user.avatar.url(:large) %></a>
  
-<div id="wrapper_file">
-<span id="browse2">Browse</span>
-<span id="filename2">no file selected</span>
+    <div id="wrapper_file">
+      <span id="browse2">Browse</span>
+      <span id="filename2">no file selected</span>
 
-  <%= form_for(@user, :html => { :multipart => true, :id => 'form_pic' }) do |f| %>
-   <%= f.file_field :avatar, :id => "form_file"%>
-        <%= f.submit "upload", :class => "button" %>
-  <% end %>
-   </div>
-<% end %>
+      <%= form_for(@user, :html => { :multipart => true, :id => 'form_pic' }) do |f| %>
+   	 <%= f.file_field :avatar, :id => "form_file"%>
+         <%= f.submit "upload", :class => "button" %>
+      <% end %>
+     </div>
 
-
- </div>
- <div id="form_divider"></div>
- <%= render :partial => "users/profile_form" %>
   </div>
+  
+<div id="form_divider"></div>
+ <%= render :partial => "users/profile_form" %>
+</div>
  
   
-    <div id="overlay_contact">
-   <h1>Contact SkillMad</h1>
- <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do %>
- <%= text_field_tag "contact_email", "Name/Email" %>
- <%= text_area_tag "contact_message", "Message" %>
- <%= submit_tag "submit", {:class => "button"} %>
- <% end %>
+   <div id="overlay_contact">
+    <h1>Contact SkillMad</h1>
+    <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do %>
+    <%= text_field_tag "contact_email", "Name/Email" %>
+    <%= text_area_tag "contact_message", "Message" %>
+    <%= submit_tag "submit", {:class => "button"} %>
+    <% end %>
   </div>
 
 <%= yield %>
+
 <%else%>
+
 <style>
-html{
- overflow-y: visible;
-}
-#header_logo{
+	html{
+	 overflow-y: visible;
+	}
+	#header_logo{
 	position:absolute;
-left:10px;
-top:19px;
-margin:0;
-}
+	left:10px;
+	top:19px;
+	margin:0;
+ 	}
 </style>
+
 <div id="lander_bg">
-	<img src="assets/madison.jpg" alt="">
+<img src="assets/madison.jpg" alt="">
 </div>
-<div id="form_join" >
+
+   <div id="form_join" >
     
-   <h1>Sign up</h1>
-   <h2>UW Students Only</h2>
+    <h1>Sign up</h1>
+    <h2>UW Students Only</h2>
  
-<%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
-<span class="istyle simple">
-<%= f.text_field :name %>
+      <%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
+      <span class="istyle simple">
+      <%= f.text_field :name %>
       <%= f.label :name, "Username" %>
       <label class="error" for="user_name" generated="true"></label>
       
-    <%= f.text_field :email %>
-      <%= f.label :email, "Wisc Email" %> 
-        <label class="error" for="user_email" generated="true"></label>
+      <%= f.text_field :email %>
+      <%= f.label :email, "Wisc Email" %>
+      <label class="error" for="user_email" generated="true"></label>
 
- <%= f.password_field :password %>
+      <%= f.password_field :password %>
       <label class="holder" for="user_password">Password<label id="password_info">6 or more characters</label></label>
       <label class="error" for="user_password" generated="true" style="margin-top:5px"></label>
      
-<%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
       <%= f.label :password_confirmation, "Confirmation" %>
-       <label class="error" for="user_password_confirmation" generated="true"></label>
+      <label class="error" for="user_password_confirmation" generated="true"></label>
       
       
-   </span>
+      </span>
       <%= f.submit "join", :class => "button2" %>
-    <% end %>
-    
-    </div>
+      <% end %>
+     </div>
 
 
-<% end %>
-
-
+     <% end %>
 </div>
 
 
@@ -117,12 +121,11 @@ margin:0;
   <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
   <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations" %>
-   <%= javascript_include_tag "jquery.cookie" %>
-<%= javascript_include_tag "customSelect.jquery.min.js" %>
+  <%= javascript_include_tag "jquery.cookie" %>
+  <%= javascript_include_tag "customSelect.jquery.min.js" %>
   <%= javascript_include_tag "waypoints.min" %>
   <%= javascript_include_tag "inline"%>
        
-
 
 
 </body>
