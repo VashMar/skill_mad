@@ -11,22 +11,22 @@
 
 <body>
 
-<%@user = current_user %>
-<%@leaderpage = true %>
+  <%@user = current_user %> 
+  <%@leaderpage = true %>
 
-<%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
 
-<% if signed_in? %>
+ <% if signed_in? %>
 
  <div id="background">
 
-  <%= render 'overlays/upload_info' %>
-  <%= render 'overlays/overlay_profile' %>
-  <%= render 'overlays/contact_info' %>
+   <%= render 'overlays/upload_info' %>
+   <%= render 'overlays/overlay_profile' %>
+   <%= render 'overlays/contact_info' %>
 
-<% end %>
+  <% end %>
 
-  <%= yield %>
+   <%= yield %>
 
  </div>
 
