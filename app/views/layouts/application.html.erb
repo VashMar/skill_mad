@@ -18,62 +18,18 @@
 
 <% if signed_in? %>
 
-<div id="background">
+ <div id="background">
 
+  <%= render 'overlays/upload_info' %>
+  <%= render 'overlays/overlay_profile' %>
+  <%= render 'overlays/contact_info' %>
 
-  <div id="overlay_upload_info">
-    <p>
-    Make sure the file format of your video is supported. If you continue to experience problems, feel free to <a href="#" rel="#overlay_contact">contact the skillmad team.</a>
-    </p>
-  </div>
- 
- 
-  <div id="overlay_profile">
-    <h1>Profile Setup</h1>
-
-  <div style="float:left">
-  
-   <a href="#"><%= image_tag @user.avatar.url(:large) %></a>
- 
-    <div id="wrapper_file">
-      <span id="browse2">Browse</span>
-      <span id="filename2">no file selected</span>
-
-      <%= form_for(@user, :html => { :multipart => true, :id => 'form_pic' }) do |f| %>
-   	 <%= f.file_field :avatar, :id => "form_file"%>
-         <%= f.submit "upload", :class => "button" %>
-      <% end %>
-     </div>
-
-  </div>
-  
-<div id="form_divider"></div>
- <%= render :partial => "users/profile_form" %>
-</div>
- 
-  
-   <div id="overlay_contact">
-    <h1>Contact SkillMad</h1>
-    <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do %>
-    <%= text_field_tag "contact_email", "Name/Email" %>
-    <%= text_area_tag "contact_message", "Message" %>
-    <%= submit_tag "submit", {:class => "button"} %>
-    <% end %>
-  </div>
 <% end %>
 
-<%= yield %>
+  <%= yield %>
 
+ </div>
 
- 
-
-
-
-</div>
-
-
-
-    
   <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" %>
   <%= javascript_include_tag "jquery.validate"%>
   <%= javascript_include_tag "validations" %>

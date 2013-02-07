@@ -1,0 +1,8 @@
+ <div id="overlay_contact">
+    <h1>Contact SkillMad</h1>
+    <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do %>
+    <%= text_field_tag "contact_email", "Name/Email" %>
+    <%= text_area_tag "contact_message", "Message" %>
+    <%= submit_tag "submit", {:class => "button"} %>
+    <% end %>
+  </div>
