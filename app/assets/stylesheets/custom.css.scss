@@ -271,6 +271,9 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   width:300px;
   padding:20px;
 }
+#overlay_upload_info a{
+  color:black;
+}
 #overlay_profile .close ,#overlay_view_profile .close,  #overlay_contact .close, #overlay_upload_info .close{    
   background-image:url(close.png);
   position:absolute;
@@ -1554,4 +1557,18 @@ a{
   height:300px;
   margin-top:25px;
   background-color:rgb(216, 216, 216)
+}
+
+#upload_prompt{
+padding: 12px 400px 0px 18px;
+text-align: left;
+float: left;
+top: 346px;
+width: 200px;
+font-size: 12px;
+position: absolute;
+left: 0px;
+right: 0px;
+margin-left: auto;
+margin-right: auto;
 }
