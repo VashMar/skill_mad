@@ -60,58 +60,15 @@
     <%= submit_tag "submit", {:class => "button"} %>
     <% end %>
   </div>
+<% end %>
 
 <%= yield %>
 
-<%else%>
 
-<style>
-	html{
-	 overflow-y: visible;
-	}
-	#header_logo{
-	position:absolute;
-	left:10px;
-	top:19px;
-	margin:0;
- 	}
-</style>
-
-<div id="lander_bg">
-<img src="assets/madison.jpg" alt="">
-</div>
-
-   <div id="form_join" >
-    
-    <h1>Sign up</h1>
-    <h2>UW Students Only</h2>
  
-      <%= form_for(:user, :url => signup_path, :html => { :id => 'join' } ) do |f| %>
-      <span class="istyle simple">
-      <%= f.text_field :name %>
-      <%= f.label :name, "Username" %>
-      <label class="error" for="user_name" generated="true"></label>
-      
-      <%= f.text_field :email %>
-      <%= f.label :email, "Wisc Email" %>
-      <label class="error" for="user_email" generated="true"></label>
-
-      <%= f.password_field :password %>
-      <label class="holder" for="user_password">Password<label id="password_info">6 or more characters</label></label>
-      <label class="error" for="user_password" generated="true" style="margin-top:5px"></label>
-     
-      <%= f.password_field :password_confirmation %>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <label class="error" for="user_password_confirmation" generated="true"></label>
-      
-      
-      </span>
-      <%= f.submit "join", :class => "button2" %>
-      <% end %>
-     </div>
 
 
-     <% end %>
+
 </div>
 
 

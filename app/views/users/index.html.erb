@@ -1,8 +1,5 @@
 <%provide(:title, 'Home') %>
 
-
-<% @current_video ||= current_video %>
-
 <!DOCTYPE html >
 <head>
 
@@ -10,48 +7,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Skillmad | <%= yield(:title) %></title>
 </head>
+
 <%if signed_in? %>
-	<%if flash[:success]%>
+<% @current_video ||= current_video %>
+      
+        <%if flash[:success]%>
 	   <div id="success" class="notice"><%=flash[:success]%><span></span></div>
 	<% end %>
 
 	<% if flash[:failure]%>
 	   <div id="failure" class="notice"><%=flash[:failure]%><span></span></div>
 	<% end %>
-
-	<%if !@video_list.empty? %>
-	 
-
 	
-	<div id="video_container">
- 
-       
 
-
-        <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
-	</div>
-
+       <%if !@video_list.empty? %>
 	
-	<%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
+         <div id="video_container">
+          <%= render(:partial => "videos/vidplayer", :locals =>{:current_video => @current_video, :bank => @bank}) %>
+	 </div>
+
+	 <%= render(:partial => "videos/scroll", :locals => {:video_list => @video_list, :bank => @bank, :myVid => @myVid}) %>		
        
 	
-	<%= render 'layouts/leaderboard' %>
+	 <%= render 'layouts/leaderboard' %>
 	
-	<div id="id_card">
-	     <%= render :partial => "users/id_card"%>
- 	</div>
- 	<%end%>
+	 <div id="id_card">
+	    <%= render :partial => "users/id_card"%>
+ 	 </div>
+      <%end%>
+
+     <div id="hover_images"> 
+	<%= image_tag "/assets/next_hover.gif" %>
+	<%= image_tag "/assets/back_hover.gif" %>
+	<%= image_tag "/assets/arrow_mad_hover.gif" %>
+	<%= image_tag "/assets/arrow_bad_hover.gif" %>
+	<%= image_tag "/assets/button_hover.gif" %> 
+	<%= image_tag "/assets/share_fb_hover.gif" %> 
+	<%= image_tag "/assets/share_twitter_hover.gif" %> 
+     </div>
+
+
+<% else %>
+
+ <%= render 'layouts/lander' %>  
+
 <%end%>
-<div id="hover_images"> 
 
- <%= image_tag "/assets/next_hover.gif" %>
- <%= image_tag "/assets/back_hover.gif" %>
- <%= image_tag "/assets/arrow_mad_hover.gif" %>
- <%= image_tag "/assets/arrow_bad_hover.gif" %>
- <%= image_tag "/assets/button_hover.gif" %> 
- <%= image_tag "/assets/share_fb_hover.gif" %> 
- <%= image_tag "/assets/share_twitter_hover.gif" %> 
-</div>
 
   
 </html>

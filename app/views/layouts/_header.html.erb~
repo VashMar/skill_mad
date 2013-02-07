@@ -2,12 +2,8 @@
 <div id="header">
 
 <div id="header_container">
-    <%if signed_in? %>
+    
     <div id="header_logo">
-    <%else%>
-    <div id="header_logo" class="tip_logo" title="<h6>Welcome to SkillMad!</h6> 
-    Skillmad is a video leaderboard platform showcasing UW's top talent">
-   <%end%>
     	<%= link_to(home_path) do%> 
     	<% end %>
     </div>
@@ -21,50 +17,66 @@
    </div>
    </div>
    </a>
-   <%else%>
    <%end%>
- 
+ 	  <%if signed_in? %>
    <div id="header_leaders" class="header_link">
-   	  <%if signed_in? %>
+   
  	<a href="#leaderboard" class="scroll">
- 		<%else%>
- 		<a href="#leaderboard" class="scroll tip" title="<h6>The Leaders of Madison</h6>
- 		  View the best of the best.  Browse the skillset of your talented campus">
- 	<%end%>
+
    	leaders
     </a>
     </div>
-    
+ 	<%end%>
     <div class="header_link">
 <%if signed_in? %>
     <%= link_to(destroy_path) do%> 
     	logout
     <%end%>
-<%else%>
-    <a class="active tip" rel="#overlay_login" title="<h6>Create an Account!</h6>
-    	Create an account to begin your path internet fame!">
-    login</a>
+
 <%end%>
 	
     </div>
-    
+
     
 
-</div>
+</div>  
+<%if signed_in? %>
 <div class="header_link">
-    <%if signed_in? %>
-        <%= link_to(new_video_path) do%>
-    	upload
-    	<% end %>
-       <%else%>
-          
-    	<a rel="#overlay_login" href="#" class="tip" title="<h6>Get Recognized!</h6>
-       	Log in to start uploading your world class content! ">
+  
+        <a href="#" onclick="window.open('/videos/new', 'newwindow', 'width=550, height=750, top=30, left=50'); return false;">
     	upload
     	</a>
-    	   <%end%>
-    	
-    </div>
-    
+    	   
 </div>
+
+
+<div class="header_link">
+    <a id="header_categories" href="#">categories</a>
+</div>   
+<%end%>
+   
+   
+   <%if !signed_in? %>
+    <div id="sign_in">
+        <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
+        <table cellspacing="0">
+        	<tbody>
+        		<tr>
+        			<td><%= f.label :email, "Wisc Email" %> </td>
+        			<td><%= f.label :password, "Password" %> </td>
+        		</tr>
+        		<tr>
+        			<td><%= f.text_field :email %></td>
+        			<td><%= f.password_field :password%></td>
+        			<td><%= f.submit "login", :id => "button", :value => "login" %></td>
+        		</tr>
+    		</tbody>
+    	</table>
+
+         <p><%= link_to "forgot password?", home_path %></p>
+     	<%end%>
+    </div>
+    <%end%>
+</div>
+
 </div>

@@ -1,17 +1,19 @@
 Skillmad::Application.routes.draw do
   
+ 
+
   resources :users
   resources :categories
   resources :leaderboards
   resources :sessions, :only => [:new, :create, :destroy, :verify, :activate_account]
   resources :videos do
-  
-  new do
+   new do
     post :upload
     get :save_video
+   end
   end
+  resources :password_resets
 
-  end
   root :to => "users#index"
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'

@@ -9,11 +9,10 @@ def create
         @user.save  
         UserMailer.welcome_email(@user).deliver
         link= "<a href=http://www.wiscmail.wisc.edu> Wiscmail </a>"   
-        flash[:success]= "This account is not yet active, check your #{link}".html_safe
         flash[:success]= "Your account has been made! Go check your #{link}!".html_safe
         redirect_to home_url
     else 
-        flash[:failure] = "Account is invalid"
+        flash[:failure] = "Account could not be created "
         redirect_to home_url
     end
 end

@@ -6,8 +6,8 @@ ActionMailer::Base.smtp_settings = {
   :address              => "mail.skillmad.com",
   :port                 =>  26,
   :domain 		=> "www.skillmad.com",
-  :user_name            => "welcome@skillmad.com",
-  :password             => "welcome2skillmad",
+  :user_name            => "TheExperts@skillmad.com",
+  :password             => "5k1llexperts",
   :authentication       => :login,
   :enable_starttls_auto => false
 }
