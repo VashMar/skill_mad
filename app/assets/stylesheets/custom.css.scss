@@ -849,9 +849,21 @@ color:#600001;
 }
 
 .leader{
+  background: #f7f7f7; /* Old browsers */
+background: -moz-linear-gradient(top,  #f7f7f7 1%, #e8e8e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f7f7f7), color-stop(100%,#e8e8e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f7f7f7 1%,#e8e8e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f7f7f7 1%,#e8e8e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f7f7f7 1%,#e8e8e8 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f7f7f7 1%,#e8e8e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e8e8e8',GradientType=0 ); /* IE6-9 */
+border-radius: 7px; 
+-moz-border-radius: 7px; 
+-webkit-border-radius: 7px; 
   margin-top:20px;
-  background-image:url(leaderboard_back.gif);
-  background-repeat:repeat-x;
+-webkit-box-shadow: 4px 4px 3px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    4px 4px 3px rgba(50, 50, 50, 0.75);
+box-shadow:         4px 4px 3px rgba(50, 50, 50, 0.75);
   position:relative;
   width:751px;
   height:223px;
