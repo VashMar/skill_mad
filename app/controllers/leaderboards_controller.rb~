@@ -41,17 +41,22 @@ def people_board
 @category = params[:category]
 @leaderboard = params[:leaderboard] 
 
+if params[:page] == nil  
+params[:page] = 1 
+end 
+
+
 if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if @category == "All Categories"
-      @user_list = User.order("points DESC").where(:hasVideo => true)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(params[:page]).per_page(1)
    else 
       @cat = Category.find_by_category_name(@category)
-      @user_list = @cat.users.order("points DESC")     
+      @user_list = @cat.users.order("points DESC").page(params[:page]).per_page(1)     
    end
 else 
       @lead = Leaderboard.find_by_leaderboard_name(@leaderboard)
       @board_id = @lead.id 
-      @user_list = @lead.users.order("points DESC")
+      @user_list = @lead.users.order("points DESC").page(params[:page]).per_page(1)  
 end 
 
 

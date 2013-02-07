@@ -128,7 +128,7 @@ def index
           @leaderboard = "All Leaderboards"
       end
 
-      @user_list = User.order("points DESC").where(:hasVideo => true)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(5)
       @new = false 
 
 

@@ -109,7 +109,7 @@ def index
           # otherwise find what category is chosen and get the videos for that category, along with the leaderboards in that category 
           else
           @obj = Category.find_by_category_name(@category)
-          @videos = Video.find_in_cat(@obj.id).page(1).per_page(5)order("points DESC")
+          @videos = Video.find_in_cat(@obj.id).page(1).per_page(5).order("points DESC")
           @leaderboards = @obj.leaderboards
              
              if @leaderboards.empty? # if no leaderboards exist for that category, make an empty array 
@@ -128,7 +128,7 @@ def index
           @leaderboard = "All Leaderboards"
       end
 
-      @user_list = User.order("points DESC").where(:hasVideo => true)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(1)
       @new = false 
 
 

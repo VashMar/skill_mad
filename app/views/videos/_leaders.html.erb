@@ -25,11 +25,13 @@
 </div>
 <% end %>
 
+<% @offset = @videos.offset %>
 <% @videos.each_with_index do |video, i| %>
 
 <div class="leader video">
-			<h3><%= num_rank(i+1) %></h3>
 			
+			
+			<h3><%= num_rank(@offset + (i+1)) %></h3>
 			<div class="video_pic"> 
 			<%= link_to(vid_bank_path(:video => video.id, :leaderboard => @leaderboard), :class => "leader_thumb_link", :remote => true) do %>   
      			<%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
