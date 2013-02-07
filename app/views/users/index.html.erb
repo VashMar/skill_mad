@@ -11,13 +11,8 @@
 <%if signed_in? %>
 <% @current_video ||= current_video %>
       
-        <%if flash[:success]%>
-	   <div id="success" class="notice"><%=flash[:success]%><span></span></div>
-	<% end %>
-
-	<% if flash[:failure]%>
-	   <div id="failure" class="notice"><%=flash[:failure]%><span></span></div>
-	<% end %>
+   
+    <%= render 'layouts/flash_notices' %>
 	
 
        <%if !@video_list.empty? %>
