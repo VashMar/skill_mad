@@ -98,6 +98,7 @@ html {
   text-transform:none;
   color:white;
   font-size:11px;
+  padding-left:3px;
 }
 
 input#button {
@@ -1154,6 +1155,14 @@ resize: none;
   padding:8px;
   padding-left:43px;
   cursor:pointer;
+}
+#lander_notice .notice{
+  top:100px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .notice span{
   display:block;
