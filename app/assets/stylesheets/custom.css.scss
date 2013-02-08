@@ -243,7 +243,7 @@ border-top:none;
   cursor:pointer;
   display:block;
 }
-#overlay_upload, #overlay_profile, #overlay_contact, #overlay_upload_info{
+#overlay_upload, #overlay_profile, #overlay_contact, #overlay_upload_info, #overlay_reset{
     color:#6d0001;
   display:none;
    z-index:10000;
@@ -275,7 +275,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 #overlay_upload_info a{
   color:black;
 }
-#overlay_profile .close ,#overlay_view_profile .close,  #overlay_contact .close, #overlay_upload_info .close{    
+#overlay_profile .close ,#overlay_view_profile .close,  #overlay_contact .close, #overlay_upload_info .close, #overlay_reset .close{    
   background-image:url(close.png);
   position:absolute;
   right:-15px;
@@ -283,6 +283,14 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   cursor:pointer;
   height:26px; 
   width:26px;
+  }
+  #overlay_reset{
+    padding:10px 40px 0;
+    text-align:center;
+    width:300px;
+  }
+  #overlay_reset input{
+    margin-bottom:10px;
   }
 #form_join{
   width:470px;
@@ -874,6 +882,7 @@ box-shadow:         4px 4px 3px rgba(50, 50, 50, 0.75);
 .leader.video{
   width:545px;
   background-color: rgb(107, 0, 1);
+  height:190px;
 }
 .leader h3{
   padding-top:10px;
@@ -909,7 +918,7 @@ box-shadow:         4px 4px 3px rgba(50, 50, 50, 0.75);
   -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
   width:190px;
   height:300px;
-  
+  padding-top:10px;
   background: #edeae2;
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWFlMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNGQxYzkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 background: -moz-linear-gradient(top,  #edeae2 0%, #d4d1c9 100%);
