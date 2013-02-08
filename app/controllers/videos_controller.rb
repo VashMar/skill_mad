@@ -8,15 +8,15 @@ class VideosController < InheritedResources::Base
     @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
      if leadncat[0] != "Create New Leaderboard"                         # if the user isn't creating a new leaderboard   
         @lead = Leaderboard.find_by_leaderboard_name(leadncat[0])       # find existing leaderboard 
-        @video.update_attribute(:leaderboard_id, @lead.id)              # add the video to it 
-        @video.update_attribute(:category_id, @cat.id)                  # also add the video to that category 
-     else 
-                                                                        # create a new leaderboard with the passed in name and description 
+        
+							 # add the video to it and the category 
+        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)              
+    else 
+        # create a new leaderboard with the passed in name and description 
         @lead = Leaderboard.create(params[:new_board])
-        @lead.update_attribute(:category_id, @cat.id) 
-        @video.update_attribute(:category_id, @cat.id) 
-        @video.update_attribute(:leaderboard_id, @lead.id) 
-     end 
+        @lead.update_attribute(:category_id, @cat.id)
+        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id )    
+    end 
      
     if @video
        @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
@@ -58,10 +58,12 @@ class VideosController < InheritedResources::Base
 
   def destroy
     @video = Video.find(params[:id])
+    user = current_user 
     if current_user.id == @video.user_id 
        if Video.delete_video(@video)
          if current_user.videos.empty?
          current_user.update_attribute(:hasVideo, false)
+	 sign_in(user)
          flash[:success] = "video successfully deleted"
 	 else
          flash[:success] = "video successfully deleted"
