@@ -194,7 +194,7 @@
   		}, // end rules
   		messages:{
 			 "session[password]": {
-		          remote: "You drunk bro? Password and email don't match." 	
+		          remote: "You drunk? Password and email don't match." 	
 		         } 	
 
 			}			
