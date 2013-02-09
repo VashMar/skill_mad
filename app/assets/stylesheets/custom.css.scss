@@ -243,6 +243,9 @@ border-top:none;
   cursor:pointer;
   display:block;
 }
+#overlay_upload_info a{
+  text-decoration:underline;
+}
 #overlay_upload, #overlay_profile, #overlay_contact, #overlay_upload_info, #overlay_reset{
     color:#6d0001;
   display:none;
@@ -1165,6 +1168,9 @@ resize: none;
   padding-left:43px;
   cursor:pointer;
 }
+.notice a {
+  text-decoration:underline;
+}
 #lander_notice .notice{
   top:100px;
   position: absolute;
@@ -1590,7 +1596,7 @@ a{
 }
 
 #upload_prompt{
-padding: 12px 400px 0px 18px;
+padding: 12px 400px 0px 8px;
 text-align: left;
 float: left;
 top: 346px;
