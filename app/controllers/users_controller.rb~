@@ -59,7 +59,7 @@ def index
     if @user_id == nil   # display top videos in scroll
        if @lbsave != true 
        @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
-       @myVid = false
+       @myVid = "false"
        @bank = "Top Videos"
        else 
        @video_list = @current_video.leaderboard.videos.order("points DESC")
@@ -68,7 +68,7 @@ def index
        end 
     else
        @user = User.find(@user_id) # display video bank in scroll
-       @myVid = true 
+       @myVid = "true"
        @video_list = @user.videos 
        @bank = "#{@user.name}'s Videos"
     end 
@@ -129,7 +129,11 @@ def index
 
       @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(5)
       @new = false 
-
+      
+      if params[:notice] == "1"
+	flash[:success] = "Video being processed, it will appear in a few minutes"
+	@myVid = "true"
+      end
 
       @category_list = Category.all.collect{|c| [c.category_name]}
       @category_list.unshift(["All Categories"])

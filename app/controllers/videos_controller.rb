@@ -15,7 +15,7 @@ class VideosController < InheritedResources::Base
         @lead = Leaderboard.create(params[:new_board])
         @lead.update_attribute(:category_id, @cat.id)
         @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)    
-    end 
+    end   
      
   if @video
      @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))

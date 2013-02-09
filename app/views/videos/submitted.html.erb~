@@ -1,8 +1,8 @@
+<h1 class="hidden"><%= @video_id %></h1>
 <style>
 	#header{
 		display:none;
 	}
-
 </style>
 <div id="centered">
 	<h1>Your upload is being processed by youtube. this window will close in 5 seconds...</h1>
@@ -10,6 +10,7 @@
 <div id="animation">
 
 	<script>
-	setInterval(function(){opener.location.reload(true); window.close()},5000);
-	
+	setInterval(function(){
+		opener.location.replace("u?video=<%=escape_javascript(@video_id) %>&notice=1");
+		window.close()},5000);
 	</script>
