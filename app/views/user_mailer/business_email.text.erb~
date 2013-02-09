@@ -1,0 +1,10 @@
+
+The following <%= @business %> has sent this request:
+
+
+<%= @description %>
+
+
+
+
+contact: <%= @contact %> to respond.  

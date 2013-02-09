@@ -26,4 +26,12 @@ class UserMailer < ActionMailer::Base
    mail(:to => "management@skillmad.com", :subject => "A Video has recieved excessive flags") 
  end 
 
+
+ def business_email(business_name, contact, description)
+ @business = business_name
+ @contact = contact
+ @description = description 
+ 
+ mail(:to => "management@skillmad.com", :subject => "A Business Message from: #{@business} ")
+ end 
 end

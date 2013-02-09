@@ -18,6 +18,7 @@ Skillmad::Application.routes.draw do
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'
   match '/contact_email', :to => 'application#contact_email'
+  match '/business_email', :to => 'application#business_email'
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'
@@ -43,7 +44,7 @@ Skillmad::Application.routes.draw do
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
   match '/l', :to =>  'users#index', :l => true 
-  match '/flag' :to => 'flags#flag'
+  match '/flag', :to => 'flags#flag'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

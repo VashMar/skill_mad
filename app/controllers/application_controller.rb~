@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
      flash[:success]= "Message recieved, we will get back to you shortly!"
      redirect_to home_url
  end
+
+ def business_email 
+    UserMailer.business_email(params[:business_name], params[:contact], params[:description]) 
+    flash[:success] = "Thank you for interest in using skillmad to promote your cause! We will be in touch!"
+    redirect_to home_url	
+ end 
+
+
 end
