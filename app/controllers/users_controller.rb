@@ -105,7 +105,7 @@ def index
               @leaderboard_list.each do |l|                   # converts array to delimited string 
               @string = @string + l[0] + "|"
               end
-          # otherwise find what category is chosen and get the videos for that category, along with the leaderboards in that category 
+         # otherwise find what category is chosen and get the videos for that category, along with the leaderboards in that category 
           else
           @obj = Category.find_by_category_name(@category)
           @videos = Video.find_in_cat(@obj.id).page(1).per_page(5).order("points DESC")

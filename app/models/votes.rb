@@ -3,7 +3,7 @@ class Votes < ActiveRecord::Base
   belongs_to :user
   belongs_to :video 
   
-  attr_accessible :voted_down, :voted_up, :video_id, :id_user
+  attr_accessible :voted_down, :voted_up, :video_id, :user_id
 
 
   validates :video_id, presence: true 
