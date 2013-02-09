@@ -28,7 +28,8 @@ end
     respond_to do |format|
       format.html do
         if @result
-          redirect_to @video, :notice => "video successfully updated"
+	  flash[:success] => "video successfully updated"
+          redirect_to @video
         else
           respond_to do |format|
             format.html { render "/home" }
@@ -51,7 +52,7 @@ end
     @user.update_attribute(:hasVideo, true)
     sign_in(@user)
     
-    redirect_to submitted_url
+    redirect_to submitted_url(:video_id => params[:id].to_s)
    end
 
   def destroy
@@ -155,6 +156,11 @@ end
     
    redirect_to home_url 
  end 
+
+
+  def submitted 
+  @video_id = params[:video_id]
+  end 
 
 
   protected
