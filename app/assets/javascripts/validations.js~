@@ -7,28 +7,51 @@
 				container.innerHTML = parseInt(container.innerHTML)+vote;
 				$("#vote_bad").removeClass("pressed");
 				$("#vote_mad").addClass("pressed");
+			}else{
+				$("#vote_mad").removeClass("pressed");
+				container.innerHTML = parseInt(container.innerHTML)-1;
 			}
 			
 		}
     	function decrement()
 		{
 	
-			
+			var container = document.getElementById("vote_counter");
 			var vote=1;
 			if($("#vote_mad").hasClass("pressed")){vote++}
 			if(!($("#vote_bad").hasClass("pressed"))){
-				var container = document.getElementById("vote_counter");
 				container.innerHTML = parseInt(container.innerHTML)-vote;
 				if(container.innerHTML=="-1"){
 					container.innerHTML=0;
 				} 
 			$("#vote_mad").removeClass("pressed");
 			$("#vote_bad").addClass("pressed");
+			}else{
+				$("#vote_bad").removeClass("pressed");
+				container.innerHTML = parseInt(container.innerHTML)+1;
 			}
 		}
 
 
   $(document).ready(function(){
+  	  	$.validator.addMethod("isImage", function(value,element){
+  		
+  		var filetype = $("#form_file").val();
+  		filetype = filetype.split('.').pop();
+  		filetype = filetype.toLowerCase();
+  		switch(filetype)
+  		{
+  			case "jpg":
+  			case "jpeg":
+  			case "gif":
+  			case "png":
+  			case "bmp":
+  				return true;
+  				break;
+  			default:
+  				return false;
+  		}	
+  	}, "Wrong file type");
   	$.validator.addMethod("isWisc", function(value,element){
   		var email = $("#user_email").val();
   		if(email.substring(email.length-8) == "wisc.edu"){
@@ -55,10 +78,10 @@
   				break;
   			default:
   				return false;
-  		}
-
-  		
+  		}	
   	}, "Wrong file type");
+  	
+  	
 	$('#join').validate({
  		rules: {
   			"user[name]": {required: true, remote:"/check_name"},
@@ -75,6 +98,17 @@
   			}
   		}		
   	});
+  	$('#form_pic').validate({
+ 		rules: {
+  			"user[avatar]": {required: true, isImage:true}
+			},
+  		messages: {
+  			"user[avatar]":{
+  				required:"Please select a file",
+  				accepts:"Wrong file type"
+  			}
+  		}
+  		});
   	$('#upload_youtube').validate({
  		rules: {
   			"file": {required: true, isVideo:true}
@@ -87,7 +121,7 @@
   		},
   				
   		 submitHandler: function(form) {
-  		 	var loading = ["pregaming for midterms...", "spotting tunnel bob...", "bonging a beer with the cops...", "chasing piccalo pete...", "throwing up in mendota...", "writing in grout...", "teaching the gophers how to bucky...", "teaching the spartans how to bucky..", "pretending not to look at those people holding clipboards by east campus mall..", "trying to find a table at college library on a sunday...", "trying to find a table with an outlet on any night...", "being told that the tests will look just like what we covered in class...", "not going to miffin...", "setting the curve...for sleeping..." ];
+  		 	var loading = ["pregaming for midterms...", "spotting tunnel bob...", "bonging a beer with the cops...", "chasing piccalo pete...", "throwing up in mendota...",  "teaching the gophers how to bucky...", "teaching the spartans how to bucky..", "pretending not to look at those people holding clipboards by east campus mall..", "trying to find a table at college library on a sunday...", "trying to find a table with an outlet on any night...", "being told that the tests will look just like what we covered in class...", "not going to miffin...", "setting the curve...for sleeping...", "Getting a cramp on Bascon Hill", "Only taking a few shots because you have a final tomorrow"];
 			var n=1;
 			var txt=document.getElementById("txt");
 			var load = "pregaming for midterms...";
@@ -112,20 +146,37 @@
   	});
   	$('#upload').validate({
  		rules: {
-  			"video[title]": {required: true}
+  			"video[title]": {required: true},
+  			"video[description]": {required: true},
+  			"leaderboard": {required: true},
+  			"new_board[leaderboard_name]": {required: true},
+  			"new_board[leaderboard_description]":{required:true}
 			},
   		messages: {
   			"video[title]":{
   				required:"Please enter a title"
   			},
+  	
   		}		
   	});
+
+
+	 $("#form_info").validate({
+ 	rules: {
+ 	"user[name]": {required: true, remote:"/check_name"},
+	 },
+ 	messages: {
+ 	"user[name]":{
+ 	remote: "This name is already taken"
+	 }
+	 }
+	 });
+
 
   	
   	$('#login').validate({
   		onkeyup: false,
   		rules: {
-  			"session[email]": {required: true, email:true},
   			"session[password]": {required: true, 	
   				remote:{
   					url: "/verify",
