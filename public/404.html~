@@ -1,22 +1,32 @@
 <html>
 <head>
+<title>Skillmad is the other way</title>
 <style>
 body{
 text-align:center;
 	background-color:#6B0001;
   font-family: Arial, Helvetica, sans-serif;
+color:white;
 }
 #main{
 width:800px;
 margin:auto;
 padding-top:100px;
 }
+a{
+ text-decoration:underline;
+}
+a:hover{
+ color:black;
+}
+
 </style>
 </head>
 <body>
 	<div id="main">
-	<h1>You Fucked Up</h1>
+	<h1>You Are Lost</h1>
 	<img src="lost.jpg"/>
+	<h2>Go back to <a href="/">SKILLMAD</a></h2>
 	</div>
 
 </body>
