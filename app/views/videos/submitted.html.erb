@@ -10,7 +10,7 @@
 <div id="animation">
 
 	<script>
-	setInterval(function(){window.close()},5000);
-
- 	//<%=escape_javascript(@video_id) %>
+	setInterval(function(){
+		opener.location.replace("u?video=<%=escape_javascript(@video_id) %>");
+		window.close()},5000);
 	</script>
