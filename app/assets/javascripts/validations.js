@@ -137,6 +137,7 @@
   			"setting the curve...for sleeping...", 
   			"Getting a cramp on Bascon Hill", 
   			"Only taking a few shots because you have a final tomorrow"];
+  			loading = loading.sort(function() { return 0.5 - Math.random();});
 			var n=1;
 			var txt=document.getElementById("txt");
 			var load = "pregaming for midterms...";
