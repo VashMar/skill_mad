@@ -30,8 +30,8 @@
  	<h1><%=@current_video.title%></h1>
  		
  	
- 		<h3>April 20, 2069</h3>
- 		<p><%= @current_video.description %></p>
+ 	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
+ 	<p><%=  @current_video.description %></p>
  	</div>
  	<div id="video_info_right">
  
@@ -41,8 +41,8 @@
     <%= image_tag @current_video.user.avatar.url(:medium) %> 
     <% end %>   
  		
- 		<h2><%=@current_video.user.name%></h2>
- 		<h3><%=@current_video.user.skill%></h3>
+ 		<h2><%= @current_video.user.name%></h2>
+ 		<h3><%= @current_video.user.skill%></h3>
  		
 
  	</div>

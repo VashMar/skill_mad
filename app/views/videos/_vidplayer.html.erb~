@@ -1,8 +1,8 @@
 <%= render(:partial => "categories/category_list") %>
 <% if @board == nil %>
-<h3 class= > <%= @bank %> </h3>
+<h3 class="hidden" > <%= @bank %> </h3>
 <% else %>
-<h3 class= > <%= @board %> </h3>
+<h3 class="hidden" > <%= @board %> </h3>
 <% end %>
    <div id="vote_fake">
 
@@ -30,8 +30,8 @@
  	<h1><%=@current_video.title%></h1>
  		
  	
- 		<h3>April 20, 2069</h3>
- 		<p><%= @current_video.description %></p>
+ 	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
+ 	<p><%=  @current_video.description %></p>
  	</div>
  	<div id="video_info_right">
  

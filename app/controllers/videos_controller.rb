@@ -8,21 +8,19 @@ class VideosController < InheritedResources::Base
     @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
      if leadncat[0] != "Create New Leaderboard"                         # if the user isn't creating a new leaderboard   
         @lead = Leaderboard.find_by_leaderboard_name(leadncat[0])       # find existing leaderboard 
-        
-							 # add the video to it and the category 
-        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)              
+     									# add the video to it and the category 
+	@video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)              
     else 
-        # create a new leaderboard with the passed in name and description 
+        								# create a new leaderboard with the passed in name and description 
         @lead = Leaderboard.create(params[:new_board])
         @lead.update_attribute(:category_id, @cat.id)
-        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id )    
+        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)    
     end 
      
-    if @video
-       @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
-    end
-   
+  if @video
+     @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
   end
+end
 
   def update
     @video     = Video.find(params[:id])
@@ -96,22 +94,22 @@ class VideosController < InheritedResources::Base
   
     if params[:user_id] == nil
        if params[:new] != nil
-         @video_list = Video.where("yt_video_id is not null").order("created_at DESC")
-         @bank = "New Videos"  
+          @video_list = Video.where("yt_video_id is not null").order("created_at DESC")
+          @bank = "New Videos"  
        else
  	if params[:leaderboard] != nil && params[:leaderboard] != "All Leaderboards"
-         @video_list = Leaderboard.find_by_leaderboard_name(params[:leaderboard]).videos.order("points DESC")
-	 @board = "leaderboard"
-         @bank = "#{params[:leaderboard]}'s Videos"
+          @video_list = Leaderboard.find_by_leaderboard_name(params[:leaderboard]).videos.order("points DESC")
+	  @board = "leaderboard"
+          @bank = "#{params[:leaderboard]}'s Videos"
 	 else 
-         @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
-         @bank = "Top Videos"
+          @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
+          @bank = "Top Videos"
          end 
        end
     else 
-         @user = User.find(params[:user_id])
-         @video_list = @user.videos.order("points DESC")
-         @bank = "#{@user.name}'s Videos" 
+          @user = User.find(params[:user_id])
+          @video_list = @user.videos.order("points DESC")
+          @bank = "#{@user.name}'s Videos" 
     end
 
 
