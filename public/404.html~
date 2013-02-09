@@ -1,0 +1,23 @@
+<html>
+<head>
+<style>
+body{
+text-align:center;
+	background-color:#6B0001;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#main{
+width:800px;
+margin:auto;
+padding-top:100px;
+}
+</style>
+</head>
+<body>
+	<div id="main">
+	<h1>You Fucked Up</h1>
+	<img src="lost.jpg"/>
+	</div>
+
+</body>
+</html>
