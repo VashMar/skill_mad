@@ -41,8 +41,8 @@
     <%= image_tag @current_video.user.avatar.url(:medium) %> 
     <% end %>   
  		
- 		<h2><%=@current_video.user.name%></h2>
- 		<h3><%=@current_video.user.skill%></h3>
+ 		<h2><%= @current_video.user.name%></h2>
+ 		<h3><%= @current_video.user.skill%></h3>
  		
 
  	</div>
