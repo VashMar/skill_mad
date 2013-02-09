@@ -121,7 +121,10 @@
   		},
   				
   		 submitHandler: function(form) {
-  		 	var loading = ["pregaming for midterms...", "spotting tunnel bob...", "bonging a beer with the cops...", "chasing piccalo pete...", "throwing up in mendota...",  "teaching the gophers how to bucky...", "teaching the spartans how to bucky..", "pretending not to look at those people holding clipboards by east campus mall..", "trying to find a table at college library on a sunday...", "trying to find a table with an outlet on any night...", "being told that the tests will look just like what we covered in class...", "not going to miffin...", "setting the curve...for sleeping...", "Getting a cramp on Bascon Hill", "Only taking a few shots because you have a final tomorrow"];
+  		 	var loading = ["pregaming for midterms...", "spotting tunnel bob...", "bonging a beer with the cops...", "chasing piccalo pete...", "throwing up in mendota...",  "teaching the gophers how to bucky...", 
+  			"teaching the spartans how to bucky..", "pretending not to look at those people holding clipboards by east campus mall..", "trying to find a table at college library on a sunday...", "trying to find a table with an outlet on any night...", 
+  			"being told that the tests will look just like what we covered in class...", "not going to miffin...", "setting the curve...for sleeping...", "Getting a cramp on Bascon Hill", 
+  			"Only taking a few shots because you have a final tomorrow"];
 			var n=1;
 			var txt=document.getElementById("txt");
 			var load = "pregaming for midterms...";
