@@ -28,7 +28,7 @@ end
     respond_to do |format|
       format.html do
         if @result
-	  flash[:success] => "video successfully updated"
+	  flash[:success] = "video successfully updated"
           redirect_to @video
         else
           respond_to do |format|
