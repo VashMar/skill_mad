@@ -11,6 +11,6 @@
 
 	<script>
 	setInterval(function(){
-		opener.location.replace("u?video=<%=escape_javascript(@video_id) %>");
+		opener.location.replace("u?video=<%=escape_javascript(@video_id) %>&notice=1");
 		window.close()},5000);
 	</script>
