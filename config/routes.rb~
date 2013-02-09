@@ -1,19 +1,19 @@
 Skillmad::Application.routes.draw do
   
-  get "password_resets/new"
+ 
 
   resources :users
   resources :categories
   resources :leaderboards
   resources :sessions, :only => [:new, :create, :destroy, :verify, :activate_account]
   resources :videos do
-  
-  new do
+   new do
     post :upload
     get :save_video
+   end
   end
+  resources :password_resets
 
-  end
   root :to => "users#index"
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'
@@ -43,6 +43,7 @@ Skillmad::Application.routes.draw do
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
   match '/l', :to =>  'users#index', :l => true 
+  match '/flag' :to => 'flags#flag'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

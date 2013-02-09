@@ -19,4 +19,11 @@ class UserMailer < ActionMailer::Base
      mail(:to => "management@skillmad.com", :subject =>  "Message from SkillMad User:  #{@email}")
  end
 
+ def flag_mail(title, owner, yt_id) 
+   @title = title 
+   @owner = owner  
+   @yt_id = yt_id 
+   mail(:to => "management@skillmad.com", :subject => "A Video has recieved excessive flags") 
+ end 
+
 end

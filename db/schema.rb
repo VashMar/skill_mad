@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129184011) do
+ActiveRecord::Schema.define(:version => 20130209190536) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "flags", ["user_id", "video_id"], :name => "index_flags_on_user_id_and_video_id"
 
   create_table "leaderboards", :force => true do |t|
     t.string   "leaderboard_name"
@@ -33,23 +42,25 @@ ActiveRecord::Schema.define(:version => 20130129184011) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "activated",           :default => false
+    t.boolean  "activated",              :default => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "points",              :default => 0,     :null => false
+    t.integer  "points",                 :default => 0,     :null => false
     t.string   "major"
     t.string   "year"
     t.string   "skill"
     t.text     "about"
-    t.boolean  "hasVideo",            :default => false
+    t.boolean  "hasVideo",               :default => false
     t.integer  "category_id"
     t.integer  "leaderboard_id"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -67,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130129184011) do
     t.boolean  "is_private",     :default => false
     t.integer  "category_id"
     t.integer  "leaderboard_id"
+    t.integer  "flag_count",     :default => 0,     :null => false
   end
 
   create_table "votes", :force => true do |t|

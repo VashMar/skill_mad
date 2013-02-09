@@ -32,6 +32,7 @@
  	
  	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
  	<p><%=  @current_video.description %></p>
+ 	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user) %>
  	</div>
  	<div id="video_info_right">
  

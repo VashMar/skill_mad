@@ -43,6 +43,7 @@ Skillmad::Application.routes.draw do
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
   match '/l', :to =>  'users#index', :l => true 
+  match '/flag', :to => 'flags#flag'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
