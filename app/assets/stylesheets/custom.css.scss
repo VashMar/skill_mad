@@ -443,17 +443,7 @@ margin: 0 auto -4em;
 
  //all overlay form box styling 
 
-textarea{
-  clear:right;
-  margin-bottom:15px;
-  background-color:#600001; 
-  border: solid 1px #2f393f;
-  padding:4px;
-  font-size:12px;
-  color:white;
-  height:150px;
-  resize: none; 
-}
+
 label{ // label for form boxes styling
   color: #6d0001;
   padding-top:0px;
@@ -1632,4 +1622,22 @@ z-index:-1;
 .field{
   margin-bottom:20px;
 }
-
+.business_style label{
+  text-transform:capitalize;
+}
+.business_style input, .business_style textarea{
+  margin-bottom:10px;
+  float:left;
+  clear:left;
+}
+.business_style .actions{
+  padding-left:120px;
+}
+.business_style #contact, #business_name{
+  width:300px;
+}
+.business_style textarea{
+  width:300px;
+  height:120px;
+  margin-bottom:20px;
+}
