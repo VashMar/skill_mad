@@ -7,7 +7,20 @@ class Video < ActiveRecord::Base
   scope :completes,   where(:is_complete => true)
   scope :incompletes, where(:is_complete => false)
   attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id, :leaderboard_id, :flag_count 
-    
+
+
+ include PgSearch
+ multisearchable :against => [:title, :description],
+ using: {tsearch: {dictionary: "english"}}
+
+ def self.text_search(query)
+  if query.present?
+   search(query)
+  else
+   scoped
+  end
+
+ end   
   def self.yt_session
     @yt_session ||= YouTubeIt::Client.new(:username => YouTubeITConfig.username , :password => YouTubeITConfig.password , :dev_key => YouTubeITConfig.dev_key)    
   end

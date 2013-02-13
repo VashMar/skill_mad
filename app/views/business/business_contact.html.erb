@@ -11,14 +11,20 @@
 <%= form_tag business_email_path, :method => :post do %>
   
  <div class="field">
-    <%= label_tag :business_name %>
+    <%= label_tag :business_or_organization_name %>
     <%= text_field_tag :business_name, params[:business_name] %>
   </div>
   
   <div class="field">
-    <%= label_tag :contact %>
+    <%= label_tag :email_address %>
     <%= text_field_tag :contact, params[:contact] %>
   </div>
+
+  <div class="field">
+    <%= label_tag :phone_number %>
+    <%= text_field_tag :phone, params[:phone] %>
+  </div>
+
 
   <div class="field">
     <%= label_tag :description %>

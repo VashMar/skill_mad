@@ -1,14 +1,30 @@
+<style>
+	#header_logo{
+		position:absolute;
+		left: 0px;
+	right: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+</style>
+<div id="centered" class="business_style">
 <%= form_tag business_email_path, :method => :post do %>
   
  <div class="field">
-    <%= label_tag :business_name %>
+    <%= label_tag :business_or_organization_name %>
     <%= text_field_tag :business_name, params[:business_name] %>
   </div>
   
   <div class="field">
-    <%= label_tag :contact %>
+    <%= label_tag :email %>
     <%= text_field_tag :contact, params[:contact] %>
   </div>
+
+  <div class="field">
+    <%= label_tag :phone_number %>
+    <%= text_field_tag :phone, params[:phone] %>
+  </div>
+
 
   <div class="field">
     <%= label_tag :description %>
@@ -18,3 +34,4 @@
   <div class="actions"><%= submit_tag "Submit" %></div>
 <% end %>
 
+</div>

@@ -18,6 +18,10 @@
   before_save { |user| user.email = email.downcase}
   before_save :create_remember_token
 
+
+  include PgSearch
+  multisearchable :against => :name
+
   validates_attachment :avatar, :size => {:in => 0..250.kilobytes}
   validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'
   validates :name, :presence => true, :length => {:maximum => 50}, :uniqueness => {:case_sensitive => false}
