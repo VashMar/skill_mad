@@ -9,9 +9,7 @@ class Video < ActiveRecord::Base
   attr_accessible :title, :description, :yt_video_id, :is_complete , :points, :user_id, :is_private, :category_id, :leaderboard_id, :flag_count 
 
 
- include PgSearch
- multisearchable :against => [:title, :description],
- using: {tsearch: {dictionary: "english"}}
+
 
  def self.text_search(query)
   if query.present?

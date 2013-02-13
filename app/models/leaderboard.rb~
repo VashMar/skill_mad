@@ -6,6 +6,10 @@ class Leaderboard < ActiveRecord::Base
 
  attr_accessible :leaderboard_name, :leaderboard_type, :leaderboard_description, :category_id
 
+  include PgSearch
+ multisearchable :against => [:leaderboard_name],
+ using: {tsearch: {dictionary: "english"}}
+
  validates :leaderboard_name, :presence => true, :uniqueness => {:case_sensitive=> false}, :length => {:maximum => 100} 
  validates :leaderboard_description, :presence => true
     
