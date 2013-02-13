@@ -17,6 +17,8 @@ gem 'heroku'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'will_paginate'
+gem 'pg_search'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
