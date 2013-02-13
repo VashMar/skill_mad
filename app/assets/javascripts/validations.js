@@ -187,6 +187,20 @@
 	 }
 	 }
 	 });
+	 
+	 $("#form_business").validate({
+	 	rules: {
+	 	"business_name": {required: true},
+	 	"contact": {required: true},
+	 	"phone": {required: true},
+	 	"description": {required: true},
+		 },
+	 	messages: {
+	 	"business_name":{
+	 	remote: "lick mah ballz"
+		 }
+		 }
+	 });
 
 
   	
@@ -202,7 +216,7 @@
   					return $("#session_email").val();
   				      }
   				}
-  		                }, // end remote 
+  		        }, // end remote 
 				
 
 
@@ -213,6 +227,9 @@
 		          remote: "You drunk? Password and email don't match." 	
 		         } 	
 
-			}			
+			},
+		beforeSubmit: function(form) {		
+			alert("tits");
+		}
   	});
   });
