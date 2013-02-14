@@ -138,8 +138,10 @@
 	$('.notice').click(function(){
 		$(this).fadeOut();
 	});
-	$("#overlay_view_profile").overlay();
-	$("a[rel^='#']").overlay(); 
+	$("#overlay_view_profile").overlay({
+		top:20
+	});
+	$("a[rel^='#']").overlay({top:20}); 
  });
  		
 		 $(".items_inner div img").css('opacity','.8');

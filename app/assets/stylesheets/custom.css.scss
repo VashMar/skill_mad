@@ -268,12 +268,11 @@ border-top:none;
 }
 #overlay_upload, #overlay_profile, #overlay_contact, #overlay_upload_info, #overlay_reset{
     color:#6d0001;
-  display:none;
-   z-index:10000;
-
-     width:960px;   
-      min-height:200px;   
-    margin-top:45px; 
+    display:none;
+    z-index:10000;
+    width:960px;
+    min-height:200px;
+    margin-top:20px; 
 
     border: 1px solid rgb(204, 204, 204);
     -moz-box-shadow:0 0 40px 4px #000;    
@@ -1096,7 +1095,7 @@ resize: none;
   padding:20px;
   padding-right:55px;
   width:770px;
-  height:580px;
+  height:550px;
   display:none;
   margin:auto;
   top:20px;
@@ -1343,7 +1342,7 @@ text-align:center;
   background-color:#600001; 
   border: solid 1px #2f393f;
   padding:4px;
-  font-size:12px;
+  font-size:14px;
   color:white;
   height:150px;
   width:350px;
