@@ -51,7 +51,9 @@
 	});
 	
 	
-	
+	$('#session_email').change(function(){
+		$("#login :input").removeData("previousValue");
+	});
 	
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')

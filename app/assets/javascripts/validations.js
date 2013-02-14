@@ -217,6 +217,7 @@
   				      }
   				}
   		        }, // end remote 
+  
 				
 
 
@@ -228,8 +229,5 @@
 		         } 	
 
 			},
-		beforeSubmit: function(form) {		
-			alert("tits");
-		}
   	});
   });
