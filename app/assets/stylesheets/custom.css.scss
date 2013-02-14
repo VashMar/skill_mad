@@ -11,6 +11,7 @@ a:focus {
     outline: none; 
     border:0;
 }
+
 #create_leaderboard{
   display:none;
 }
@@ -1622,6 +1623,9 @@ z-index:-1;
 .field{
   margin-bottom:20px;
 }
+.business_style form{
+  width:550px;
+}
 .business_style label{
   text-transform:capitalize;
 }
@@ -1633,11 +1637,18 @@ z-index:-1;
 .business_style .actions{
   padding-left:120px;
 }
-.business_style #contact, #business_name{
+.business_style #contact, #phone, #business_name{
   width:300px;
+
+  
 }
 .business_style textarea{
   width:300px;
   height:120px;
   margin-bottom:20px;
+}
+
+#form_business label.error{
+float:right;
+clear:none;
 }

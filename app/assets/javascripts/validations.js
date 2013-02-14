@@ -34,6 +34,24 @@
 
 
   $(document).ready(function(){
+  	  $.validator.addMethod("isImage", function(value,element){
+  		
+  		var filetype = $("#form_file").val();
+  		filetype = filetype.split('.').pop();
+  		filetype = filetype.toLowerCase();
+  		switch(filetype)
+  		{
+  			case "jpg":
+  			case "jpeg":
+  			case "gif":
+  			case "png":
+  			case "bmp":
+  				return true;
+  				break;
+  			default:
+  				return false;
+  		}	
+  	}, "Wrong file type");
   	  	$.validator.addMethod("isImage", function(value,element){
   		
   		var filetype = $("#form_file").val();
@@ -190,15 +208,27 @@
 	 
 	 $("#form_business").validate({
 	 	rules: {
-	 	"business_name": {required: true},
-	 	"contact": {required: true},
-	 	"phone": {required: true},
-	 	"description": {required: true},
+		 	"business_name": {required: true},
+		 	"contact": {
+		 		  required: function(element) {
+                        return $('#phone').val() == '';
+                  }
+		 	},
+		 	"phone": {
+		 		  required: function(element) {
+                        return $('#contact').val() == '';
+                  }
+             },
+		 	"description": {required: true},
 		 },
 	 	messages: {
-	 	"business_name":{
-	 	remote: "lick mah ballz"
-		 }
+			 "contact": {
+                  required: 'Enter at least one contact'
+            },
+            "phone": {
+                  required: 'Enter at least one contact'
+            },
+            
 		 }
 	 });
 
@@ -217,10 +247,6 @@
   				      }
   				}
   		        }, // end remote 
-  
-				
-
-
   			}		
   		}, // end rules
   		messages:{
