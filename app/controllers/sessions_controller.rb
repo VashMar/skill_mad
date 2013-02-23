@@ -35,7 +35,7 @@ def verify
      respond_to do |format| 
        format.json{render :json => false}
      end
-     end
+  end
 end
 
 def activate_account
