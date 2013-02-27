@@ -110,6 +110,7 @@ GEM
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     netrc (0.7.7)
+    newrelic_rpm (3.5.7.59)
     nokogiri (1.5.6)
     oauth (0.4.7)
     oauth2 (0.8.0)
@@ -215,6 +216,7 @@ DEPENDENCIES
   jquery-rails
   json
   mysql2
+  newrelic_rpm
   paperclip (~> 3.1)
   pg (= 0.12.2)
   pg_search
