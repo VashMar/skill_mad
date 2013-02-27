@@ -14,14 +14,24 @@ if("<%= escape_javascript(@fill) %>" == "true"){
 		
 		
 		for(var leaderboard in t){
-			$("#leaderboard_select").append('<option value="'+t[leaderboard]+'">'+t[leaderboard]+'</option>');	
+			if(leaderboard == 0){
+			   $("#leaderboard_select").append('<option value="All Leaderboards">'+t[leaderboard]+'</option>');	// First value is All Leaderboards  
+			}
+			else{
+			   $("#leaderboard_select").append('<option value="'+t[leaderboard]+'">'+t[leaderboard]+'</option>');
+			}	
 		}
 	}
-	$(".customSelectInner").get(1).innerHTML = "All Leaderboards";
+
+	<% if @category != "All Categories" %>
+	$(".customSelectInner").get(1).innerHTML = "<%=escape_javascript(@category) %> " + "Leaderboards";
+	<% else %>
+  	$(".customSelectInner").get(1).innerHTML = "All Leaderboards";
+	<% end %> 
 	
 }
 
 $('#leader_switch').html(
 "<%=escape_javascript(render('leaderboards/leader_switch', category: @category, leaderboard: @leaderboard)) %>");
 		
-$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos))%>");
+$('#leaders_container').html("<%=escape_javascript(render('videos/leaders', videos: @videos, description: @description))%>");

@@ -1,4 +1,4 @@
- class User < ActiveRecord::Base
+class User < ActiveRecord::Base
 
   has_many :videos
   has_many :votes
@@ -40,7 +40,7 @@
 
  def generate_token(column)
     begin
-      self[column] = SecureRandom.urlsafe_base64
+    self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
  end
 
