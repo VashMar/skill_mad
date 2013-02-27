@@ -87,7 +87,8 @@ def index
        if @leaderboard == "All Leaderboards" # if "All Leaderboards" is selected, we need all the videos for current category
           @cat = Category.find_by_category_name(@category)
           # if the category is nil "All Categories" must be selected, therefore we render the videos with highest points overall, otherwise we get the ranked videos from respective category
-	  @cat == nil ? @videos = Video.order("points DESC").page(1).per_page(5).order("points DESC") : @videos = @cat.videos.page(1).per_page(5).order("points DESC") 
+	  @cat == nil ? @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC") : @videos = @cat.videos.page(1).where(
+	  "yt_video_id is not null").per_page(5).order("points DESC") 
        # if a specific leaderboard is chosen, simply get the videos, ordered by points, for that leaderboard
        else 
           @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
@@ -100,7 +101,8 @@ def index
             
           # if "All Categories" is chosen, get all videos on the site ranked by points, and get the values of all the leaderboard names 
           if @category == "All Categories"
-          @videos = Video.page(1).per_page(5).order("points DESC")
+          @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC")
+
           @string = ""
               @leaderboard_list.each do |l|                   # converts array to delimited string 
               @string = @string + l[0] + "|"
@@ -108,7 +110,7 @@ def index
          # otherwise find what category is chosen and get the videos for that category, along with the leaderboards in that category 
           else
           @obj = Category.find_by_category_name(@category)
-          @videos = Video.find_in_cat(@obj.id).page(1).per_page(5).order("points DESC")
+          @videos = Video.find_in_cat(@obj.id).where("yt_video_id is not null").page(1).per_page(5).order("points DESC")
           @leaderboards = @obj.leaderboards
              
              if @leaderboards.empty? # if no leaderboards exist for that category, make an empty array 
