@@ -19,15 +19,15 @@ end
  
 if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if params[:category] == "All Categories"
-       @videos = Video.paginate :page => params[:page] , :order => 'points DESC', :per_page => 5
+       @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC")
    else 
         @cat = Category.find_by_category_name(params[:category])
-        @videos = Video.find_in_cat(@cat.id).page(params[:page])
+        @videos = Video.where("yt_video_id is not null").find_in_cat(@cat.id).page(params[:page])
    end
 else 
     @leaders = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
     @description = @leaders.leaderboard_description 
-    @videos =  Video.find_in_lb(@leaders.id).page(params[:page])   
+    @videos =  Video.where("yt_video_id is not null").find_in_lb(@leaders.id).page(params[:page])   
 end
 
   respond_to do |format|
