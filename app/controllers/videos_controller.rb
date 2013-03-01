@@ -1,7 +1,6 @@
 class VideosController < InheritedResources::Base
    
-
- def upload
+def upload
   
     @video = Video.create(params[:video])				# creates video 
     leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
@@ -22,7 +21,7 @@ class VideosController < InheritedResources::Base
   end
 end
 
-  def update
+def update
     @video     = Video.find(params[:id])
     @result    = Video.update_video(@video, params[:video])
     respond_to do |format|
@@ -39,7 +38,7 @@ end
     end
   end
 
- def save_video
+def save_video
      
       @video = Video.find(params[:video_id])
       @user = User.find(current_user.id)
@@ -53,9 +52,9 @@ end
     sign_in(@user)
     
     redirect_to submitted_url(:video_id => params[:id].to_s)
-   end
+end
 
-  def destroy
+def destroy
     @video = Video.find(params[:id])
     user = current_user 
     if current_user.id == @video.user_id 
@@ -74,24 +73,25 @@ end
      flash[:failure] = "Stop trying to delete other people's videos"    
     end
     redirect_to home_url
-  end
+end
 
   def pre_upload
     @upload_info = Video.token_form(params[:video], home_path)
   end
 
- def vid_swap
+def vid_swap
 
  @current_video = Video.find(params[:video])
  @bank = params[:bank]
  @board = params[:board]
 
-	respond_to do |format|
-	format.js{}	
-	end
+ respond_to do |format|
+    format.js{}	
  end
+
+end
  
- def vid_bank
+def vid_bank
   
     if params[:user_id] == nil
        if params[:new] != nil
@@ -131,7 +131,8 @@ end
    respond_to do |format|
      format.js{}
    end
- end
+
+end
 
 
  def flush_junk
@@ -150,10 +151,8 @@ end
          lead.delete 
    end 
 
-   end 
+  end 
   
-
-    
    redirect_to home_url 
  end 
 

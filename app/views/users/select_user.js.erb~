@@ -1,4 +1,4 @@
-$('#id_card').html("<%=escape_javascript(render('user/id_card', selected_user: @selected_user))%>");
+$('#id_card').html("<%=escape_javascript(render('users/id_card', selected_user: @selected_user))%>");
 
 $("#overlay_view_profile").overlay().load(); 
  $("#overlay_view_profile").overlay().load(); 

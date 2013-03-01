@@ -3,13 +3,20 @@
   <div id="profile_videos">
  
   <h1>Top Videos</h1>
+
   <ul>
-  
+ 
+<% if !@search %>
  <% @selected_user.videos.order("points DESC").first(5).each do |video| %>
   <li><%= link_to( video.title , vid_bank_path(:user_id => @selected_user.id, :video => video), :class=>"watch scroll", 
    :method => :post, "data_type" => :js, :remote=> true, 
    :onclick => "$('html,body').animate({scrollTop:$('#video_container').offset().top}, 500);$('a.close').trigger('click');")%><span><%= video.points %>pts</span></li>
   <% end %>
+<% else %>
+<% @selected_user.videos.order("points DESC").first(5).each do |video| %>
+  <li><%= link_to( video.title , u_path(:user_id => @selected_user.id, :video => video.yt_video_id), :class=>"watch scroll")%><span><%= video.points %>pts</span></li>
+ <% end %>
+<% end %>
 
 
   </ul>
@@ -20,8 +27,8 @@
   </div>
   <h2><%= @selected_user.name  %></h2>
   <h3><%= @selected_user.year  %></h3>
-  <h4> <%= "Repuatation: #{user_rep(@selected_user)}"%> <%= "[#{@selected_user.points}]"%> </h4>
-  <h4><%= @selected_user.skill %></h4>
+  <h4> <%= "#{user_rep(@selected_user)}"%><%= " [#{@selected_user.points}]"%> </h4>
+  <h3><%= @selected_user.skill %></h3>
   
 </div>
 

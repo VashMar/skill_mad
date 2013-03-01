@@ -1,0 +1,1 @@
+$('#results_container').html("<%=escape_javascript(render('search/results', user_list: @user_list, board_id: @board_id))%>");

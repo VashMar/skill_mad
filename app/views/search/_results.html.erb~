@@ -1,0 +1,55 @@
+<% if @results.empty? %>
+
+<h1> No results found. </h1>
+
+<p> What you're looking for seems harder to find than a classroom in humanities.. </p>
+<% else %>
+ <% @results.each do |video| %>
+
+<div class="leader video">
+			
+	
+		
+	<div class="video_pic"> 
+	<%= link_to(u_path(:video => video.yt_video_id), :class => "leader_thumb_link") do %>   
+     	<%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
+   	<% end %>
+	</div>
+
+		
+			<div class="leader_info">
+  		      <%= link_to(u_path(:video => video.yt_video_id)) do%>
+			<h1><%= video.title %></h1>
+                       <% end %>
+			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id, :search => "1"), :remote => true %></h2>
+			<p>
+
+			<% if video.category %>
+			   <h4>Category: <%= video.category.category_name %>  </h4>
+			<% end %>
+
+		        <% if video.leaderboard %>
+			   <h5>Leaderboard: <%= video.leaderboard.leaderboard_name %>  </h5>
+			<% end %>
+
+			<br />
+			<%= video.description %>
+			<br />
+ 		        Rep: <%= video.points %>
+		
+			</p>
+
+			</div>
+
+
+</div>
+
+
+ <% end %>
+
+<%= paginate @results, :params => {:controller => 'search', :action => 'show'}  %> 
+<% end %>
+
+ <div id="id_card">
+	   
+  </div>

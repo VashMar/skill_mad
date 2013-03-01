@@ -18,6 +18,7 @@ Skillmad::Application.routes.draw do
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'
   match '/contact_email', :to => 'application#contact_email'
+  match '/results', :to => 'search#show'
   match '/business_email', :to => 'business#business_email'
   match '/business_page', :to => 'business#show'
   match '/signup',  :to => 'users#create'

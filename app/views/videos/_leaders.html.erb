@@ -58,7 +58,7 @@
 			</div>
 
 </div>
-<% end %> <!-- end if/else -->
+<% end %> <!-- end loop -->
 
 <%= paginate @videos, :params => {:controller => 'leaderboards', :action => 'video_board', :category => @category, :leaderboard => @leaderboard}  %>
 

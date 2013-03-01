@@ -174,6 +174,8 @@ def select_user
   @selected_user = @users[num]
  end
 
+ params[:search] != nil ?  @search = true : @search = false 
+
  respond_to do |format|
     format.js{}
  end

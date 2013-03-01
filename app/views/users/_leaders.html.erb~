@@ -1,13 +1,13 @@
 <% if @user_list.empty? %>
  <div id="empty_prompt"> 
   		<h1>Hurry! No one has seized this opportunity yet!</h1>
-  		<h2><span><a onclick="window.open('/videos/new', 'newwindow', 'width=550, height=750, top=30, left=50'); return false;" href="#">Upload a video</a></span> to own this leaderboard!</h2>
+  		<h2><span><a onclick="window.open('/videos/new', 'newwindow', 'width=608, height=750, top=30, left=50'); return false;" href="#">Upload a video</a></span> to own this leaderboard!</h2>
   </div>
  
 <% else %>
 
 <% @offset = @user_list.offset %>
-<% @per_page = @user_list.per_page %>
+
 
 
 <% @user_list.each_with_index do |user, i| %>
@@ -70,10 +70,6 @@
 				</ol>
 				
 			</div>
-
-			<div class="leader_bottom"></div>
-			<div class="leader_left"></div>
-			<div class="leader_right"></div>
 </div>
 <% end %>
 <%= paginate @user_list, :params => {:controller => 'leaderboards', :action => 'people_board', :category => @category, :leaderboard => @leaderboard} %>

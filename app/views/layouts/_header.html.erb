@@ -2,7 +2,15 @@
 <div id="header">
 
 <div id="header_container">
+
     
+    <%= form_tag results_path, :id=>"search", method: :get do %>
+      <p>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", name: nil %>
+     </p>
+    <% end %>
+
     <div id="header_logo">
     	<%= link_to(home_path) do%> 
     	<% end %>
