@@ -15,7 +15,16 @@ a:focus {
 #search{
  position:absolute;
  left: 45px;
-
+}
+#search_container{
+  margin:auto;
+  width:600px;
+}
+.pagination a{
+  color:black;
+}
+.pagination{
+  margin-top:10px;
 }
 
 #create_leaderboard{
@@ -393,14 +402,14 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   border-top:1px solid #999791;
   background-color:#6B0001;
   width:100%;
-  height:1600px;
   clear: both;
   margin-top:10px;
+  padding-bottom:10px;
  
 }
 
 #footer{
-  margin:35px auto;
+  margin:100px auto 0 auto;
   width:340px;
   height:60px;
   background-image:url(trans.png);
@@ -759,6 +768,35 @@ color:#600001;
   height:450px;
   padding:12px 0 0 20px;
   
+}
+.vote_small{
+  margin-top:10px;
+  margin-left:20px;
+  float:left;
+  clear:left;
+  width:20px;
+  height:60px;
+}
+.mad_small{
+  margin-left:6px;
+  display:block;
+  width:16px;
+  height:22px;
+  background-image:url(votesmall.png)
+}
+.mad_clicked{
+  background-image:url(votesmall_active.png);
+}
+
+.bad_small{
+    margin-left:6px;
+  display:block;
+  width:16px;
+  height:22px;
+  background-image:url(badsmall.png)
+}
+.bad_clicked{
+  background-image:url(badsmall_active.png);
 }
 #vote_fake{
   float:left;

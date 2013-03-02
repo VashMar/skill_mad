@@ -1,3 +1,4 @@
+<div id="search_container">
 <% if @results.empty? %>
 
 <h1> No results found. </h1>
@@ -6,7 +7,7 @@
 <% else %>
  <% @results.each do |video| %>
 
-<div class="leader video">
+<div class="leader video" style="padding-left:10px;">
 			
 	
 		
@@ -45,7 +46,7 @@
 </div>
 
 
- <% end %>
+ <% end %>about:startpage
 <br/>
 <%= paginate @results, :params => {:controller => 'search', :action => 'show'}  %> 
 <% end %>
@@ -53,3 +54,4 @@
  <div id="id_card">
 	   
   </div>
+</div>
