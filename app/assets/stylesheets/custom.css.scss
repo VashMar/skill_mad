@@ -777,7 +777,12 @@ color:#600001;
   width:20px;
   height:60px;
 }
+.vote_small h2{
+  width:27px;
+  text-align:center;
+}
 .mad_small{
+  cursor:pointer;
   margin-left:6px;
   display:block;
   width:16px;
@@ -789,6 +794,7 @@ color:#600001;
 }
 
 .bad_small{
+    cursor:pointer;
     margin-left:6px;
   display:block;
   width:16px;

@@ -1,35 +1,67 @@
-       function increment()
-		{
-			var container = document.getElementById("vote_counter");
-			var vote=1;
-			if($("#vote_bad").hasClass("pressed") && container.innerHTML!="0"){vote++}
-			if(!($("#vote_mad").hasClass("pressed"))){
-				container.innerHTML = parseInt(container.innerHTML)+vote;
-				$("#vote_bad").removeClass("pressed");
-				$("#vote_mad").addClass("pressed");
+       function increment(varID)
+		{							var vote=1;
+
+			if(varID=="vote_mad"){
+				var container = document.getElementById("vote_counter");
+				if($("#vote_bad").hasClass("pressed") && container.innerHTML!="0"){vote++}
+				if(!($("#vote_mad").hasClass("pressed"))){
+					container.innerHTML = parseInt(container.innerHTML)+vote;
+					$("#vote_bad").removeClass("pressed");
+					$("#vote_mad").addClass("pressed");
+				}else{
+					$("#vote_mad").removeClass("pressed");
+					container.innerHTML = parseInt(container.innerHTML)-1;
+				}
 			}else{
-				$("#vote_mad").removeClass("pressed");
-				container.innerHTML = parseInt(container.innerHTML)-1;
-			}
+					mad = $("#leaders_container").children().eq(varID).find(".mad_small");
+					container = mad.next();
+					bad = container.next();
+					if(bad.hasClass("bad_clicked") && container.innerHTML!="0"){vote++}
+					if(!(mad.hasClass("mad_clicked"))){
+					container.html(parseInt(container.html())+vote);
+					bad.removeClass("nad_clicked");
+					mad.addClass("mad_clicked");
+					}else{
+						mad.removeClass("mad_clicked");
+						container.html(parseInt(container.html())-1) ;
+					}
+				}
 			
 		}
-    	function decrement()
+    	function decrement(varID)
 		{
-	
-			var container = document.getElementById("vote_counter");
 			var vote=1;
-			if($("#vote_mad").hasClass("pressed")){vote++}
-			if(!($("#vote_bad").hasClass("pressed"))){
-				container.innerHTML = parseInt(container.innerHTML)-vote;
-				if(container.innerHTML=="-1"){
-					container.innerHTML=0;
-				} 
-			$("#vote_mad").removeClass("pressed");
-			$("#vote_bad").addClass("pressed");
-			}else{
-				$("#vote_bad").removeClass("pressed");
-				container.innerHTML = parseInt(container.innerHTML)+1;
-			}
+				if(varID=="vote_bad"){
+					var container = document.getElementById("vote_counter");
+					if($("#vote_mad").hasClass("pressed")){vote++}
+					if(!($("#vote_bad").hasClass("pressed"))){
+						container.innerHTML = parseInt(container.innerHTML)-vote;
+						if(container.innerHTML=="-1"){
+							container.innerHTML=0;
+						} 
+					$("#vote_mad").removeClass("pressed");
+					$("#vote_bad").addClass("pressed");
+					}else{
+						$("#vote_bad").removeClass("pressed");
+						container.innerHTML = parseInt(container.innerHTML)+1;
+					}
+				}else{
+					mad = $("#leaders_container").children().eq(varID).find(".mad_small");
+					container = mad.next();
+					bad = container.next();
+					if(mad.hasClass("mad_clicked")){vote++}
+					if(!(bad.hasClass("bad_clicked"))){
+						container.html(parseInt(container.html())-vote);
+						if(container.html()=="-1"){
+							container.html(0);
+						} 
+					mad.removeClass("mad_clicked");
+					bad.addClass("bad_clicked");
+					}else{
+						bad.removeClass("bad_clicked");
+						container.html(parseInt(container.html())+1) ;
+					}
+				}
 		}
 
 
