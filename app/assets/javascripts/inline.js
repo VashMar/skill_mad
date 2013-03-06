@@ -1,4 +1,16 @@
  $(document).ready(function() {
+ 	$("#hotspot").click(function(){
+ 		if($(this).css('right')=="0px"){
+ 			//slide in both	
+ 			$(this).animate({right:176})
+ 			$("#search").animate({right:5})
+ 		}else{
+ 			//slide out both
+ 			$(this).animate({right:0})
+ 			$("#search").animate({right:-170})
+ 			
+ 		}
+ 	});
 	$("#animation").hide();
 	$('#fileinput').css({
 		'opacity': 0,

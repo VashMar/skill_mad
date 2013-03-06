@@ -2,7 +2,7 @@
 	
  
     <%= link_to "", add_vote_path(:owner => @current_video.user_id , :video => @current_video.id , :voter => current_user.id),
-     :remote => true, :id => "vote_mad", :class => pressed_up, :onclick => "increment()", :method => :put %>
+     :remote => true, :id => "vote_mad", :class => pressed_up, :onclick => "increment(this.id)", :method => :put %>
     
 
 
@@ -11,7 +11,7 @@
 
      
     <%= link_to "", remove_vote_path(:owner => @current_video.user_id , :video => @current_video.id , :voter => current_user.id),
-     :remote => true, :id => "vote_bad", :class => pressed_down, :onclick => "decrement()", :method => :put %>
+     :remote => true, :id => "vote_bad", :class => pressed_down, :onclick => "decrement(this.id)", :method => :put %>
 
    
    

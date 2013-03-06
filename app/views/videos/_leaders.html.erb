@@ -33,9 +33,9 @@
 			<div style="float:left;">
 				<h3><%= num_rank(@offset + (i+1)) %></h3>
 				<div class="vote_small">
-					<a class="mad_small"></a>
+					<a class="mad_small" onclick="increment($(this).parents('.leader').index())" ></a>
 					<h2><%= video.points %></h2>
-					<a class="bad_small"></a>
+					<a class="bad_small" onclick="decrement($(this).parents('.leader').index())"></a>
 				</div>
 			</div>
 			<div class="video_pic"> 
@@ -73,12 +73,5 @@
 
 <% end %>
 <script>
-	$('.mad_small').click(function(){
-		$(this).toggleClass('mad_clicked');
-	});
-	
-	$('.bad_small').click(function(){
-		$(this).toggleClass('bad_clicked');
-	});
 
 </script>
