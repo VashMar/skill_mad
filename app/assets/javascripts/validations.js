@@ -125,6 +125,7 @@
   			case "avi":
 			case "mp4":
 			case "3gpp":
+			case "3gp":
 			case "webm":
   				return true;
   				break;
