@@ -19,7 +19,7 @@
 					if(bad.hasClass("bad_clicked") && container.innerHTML!="0"){vote++}
 					if(!(mad.hasClass("mad_clicked"))){
 					container.html(parseInt(container.html())+vote);
-					bad.removeClass("nad_clicked");
+					bad.removeClass("bad_clicked");
 					mad.addClass("mad_clicked");
 					}else{
 						mad.removeClass("mad_clicked");
