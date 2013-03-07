@@ -193,7 +193,7 @@
   			loading = loading.sort(function() { return 0.5 - Math.random();});
 			var n=1;
 			var txt=document.getElementById("txt");
-			var load = "pregaming for midterms...";
+			var load = loading[0];
 			txt.innerHTML=load;
   		 	setInterval(function(){
 				var load = loading[n];
