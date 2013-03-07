@@ -137,7 +137,7 @@ def index
 	@myVid = "true"
       end
 
-      @category_list = Category.all.collect{|c| [c.category_name]}
+      @category_list = Category.order("rank ASC").collect{|c| [c.category_name]}
       @category_list.unshift(["All Categories"])
 
   respond_to do |format|

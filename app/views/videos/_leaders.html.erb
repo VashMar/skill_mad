@@ -33,9 +33,16 @@
 			<div style="float:left;">
 				<h3><%= num_rank(@offset + (i+1)) %></h3>
 				<div class="vote_small">
-					<a class="mad_small" onclick="increment($(this).parents('.leader').index())" ></a>
+			      	   <%= link_to "", add_vote_path(:owner => video.user_id , :video => video.id , :voter => current_user.id),
+     				   :remote => true, :class => small_mad(video.id), :onclick =>"increment($(this).parents('.leader').index())", :method => :put %>
+					
 					<h2><%= video.points %></h2>
-					<a class="bad_small" onclick="decrement($(this).parents('.leader').index())"></a>
+
+      
+   				    <%= link_to "", remove_vote_path(:owner => video.user_id , :video => video.id , :voter => current_user.id),
+     				    :remote => true, :class => small_bad(video.id), :onclick => "decrement($(this).parents('.leader').index())", :method => :put %>
+
+					
 				</div>
 			</div>
 			<div class="video_pic"> 

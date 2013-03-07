@@ -3,13 +3,13 @@ module CategoriesHelper
 
 def all_categories
 
-@categories = Category.all
+@categories = Category.order("rank ASC")
 
 end 
 
 def all_categories_upload
 
-@categories = Category.all.collect{|c| [c.category_name]}
+@categories = Category.order("rank ASC").collect{|c| [c.category_name]}
 @categories.unshift(["Select a category to upload to!"])
 
 end 
