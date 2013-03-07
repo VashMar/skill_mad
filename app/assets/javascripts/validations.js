@@ -124,6 +124,8 @@
   			case "wmv":
   			case "avi":
 			case "mp4":
+			case "3gpp":
+			case "webm":
   				return true;
   				break;
   			default:
