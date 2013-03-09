@@ -1,4 +1,4 @@
-
+<%= render(:partial => "categories/category_list") %>
 <div id="header">
 	 <%if signed_in? %>
     <%= form_tag results_path, :id=>"search", method: :get do %>
@@ -90,3 +90,21 @@
 </div>
 
 </div>
+<script>
+	$(document).ready(function() {
+	   $("#header_categories, #categories").hover(function(){
+   		$("#categories").stop().show();
+   		clearTimeout(x);
+   	},function(){
+   		x=setTimeout(function(){
+   			$("#categories").fadeOut('fast');
+   			},700)
+   		
+   	});
+   	$("#categories li a").click(function(){
+		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
+		$('.customSelectInner')[0].innerHTML = this.innerHTML;
+		$('#category_select').val(this.innerHTML);
+	});
+	});
+</script>
