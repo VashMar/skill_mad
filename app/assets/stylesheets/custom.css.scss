@@ -97,6 +97,10 @@ a:focus {
 #leaderboard_select.select_style{
   width:300px;
 }
+
+#lander_info{
+  float:right;
+}
 .pagination a{
   color:black;
 }
@@ -566,7 +570,7 @@ label#is_private, label#filetypes{
   clear:none;
 float: left;
 text-transform: none;
-width:200px;
+width:180px;
 font-size:12px;
 text-align: left;
 padding-left: 5px;
@@ -723,8 +727,9 @@ a.left:active {}
   text-align:center;
 }
 .new_video{
-  width:360px;
-  margin-left:65px;
+  width:580px;
+  margin:auto;
+
 }
 #box h1{ 
 margin: 8px;
@@ -1435,7 +1440,22 @@ height:300px;
 width:340px;
 text-align:center;
 }
-#centered h1{
+#new{
+margin:auto;
+margin-top:18px;
+width:560px;
+/*
+background-image:url(leaderboard_divider.gif);
+background-position:262px;
+background-repeat:no-repeat;
+*/
+text-align:center;
+}
+#new table{
+  float:left;
+  width:260px;
+}
+#centered h1, #new h1{
   font-size:28px;
   color:rgb(96, 0, 1);
 }
