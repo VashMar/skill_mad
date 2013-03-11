@@ -1,5 +1,5 @@
 
-	<select id="leaderboard_select" class="select_style" name="leaderboard" >
+	<select id="pick_leaderboard" class="select_style" name="leaderboard" >
 		<% @leaderboard_list.each do |leaderboard| %>
 		<option value="<%= leaderboard[0] %>"><%= leaderboard[0] %></option>
 		<%end%>
@@ -8,7 +8,7 @@
 
 <script>
 
-	 		$("#leaderboard_select").change(function(){
+	 		$("#pick_leaderboard").change(function(){
 	 			
 	 			if($(this).val().substring(0,22) == "Create New Leaderboard"){
 	 				$("#create_leaderboard").stop().fadeIn();
