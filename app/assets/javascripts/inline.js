@@ -61,6 +61,17 @@
 		 
 		});
 	});
+
+       	$('#choose_category').change(function(){
+		x = $(this).val();
+		$.ajax({
+		  type    : 'GET',
+		  url     : "/category_boards", 
+		  data    : { category : x},
+		 
+		});
+	});
+
 	
 	
 	$('#session_email').change(function(){

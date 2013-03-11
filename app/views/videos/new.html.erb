@@ -23,23 +23,21 @@
 	
 	<label for="video_description">Description</label>
 	<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
-	<label for="leaderboard">Leaderboard</label>
-         <select name="leaderboard" >
-	  <option value="">Choose a leaderboard </option> 
-          <% all_categories.each do |cat| %> 
-          <optgroup label= "Category: <%= cat.category_name %>">
-          <% leaderboard_list(cat).each do |l| %> 
-          <option value="<%= l %>,<%=cat.category_name%>"> <%= l %> </option>
-          <% end %>
 
-          </optgroup>
+	<label for="Category">Choose the best category for your video</label>
+         <select id= "choose_category" name="category" >
+	  <option value=""> </option>
+          <% all_categories.each do |cat| %> 
+          <option value="<%=cat.id%>"> <%= cat.category_name %> </option>
           <% end %> 
         </select>
+
+        <div id="leaderboard_vals"> </div>
 
 	<div id="create_leaderboard">
 		<label for="leaderboard_name">Name of New Leaderboard</label>
 		<input name="new_board[leaderboard_name]" type="text"></input>
-		<label for="new_board[leaderboard_description]">Description</label>
+		<label for="new_board[leaderboard_description]">Leaderboard Description</label>
 		<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9"></textarea>
 	</div>
 	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
@@ -52,19 +50,7 @@
 </div>
 
         
-<script>
-	 $(document).ready(function() {
-	 		$("#upload select").change(function(){
-	 			
-	 			if($(this).val().substring(0,22) == "Create New Leaderboard"){
-	 				$("#create_leaderboard").stop().fadeIn();
 
-	 			}else{
-	 				$("#create_leaderboard").hide();
-	 			}
-	 		});
-	 });
-</script>
 
 
 

@@ -2,16 +2,14 @@ class VideosController < InheritedResources::Base
    
 def upload
   
-    @video = Video.create(params[:video])				# creates video 
-    leadncat = params[:leaderboard].split(',')                          # splits leaderboard name and category name
-    @cat = Category.find_by_category_name(leadncat[1])			# finds category 	
-     if leadncat[0] != "Create New Leaderboard"                         # if the user isn't creating a new leaderboard   
-        @lead = Leaderboard.find_by_leaderboard_name(leadncat[0])       # find existing leaderboard 
-     									# add the video to it and the category 
-	@video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)              
+    @video = Video.create(params[:video])							# creates video 
+  
+    @cat = Category.find_by_category_name(params[:category])					# finds category 	
+     if params[:leaderboard] != "Create New Leaderboard"                        	        # if the user isn't creating a new leaderboard   
+        @lead = Leaderboard.find_by_leaderboard_name(params[:leaderboard])      	        # find existing leaderboard 
+        @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @tom.id)  	# add the video to it and the category              
     else 
-        								# create a new leaderboard with the passed in name and description 
-        @lead = Leaderboard.create(params[:new_board])
+        @lead = Leaderboard.create(params[:new_board])						# create a new leaderboard with the passed in name and description 
         @lead.update_attribute(:category_id, @cat.id)
         @video.update_attributes(:leaderboard_id => @lead.id, :category_id => @cat.id)    
     end   
@@ -88,6 +86,7 @@ def vid_swap
  respond_to do |format|
     format.js{}	
  end
+
 end
  
 def vid_bank

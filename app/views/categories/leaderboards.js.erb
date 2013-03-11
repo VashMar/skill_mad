@@ -1,0 +1,13 @@
+<% if @leaderboard_list != "none" %>
+$('#leaderboard_vals').html("<%=escape_javascript(render('leaderboards/leaderboard_select', leaderboard_list: @leaderboard_list))%>");
+
+if($('#leaderboard_select').val().substring(0,22) == "Create New Leaderboard"){
+   $("#create_leaderboard").stop().fadeIn();
+ }
+else{
+   $("#create_leaderboard").hide();
+ }
+
+<% else %>
+$('#leaderboard_vals').html("");
+<% end %>
