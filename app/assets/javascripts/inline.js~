@@ -1,30 +1,35 @@
  $(document).ready(function() {
+ 	$("#hotspot").click(function(){
+ 		if($(this).css('right')=="0px"){
+ 			//slide in both	
+ 			$(this).animate({right:176})
+ 			$("#search").animate({right:5})
+ 		}else{
+ 			//slide out both
+ 			$(this).animate({right:0})
+ 			$("#search").animate({right:-170})
+ 			
+ 		}
+ 	});
 	$("#animation").hide();
 	$('#fileinput').css({
 		'opacity': 0,
 		'visibility': 'visible'
 	});
+	$(".select_style").customSelect();
+
 	
 	window.setTimeout(function() {
-		$(window).bind('popstate', function(event) {
-		$.cookie("zomg","zomg");
+	  window.addEventListener('popstate', function() {
+	    $.cookie("zomg","zomg");
 		location.reload(); 
-	}, 1000)});
+	  });
+	}, 1000);
 
-   	
+  
 	$('#form_file').css({
 		'opacity': 0,
 		'visibility': 'visible'
-	});
-	$('#sign_in input#session_email').click(function(){
-		if ($(this).val() == "email"){
-			$(this).val("");
-		}
-	});
-	$('#sign_in input#session_password').click(function(){
-		if ($(this).val() == "password"){
-			$(this).val("");
-		}
 	});
 	$('#header_leaders a').click(function(){
 		window.history.pushState({state:2}, "Leaders Of Madison", "/"+this.hash);
@@ -34,6 +39,45 @@
 		return event.preventDefault();
 
 	});
+	
+	
+	$('#category_select').change(function(){
+		x = $(this).val();
+		$.ajax({
+		  type    : 'POST',
+		  url     : "/home", 
+		  data    : { category : x},
+		 
+		});
+	});
+
+	$('#leaderboard_select').change(function(){
+		leaderVal = $(this).val();
+		categoryVal =$('#category_select').val();
+		$.ajax({
+		  type    : 'POST',
+		  url     : "/home", 
+		  data    : { leaderboard : leaderVal, category : categoryVal},
+		 
+		});
+	});
+
+       	$('#choose_category').change(function(){
+		x = $(this).val();
+		$.ajax({
+		  type    : 'GET',
+		  url     : "/leaderboards", 
+		  data    : { category : x},
+		 
+		});
+	});
+
+	
+	
+	$('#session_email').change(function(){
+		$("#login :input").removeData("previousValue");
+	});
+	
 	$('.leader_thumb_link').click(function(){
 		par = $(this).parent().attr('class')
 		if(par == 'leader_thumb'){
@@ -71,9 +115,7 @@
 			$('#leader_all').fadeIn();
 		});
 	});
-	$("#categories li a").click(function(){
-		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
-	});
+
 	$('#leaderboard_title').click(function(){
 		$('#leader_all').fadeOut(function(){
 			$('.leader').fadeIn();
@@ -81,16 +123,6 @@
 	});
 	$('#leaderboard').waypoint(function() {
    		$('#backtotop').fadeToggle('fast');
-	});
-	$(".tip_logo[title]").tooltip({
-		offset: [170, 2],
-		direction: 'down',
-		effect: 'slide'
-	});
-	$(".tip[title]").tooltip({
-		offset: [152, 2],
-		direction: 'down',
-		effect: 'slide'
 	});
 	$('#profile').hover(function(){
 		$('#profile_back').fadeIn('fast');
@@ -129,8 +161,10 @@
 	$('.notice').click(function(){
 		$(this).fadeOut();
 	});
-	$("#overlay_view_profile").overlay();
-	$("a[rel^='#']").overlay(); 
+	$("#overlay_view_profile").overlay({
+		top:20
+	});
+	$("a[rel^='#']").overlay({top:20}); 
  });
  		
 		 $(".items_inner div img").css('opacity','.8');
