@@ -218,6 +218,7 @@
   			"video[title]": {required: true},
   			"video[description]": {required: true},
   			"leaderboard": {required: true},
+  			"category":{required: true},
   			"new_board[leaderboard_name]": {required: true},
   			"new_board[leaderboard_description]":{required:true}
 			},
