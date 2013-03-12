@@ -1,11 +1,17 @@
-
+<table>
+<tr>
+	<td><label for="leaderboard">Leaderboard</label></td>
+</tr>
+<tr>
+	<td>
 	<select id="pick_leaderboard" class="select_style" name="leaderboard" >
 		<% @leaderboard_list.each do |leaderboard| %>
 		<option value="<%= leaderboard[0] %>"><%= leaderboard[0] %></option>
 		<%end%>
 	</select>
-
-
+	</td>
+</tr>
+</table>
 <script>
 
 	 		$("#pick_leaderboard").change(function(){
