@@ -1535,8 +1535,15 @@ background-color:#770b0c;
 
 #upload label.error {
   float:right;
+  position:relative;
+  top:-37px;
+  left:-60px;
   clear:none;
   margin-top:2px;
+  color:white;
+}
+#new h4{
+  text-align:left
 }
 #upload input{
   clear:both;
