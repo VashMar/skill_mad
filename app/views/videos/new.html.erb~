@@ -10,43 +10,100 @@
 	}
 </style>
 
-<div id="centered" class="istyle">
+<div id="new" class="istyle" >
 	<h1>Tell us about your video..</h1>
-	<h4>Yes, a catchier title will get you more views </h4>
+		<form novalidate="novalidate" accept-charset="UTF-8" action="/upload" class="new_video" id="upload" method="post"><div style="margin:0;padding:0;display:inline">
+	<table>
+		<tr>
+			<td>
+					<h4>Yes, a catchier title will get you more views </h4>
+			</td>
+		</tr>
+		<tr>
+			<td>
+						<label for="video_title">Title</label>
+			</td>
 
-	<form novalidate="novalidate" accept-charset="UTF-8" action="/upload" class="new_video" id="upload" method="post"><div style="margin:0;padding:0;display:inline">
+		</tr>
+		<tr>
+			<td>
+					<input id="video_title" name="video[title]" size="30" type="text">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+						<label for="video_description">Description</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input id="video_is_private" name="video[is_private]" value="true" type="checkbox" style="width:20px">
+	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
+    
+			</td>
+		</tr>
+		
+		
+	</table>
+			<div style="float:left;border-left:1px solid #aaa;height:200px;margin-top:20px;"></div>
+
+	<table style="margin-left:15px;">
+		<tr>
+			<td>
+					<h4>Upload your talent to an existing leaderboard or create your own</h4>
+			</td>
+		</tr>
+		<tr>
+			<td>
+					<label for="Category">Category</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<select id= "choose_category" name="category" >
+				  <option value=""> </option>
+			          <% all_categories.each do |cat| %> 
+			          <option value="<%=cat.id%>"> <%= cat.category_name %> </option>
+			          <% end %> 
+			        </select>
+			</td>
+		</tr>
+		
+        		<div id="leaderboard_vals" style="width:200px;"> </div>
+		
+		<tr>
+
+			<td>
+        	<div id="create_leaderboard">
+				<label for="leaderboard_name">Leaderboard Name</label>
+				<input name="new_board[leaderboard_name]" type="text"></input>
+				<label for="new_board[leaderboard_description]">Leaderboard Description</label>
+				<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9"></textarea>
+			</div>
+			</td>
+		</tr>
+	</table>
 		
 	<input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="r4IOVjQW2A4QhHBH7iBqfDQGaXV9EOnB12VVil8KdZg=" type="hidden"></div>
 	
-	<label for="video_title">Title</label>
-	<input id="video_title" name="video[title]" size="30" type="text">
 	
-	<label for="video_description">Description</label>
-	<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
 
-	<label for="Category">Choose the best category for your video</label>
-         <select id= "choose_category" name="category" >
-	  <option value=""> </option>
-          <% all_categories.each do |cat| %> 
-          <option value="video[<%=cat.id%>]"> <%= cat.category_name %> </option>
-          <% end %> 
-        </select>
 
-        <div id="leaderboard_vals"> </div>
 
-	<div id="create_leaderboard">
-		<label for="leaderboard_name">Name of New Leaderboard</label>
-		<input name="new_board[leaderboard_name]" type="text"></input>
-		<label for="new_board[leaderboard_description]">Leaderboard Description</label>
-		<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9"></textarea>
-	</div>
-	<input id="video_is_private" name="video[is_private]" value="true" type="checkbox">
-	<label for="is_private" id="is_private">I want my video only seen to skillmad members and not on youtube</label>
-    
-          <input class="button" name="commit" value="submit" type="submit">
+
+
+	
+          <input class="button" name="commit" value="submit" type="submit" style="margin-left:180px">
+          <div class="clear"></div>
 </form>
 <div id="upload_prompt">
-	Upload your talent to an existing leaderboard or create your own
+
 </div>
 
         
