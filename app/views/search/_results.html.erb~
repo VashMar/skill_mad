@@ -1,3 +1,5 @@
+<div id="search_container_left">
+</div>
 <div id="search_container">
 <% if @results.empty? %>
 
@@ -33,8 +35,7 @@
 			   <h5>Leaderboard: <%= video.leaderboard.leaderboard_name %>  </h5>
 			<% end %>
 
-			<br />
-			<%= video.description %>
+			<%= truncate(video.description, :length => 115) %>
 			<br />
  		        Rep: <%= video.points %>
 		
@@ -46,7 +47,7 @@
 </div>
 
 
- <% end %>about:startpage
+ <% end %>
 <br/>
 <%= paginate @results, :params => {:controller => 'search', :action => 'show'}  %> 
 <% end %>
@@ -54,4 +55,8 @@
  <div id="id_card">
 	   
   </div>
+</div>
+<div id="search_container_right">
+</div>
+<div id="search_container_bottom">
 </div>
