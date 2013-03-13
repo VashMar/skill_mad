@@ -35,8 +35,7 @@
 			   <h5>Leaderboard: <%= video.leaderboard.leaderboard_name %>  </h5>
 			<% end %>
 
-			<br />
-			<%= video.description %>
+			<%= truncate(video.description, :length => 115) %>
 			<br />
  		        Rep: <%= video.points %>
 		
