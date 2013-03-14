@@ -1,7 +1,7 @@
-<% if @leaderboard_list != "none" %>
+<% if @leaderboard_list != ["Select Category First"] %>
 $('#leaderboard_vals').html("<%=escape_javascript(render('leaderboards/pick_leaderboard', leaderboard_list: @leaderboard_list))%>");
 
-if($('#leaderboard_select').val().substring(0,22) == "Create New Leaderboard"){
+if($('#pick_leaderboard').val().substring(0,22) == "Create New Leaderboard"){
    $("#create_leaderboard").stop().fadeIn();
  }
 else{
@@ -9,5 +9,6 @@ else{
  }
 
 <% else %>
-$('#leaderboard_vals').html("");
+$('#leaderboard_vals').html("<%=escape_javascript(render('leaderboards/pick_leaderboard', leaderboard_list: @leaderboard_list))%>");
+$('#pick_leaderboard').attr('disabled', true);
 <% end %>

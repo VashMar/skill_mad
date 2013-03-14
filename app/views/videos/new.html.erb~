@@ -9,6 +9,9 @@
 		background-color:transparent
 	}
 </style>
+<% if @leaderboard_list == nil %>
+ <% @leaderboard_list = ["Select Category First"] %>
+<% end %>
 
 <div id="new" class="istyle" >
 	<h1>Tell us about your video..</h1>
@@ -74,9 +77,29 @@
 			        </select>
 			</td>
 		</tr>
-		
-        		<div id="leaderboard_vals" style="width:200px;"> </div>
-		
+		<tr>
+
+			<td>
+
+	
+        		<div id="leaderboard_vals" style="width:200px;">
+			 <table>
+			  <tr>
+			   <td><label for="leaderboard">Leaderboard</label></td>
+			  </tr>
+			 <tr>
+			   <td>
+			     <select disabled id="pick_leaderboard"  name="leaderboard" >
+			     <% @leaderboard_list.each do |leaderboard| %>
+				<option value="<%= leaderboard %>"><%= leaderboard %></option>
+			     <%end%>
+			     </select>
+			   </td>
+		         </tr>
+		       </table>
+		      </div>
+			</td>
+		</tr>
 		<tr>
 
 			<td>

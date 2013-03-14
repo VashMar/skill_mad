@@ -5,13 +5,14 @@ def leaderboard_list(category)
 @category = category
 
 @leaderboard_list = @category.leaderboards.map {|l| l.leaderboard_name}.uniq
-
-
+@leaderboard_list << "Create New Leaderboard" 
     
 end
 
 
-
+def all_leaderboards
+@leaderboard_list = Leaderboard.all.map {|l| l.leaderboard_name}.uniq
+end 
 
 def selected_value(category) 
     @category = category 

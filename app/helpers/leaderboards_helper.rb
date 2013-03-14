@@ -10,7 +10,9 @@ def leaderboard_list(category)
 end
 
 
-
+def all_leaderboards
+@leaderboard_list = Leaderboard.all.collect {|l| l.leaderboard_name}
+end 
 
 def selected_value(category) 
     @category = category 
