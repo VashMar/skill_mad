@@ -127,6 +127,9 @@
 			case "3gpp":
 			case "3gp":
 			case "webm":
+			case "rc":
+			case "m4a":
+			case "mv4":
   				return true;
   				break;
   			default:

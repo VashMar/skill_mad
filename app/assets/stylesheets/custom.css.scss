@@ -1119,21 +1119,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edeae2', end
   width:300px;
   padding-top:11px;
 }
-.leader_info a{
+.leader_info a, .leader_info_search a{
 color:black;
 }
-.leader_info a:hover{
+.leader_info a:hover, .leader_info_search a:hover{
 color:rgb(92,0,1);
 }
 
-.leader_info h1{
+.leader_info h1, .leader_info_search h1{
   font-size:22px;
 }
-.leader_info h2{
+.leader_info h2, .leader_info_search h2{
   font-size:20px;
   color:#600001;
 }
-.leader_info p{
+.leader_info p, .leader_info_search p {
   padding-top:5px;
   font-size:14px;
 }
