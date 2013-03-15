@@ -10,23 +10,20 @@
      <%end%>
 <div id="header_container">
 
-    
-
-
     <div id="header_logo">
     	<%= link_to(home_path) do%> 
     	<% end %>
     </div>
    
    <%if signed_in? %>
-    <a rel="#overlay_profile">
+     <%= link_to (select_user_path(:user => current_user.id)) do%>
     <div id="profile" class="active">
    <%= image_tag  @user.avatar.url(:thumb) %>
    <h3><%= @user.name %></h3>
 	<div id="profile_back">
    </div>
    </div>
-   </a>
+   <%end%>
    <%end%>
  	  <%if signed_in? %>
    <div id="header_leaders" class="header_link">

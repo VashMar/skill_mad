@@ -8,7 +8,7 @@
  			//slide out both
  			$(this).animate({right:0})
  			$("#search").animate({right:-170})
- 			
+
  		}
  	});
 	$("#animation").hide();
