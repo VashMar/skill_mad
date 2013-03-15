@@ -16,7 +16,7 @@
     </div>
    
    <%if signed_in? %>
-     <%= link_to (select_user_path(:user => current_user.id)) do%>
+     <%= link_to(select_user_path(:user => current_user.id), "data_type" => :js, :remote => true) do%>
     <div id="profile" class="active">
    <%= image_tag  @user.avatar.url(:thumb) %>
    <h3><%= @user.name %></h3>
