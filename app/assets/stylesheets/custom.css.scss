@@ -1264,7 +1264,6 @@ resize: none;
   padding:20px;
   padding-right:55px;
   width:770px;
-  height:550px;
   display:none;
   margin:auto;
   top:20px;
@@ -1534,7 +1533,15 @@ text-align:center;
   resize: none; 
 
 }
-
+#edit_profile{
+  position:absolute;
+  right:107px;
+  top:6px;
+  cursor:pointer;
+}
+#edit_profile:hover{
+  text-decoration:underline;
+}
 .istyle input:focus, .istyle textarea:focus{
 border: solid 1px black;
 background-color:#770b0c;
