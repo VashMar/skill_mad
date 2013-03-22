@@ -1,4 +1,4 @@
-<%= render(:partial => "categories/category_list") %>
+
 <% if @board == nil %>
 <h3 class="hidden" > <%= @bank %> </h3>
 <% else %>
@@ -31,8 +31,8 @@
  		
  	
  	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
- 	<p><%=  @current_video.description %></p>
- 	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user.id) %>
+ 	<p><%= truncate(@current_video.description, :length => 150) %></p>
+ 	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user) %>
  	</div>
  	<div id="video_info_right">
  
@@ -83,20 +83,7 @@
     },function(){  
         $(this).children('.items_description').stop().fadeTo(500, 0);  
     });  
-    	$("#header_categories, #categories").hover(function(){
-   		$("#categories").stop().show();
-   		clearTimeout(x);
-   	},function(){
-   		x=setTimeout(function(){
-   			$("#categories").fadeOut('fast');
-   			},700)
-   		
-   	});
-   	$("#categories li a").click(function(){
-		$('html,body').animate({scrollTop:$("#leaderboard").offset().top}, 500);
-		$('.customSelectInner')[0].innerHTML = this.innerHTML;
-		$('#category_select').val(this.innerHTML);
-	});
+
    	});
    	
     </script>

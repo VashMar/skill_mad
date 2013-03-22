@@ -58,13 +58,11 @@
   		      <%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
-			<h1><%= video.title %></h1>
+			<h1><%= truncate(video.title, :length => 25) %></h1>
                        <% end %>
 			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id), :remote => true %></h2>
 			<p>
-			<%= video.description %>
-			<br />
- 		        Rep: <%= video.points %>
+			<%= truncate(video.description, :length => 110) %>
 		
 			</p>
 

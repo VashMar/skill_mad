@@ -42,7 +42,7 @@
 				<h2>Top Videos</h2>
                           <%else%> 
                                <h2><%=@leaderboard %> Videos</h2>
-                           <%end%>
+                          <%end%>
 				<h5>Title</h5>
 				<h6>Rep</h6>
 				<ol>

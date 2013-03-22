@@ -27,8 +27,16 @@
   </div>
   <h2><%= @selected_user.name  %></h2>
   <h3><%= @selected_user.year  %></h3>
-  <h4> <%= "#{user_rep(@selected_user)}"%><%= " [#{@selected_user.points}]"%> </h4>
   <h3><%= @selected_user.skill %></h3>
+  <h4> <%= "#{user_rep(@selected_user)}"%><%= "[#{@selected_user.points}]"%> </h4>
   
+  <% if current_user == @selected_user%>
+  	<a id="edit_profile">edit profile</h3>
+  <% end %>
 </div>
+<script> 
+ 	$("#edit_profile").click(function(){
+ 		$("#overlay_profile").overlay().load();
+	});
 
+</script>

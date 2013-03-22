@@ -27,11 +27,11 @@
  	</div>
  	<div id="video_info_left">
 
- 	<h1><%=@current_video.title%></h1>
+ 	<h2><%=@current_video.title%></h2>
  		
  	
  	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
- 	<p><%=  @current_video.description %></p>
+ 	<p><%= truncate(@current_video.description, :length => 150) %></p>
  	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user) %>
  	</div>
  	<div id="video_info_right">
