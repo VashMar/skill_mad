@@ -17,9 +17,9 @@ if params[:page] == nil
 params[:page] = 1 
 end 
  
-if @leaderboard == "All Leaderboards" || @leaderboard == nil
+if @leaderboard == "All Leaderboards" || @leaderboard == nil || @leaderboard == ""
    if params[:category] == "All Categories"
-       @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC")
+       @videos = Video.where("yt_video_id is not null").page(params[:page]).per_page(5).order("points DESC")
    else 
         @cat = Category.find_by_category_name(params[:category])
         @videos = Video.where("yt_video_id is not null").find_in_cat(@cat.id).page(params[:page])
