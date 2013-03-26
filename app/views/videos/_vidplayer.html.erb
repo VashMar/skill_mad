@@ -64,13 +64,11 @@
      			var old = $('#video_info_left p').height();
      			var diff = h - old;
      			if(diff == 0){
-     				alert("back");
      				diff = old-oldSave;
      				$('#video_info_left p').animate({height:oldSave});
 	     			$('#video_info').animate({height:'-='+diff});
 
 	     		}else{
-	     			alert("to");
 	     			oldSave = old;
 	     			$('#video_info').animate({height:'+='+diff});
 	     			$('#video_info_left p').animate({height:h});
