@@ -201,7 +201,7 @@
   		 	setInterval(function(){
 				var load = loading[n];
 				txt.innerHTML=load;
-				if(n<loading.length){
+				if(n<loading.length-1){
 				n++;
 				}
 			},3000);

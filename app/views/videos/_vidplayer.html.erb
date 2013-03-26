@@ -31,8 +31,9 @@
  		
  	
  	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
- 	<p><%= truncate(@current_video.description, :length => 150) %></p>
+ 	<p><%= @current_video.description %> </p>
  	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user) %>
+ 	<a id="more">see more...</a>
  	</div>
  	<div id="video_info_right">
  
@@ -54,6 +55,33 @@
     <div style="clear:both"></div>
     <script>
      $(document).ready(function() {
+     	//if text overflows
+     	if($('#video_info_left p')[0].scrollHeight >  $('#video_info_left p').height()){
+     		$('#more').show();
+     		
+     		$('#more').click(function(){
+     			var h = $('#video_info_left p')[0].scrollHeight;
+     			var old = $('#video_info_left p').height();
+     			var diff = h - old;
+     			if(diff == 0){
+     				alert("back");
+     				diff = old-oldSave;
+     				$('#video_info_left p').animate({height:oldSave});
+	     			$('#video_info').animate({height:'-='+diff});
+
+	     		}else{
+	     			alert("to");
+	     			oldSave = old;
+	     			$('#video_info').animate({height:'+='+diff});
+	     			$('#video_info_left p').animate({height:h});
+
+	     		}
+     			
+     		});
+     	}
+     	
+     	
+     	
         x = $("#background_overlay iframe").attr("title");
         y=$("#video_container h3").html().substring(1,4);
 
