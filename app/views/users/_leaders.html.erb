@@ -48,7 +48,7 @@
 				<ol>
            <% if @board_id == nil || @board_id == "" %>
            <% user.videos.order("points DESC").each do |video| %>
-              <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
+              <li title="<%= video.title %>"><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
                    <%= video.title %>

@@ -22,24 +22,25 @@
 		
 			<div class="leader_info_search">
   		      <%= link_to(u_path(:video => video.yt_video_id)) do%>
-			<h1><%= video.title %></h1>
+			<h1 title="<%= video.title %>"><%= video.title %></h1>
                        <% end %>
 			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id, :search => "1"), :remote => true %></h2>
-			<p>
 
 			<% if video.category %>
 			   <h4>Category: <%= video.category.category_name %>  </h4>
 			<% end %>
+			
 
 		        <% if video.leaderboard %>
 			   <h5>Leaderboard: <%= video.leaderboard.leaderboard_name %>  </h5>
 			<% end %>
-
+			<p>
 			<%= truncate(video.description, :length => 115) %>
+			</p>
 			<br />
  		       <span><%= video.points %>pts</span>
 		
-			</p>
+			
 
 			</div>
 

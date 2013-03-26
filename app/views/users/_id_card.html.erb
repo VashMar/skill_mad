@@ -14,7 +14,7 @@
   <% end %>
 <% else %>
 <% @selected_user.videos.order("points DESC").first(5).each do |video| %>
-  <li><%= link_to( video.title , u_path(:user_id => @selected_user.id, :video => video.yt_video_id), :class=>"watch scroll")%><span><%= video.points %>pts</span></li>
+  <li title="<%=video.title%>"><%= link_to( video.title , u_path(:user_id => @selected_user.id, :video => video.yt_video_id), :class=>"watch scroll")%><span><%= video.points %>pts</span></li>
  <% end %>
 <% end %>
 
