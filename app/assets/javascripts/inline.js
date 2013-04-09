@@ -24,7 +24,7 @@
 	    $.cookie("zomg","zomg");
 		location.reload(); 
 	  });
-	}, 1000);
+	}, 2000);
 
   
 	$('#form_file').css({
