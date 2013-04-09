@@ -156,9 +156,8 @@ form#upload select, form#upload .customSelect{
   left:10px;
   bottom:10px;
   font-weight:bold;
-   background-color:black;
-   padding:0 3px;
- 
+  background-color:black;
+  padding:0 3px;
 }
 #business_link:hover{
   background-color:rgb(92,0,1);
@@ -1561,11 +1560,17 @@ text-align:center;
 }
 #edit_profile{
   position:absolute;
-  right:107px;
+  right:166px;
   top:6px;
   cursor:pointer;
 }
-#edit_profile:hover{
+#edit_settings{
+  position:absolute;
+  right:56px;
+  top:6px;
+  cursor:pointer;
+}
+#edit_profile:hover, #edit_settings:hover{
   text-decoration:underline;
 }
 .istyle input:focus, .istyle textarea:focus{
