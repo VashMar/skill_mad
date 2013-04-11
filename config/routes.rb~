@@ -43,7 +43,7 @@ Skillmad::Application.routes.draw do
   match '/category_swap', :to => 'categories#swap'
   match '/video_board',  :to => 'leaderboards#video_board'
   match '/people_board', :to => 'leaderboards#people_board'	
-  match '/leaderboards', :to => 'categories#leaderboards'
+  match '/category_boards', :to => 'categories#leaderboards'
   match '/t', :to =>  'users#index', :u => false 
   match '/u', :to =>  'users#index', :u => true
   match '/l', :to =>  'users#index', :l => true 

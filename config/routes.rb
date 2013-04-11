@@ -21,6 +21,7 @@ Skillmad::Application.routes.draw do
   match '/results', :to => 'search#show'
   match '/business_email', :to => 'business#business_email'
   match '/business_page', :to => 'business#show'
+  match '/terms', :to => 'business#terms'
   match '/signup',  :to => 'users#create'
   match '/home', :to => 'users#index'
   match '/check_email', :to => 'users#check_email'

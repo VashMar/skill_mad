@@ -15,7 +15,9 @@ def business_email
 end 
 
 
-
+def terms
+render 'layouts/terms'
+end
 
 
 
