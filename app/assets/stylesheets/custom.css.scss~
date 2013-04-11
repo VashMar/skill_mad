@@ -142,6 +142,11 @@ a:focus {
 #create_leaderboard{
   display:none;
 }
+
+#create_leaderboard p{
+ font-size: 8px;
+}
+
 form#upload select, form#upload .customSelect{
   width:207px;
   clear:left;
@@ -1914,6 +1919,7 @@ clear:none;
 }
 #terms h1{
   margin-left:52px;
+  margin-top: 5px;
 }
 #terms ol, #terms ul{
   margin-left:52px;

@@ -105,9 +105,11 @@
 			<td>
         	<div id="create_leaderboard">
 				<label for="leaderboard_name">Leaderboard Name</label>
-				<input name="new_board[leaderboard_name]" type="text"></input>
-				<label for="new_board[leaderboard_description]">Leaderboard Description</label>
-				<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9"></textarea>
+				<input name="new_board[leaderboard_name]" type="text"  placeholder="(Ex: Iron Chef on Campus)"></input>
+				<label for="new_board[leaderboard_description]">Leaderboard Rules</label>
+				
+				<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9" placeholder="What kind of videos should be uploaded to this leaderboard + what are they judged on?"></textarea>
+			
 			</div>
 			</td>
 		</tr>
