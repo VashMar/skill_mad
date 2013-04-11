@@ -145,6 +145,7 @@ a:focus {
 
 #create_leaderboard p{
  font-size: 8px;
+ margin-top:20px;
 }
 
 form#upload select, form#upload .customSelect{
