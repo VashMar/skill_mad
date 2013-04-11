@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td>
-					<input id="video_title" name="video[title]" size="30" type="text">
+					<input id="video_title" name="video[title]" maxlength="30"size="30" type="text">
 			</td>
 		</tr>
 		
@@ -41,7 +41,7 @@
 		</tr>
 		<tr>
 			<td>
-				<textarea cols="40" id="video_description" name="video[description]" rows="16"></textarea>
+				<textarea cols="40" id="video_description" maxlength="120" name="video[description]" rows="16"></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -105,10 +105,10 @@
 			<td>
         	<div id="create_leaderboard">
 				<label for="leaderboard_name">Leaderboard Name</label>
-				<input name="new_board[leaderboard_name]" type="text"  placeholder="(Ex: Iron Chef on Campus)"></input>
+				<input name="new_board[leaderboard_name]" type="text" maxlength="30"  placeholder="(Ex: Iron Chef on Campus)"></input>
 				<label for="new_board[leaderboard_description]">Leaderboard Rules</label>
 				
-				<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9" placeholder="What kind of videos should be uploaded to this leaderboard + what are they judged on?"></textarea>
+				<textarea name="new_board[leaderboard_description]"cols="40" id="leaderboard_description" name="video[description]" rows="9" maxlength="150" placeholder="What kind of videos should be uploaded to this leaderboard + what are they judged on?"></textarea>
 			
 			</div>
 			</td>
