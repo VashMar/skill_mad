@@ -127,6 +127,8 @@ a:focus {
   font-weight:bold;
   margin-right:9px;
 }
+
+
 #lander_info p{
   padding-top:6px;
 }
@@ -470,6 +472,19 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 }
 #form_join h2{
   color:rgb(96,0,1);
+}
+
+#form_join p{
+ font-size: 11px;
+  margin-left: 80px;
+  margin-bottom: 10px;
+  margin-top: 230px;
+  color:white;
+}
+
+#form_join p a{
+ font-weight:bold;
+
 }
 .istyle.simple input{
     border-radius:0px;

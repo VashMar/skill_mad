@@ -39,9 +39,11 @@
       <%= f.password_field :password_confirmation %>
       <%= f.label :password_confirmation, "Confirmation" %>
       <label class="error" for="user_password_confirmation" generated="true"></label>
-      
-      
+
+      <p> By clicking join, you hereby agree to our <%= link_to "Terms of service", terms_path %>  </p> 
       </span>
+
+
       <%= f.submit "join", :class => "button2" %>
       <% end %>
      </div>

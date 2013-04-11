@@ -39,11 +39,37 @@
       <%= f.password_field :password_confirmation %>
       <%= f.label :password_confirmation, "Confirmation" %>
       <label class="error" for="user_password_confirmation" generated="true"></label>
-      
-      
+
+          <p> By clicking join, you hereby agree to our <%= link_to "Terms of service", terms_path %>  </p> 
       </span>
+
+
       <%= f.submit "join", :class => "button2" %>
       <% end %>
      </div>
-
-<%= link_to "Not a student but still want to promote yourself? Get in touch with us."
+     
+     <div id="lander_info">
+		<div>
+			<%= image_tag("star.png", :alt => "Crown Icon") %>
+			<p><span>Find Skilled People</span>
+			Whether you need a DJ or a tutor, connect with talented classmates.</p>
+		</div>
+		<div>
+			<%= image_tag("speech.png", :alt => "Crown Icon") %>
+			<p><span>Recieve Feedback</span>
+			Get honest opinions from your classmates with the built-in rating system</p>
+		</div>
+		<div>
+			<%= image_tag("trophy.png", :alt => "Crown Icon") %>
+			<p><span>Share and Compete</span>
+			Battle for a chance to create a legacy, and leave your mark in Madison</p>
+		</div>
+		<div>
+			<%= image_tag("crown.png", :alt => "Crown Icon") %>
+			<p><span>Get Recognized</span>
+			Conquer the campus -- Get noticed on campus for what you do best. </p>
+		</div>
+	</div>
+<div id="business_link">
+<%= link_to "Not a student but still want to promote yourself? Get in touch with us.", business_page_path  %>
+</div>
