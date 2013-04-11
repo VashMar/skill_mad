@@ -14,7 +14,7 @@ development:
   reconnect: false
   database: skillmad_development
   pool: 5
-  username: pancake
+  username: vash
   password: 
   socket: /var/run/mysqld/mysqld.sock
 
@@ -27,7 +27,7 @@ test:
   reconnect: false
   database: skillmad_test
   pool: 5
-  username: pancake
+  username: vash
   password:
   socket: /var/run/mysqld/mysqld.sock
 
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: skillmad_production
   pool: 5
-  username: pancake
+  username: vash
   password: 
   socket: /var/run/mysqld/mysqld.sock
