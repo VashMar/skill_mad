@@ -74,8 +74,9 @@
 </script>
 <% end %> <!-- end loop -->
 
+<div class="paginate_links">
 <%= paginate @videos, :params => {:controller => 'leaderboards', :action => 'video_board', :category => @category, :leaderboard => @leaderboard}  %>
-
+</div>
 <% end %>
 <script>
 

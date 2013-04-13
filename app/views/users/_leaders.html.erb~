@@ -27,7 +27,7 @@
 		
 			<div class="leader_info">
 			<h1><%= link_to user.name, select_user_path(:user => user.id), :remote => true %></h1>
-			<h2><%= user.major %></h2>
+			<h2><%= user.skill %></h2>
                       	
 			<p>
 			<%= user.about %>
@@ -48,7 +48,7 @@
 				<ol>
            <% if @board_id == nil || @board_id == "" %>
            <% user.videos.order("points DESC").each do |video| %>
-              <li><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
+              <li title="<%= video.title %>"><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
                    <%= video.title %>

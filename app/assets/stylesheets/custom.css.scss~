@@ -135,9 +135,15 @@ a:focus {
 .pagination a{
   color:black;
 }
+
 .pagination{
   margin-top:10px;
 }
+
+.paginate_links a, span.previous_page, span.next_page em{
+  color:white;
+}
+
 
 #create_leaderboard{
   display:none;

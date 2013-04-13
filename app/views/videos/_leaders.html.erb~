@@ -58,7 +58,7 @@
   		      <%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
-			<h1><%= trucate(video.title, :length => 25) %></h1>
+			<h1 title="<%=video.title%>"><%= truncate(video.title, :length => 25) %></h1>
                        <% end %>
 			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id), :remote => true %></h2>
 			<p>
@@ -74,8 +74,9 @@
 </script>
 <% end %> <!-- end loop -->
 
+<div class="paginate">
 <%= paginate @videos, :params => {:controller => 'leaderboards', :action => 'video_board', :category => @category, :leaderboard => @leaderboard}  %>
-
+</div>
 <% end %>
 <script>
 

@@ -72,5 +72,7 @@
 			</div>
 </div>
 <% end %>
+<div class="paginate_links">
 <%= paginate @user_list, :params => {:controller => 'leaderboards', :action => 'people_board', :category => @category, :leaderboard => @leaderboard} %>
+</div>
 <% end %>
