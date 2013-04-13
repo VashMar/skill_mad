@@ -38,6 +38,22 @@ margin-bottom: 0px;
 
 }
 
+#no_results_header{
+ margin-bottom: 20px;
+}
+
+#no_results_header h1{
+ width: 400px;
+
+}
+
+#no_results_header input{
+ float: right;
+ margin-right: -190px;
+ margin-left: 45px;
+ margin-top: -30px;
+}
+
 </style>
 
 
@@ -50,8 +66,12 @@ margin-bottom: 0px;
 <div id="search_container">
 <% if @results.empty? %>
 
-<h1> No results found. </h1>
-
+<div id= "no_results_header">
+<h1> No results found for:  </h1>
+    <%= form_tag results_path, :id => "results_search", method: :get do %>
+    <%= text_field_tag :query, params[:query]%>
+    <% end %>
+</div>
 <p> What you're looking for seems harder to find than a classroom in humanities.. </p>
 <% else %>
 
