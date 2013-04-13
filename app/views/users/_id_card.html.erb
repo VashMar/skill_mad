@@ -32,7 +32,7 @@
   
   <% if current_user == @selected_user%>
   	<a id="edit_profile">edit profile</a>
-  	<a id="edit_settings">edit settings</a>
+  	<%= link_to "edit settings", settings_path, :id => "edit_settings" %> 
   <% end %>
 </div>
 <script> 

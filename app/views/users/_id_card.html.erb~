@@ -14,7 +14,7 @@
   <% end %>
 <% else %>
 <% @selected_user.videos.order("points DESC").first(5).each do |video| %>
-  <li><%= link_to( video.title , u_path(:user_id => @selected_user.id, :video => video.yt_video_id), :class=>"watch scroll")%><span><%= video.points %>pts</span></li>
+  <li title="<%=video.title%>"><%= link_to( video.title , u_path(:user_id => @selected_user.id, :video => video.yt_video_id), :class=>"watch scroll")%><span><%= video.points %>pts</span></li>
  <% end %>
 <% end %>
 
@@ -28,15 +28,18 @@
   <h2><%= @selected_user.name  %></h2>
   <h3><%= @selected_user.year  %></h3>
   <h3><%= @selected_user.skill %></h3>
-  <h4> <%= "#{user_rep(@selected_user)}"%><%= "[#{@selected_user.points}]"%> </h4>
+  <h4> <%= "#{user_rep(@selected_user)} "%> <%= "[#{@selected_user.points}]"%> </h4>
   
   <% if current_user == @selected_user%>
-  	<a id="edit_profile">edit profile</h3>
+  	<a id="edit_profile">edit profile</a>
+  	<%= link_to "edit settings", settings_path %> 
   <% end %>
 </div>
 <script> 
  	$("#edit_profile").click(function(){
  		$("#overlay_profile").overlay().load();
+ 		$("#overlay_profile").overlay().load();
+ 		
 	});
 
 </script>

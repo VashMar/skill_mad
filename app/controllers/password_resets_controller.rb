@@ -29,8 +29,7 @@ end
 def update
   @user = User.find_by_password_reset_token!(params[:id])
   if @user.password_reset_sent_at < 2.hours.ago
-    redirect_to new_password_reset_path, :failure => "Password &crarr; 
-      reset has expired."
+    redirect_to new_password_reset_path, :failure => "Password reset has expired."
   elsif @user.update_attributes(params[:user])
     redirect_to home_url, :success => "Password has been reset."
   else
@@ -38,7 +37,22 @@ def update
   end
 end
 
+def change_pass
+    user = User.find(params[:id])
+     if user && user.authenticate(params[:user][:password])	
+        user.update_attribute(:password, params[:user][:new_password])
+ 	sign_in(user)
+        flash[:success] = "Password Changed!"
+ 	render js: "window.location.pathname='#{home_path}'"
+     else
+	respond_to do |format|
+ 	  format.js{}
+        end 
+ 
+     end
 
+	
+end
 
 
 end

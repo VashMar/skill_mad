@@ -20,6 +20,17 @@ class ApplicationController < ActionController::Base
      redirect_to home_url
  end
 
+ def settings_page
+    render 'layouts/settings' 
+ end 
 
+ def settings_swap
+ 
+ params[:setting] == "username" ?  @setting = "username" : @setting = "pass"
+   
+  respond_to do |format|
+   format.js{}
+  end   
+ end 
 
 end

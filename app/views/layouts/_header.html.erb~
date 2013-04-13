@@ -1,4 +1,6 @@
+
 <%= render(:partial => "categories/category_list") %>
+
 <div id="header">
 	 <%if signed_in? %>
     <%= form_tag results_path, :id=>"search", method: :get do %>
@@ -16,7 +18,7 @@
     </div>
    
    <%if signed_in? %>
-     <%= link_to (select_user_path(:user => current_user.id), "data_type" => :js, :remote => true) do%>
+     <%= link_to(select_user_path(:user => current_user.id), "data_type" => :js, :remote => true) do%>
     <div id="profile" class="active">
    <%= image_tag  @user.avatar.url(:thumb) %>
    <h3><%= @user.name %></h3>

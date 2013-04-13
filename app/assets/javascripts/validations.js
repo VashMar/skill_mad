@@ -154,6 +154,11 @@
   			}
   		}		
   	});
+
+
+
+
+  	
   	$('#form_pic').validate({
  		rules: {
   			"user[avatar]": {required: true, isImage:true}
@@ -234,16 +239,7 @@
   	});
 
 
-	 $("#form_info").validate({
- 	rules: {
- 	"user[name]": {required: true, remote:"/check_name"},
-	 },
- 	messages: {
- 	"user[name]":{
- 	remote: "This name is already taken"
-	 }
-	 }
-	 });
+
 	 
 	 $("#form_business").validate({
 	 	rules: {

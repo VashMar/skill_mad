@@ -163,6 +163,22 @@ def check_name
      format.json{render :json => !@user}
    end
 end
+
+def change_name
+
+  exists = User.find_by_name(params[:user][:name])
+  if exists || params[:user][:name] == ""
+   flash[:failure] = "Name change could not be made"
+   redirect_to home_url
+  else
+   user = User.find(params[:id])
+   user.update_attribute(:name, params[:user][:name])
+   sign_in(user)
+   flash[:success] = "Name Changed!"
+   redirect_to home_url 
+  end
+ 
+end 
   
 def select_user
  

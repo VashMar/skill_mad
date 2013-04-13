@@ -143,10 +143,6 @@ a:focus {
   display:none;
 }
 
-#create_leaderboard p{
- font-size: 8px;
- margin-top:20px;
-}
 
 form#upload select, form#upload .customSelect{
   width:207px;
@@ -1390,6 +1386,7 @@ resize: none;
   padding:8px;
   padding-left:43px;
   cursor:pointer;
+  z-index: 99;
 }
 .notice a {
   text-decoration:underline;
