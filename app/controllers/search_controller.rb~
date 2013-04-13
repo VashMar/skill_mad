@@ -7,7 +7,7 @@ if params[:page] == nil
 params[:page] = 1 
 end 
 
-@results = Video.text_search(params[:query]).where("yt_video_id is not null").page(params[:page]).per_page(1)
+@results = Video.text_search(params[:query]).where("yt_video_id is not null").page(params[:page]).per_page(10)
 
  respond_to do |format|
   format.html{render 'search/results'}

@@ -1,3 +1,50 @@
+<style>
+
+#results_search input[type="text"] {
+    background: url(search-dark.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #DDD;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#results_search input[type="text"]:focus {
+   
+    }
+
+#results_search{
+ float:right;
+ margin-bottom: 10px;
+ margin-top: -30px;
+ margin-right: 255px;
+}
+
+#results_header{
+
+margin-top: 10px;
+margin-bottom: -10px;
+
+}
+
+</style>
+
+
+
+
+
+
 <div id="search_container_left">
 </div>
 <div id="search_container">
@@ -7,6 +54,15 @@
 
 <p> What you're looking for seems harder to find than a classroom in humanities.. </p>
 <% else %>
+
+
+ <div id= "results_header">
+    <%= form_tag results_path, :id => "results_search", method: :get do %>
+      <%= text_field_tag :query, params[:query]%>
+    <% end %>
+   <h2> Results for: </h2>
+ </div> 
+
  <% @results.each do |video| %>
 
 <div class="leader video" style="padding-left:10px;">
@@ -20,26 +76,27 @@
 	</div>
 
 		
-			<div class="leader_info">
+			<div class="leader_info_search">
   		      <%= link_to(u_path(:video => video.yt_video_id)) do%>
-			<h1><%= video.title %></h1>
+			<h1 title="<%= video.title %>"><%= video.title %></h1>
                        <% end %>
 			<h2>By: <%= link_to video.user.name, select_user_path(:user => video.user.id, :search => "1"), :remote => true %></h2>
-			<p>
 
 			<% if video.category %>
 			   <h4>Category: <%= video.category.category_name %>  </h4>
 			<% end %>
+			
 
 		        <% if video.leaderboard %>
 			   <h5>Leaderboard: <%= video.leaderboard.leaderboard_name %>  </h5>
 			<% end %>
-
+			<p>
 			<%= truncate(video.description, :length => 115) %>
-			<br />
- 		        Rep: <%= video.points %>
-		
 			</p>
+			<br />
+ 		       <span><%= video.points %>pts</span>
+		
+			
 
 			</div>
 

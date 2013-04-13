@@ -1,4 +1,1 @@
-
 $('#results_container').html("<%=escape_javascript(render(:partial => 'search/results', results: @results))%>");
-
-
