@@ -1,3 +1,17 @@
+
+
+<div id="results">
 <div id ="results_container">
 <%= render :partial => "search/results", :locals => {results: @results} %>
+<div class="clear"></div>
 </div>
+</div>
+<style>
+	#background{
+		padding-top:0;
+	}
+  	#categories{
+	    display:none;	
+	}
+</style>
+
