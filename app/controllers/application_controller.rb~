@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     render 'layouts/settings' 
  end 
 
+ def about_page
+   render 'layouts/settings'
+ end
+
  def settings_swap
  
  params[:setting] == "username" ?  @setting = "username" : @setting = "pass"
