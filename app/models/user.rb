@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :categories, :through => :videos
   has_many :leaderboards, :through => :videos 
   attr_accessible :email, :name, :password, :password_confirmation, :activated, :avatar, :points, :major, 
-  :skill, :about, :year , :activated 
+  :skill, :about, :year , :activated, :admin 
                  
   has_attached_file :avatar, :styles => {:large => "185x185#", :medium => "110x110#",  :thumb => "60x60#"}, 
   :storage => :s3,
