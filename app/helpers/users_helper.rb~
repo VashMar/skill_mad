@@ -58,29 +58,18 @@ def user_yt_id(user, num)
     @youtubeid = @vid.yt_video_id
 end
 
-def user_rep(user)
+def user_rep(selected_user)
 
-@user = user 
+ User.order("points DESC").each_with_index do |user, i|
+      
+     if user == selected_user 
+       return i;
+     end 
 
-@points = @user.points 
-case @points 
-when 0
-"A nobody"
-when 1...25
-"Keg Filler"
-when 26...50
-"Life of the Party"
-when 51...75
-"About to blow up"
-when 75...300
-"Made it"
-when 300..500
-"Mastered it"
-else
-"Madtowns Finest"
-end 
+ end 
+
+
 end
-
 
 
 end				 

@@ -28,11 +28,12 @@
   <h2><%= @selected_user.name  %></h2>
   <h3><%= @selected_user.year  %></h3>
   <h3><%= @selected_user.skill %></h3>
-  <h4> <%= "#{user_rep(@selected_user)} "%> <%= "[#{@selected_user.points}]"%> </h4>
+  <h4>Points: <%= "#{@selected_user.points}"%> </h4>
+  <h4>Campus Rank: <%= "#{user_rep(@selected_user)} "%> </h4>
   
   <% if current_user == @selected_user%>
   	<a id="edit_profile">edit profile</a>
-  	<%= link_to "edit settings", settings_path %> 
+  	<%= link_to "edit settings", settings_path, :id => "edit_settings" %> 
   <% end %>
 </div>
 <script> 

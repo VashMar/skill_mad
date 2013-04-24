@@ -140,7 +140,7 @@ a:focus {
   margin-top:10px;
 }
 
-.paginate_links a, span.previous_page, span.next_page em{
+.paginate_links a, span.previous_page, span.next_page, em{
   color:white;
 }
 
@@ -387,6 +387,7 @@ display:none;
   padding:22px 0 34px 0;
   width:auto;
   background-color:#ededed;
+  background-image:url(background.jpg)
 }
 #background_overlay{
   background-image:url(back.png); 
@@ -545,7 +546,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   clear: both;
   margin-top:10px;
   padding-bottom:10px;
- 
+  background-image:url(background_red.jpg)
 }
 
 #footer{
@@ -1239,7 +1240,7 @@ color:rgb(92,0,1);
 text-decoration:underline;
 }
 .leader li{
-  width:183px;
+  width:188px;
   float:right;
   margin-top:6px;
 }
