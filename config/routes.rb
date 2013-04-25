@@ -20,6 +20,7 @@ Skillmad::Application.routes.draw do
   match '/contact_email', :to => 'application#contact_email'
   match '/settings', :to => 'application#settings_page'
   match '/settings_swap', :to => 'application#settings_swap'
+  match '/about', :to => 'application#about_page'
   match '/change_password', :to => 'password_resets#change_pass'
   match '/results', :to => 'search#show'
   match '/business_email', :to => 'business#business_email'
