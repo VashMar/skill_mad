@@ -97,17 +97,42 @@ a:focus {
 #leaderboard_select.select_style{
   width:300px;
 }
+#about{
+  width:860px;
+  margin:auto;
+  text-align:center;
+  letter-spacing: -0.05em;
+  line-height: 1.2em;
+}
+#about h1{
+  margin:12px 0;
+}
+#about p{
+  text-align:left;
+  font-size:1.3em;
+}
 
 #lander_info{
     -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
   position:absolute;
+ 
       top:140px;
       left:50%;
-      margin-left:-205px;
+      margin-left:-280px;
     background-image:url(trans2.png);
   float:right;
-  width:410px;
   padding:10px;
+    font-size: 1.2em;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: .8em;
+}
+#lander_info h2{
+   width:520px;
+  padding:6px 0;
+  color:white;
+  font-size:.8em;
 }
 
 #lander_info div{
@@ -137,6 +162,7 @@ a:focus {
 }
 
 .pagination{
+  text-align:auto;
   margin-top:10px;
 }
 
