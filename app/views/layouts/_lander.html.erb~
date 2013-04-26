@@ -13,6 +13,7 @@
  	}
 </style>
 
+
 <div id="lander_bg">
 <img src="assets/madison.jpg" alt="">
 </div>
@@ -49,27 +50,9 @@
      </div>
      
      <div id="lander_info">
-		<div>
-			<%= image_tag("star.png", :alt => "Crown Icon") %>
-			<p><span>Find Skilled People</span>
-			Whether you need a DJ or a tutor, connect with talented classmates.</p>
-		</div>
-		<div>
-			<%= image_tag("speech.png", :alt => "Crown Icon") %>
-			<p><span>Recieve Feedback</span>
-			Get honest opinions from your classmates with the built-in rating system</p>
-		</div>
-		<div>
-			<%= image_tag("trophy.png", :alt => "Crown Icon") %>
-			<p><span>Share and Compete</span>
-			Battle for a chance to create a legacy, and leave your mark in Madison</p>
-		</div>
-		<div>
-			<%= image_tag("crown.png", :alt => "Crown Icon") %>
-			<p><span>Get Recognized</span>
-			Conquer the campus -- Get noticed on campus for what you do best. </p>
-		</div>
+     	<h2>
+Skillmad is a site for UW students to share video content, have video competitions, and promote themselves</h2>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/vfYb96r7XKY&rel=0" frameborder="0" allowfullscreen></iframe>
+		<h2>Make an account to watch and/or compete against talented individuals such as this gentleman</h2>
 	</div>
-<div id="business_link">
-<%= link_to "Not a student but still want to promote yourself? Get in touch with us.", business_page_path  %>
-</div>
+
