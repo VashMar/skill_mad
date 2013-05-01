@@ -14,7 +14,7 @@ Skillmad::Application.routes.draw do
   end
   resources :password_resets
 
-  root :to => "users#index"
+  root :to => "users#index",  :constraints => { :format => 'html' }
   
   match '/request_leaderboard', :to => 'application#request_leaderboard'
   match '/contact_email', :to => 'application#contact_email'
