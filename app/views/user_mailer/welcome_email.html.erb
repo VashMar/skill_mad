@@ -2,14 +2,11 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <style>
-    	    font-family: Arial,Helvetica,sans-serif;
-    </style>
   </head>
-  <body>
+  <body style="font-family: Arial,Helvetica,sans-serif;">
     <h1>Glad you could join the party <%= @user.name %>,</h1>
     <p>Now just click this link here to join your fellow badgers in discovering the best of U.W : </p>
-    <p><%= link_to "Activate account", @url %></p>
+    <p style="color:#740001"><%= link_to "Activate account", @url %></p>
     <p>Hope to see you on the leaderboards someday,</p> </br>
     <p>Sincerely,</p>
     <p>Skillmad</p>
