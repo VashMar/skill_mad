@@ -47,7 +47,7 @@
 		  type    : 'POST',
 		  url     : "/home", 
 		  data    : { category : x},
-		 
+		  dataType : "script"
 		});
 	});
 
@@ -58,7 +58,7 @@
 		  type    : 'POST',
 		  url     : "/home", 
 		  data    : { leaderboard : leaderVal, category : categoryVal},
-		 
+		  dataType : "script"
 		});
 	});
 
@@ -68,7 +68,7 @@
 		  type    : 'GET',
 		  url     : "/category_boards", 
 		  data    : { category : x},
-		 
+		
 		});
 	});
 
