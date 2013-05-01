@@ -141,8 +141,8 @@ def index
       @category_list.unshift(["All Categories"])
 
   respond_to do |format|
-     format.js{}
      format.html{}
+     format.js{}
   end 
      
 end

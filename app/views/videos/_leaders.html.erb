@@ -1,4 +1,4 @@
-
+<% if @videos %>
 <% if @videos.empty? %>
 
   
@@ -79,6 +79,9 @@
 <%= paginate @videos, :params => {:controller => 'leaderboards', :action => 'video_board', :category => @category, :leaderboard => @leaderboard}  %>
 </div>
 <% end %>
+
+
+<%end%>
 <script>
 
 </script>
