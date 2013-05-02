@@ -115,11 +115,6 @@ a:focus {
 
 #lander_info{
     -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
-  position:absolute;
- 
-      top:140px;
-      left:50%;
-      margin-left:-280px;
     background-image:url(trans2.png);
   float:right;
   padding:10px;
@@ -486,7 +481,7 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
     margin-bottom:10px;
   }
 #form_join{
-  width:425px;
+  width:400px;
   margin-top:30px;
   margin-right:30px;
   float:right;
@@ -1425,6 +1420,10 @@ resize: none;
 }
 .notice a {
   text-decoration:underline;
+}
+#lander_wrapper{
+  margin:auto;
+  width:1010px;
 }
 #lander_notice .notice{
   top:70px;
