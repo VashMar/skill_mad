@@ -484,8 +484,6 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   width:370px;
   margin:30px 30px 0 20px;
   float:right;
-    background-image:url("trans2.png");
-    border-radius: 6px 6px 6px 6px;
     padding-bottom:20px;
     padding-right:5px;
 }
@@ -519,7 +517,13 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
 
   text-align:center;
   padding:4px 0;
-  text-shadow: 0px 0px 6px black;
+  text-shadow: 1px 1px black,
+               0px 0px 1px black, 
+               0px 0px 1px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black;
 
 }
 
