@@ -6,8 +6,11 @@ width:1250px;
 
 #setting_updates{
  float:right;
- width: 800px;
- height: 800px;
+ width: 1000px;
+ margin-top: -20px;
+ margin-right: -125px;
+ height: 1000px;
+ border-left: 1px solid #000;
  text-align: center;
 }
 
@@ -63,7 +66,6 @@ margin-top:-40px;
 
 #setting_options{
  margin-left: 20px;
- border-right: 1px solid #000;
  position: absolute;
  width: 350px;
  margin-top: -22px;
@@ -108,10 +110,13 @@ margin-top:-40px;
 
  <div id= "setting_options">
    <ul>
-    <li> <h3> <%= link_to "Change Account Name", settings_swap_path(:setting => "username"), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
-    <li> <h3> <%= link_to "Change Password", settings_swap_path(:setting => "pass"), "data_type" => :js, :class=>"unselected_option" ,:remote => true   %> </h3> </li>
+    <li> <h3> <%= link_to "Change Account Name", settings_swap_path(:setting => "change_username"), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
+    <li> <h3> <%= link_to "Change Password", settings_swap_path(:setting => "change_pass"), "data_type" => :js, :class=>"unselected_option" ,:remote => true   %> </h3> </li>
+    <% if current_user.hasVideo || current_user.admin %> 
+    <li> <h3> <%= link_to "Manage Videos", settings_swap_path(:setting => "manage_videos", :id => current_user.id), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
+    <% end %> 
    </ul>
- <div>
+ </div>
 </div>
 <div id=id_card> </div>
 
@@ -122,7 +127,7 @@ $("a.unselected_option, a.selected_option").live("click", function() {
     if ($this.hasClass("unselected_option")) {
          $("a.selected_option").removeClass("selected_option").addClass("unselected_option")
          $this.removeClass("unselected_option").addClass("selected_option");
-     }
+    }
     
 });
 </script>

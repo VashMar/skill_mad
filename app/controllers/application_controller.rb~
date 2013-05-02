@@ -25,12 +25,21 @@ class ApplicationController < ActionController::Base
  end 
 
  def about_page
-   render 'layouts/settings'
+   render 'layouts/about'
  end
 
  def settings_swap
  
- params[:setting] == "username" ?  @setting = "username" : @setting = "pass"
+ @setting = params[:setting]
+
+ if @setting == "manage_videos"
+    user = User.find_by(params[:id])
+    if user.admin?
+       @videos = Video.where("yt_video_id is not null")
+    else
+       @videos = user.videos 
+    end 
+ end 
    
   respond_to do |format|
    format.js{}

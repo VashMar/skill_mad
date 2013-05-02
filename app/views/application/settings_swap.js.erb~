@@ -1,0 +1,2 @@
+$('#setting_updates').html("<%=escape_javascript(render("layouts/#{@setting}", videos : @videos))%>");
+

@@ -11,7 +11,7 @@
       		</div> 
                 <% if current_user %>
  		 <% if @video_list[@counter].user_id == current_user.id || current_user.admin?%>
-		 <%= link_to "delete", delete_video_path(:id => @video_list[@counter].id) %>
+		
  		 <%end%>
                 <% end %>
   		   </div>

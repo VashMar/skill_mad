@@ -167,7 +167,7 @@ end
 def change_name
 
   exists = User.find_by_name(params[:user][:name])
-  if exists
+  if exists || params[:user][:name] == ""
    flash[:failure] = "Name change could not be made"
    redirect_to home_url
   else

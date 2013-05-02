@@ -1,4 +1,4 @@
-
+<% if @videos %>
 <% if @videos.empty? %>
 
   
@@ -47,7 +47,7 @@
 			</div>
 
 			<div class="video_pic"> 
-			<%= link_to(vid_bank_path(:video => video.id, :leaderboard => @leaderboard), :class => "leader_thumb_link", :remote => true) do %>   
+			<%= link_to(vid_bank_path(:video => video.id, :leaderboard => @leaderboard, :myVid => "Top"), :class => "leader_thumb_link", :remote => true) do %>   
      			<%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"100%", :width => "100%", :rel => "#{video.yt_video_id}") %>
      			<% end %>   
 				

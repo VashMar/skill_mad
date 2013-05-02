@@ -42,15 +42,28 @@ def save_video
       @user = User.find(current_user.id)
       @video.update_attributes(:yt_video_id =>params[:id].to_s, :is_complete => true, :user_id => current_user.id) 
       if params[:status].to_i == 200
-      Video.delete_incomplete_videos
-   else
-      Video.delete_video(@video)
-   end
-    @user.update_attribute(:hasVideo, true)
-    sign_in(@user)
-    
-    redirect_to submitted_url(:video_id => params[:id].to_s)
+         Video.delete_incomplete_videos
+      else
+         Video.delete_video(@video)
+      end
+      @user.update_attribute(:hasVideo, true)
+      sign_in(@user)
+     
+      redirect_to submitted_url(:video_id => params[:id].to_s)
 end
+
+
+def edit_vid
+ video = Video.find(params[:id])
+ video.update_attributes(params[:video])
+  
+
+ respond_to do |format| 
+  format.js{}
+ end 
+ 
+end 
+
 
 def destroy
     @video = Video.find(params[:id])
@@ -58,20 +71,27 @@ def destroy
     owner = User.find(@video.user_id)  
     if  user.id == owner.id || user.admin?
        if Video.delete_video(@video)
+ 	 @deleted = true
          if owner.videos.empty?
           owner.update_attribute(:hasVideo, false)
-	 sign_in(user)
-         flash[:success] = "video successfully deleted"
-	 else
-         flash[:success] = "video successfully deleted"
-         end 
+	  sign_in(user)
+          else
+          sign_in(user)
+          end 
+
+         user.id == owner.id ? @videos = owner.video : @videos = Video.where("yt_video_id is not null")
+
        else
-       flash[:failure] = "video deletion unsuccessful"
+         @deleted = false 
        end 
     else 
-     flash[:failure] = "Stop trying to delete other people's videos"    
+      @deleted = false     
     end
-    redirect_to home_url
+    
+   respond_to do |format|
+    format.js{}
+   end 
+   
 end
 
   def pre_upload
@@ -106,7 +126,7 @@ def vid_bank
           @bank = "Top Videos"
          end 
        end
-    else 
+     else 
           @user = User.find(params[:user_id])
           @video_list = @user.videos.order("points DESC")
           @bank = "#{@user.name}'s Videos" 

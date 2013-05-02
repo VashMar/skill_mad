@@ -1,5 +1,2 @@
-<% if @setting == "username"%>
- $('#setting_updates').html("<%=escape_javascript(render('layouts/change_username'))%>");
-<% else %>
- $('#setting_updates').html("<%=escape_javascript(render('layouts/change_pass'))%>");
-<% end %> 
+$('#setting_updates').html("<%=escape_javascript(render("layouts/#{@setting}", videos: @videos))%>");
+

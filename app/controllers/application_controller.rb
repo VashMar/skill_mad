@@ -30,7 +30,16 @@ class ApplicationController < ActionController::Base
 
  def settings_swap
  
- params[:setting] == "username" ?  @setting = "username" : @setting = "pass"
+ @setting = params[:setting]
+
+ if @setting == "manage_videos"
+    user = User.find(params[:id])
+    if user.admin?
+       @videos = Video.where("yt_video_id is not null")
+    else
+       @videos = user.videos 
+    end 
+ end 
    
   respond_to do |format|
    format.js{}
