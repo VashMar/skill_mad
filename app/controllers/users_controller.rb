@@ -87,13 +87,13 @@ def index
        if @leaderboard == "All Leaderboards" # if "All Leaderboards" is selected, we need all the videos for current category
           @cat = Category.find_by_category_name(@category)
           # if the category is nil "All Categories" must be selected, therefore we render the videos with highest points overall, otherwise we get the ranked videos from respective category
-	  @cat == nil ? @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC") : @videos = @cat.videos.page(1).where(
+	  @cat == nil ? @videos = Video.where("yt_video_id is not null").page(1).per_page(10).order("points DESC") : @videos = @cat.videos.page(1).where(
 	  "yt_video_id is not null").per_page(5).order("points DESC") 
        # if a specific leaderboard is chosen, simply get the videos, ordered by points, for that leaderboard
        else 
           @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
           @description = @obj.leaderboard_description 
-          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(5).order("points DESC")
+          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(10).order("points DESC")
        end
     # if leaderboard parameter isn't sent, check to see if a category was selected
     elsif @category != nil && @category != "" 
@@ -129,7 +129,7 @@ def index
           @leaderboard = "All Leaderboards"
       end
 
-      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(5)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(10)
       @new = false 
       
       if params[:notice] == "1"

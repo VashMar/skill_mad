@@ -129,7 +129,7 @@ def index
           @leaderboard = "All Leaderboards"
       end
 
-      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(5)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(1).per_page(10)
       @new = false 
       
       if params[:notice] == "1"
@@ -141,8 +141,8 @@ def index
       @category_list.unshift(["All Categories"])
 
   respond_to do |format|
-     format.js{}
      format.html{}
+     format.js{}
   end 
      
 end
