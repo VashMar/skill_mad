@@ -21,13 +21,13 @@ class User < ActiveRecord::Base
 
 
 
-  validates_attachment :avatar, :size => {:in => 0..250.kilobytes}
+ 
   validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'
   validates :name, :presence => true, :length => {:maximum => 50}, :uniqueness => {:case_sensitive => false}
   validates :password_confirmation, :presence => true, :on => :create 
   validates :password, :presence => true, :length => {:minimum => 6}, :on => :create 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@wisc.edu/i
-  validates :email, :presence => true, :format => {:with => VALID_EMAIL_REGEX}, :uniqueness => {:case_sensitive => false}
+  validates :email, :presence => true, :format => {:with => VALID_EMAIL_REGEX}, :uniqueness => {:case_sensitive => false}, :on => :create 
   validates :about, :length =>{:maximum => 200}
   def activated?
     self.activated

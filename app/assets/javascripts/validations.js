@@ -167,13 +167,13 @@
   	
   	$('#form_pic').validate({
  		rules: {
-  			"user[avatar]": {required: true, isImage:true, filesize: 256000 }
+  			"user[avatar]": {required: true, isImage:true, filesize: 2000000 }
 			},
   		messages: {
   			"user[avatar]":{
   				required:"Please select a file",
   				accepts:"Wrong file type",
-  				filesize:"File too big, resize to under 250kb"
+  				filesize:"File too big, resize to under 2MB"
   			}
   		}
   		});
