@@ -1,28 +1,21 @@
 <style>
-#setting_updates{
- height: 100%
-}
+
 
 #videos_container{
  float:left;
- width: 1200px;
+}
+#videos_container img{
+	width:230px;
 }
 
 #videos_container ul {
  list-style-type:none;
   padding: 10px;
   overflow: auto;
-  border-bottom:  solid 1px #2f393f;
-}
-
-li img{
- margin-top: 30px;
- float:left;
+  border-bottom:  solid 1px #DDD;
 }
 
 .edit_style input{  
-  margin-bottom:15px;
-  margin-left: 5px;
   background-color:#600001; 
   border: solid 1px #2f393f;
   height:24px;
@@ -50,37 +43,20 @@ li img{
 
 }
 
-.edit_style label{
- margin-top: 0px;
- margin-left: 0px;
- clear: none;
- float: none;
-
-}
-
 .edit_style .button{
  float: right;
- margin-top: -10px;
  width: 202px;
  height: 55px;
  border: none;
- position:relative;
- top: -190px;
+
+}
+#videos_container td{
+	padding:2px 8px;
+}
+#videos_container form{
+	padding:10px 0;
 }
 
-.title_edits{
- margin-right: 250px;
-}
-
-.description_edits{
- margin-right: 360px;
-}
-
-.description_edits label{
-  position: relative 
-  margin-top: -20px;
- 
-}
 
 </style>
 
@@ -90,23 +66,45 @@ li img{
 
  <ul>
    
-   <li>   
-      <%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg", :height =>"20%", :width => "20%") %>
-      <%= form_for(video, :url=> edit_vid_path(:id => video.id) ,  :html => {:class => "edit_style"}, "data_type" => :js, :remote => true ) do |f| %>
-      <div class="title_edits">
-        <%= f.label :title, "title:" %>
-        <%= f.text_field :title %>
-      </div>
+   <li> 
+   	  	<%= form_for(video, :url=> edit_vid_path(:id => video.id) ,  :html => {:class => "edit_style"}, "data_type" => :js, :remote => true ) do |f| %>
+ 
+   	  <table >
+   	  <tr>
+   	  	
+<td></td>
+	   	  	<td>
+	   	  		        <%= f.label :title, "title" %>
+	   	  	</td>
 
-      <div class="description_edits" %>
-       <%= f.label :description, "description:" %>
-       <%= f.text_area :description %>
-      </div>
+   	  </tr>
+   	  <tr>
+   	  		   	  	<td rowspan="3">
+	   	  		 <%= image_tag("http://img.youtube.com/vi/#{video.yt_video_id}/0.jpg") %>
+	   	  	</td>
+   	  	<td height="20px">
+   	  	<%= f.text_field :title %>
+   	  	</td>
+   	  		   	  	<td rowspan="2">
+	   	  			<%= f.submit "save changes", :class => "button" %> 
+	   	  	</td>
+   	  </tr>
+   	  <tr>
+   	  	<td>
+   	  	 <%= f.label :description, "description" %>
+   	  	</td>
+   	  </tr>
+   	  <tr>
+   	  	<td>
+   	  	<%= f.text_area :description %>
+   	  	</td>
+   	  </tr>
 
 	  <!--  <%= link_to "delete", delete_video_path(:id => video.id), :class => "button", "data_type" => :js, :remote => true %> -->
-     <%= f.submit "save changes", :class => "button" %> 
+     
     
-      <% end %>  
+      <% end %> 
+      </table> 
    </li>
 
  </ul>

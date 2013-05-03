@@ -10,13 +10,27 @@ label.error{
 
 </style>
 
-<h2> Use your true identity for fame, or an alter ego to avoid embarassment.. </h2>
- <%= form_for(:user, :url => change_name_path(:id => current_user.id), :html => { :id => 'change_username' , :class => 'istyle'}) do |f| %>
-      <label class="error" for="user_name" generated="true"></label>
- <%= f.label :name, "New Username:" %>
- <%= f.text_field :name %>
+<h2> Use your true identity for fame</h2><h3>or an alter ego to avoid embarassment</h3>
+ <%= form_for(:user, :url => change_name_path(:id => current_user.id), :html => { :id => 'change_username', :class => 'istyle'}) do |f| %>
+      
+    
+      <table>
+      	<tr>
+      		<td> <%= f.label :name, "New Username" %></td>
+      	</tr>
+   		<tr>
+      		<td>  <%= f.text_field :name %></td>
+      	</tr>
+      	<tr>
+      		<td> <%= f.submit "change", :class => "button" %></td>
+      	</tr>
+      	<tr>
+      		<td>   <label class="error" for="user_name" generated="true"></label></td>
+      	</tr>
 
- <%= f.submit "change", :class => "button" %>
+
+
+    </table>
  <%end%>
 
 

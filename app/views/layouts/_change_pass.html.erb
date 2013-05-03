@@ -1,53 +1,52 @@
 <% @user = current_user %>
-
-
 <style>
-
-
-
-.pass_field input#user_new_password {
-  margin-top: -20px;
-
-}
-
-#new_pass label{
-  margin-bottom: 20px;
-  margin-top: 0px;
-}
-
-#error_notice{
- float:right;
- width: 300px;
- margin-top : -10px;
- margin-right: 150px;
- margin-bottom: 5px;
- font-size:12px;
- color: rgb(96, 0, 1);
-}
-
-}
-
-
+	form{
+		margin:auto;
+	}
 </style>
 
 
+	<h2>Make sure you remember doing this</h2>
+<%= form_for @user, :url => change_password_path(:id => @user.id), :html => {  :class => 'istyle', :style => 'width:200px'}, :remote => true do |f| %>
 
-	<h2>Make sure you remember doing this...</h2>
-<%= form_for @user, :url => change_password_path(:id => @user.id), :html => { :id => 'form_info' , :class => 'istyle'}, :remote => true do |f| %>
+
+	<table>
+	<tr>
+		<td>
+    	<%= f.label :password, "Current Password" %>
+    	</td>
+    </tr>
+    <tr>
+		<td>
+    	<%= f.password_field :password %>
+    	</td>
+    </tr>
+    <tr>
+		<td>
+    	    <%= f.label :new_password, "New Password" %>
+    	</td>
+    </tr>
+    <tr>
+		<td>
+    	   <%= f.password_field :new_password %>
+    	</td>
+    </tr>
+    <tr>
+    	<td>
+    	<%= f.submit "Change", :class => "button" %>
+    	</td>
+    </tr>
+        <tr>
+    	<td>
+    	    <div id="error_notice"> </div>
+    	</td>
+    </tr>
+ 	</table>
+
 
 
  
-  <div class="pass_field">
-    <%= f.label :password, "Current Password:" %>
-    <%= f.password_field :password %>
-  </div>
- 
-    <div id="error_notice"> </div>
-    <div id= "new_pass" class="pass_field">
-    <%= f.label :new_password, "New Password:" %>
-    <%= f.password_field :new_password %>
-    </div>
-    <div class="actions"><%= f.submit "Change", :class => "button" %></div>
+
 
 <% end %>
 

@@ -1,91 +1,23 @@
 <style>
-
-#settings_wrapper{
-width:1250px;
+#setting_updates h3{
+	color:#555555;
 }
-
-#setting_updates{
- float:right;
- width: 1000px;
- margin-top: -20px;
- margin-right: -125px;
- height: 1000px;
- border-left: 1px solid #000;
- text-align: center;
-}
-
-#setting_updates h2{
-  margin-left:175px;
-  margin-top: 20px;
-}
-
-#change_username{
-  padding:0;
-  width:400px;
-  float:right;
-}
-
-#change_username a{
-  color:rgb(96,0,1);
-  position:absolute;
-  right:20px;
-  bottom:20px;
-}
-
-#change_username .button{
-  margin-right:70px;
-}
-
-#setting_updates #change_username {
-
-margin-top:-40px;
- margin-right:40px;
-}
-
-#setting_updates #form_info{
-margin-top:-40px;
- margin-right:40px;
-}
-
-#setting_updates input{
-
- margin-right: 50px;
- 
-}
-
-#setting_updates input.button{
- margin-top:10px;
-
-}
-
-#setting_updates label{
- margin-top: 90px;
- margin-right: 10px;
-}
-
 #setting_options{
- margin-left: 20px;
- position: absolute;
- width: 350px;
- margin-top: -22px;
- height: 900px;
- padding: 0px; 
- float:left;
+	width:230px;
+	padding:10px;
+	float:left;
+	clear:left;
 }
-
-
-#setting_options ul{
- list-style-type: none;
- margin-top: 60px;
- margin-left: 70px;
- margin-right: 20px;
+#setting_updates{
+	width:780px;
+	text-align:center;
+	padding-left:10px;
+	padding-top:10px;
+	margin-top:-10px;
+	min-height:500px;
+	float:left;
+	border-left:1px solid #CCC;
 }
-
-#setting_options li{
-  margin-top: 50px;
-	
-}
-
 #setting_options a.unselected_option {
   
   color: #000;
@@ -93,6 +25,9 @@ margin-top:-40px;
 
 #setting_options a.selected_option {
     color:rgb(96,0,1);
+}
+#setting_options li{
+	list-style-type:none;
 }
 
 #id_card a{
@@ -107,32 +42,35 @@ margin-top:-40px;
 #header_categories{
   display:none;	
 }
+#change_username{
+	width:220px;
+}
 </style>
 
-<div id="settings_wrapper">
- <div id= "setting_updates"> 
-  <%= render :partial => 'layouts/change_username' %>
- </div>
-
- <div id= "setting_options">
+<div id="setting_wrapper">
+	<div id= "setting_options">
    <ul>
     <li> <h3> <%= link_to "Change Account Name", settings_swap_path(:setting => "change_username"), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
     <li> <h3> <%= link_to "Change Password", settings_swap_path(:setting => "change_pass"), "data_type" => :js, :class=>"unselected_option" ,:remote => true   %> </h3> </li>
     <% if current_user.hasVideo || current_user.admin %> 
-    <li> <h3> <%= link_to "Manage Videos", settings_swap_path(:setting => "manage_videos", :id => current_user.id), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
+    <li> <h3> <%= link_to "Manage Videos", settings_swap_path(:setting => "manage_videos", :id => current_user.id), "data_type" => :js, :class=> "unselected_option", :remote => true  %> </h3> </li>
     <% end %> 
    </ul>
  </div>
+ <div id= "setting_updates"> 
+  <%= render :partial => 'layouts/change_username' %>
+ </div>
+<div style="clear:both"></div>
+ 
 </div>
 <div id=id_card> </div>
 
 
 <script>
-$("a.unselected_option, a.selected_option").live("click", function() {
-    var $this = $(this);
-    if ($this.hasClass("unselected_option")) {
+$("a.unselected_option, a.selected_option").click(function(){
+    if ($(this).hasClass("unselected_option")) {
          $("a.selected_option").removeClass("selected_option").addClass("unselected_option")
-         $this.removeClass("unselected_option").addClass("selected_option");
+         $(this).removeClass("unselected_option").addClass("selected_option");
     }
     
 });
