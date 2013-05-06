@@ -47,7 +47,7 @@ def index
     @user_id = params[:user_id] 
 
     if params[:video] != nil
-       @current_video = Video.find_by_yt_video_id(params[:video])
+       @current_video = Video.find_by_yt_video_id(params[:video], :include => [:user])
        if params[:l] != true  		# if leaderboard value 
        params[:u] == true ? @user_id = @current_video.user_id : @user_id = nil
        else 
@@ -58,16 +58,16 @@ def index
 
     if @user_id == nil   # display top videos in scroll
        if @lbsave != true 
-       @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
+       @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15).includes(:user)
        @myVid = "false"
        @bank = "Top Videos"
        else 
-       @video_list = @current_video.leaderboard.videos.order("points DESC")
+       @video_list = @current_video.leaderboard.videos.order("points DESC").includes(:user)
        @bank = "#{@current_video.leaderboard.leaderboard_name}'s Videos " 
        @board = "leaderboard"
        end 
     else
-       @user = User.find(@user_id) # display video bank in scroll
+       @user = User.find(@user_id, :include => [:user]) # display video bank in scroll
        @myVid = "true"
        @video_list = @user.videos 
        @bank = "#{@user.name}'s Videos"
@@ -93,7 +93,7 @@ def index
        else 
           @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
           @description = @obj.leaderboard_description 
-          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(10).order("points DESC")
+          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(10).order("points DESC").uniq
        end
     # if leaderboard parameter isn't sent, check to see if a category was selected
     elsif @category != nil && @category != "" 

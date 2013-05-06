@@ -15,7 +15,7 @@ def current_video=(video)
 end
 
 def current_video
-    @current_video ||= Video.order("points DESC")[0]
+    @current_video ||= Video.order("points DESC").first(:include => :user)
 end
 
 def paginate(collection, params= {})
