@@ -43,7 +43,8 @@ def prof_update
 end 
  
 def index
- 
+
+   if signed_in? 
     @user_id = params[:user_id] 
 
     if params[:video] != nil
@@ -67,7 +68,7 @@ def index
        @board = "leaderboard"
        end 
     else
-       @user = User.find(@user_id, :include => [:user]) # display video bank in scroll
+       @user = User.find(@user_id) # display video bank in scroll
        @myVid = "true"
        @video_list = @user.videos 
        @bank = "#{@user.name}'s Videos"
@@ -139,6 +140,11 @@ def index
 
       @category_list = Category.order("rank ASC").collect{|c| [c.category_name]}
       @category_list.unshift(["All Categories"])
+  else
+   @vid = params[:video]
+   @vid ? @current_video = Video.find_by_yt_video_id(params[:video]) : @current_video = Video.order("points DESC").first
+  end
+
 
   respond_to do |format|
      format.html{}

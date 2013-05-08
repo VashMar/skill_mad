@@ -1,9 +1,9 @@
 <%provide(:title, 'Home') %>
 
-
+<% @current_video ||= current_video %>
 
 <%if signed_in? %>
-<% @current_video ||= current_video %>
+
       
    
     <%= render 'layouts/flash_notices' %>
