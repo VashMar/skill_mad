@@ -45,9 +45,12 @@
 #change_username{
 	width:220px;
 }
+#setting_wrapper{
+	float:left;
+}
 </style>
 
-<div id="setting_wrapper">
+
 	<div id= "setting_options">
    <ul>
     <li> <h3> <%= link_to "Change Account Name", settings_swap_path(:setting => "change_username"), "data_type" => :js, :class=> "selected_option", :remote => true  %> </h3> </li>
@@ -57,6 +60,7 @@
     <% end %> 
    </ul>
  </div>
+ <div id="setting_wrapper">
  <div id= "setting_updates"> 
   <%= render :partial => 'layouts/change_username' %>
  </div>

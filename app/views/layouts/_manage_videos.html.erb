@@ -43,13 +43,7 @@
 
 }
 
-.edit_style .button{
- float: right;
- width: 202px;
- height: 55px;
- border: none;
 
-}
 #videos_container td{
 	padding:2px 8px;
 }
@@ -93,14 +87,18 @@
    	  	<td>
    	  	 <%= f.label :description, "description" %>
    	  	</td>
+	
    	  </tr>
    	  <tr>
    	  	<td>
    	  	<%= f.text_area :description %>
    	  	</td>
+		<td>
+			   <%= link_to "delete", delete_video_path(:id => video.id), :class => "button", "data_type" => :js, :remote => true %> 
+		</td>
    	  </tr>
 
-	   <%= link_to "delete", delete_video_path(:id => video.id), :class => "button", "data_type" => :js, :remote => true %> 
+
      
     
       <% end %> 

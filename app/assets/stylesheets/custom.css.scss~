@@ -11,7 +11,21 @@ a:focus {
     outline: none; 
     border:0;
 }
+.edit_style .button{
+ float: right;
+ width: 202px;
+ height: 55px;
+ border: none;
 
+}
+.edit_style a.button{
+	padding-top:9px;
+font-size:18px;
+}
+.edit_style input.button{
+	
+	padding-bottom:13px;
+}
 
 #hotspot {
   cursor:pointer;
@@ -97,17 +111,41 @@ a:focus {
 #leaderboard_select.select_style{
   width:300px;
 }
+#about{
+  width:860px;
+  margin:auto;
+  text-align:center;
+  letter-spacing: -0.05em;
+  line-height: 1.2em;
+}
+#about h1{
+  margin:12px 0;
+}
+#about p{
+  text-align:left;
+  font-size:1.3em;
+  
+}
 
 #lander_info{
     -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
-  position:absolute;
-      top:140px;
-      left:50%;
-      margin-left:-205px;
     background-image:url(trans2.png);
   float:right;
-  width:410px;
   padding:10px;
+  margin-top:20px;
+    font-size: 1.2em;
+  letter-spacing: -0.02em;
+  text-align: center;
+  line-height: .9em;
+  text-shadow: 0 0 6px #000;
+}
+#lander_info h2{
+  font-weight:normal;
+   width:520px;
+  padding:6px 0;
+  color:white;
+  font-size:1em;
+  margin:auto;
 }
 
 #lander_info div{
@@ -137,6 +175,7 @@ a:focus {
 }
 
 .pagination{
+  text-align:auto;
   margin-top:10px;
 }
 
@@ -457,10 +496,11 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
     margin-bottom:10px;
   }
 #form_join{
-  width:425px;
-  margin-top:30px;
-  margin-right:30px;
+  width:370px;
+  margin:30px 30px 0 20px;
   float:right;
+    padding-bottom:20px;
+    padding-right:5px;
 }
 #form_join input, #form_join label{
   margin-right:10px;
@@ -489,6 +529,17 @@ background-image: linear-gradient(to bottom left, #FFFFFF 0%, #EBEBEB 100%);
   margin-bottom: 10px;
   margin-top: 230px;
   color:white;
+
+  text-align:center;
+  padding:4px 0;
+  text-shadow: 1px 1px black,
+               0px 0px 1px black, 
+               0px 0px 1px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black, 
+               0px 0px 2px black;
+
 }
 
 #form_join p a{
@@ -1189,7 +1240,7 @@ color:rgb(92,0,1);
 .leader_divider{
   width:1px;
   height:189px;
-  margin:10px 10px 0 20px;
+  margin:10px 15px 0 20px;
   float:left;
   background:url(leaderboard_divider.gif);
 }
@@ -1371,7 +1422,6 @@ resize: none;
 }
 #overlay_profile .button{
   width:201px;
-  
 }
 #form_info .button{
   margin-right:70px;
@@ -1398,8 +1448,12 @@ resize: none;
 .notice a {
   text-decoration:underline;
 }
+#lander_wrapper{
+  margin:auto;
+  width:1010px;
+}
 #lander_notice .notice{
-  top:100px;
+  bottom:10px;
   position: absolute;
   left: 0px;
   right: 0px;
@@ -1614,7 +1668,7 @@ background-color:#770b0c;
   text-shadow:
   1px 1px 0 #000;
   border:none;
-  padding-bottom:12px;
+  padding-bottom:16px;
   margin-top:18px;
 }
 .istyle .button:hover{
@@ -1702,6 +1756,7 @@ label.error{
 #profile_info h2{
   margin-top:8px;
   font-size:32px;
+  
 }
 #profile_info h3{
   font-size:20px;
@@ -1933,3 +1988,5 @@ clear:none;
   margin-top:25px;
   margin-bottom:3px;
 }
+
+

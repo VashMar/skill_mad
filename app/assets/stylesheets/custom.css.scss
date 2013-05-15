@@ -11,7 +11,21 @@ a:focus {
     outline: none; 
     border:0;
 }
+.edit_style .button{
+ float: right;
+ width: 202px;
+ height: 55px;
+ border: none;
 
+}
+.edit_style a.button{
+	padding-top:12px;
+font-size:18px;
+}
+.edit_style input.button{
+	
+	padding-bottom:13px;
+}
 
 #hotspot {
   cursor:pointer;
@@ -1654,7 +1668,7 @@ background-color:#770b0c;
   text-shadow:
   1px 1px 0 #000;
   border:none;
-  padding-bottom:12px;
+  padding-bottom:16px;
   margin-top:18px;
 }
 .istyle .button:hover{
