@@ -51,7 +51,7 @@
               <li title="<%= video.title %>"><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
-                   <%= video.title %>
+                   <%= truncate(video.title, :length => 25) %>
                <% end %>
               <span><%= video.points %>+</span></li>
               <% end %>
