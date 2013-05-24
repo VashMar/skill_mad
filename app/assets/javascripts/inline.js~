@@ -8,7 +8,7 @@
  			//slide out both
  			$(this).animate({right:0})
  			$("#search").animate({right:-170})
- 			
+
  		}
  	});
 	$("#animation").hide();
@@ -24,7 +24,7 @@
 	    $.cookie("zomg","zomg");
 		location.reload(); 
 	  });
-	}, 1000);
+	}, 2000);
 
   
 	$('#form_file').css({
@@ -47,7 +47,7 @@
 		  type    : 'POST',
 		  url     : "/home", 
 		  data    : { category : x},
-		 
+		  dataType : "script"
 		});
 	});
 
@@ -58,7 +58,7 @@
 		  type    : 'POST',
 		  url     : "/home", 
 		  data    : { leaderboard : leaderVal, category : categoryVal},
-		 
+		  dataType : "script"
 		});
 	});
 
@@ -66,9 +66,9 @@
 		x = $(this).val();
 		$.ajax({
 		  type    : 'GET',
-		  url     : "/leaderboards", 
+		  url     : "/category_boards", 
 		  data    : { category : x},
-		 
+		  dataType : "script"
 		});
 	});
 

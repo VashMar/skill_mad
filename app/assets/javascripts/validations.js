@@ -293,7 +293,9 @@
   		}, // end rules
   		messages:{
 			 "session[password]": {
-		          remote: "You drunk? Password and email don't match." 	
+ 		 	  required: 'Both fields required',
+		          remote: "You drunk? Password and email don't match."
+			
 		         } 	
 
 			},
