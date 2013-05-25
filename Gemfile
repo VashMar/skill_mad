@@ -20,6 +20,7 @@ gem 'will_paginate'
 gem 'pg_search'
 gem 'newrelic_rpm'
 
+gem "bullet", :group => "development"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -38,6 +39,7 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
+  gem 'gabba', :git => 'git://github.com/hybridgroup/gabba.git'
 end
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.1'
