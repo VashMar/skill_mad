@@ -45,7 +45,7 @@
   <%= javascript_include_tag "waypoints.min" %>
   <%= javascript_include_tag "inline"%>
        
-
+<% if ENV == 'production' %>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -73,6 +73,7 @@ scJsHost+
 src="http://c.statcounter.com/8456978/0/0c750615/1/"
 alt="web statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
+<% end %>
 </body>
 
 </html>
