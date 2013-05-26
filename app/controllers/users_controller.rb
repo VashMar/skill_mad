@@ -8,6 +8,11 @@ def create
     if @user.valid? 
         @user.save  
         UserMailer.welcome_email(@user).deliver
+
+        if Rails.env.production?
+        Gabba::Gabba.new("UA-36183694-1", "skillmad.com").event("account creation", "submit", true)
+        end
+        
         link= "<a href=http://www.wiscmail.wisc.edu> Wiscmail </a>"   
         flash[:success]= "Your account has been made! Go check your #{link}!".html_safe
         redirect_to home_url

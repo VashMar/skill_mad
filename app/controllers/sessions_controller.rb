@@ -46,6 +46,11 @@ def activate_account
     redirect_to home_url
   else
     @user.update_attribute(:activated, true)
+    
+    if Rails.env.production?
+    Gabba::Gabba.new("UA-36183694-1", "skillmad.com").event("confirmation", "submit", true)
+    end
+    
     sign_in(@user)
     redirect_to home_url
   end
