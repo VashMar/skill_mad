@@ -35,5 +35,20 @@ def num_rank(num)
 end
 
 
+def meta_array(path)
+
+if path == "/home"
+ @link_img = "http://www.skillmad.com/skillmad_graph.gif"
+ @description = "A Video Platform for Madison Campus for Video Sharing and Promotion!"
+ @title = "Skillmad"
+else
+ @link_img = "http://img.youtube.com/vi/#{path[9..19]}/0.jpg" 
+ @video = Video.find_by_yt_video_id(path[9..19])
+ @description = @video.description
+ @title = @video.title 
+end
+
+@meta_array = [@link_img, @description, @title]
+end
 
 end
