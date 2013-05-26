@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/hybridgroup/gabba.git
+  revision: c7dfae7aa29f7cd7f78f29682987015348c33997
+  specs:
+    gabba (1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,6 +47,8 @@ GEM
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    bullet (4.6.0)
+      uniform_notifier
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -186,6 +194,7 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    uniform_notifier (1.2.0)
     uuidtools (2.1.3)
     websocket (1.0.6)
     will_paginate (3.0.4)
@@ -208,9 +217,11 @@ DEPENDENCIES
   aws-s3
   aws-sdk
   bcrypt-ruby (~> 3.0.1)
+  bullet
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
   factory_girl_rails (= 1.4.0)
+  gabba!
   heroku
   inherited_resources
   jquery-rails
