@@ -44,9 +44,14 @@ if path == "/home"
 else
  @link_img = "http://img.youtube.com/vi/#{path[9..19]}/0.jpg" 
  @video = Video.find_by_yt_video_id(path[9..19])
- @description = @video.description
- @title = @video.title 
+ @description = ""
+ @title = ""
+ if @video != nil 
+   @description = @video.description
+   @title = @video.title
+ end 
 end
+
 
 @meta_array = [@link_img, @description, @title]
 end
