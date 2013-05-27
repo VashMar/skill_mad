@@ -48,7 +48,7 @@ def activate_account
     @user.update_attribute(:activated, true)
     
     if Rails.env.production?
-    Gabba::Gabba.new("UA-36183694-1", "skillmad.com").event("confirmation", "submit", true)
+    Gabba::Gabba.new("UA-36183694-1", "skillmad.com").event("account creation","confirmation", true)
     end
     
     sign_in(@user)
