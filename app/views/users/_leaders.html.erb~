@@ -18,7 +18,7 @@
 			<% select_user(user) %>
 			<div class="leader_pic"> 
 			<%= link_to(select_user_path(:user => user.id), :class => "leader_thumb_link", :remote => true) do %> 
-     			<%= image_tag user.avatar.url(:original) %> 
+     			<%= image_tag user.avatar.url(:large) %> 
      			<% end %>   
 				
 				
@@ -51,7 +51,7 @@
               <li title="<%= video.title %>"><%= link_to(vid_swap_path(:video => video.id, :bank => "Top Videos"), 
                :method => :post, 
                "data_type" => :js, :remote=> true) do%>
-                   <%= video.title %>
+                   <%= truncate(video.title, :length => 25) %>
                <% end %>
               <span><%= video.points %>+</span></li>
               <% end %>

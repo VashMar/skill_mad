@@ -7,10 +7,11 @@
    <div id="vote_fake">
 
    </div>
-   
+   <% provide(:title, @current_video.title) %> 
    <div id="background_overlay">
-	<iframe width="837" height="464" title="<%=@current_video.yt_video_id%>" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0">
+	<iframe width="837" height="464" title="<%=@current_video.yt_video_id%>" wmode="transparent" frameborder="0" allowfullscreen="true" src= "http://www.youtube.com/embed/<%=@current_video.yt_video_id%>?wmode=opaque&showinfo=0&rel=0">
         </iframe>
+        <div id="player"></div>
    </div>
    
    <%if signed_in? %>
@@ -22,17 +23,18 @@
     	 <div style="float:left;">
  		<script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
  		<a rel="nofollow" class="share_facebook" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank"></a>
- 		<a href="" class="share_twitter"></a>
+ 		<a href="" class="twitter-share-button share_twitter" data-size="large" data-count="none"></a>
  		
  	</div>
  	<div id="video_info_left">
 
- 	<h1><%=@current_video.title%></h1>
+ 	<h2 title="<%=@current_video.title%>"><%=@current_video.title%></h2>
  		
  	
  	<h3><%= @current_video.created_at.to_date.to_formatted_s(:long) %></h3>
- 	<p><%= truncate(@current_video.description, :length => 150) %></p>
+ 	<p><%= @current_video.description %> </p>
  	<%= link_to "Flag as Inappropriate", flag_path(:video => @current_video, :user => current_user) %>
+ 	<a id="more">see more...</a>
  	</div>
  	<div id="video_info_right">
  
@@ -54,6 +56,31 @@
     <div style="clear:both"></div>
     <script>
      $(document).ready(function() {
+     	//if text overflows
+     	if($('#video_info_left p')[0].scrollHeight >  $('#video_info_left p').height()){
+     		$('#more').show();
+     		
+     		$('#more').click(function(){
+     			var h = $('#video_info_left p')[0].scrollHeight;
+     			var old = $('#video_info_left p').height();
+     			var diff = h - old;
+     			if(diff == 0){
+     				diff = old-oldSave;
+     				$('#video_info_left p').animate({height:oldSave});
+	     			$('#video_info').animate({height:'-='+diff});
+
+	     		}else{
+	     			oldSave = old;
+	     			$('#video_info').animate({height:'+='+diff});
+	     			$('#video_info_left p').animate({height:h});
+
+	     		}
+     			
+     		});
+     	}
+     	
+     	
+     	
         x = $("#background_overlay iframe").attr("title");
         y=$("#video_container h3").html().substring(1,4);
 

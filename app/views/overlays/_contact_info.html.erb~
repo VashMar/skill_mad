@@ -1,0 +1,8 @@
+ <div id="overlay_contact">
+    <h1>Leave us a message!</h1>
+    <%= form_tag(contact_email_path, :id => 'form_request' , :class => 'istyle') do %>
+    <%= text_field_tag "contact_email", "", :placeholder => "Name/Email" %>
+    <%= text_area_tag "contact_message", "", :placeholder => "Message/Request/Feedback/Complaint/Compliment" %>
+    <%= submit_tag "submit", {:class => "button"} %>
+    <% end %>
+  </div>
