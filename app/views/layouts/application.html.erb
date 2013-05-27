@@ -10,18 +10,11 @@
   <%= csrf_meta_tag %>
   <%= javascript_include_tag "application" %>
 
-<script>
-function foo()
-{
-	alert("poop");
-	return "fubu";
-}
-</script>
+ <% @meta_array = meta_array(request.fullpath) %>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <meta property="og:description" content="A Video Platform for Madison Campus for Video Sharing and Promotion!"/>
- <meta property="og:url" content="<%= request.fullpath %>"/>
- <meta property="og:image" content="http://www.skillmad.com/skillmad_graph.gif"/>
- <meta property="og:title" content="Skillmad"/>
+ <meta property="og:description" content="<%= @meta_array[1] %>"/>
+ <meta property="og:image" content="<%= @meta_array[0]%>"/>
+ <meta property="og:title" content="<%= @meta_array[2] %>"/>
  <meta property="og:site_name" content="Skillmad"/>
  <meta property="og:type" content="Website"/>
 
