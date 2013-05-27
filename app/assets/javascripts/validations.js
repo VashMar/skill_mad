@@ -158,7 +158,7 @@
   			"user[email]":{
   				remote: "This email is already in use"
   			}
-  		}		
+  		}
   	});
 
 
