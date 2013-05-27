@@ -134,7 +134,7 @@
     $('.share_twitter').click(function(){
     x = $("#background_overlay iframe").attr("title");
     y = $("#video_info h2").html();
-	window.open('https://twitter.com/intent/tweet?url=www.skillmad.com/t?video='+x+'&text='+y+'&tw_p=tweetbutton&url='+x, 'newwindow', 'width=500, height=400'); return false;
+	window.open('https://twitter.com/intent/tweet?text='+y+'%0Dwww.skillmad.com/t?video='+x+'&tw_p=tweetbutton', 'newwindow', 'width=500, height=400'); return false;
     });
 
 	$('#fileinput').change( function() {
