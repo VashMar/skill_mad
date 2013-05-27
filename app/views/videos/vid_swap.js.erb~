@@ -1,4 +1,6 @@
 $('html,body').animate({scrollTop:$('#video_container').offset().top}, 500);
+
+$('title').html("Skillmad | <%=escape_javascript(@current_video.title)%>")
 $('#video_container').html(
-"<%=escape_javascript(render('videos/vidplayer', current_video: @current_video, bank: @bank)) %>");
+"<%=escape_javascript(render('videos/vidplayer', current_video: @current_video, bank: @bank, board: @board)) %>");
 		

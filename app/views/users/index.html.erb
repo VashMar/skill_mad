@@ -1,17 +1,12 @@
-<%provide(:title, 'Home') %>
+
 
 <% @current_video ||= current_video %>
 
-<meta property="og:description" content="A Video Platform for Madison Campus for Video Sharing and Promotion!"/>
- <meta property="og:url" content="http://www.skillmad.com"/>
- <meta property="og:image" content="http://www.skillmad.com/skillmad_graph.gif"/>
- <meta property="og:title" content="Skillmad"/>
- <meta property="og:site_name" content="Skillmad"/>
- <meta property="og:type" content="Website"/>
+
 
 <%if signed_in? %>
 
-     
+<% provide(:title, @current_video.title) %>     
    
     <%= render 'layouts/flash_notices' %>
 	
@@ -44,7 +39,7 @@
 
 
 <% else %>
-
+<% provide(:title, 'Promote yourself on campus!') %>
  <%= render 'layouts/lander' %>  
 
 <%end%>

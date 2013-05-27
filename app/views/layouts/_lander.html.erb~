@@ -17,7 +17,7 @@
 <div id="lander_bg">
 <img src="assets/madison.jpg" alt="">
 </div>
-
+<div id="lander_wrapper">
 <div id="form_join" >
     
     <h1>Sign up</h1>
@@ -52,7 +52,11 @@
      <div id="lander_info">
      	<h2>
 Skillmad is a site for UW students to share video content, have video competitions, and promote themselves</h2>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/vfYb96r7XKY&rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/<%=@current_video.yt_video_id%>" frameborder="0" allowfullscreen></iframe>
+		<% if !@vid %> 
 		<h2>Make an account to watch and/or compete against talented individuals such as this gentleman</h2>
+ 		<% else %> 
+	 	<h2> This is the video shared with you, to see more create an account! </h2>
+		<% end %> 
 	</div>
-
+</div>

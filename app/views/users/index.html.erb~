@@ -1,10 +1,12 @@
-<%provide(:title, 'Home') %>
+
+
+<% @current_video ||= current_video %>
 
 
 
 <%if signed_in? %>
-<% @current_video ||= current_video %>
-      
+
+    
    
     <%= render 'layouts/flash_notices' %>
 	
@@ -37,10 +39,11 @@
 
 
 <% else %>
-
+<% provide(:title, 'Promote yourself on campus!') %>
  <%= render 'layouts/lander' %>  
 
 <%end%>
 
 
+  
 
