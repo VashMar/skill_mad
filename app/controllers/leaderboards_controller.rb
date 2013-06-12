@@ -19,15 +19,15 @@ end
  
 if @leaderboard == "All Leaderboards" || @leaderboard == nil || @leaderboard == ""
    if params[:category] == "All Categories"
-       @videos = Video.where("yt_video_id is not null").page(params[:page]).per_page(10).order("points DESC")
+       @videos = Video.where("yt_video_id is not null").page(params[:page]).per_page(10).order("points DESC").uniq
    else 
         @cat = Category.find_by_category_name(params[:category])
-        @videos = Video.where("yt_video_id is not null").find_in_cat(@cat.id).page(params[:page]).per_page(5)
+        @videos = Video.where("yt_video_id is not null").find_in_cat(@cat.id).page(params[:page]).per_page(5).uniq
    end
 else 
     @leaders = Leaderboard.find_by_leaderboard_name(params[:leaderboard])
     @description = @leaders.leaderboard_description 
-    @videos =  Video.where("yt_video_id is not null").find_in_lb(@leaders.id).page(params[:page]).per_page(5)   
+    @videos =  Video.where("yt_video_id is not null").find_in_lb(@leaders.id).page(params[:page]).per_page(5).uniq   
 end
 
   respond_to do |format|
@@ -48,15 +48,15 @@ end
 
 if @leaderboard == "All Leaderboards" || @leaderboard == nil
    if @category == "All Categories"
-      @user_list = User.order("points DESC").where(:hasVideo => true).page(params[:page]).per_page(10)
+      @user_list = User.order("points DESC").where(:hasVideo => true).page(params[:page]).per_page(10).uniq
    else 
       @cat = Category.find_by_category_name(@category)
-      @user_list = @cat.users.order("points DESC").page(params[:page]).per_page(10)     
+      @user_list = @cat.users.order("points DESC").page(params[:page]).per_page(10).uniq      
    end
 else 
       @lead = Leaderboard.find_by_leaderboard_name(@leaderboard)
       @board_id = @lead.id 
-      @user_list = @lead.users.order("points DESC").page(params[:page]).per_page(10)  
+      @user_list = @lead.users.order("points DESC").page(params[:page]).per_page(10).uniq  
 end 
 
 

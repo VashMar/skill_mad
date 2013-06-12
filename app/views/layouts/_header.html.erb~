@@ -64,6 +64,8 @@
    
    
    <%if !signed_in? %>
+   <%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb_sign_in" %> 
+  
     <div id="sign_in">
         <%=form_for(:session, :url => sessions_path, :html => {:id => "login" }) do |f| %>
         <table cellspacing="0">
@@ -81,7 +83,7 @@
     	</table>
 
          <p style="float:left;padding-left:3px; font-size:11px;"><a rel="#overlay_reset" href="#">forgot password?</a></p>
-         <p style="font-size:11px; float:left; padding-left:26px;"><a rel="#overlay_reset" href="#">trouble logging in?</a></p>
+         <p style="font-size:11px; float:left; padding-left:26px;"><a rel="#overlay_contact" href="#">trouble logging in?</a></p>
      	<%end%>
     </div>
     <%end%>

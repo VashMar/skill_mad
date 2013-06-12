@@ -19,6 +19,17 @@ user = User.find_by_email(params[:session][:email])
   end
 end
 
+def fb_create
+    user = User.from_omniauth(env["omniauth.auth"])
+    if user 
+    sign_in(user)
+    redirect_to root_url
+    else
+    flash[:failure] = "Your fb registered email is not a wisc email" 
+    redirect_to home_url 
+    end
+end 
+
 def destroy
  
   sign_out

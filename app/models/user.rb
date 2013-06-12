@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :categories, :through => :videos
   has_many :leaderboards, :through => :videos 
   attr_accessible :email, :name, :password, :password_confirmation, :activated, :avatar, :points, :major, 
-  :skill, :about, :year , :activated, :admin 
+  :skill, :about, :year , :admin 
                  
   has_attached_file :avatar, :styles => {:large => "185x185#", :medium => "110x110#",  :thumb => "60x60#"}, 
   :storage => :s3,
@@ -29,30 +29,54 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@wisc.edu/i
   validates :email, :presence => true, :format => {:with => VALID_EMAIL_REGEX}, :uniqueness => {:case_sensitive => false}, :on => :create 
   validates :about, :length =>{:maximum => 200}
+ 
+
+  def self.from_omniauth(auth)
+      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      if user.id  
+       user 
+      else 
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.email.slice(0..(auth.info.email.index('@') - 1)) 
+      user.email = auth.info.email
+      pass = SecureRandom.hex 
+      user.password = pass
+      user.password_confirmation = pass  
+      user.activated = true 
+      if user.valid? 
+        user.save!
+      else
+        return false
+      end 
+ 
+      end 
+   end
+  end
+ 
   def activated?
     self.activated
   end
  
- def selectable_users
+  def selectable_users
     self.where(:hasVideo => true)
- end
+  end
 
-
- def generate_token(column)
+  def generate_token(column)
     begin
     self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
- end
+  end
 
 
- def send_password_reset
-  generate_token(:password_reset_token)
-  self.password_reset_sent_at = Time.zone.now
-  save!
-  UserMailer.password_reset(self).deliver
- end 
+  def send_password_reset
+   generate_token(:password_reset_token)
+   self.password_reset_sent_at = Time.zone.now
+   save!
+   UserMailer.password_reset(self).deliver
+  end 
 
-private
+ private
   
   def create_remember_token
     self.remember_token = SecureRandom.hex

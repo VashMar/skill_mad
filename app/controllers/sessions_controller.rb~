@@ -19,6 +19,17 @@ user = User.find_by_email(params[:session][:email])
   end
 end
 
+def fb_create
+    user = User.from_omniauth(env["omniauth.auth"])
+    if user 
+    sign_in(user)
+    redirect_to root_url
+    else
+    flash[:failure] = "Your fb registered email is not a wisc email" 
+    redirect_to home_url 
+    end
+end 
+
 def destroy
  
   sign_out
@@ -35,7 +46,7 @@ def verify
      respond_to do |format| 
        format.json{render :json => false}
      end
-     end
+  end
 end
 
 def activate_account
@@ -46,6 +57,11 @@ def activate_account
     redirect_to home_url
   else
     @user.update_attribute(:activated, true)
+    
+    if Rails.env.production?
+    Gabba::Gabba.new("UA-36183694-1", "skillmad.com").event("account creation","confirmation", true)
+    end
+    
     sign_in(@user)
     redirect_to home_url
   end

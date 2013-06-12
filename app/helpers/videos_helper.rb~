@@ -24,7 +24,7 @@ end
 
 def new_pressed(n)
  
- if n == "true"
+ if n == true
    @new = "active_menu"
  else
    @new = ""

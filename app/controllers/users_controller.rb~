@@ -43,11 +43,12 @@ def prof_update
 end 
  
 def index
- 
+
+   if signed_in? 
     @user_id = params[:user_id] 
 
     if params[:video] != nil
-       @current_video = Video.find_by_yt_video_id(params[:video])
+       @current_video = Video.find_by_yt_video_id(params[:video], :include => [:user])
        if params[:l] != true  		# if leaderboard value 
        params[:u] == true ? @user_id = @current_video.user_id : @user_id = nil
        else 
@@ -58,11 +59,11 @@ def index
 
     if @user_id == nil   # display top videos in scroll
        if @lbsave != true 
-       @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15)
+       @video_list = Video.where("yt_video_id is not null").order("points DESC").limit(15).includes(:user)
        @myVid = "false"
        @bank = "Top Videos"
        else 
-       @video_list = @current_video.leaderboard.videos.order("points DESC")
+       @video_list = @current_video.leaderboard.videos.order("points DESC").includes(:user)
        @bank = "#{@current_video.leaderboard.leaderboard_name}'s Videos " 
        @board = "leaderboard"
        end 
@@ -87,13 +88,13 @@ def index
        if @leaderboard == "All Leaderboards" # if "All Leaderboards" is selected, we need all the videos for current category
           @cat = Category.find_by_category_name(@category)
           # if the category is nil "All Categories" must be selected, therefore we render the videos with highest points overall, otherwise we get the ranked videos from respective category
-	  @cat == nil ? @videos = Video.where("yt_video_id is not null").page(1).per_page(5).order("points DESC") : @videos = @cat.videos.page(1).where(
+	  @cat == nil ? @videos = Video.where("yt_video_id is not null").page(1).per_page(10).order("points DESC") : @videos = @cat.videos.page(1).where(
 	  "yt_video_id is not null").per_page(5).order("points DESC") 
        # if a specific leaderboard is chosen, simply get the videos, ordered by points, for that leaderboard
        else 
           @obj = Leaderboard.find_by_leaderboard_name(@leaderboard)
           @description = @obj.leaderboard_description 
-          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(5).order("points DESC")
+          @videos = Video.where("yt_video_id is not null").find_in_lb(@obj.id).page(1).per_page(10).order("points DESC").uniq
        end
     # if leaderboard parameter isn't sent, check to see if a category was selected
     elsif @category != nil && @category != "" 
@@ -139,6 +140,11 @@ def index
 
       @category_list = Category.order("rank ASC").collect{|c| [c.category_name]}
       @category_list.unshift(["All Categories"])
+  else
+   @vid = params[:video]
+   @vid ? @current_video = Video.find_by_yt_video_id(params[:video]) : @current_video = Video.order("points DESC").first
+  end
+
 
   respond_to do |format|
      format.html{}

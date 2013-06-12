@@ -12,6 +12,8 @@
 
  <% @meta_array = meta_array(request.fullpath) %>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="description" content="Skillmad is a video sharing and video competition platform for University of Wisconsin Student's to use for self promotion or entertainment" />
+ <meta name="keywords" content="Video,University of Wisconsin, UW, Get Recognized, Skill, Promote, Commercial, Video Share, College, Campus Video, Upload"/>
  <meta property="og:description" content="<%= @meta_array[1] %>"/>
  <meta property="og:image" content="<%= @meta_array[0]%>"/>
  <meta property="og:title" content="<%= @meta_array[2] %>"/>
