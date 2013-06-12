@@ -79,6 +79,7 @@ GEM
       multipart-post (~> 1.1)
     ffi (1.3.1)
     has_scope (0.5.1)
+    hashie (2.0.5)
     heroku (2.34.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -127,6 +128,14 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     paperclip (3.4.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -228,6 +237,7 @@ DEPENDENCIES
   json
   mysql2
   newrelic_rpm
+  omniauth-facebook
   paperclip (~> 3.1)
   pg (= 0.12.2)
   pg_search

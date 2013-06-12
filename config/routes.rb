@@ -55,6 +55,9 @@ Skillmad::Application.routes.draw do
   match '/u', :to =>  'users#index', :u => true
   match '/l', :to =>  'users#index', :l => true 
   match '/flag', :to => 'flags#flag'
+  
+  match 'auth/:provider/callback', to: 'sessions#fb_create'
+  match 'auth/failure', to: redirect('/')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
