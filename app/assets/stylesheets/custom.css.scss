@@ -126,7 +126,12 @@ font-size:18px;
   font-size:1.3em;
   
 }
-
+.skill_overlay{
+  float:right;
+  position:relative;
+  top:-85px;
+  margin-right:20px;
+}
 #lander_info{
     -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
     background-image:url(trans2.png);
